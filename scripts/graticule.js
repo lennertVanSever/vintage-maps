@@ -1,3 +1,5 @@
+import colors from './colors.js';
+
 export class Graticule {
   constructor(geoPath, group) {
     this.geoPath = geoPath;
@@ -8,8 +10,8 @@ export class Graticule {
 
   render() {
     this.setGraticule();
-    this.drawGraticule();
     this.drawOutlineOfGraticule();
+    this.drawGraticule();
   }
 
   setGraticule() {
@@ -36,7 +38,7 @@ export class Graticule {
       .datum(this.graticule.outline)
       .attr('class', 'graticule outline')
       .attr('d', this.geoPath)
-      .attr('fill', 'none')
+      .attr('fill', colors.background)
       .attr('stroke', 'black')
       .attr('stroke-width', 1);
   }

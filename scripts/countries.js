@@ -1,5 +1,11 @@
+import colors from './colors.js';
+
 function mapRange(value, low1, high1, low2, high2) {
   return low2 + ((high2 - low2) * (value - low1)) / (high1 - low1);
+}
+
+function getRandomInteger(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
 }
 
 export class Countries {
@@ -11,7 +17,7 @@ export class Countries {
 
   async render() {
     await this.getCountryData();
-    this.drawFillsOfCountries();
+    this.drawBorders();
     this.drawNamesOfCountries();
   }
 
@@ -19,8 +25,54 @@ export class Countries {
     this.countryData = await d3.json(this.countryDataUrl);
   }
 
-  drawFillsOfCountries() {
-    const colors = d3.scaleOrdinal(d3.schemePaired);
+  isUnclaimed(d) {
+    return (
+      d.properties.ABBREVNAME === 'Antarctica' ||
+      d.properties.NAME === null ||
+      d.properties.NAME === 'unclaimed'
+    );
+  }
+
+  getId(d, prefix = 'border') {
+    if (this.isUnclaimed(d)) return '';
+    return `${prefix}${d.properties.NAME.replace(/\s/g, '_')}`;
+  }
+
+  drawBorders() {
+    // const colors = d3.scaleOrdinal(d3.schemePaired);
+    this.group
+      .append('g')
+      .attr('class', 'statesColors')
+      .selectAll('path')
+      .data(this.countryData.features)
+      .enter()
+      .append('path')
+      .attr('clip-path', d => {
+        return `url(#${this.getId(d)})`;
+      })
+      // .attr('id', this.getId())
+      .attr('d', this.geoPath)
+      .attr('fill', 'none')
+      .attr('stroke-alignment', 'inner')
+      .attr('stroke-width', 1.5)
+      .attr('stroke', d =>
+        this.isUnclaimed(d)
+          ? 'none'
+          : colors.borders[getRandomInteger(0, colors.borders.length)]
+      );
+
+    this.group
+      .append('g')
+      .attr('class', 'statesClips')
+      .selectAll('path')
+      .data(this.countryData.features)
+      .enter()
+      .append('clipPath')
+      .attr('id', d => {
+        return this.getId(d);
+      })
+      .append('path')
+      .attr('d', this.geoPath);
 
     this.group
       .append('g')
@@ -30,16 +82,10 @@ export class Countries {
       .enter()
       .append('path')
       .attr('d', this.geoPath)
-      .attr('fill', d => {
-        if (d.properties.ABBREVNAME === 'Antarctica') {
-          return 'white';
-        }
-        if (d.properties.NAME === null || d.properties.NAME === 'unclaimed') {
-          return 'grey';
-        }
-        return colors(d.properties.NAME);
-        // return(colors[Math.floor(Math.random() * colors.length)])
-      });
+      .attr('fill', 'none')
+      // .attr('fill', colors.background)
+      .attr('stroke-width', 0.5)
+      .attr('stroke', 'black');
   }
 
   drawNamesOfCountries() {
@@ -51,6 +97,7 @@ export class Countries {
       .enter()
       .append('text')
       .attr('d', this.geoPath)
+      .style('fill', colors.text)
       .style('font-size', d => {
         const bounds = this.geoPath.bounds(d);
         const widthCountry = bounds[1][0] - bounds[0][0];
