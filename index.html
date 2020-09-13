@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+  .land {
+    fill: #222;
+  }
+
+  .boundary {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 0.5px;
+  }
+
+  .states {
+    stroke: #fff;
+    stroke-width: 0.1;
+  }
+
+  .svg_wrapper {
+    width: 100vw;
+    height: 100vh;
+  }
+</style>
+<!-- 
+D3 v5 depeds on Fetch API that does not support local files fetching
+To run locally: 
+- run python -m SimpleHTTPServer from the folder and then call http://localhost:8000/ in navigator
+This might help in other cases of running js scripts locally, but should not be needed with this one:
+- In Firefox: disable strict origin control in about:cofig  
+- Launch Chrome with /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --disable-web-security --user-data-dir
+-->
+<svg class="svg_wrapper"></svg>
+<script src="d3/d3.v5.min.js"></script>
+<script src="d3/d3-geo.v1.min.js"></script>
+<script src="d3/d3-geo-projection.v2.min.js"></script>
+<script src="d3/d3-geo-polygon.min.js"></script>
+<!-- <script src="d3/topojson.v2.min.js"></script> -->
+<script src="d3/d3-scale-chromatic.v0.3.min.js"></script>
+<script src="./index.js"></script>

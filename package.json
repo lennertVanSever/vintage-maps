@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "@borealisgroup/eslint-config": "^1.13.6",
+    "eslint": "^7.9.0"
+  }
+}
