@@ -8,5 +8,13 @@ module.exports = {
   },
   globals: {
     d3: true
-  }
+  },
+  overrides: [
+    {
+      files: ["scripts/**/*"],
+      rules: {
+        "import/extensions": 0
+      }
+    }
+  ],
 };
