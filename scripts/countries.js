@@ -17,7 +17,8 @@ export class Countries {
 
   async render() {
     await this.getCountryData();
-    this.drawBorders();
+    this.drawInsideBorders();
+    this.drawOutsideBorders();
     this.drawNamesOfCountries();
   }
 
@@ -38,8 +39,7 @@ export class Countries {
     return `${prefix}${d.properties.NAME.replace(/\s/g, '_')}`;
   }
 
-  drawBorders() {
-    // const colors = d3.scaleOrdinal(d3.schemePaired);
+  drawInsideBorders() {
     this.group
       .append('g')
       .attr('class', 'statesColors')
@@ -50,7 +50,6 @@ export class Countries {
       .attr('clip-path', d => {
         return `url(#${this.getId(d)})`;
       })
-      // .attr('id', this.getId())
       .attr('d', this.geoPath)
       .attr('fill', 'none')
       .attr('stroke-alignment', 'inner')
@@ -73,7 +72,9 @@ export class Countries {
       })
       .append('path')
       .attr('d', this.geoPath);
+  }
 
+  drawOutsideBorders() {
     this.group
       .append('g')
       .attr('class', 'states')
