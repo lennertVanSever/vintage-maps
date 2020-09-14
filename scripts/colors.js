@@ -11,4 +11,5 @@ export default {
     '#ac9e9d',
     '#706d74',
   ],
+  graticule: '#646057',
 };

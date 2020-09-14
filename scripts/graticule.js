@@ -28,7 +28,7 @@ export class Graticule {
       .attr('class', 'graticule')
       .attr('d', this.geoPath)
       .attr('fill', 'none')
-      .attr('stroke', 'black')
+      .attr('stroke', colors.graticule)
       .attr('stroke-width', 0.2);
   }
 
@@ -39,7 +39,7 @@ export class Graticule {
       .attr('class', 'graticule outline')
       .attr('d', this.geoPath)
       .attr('fill', colors.background)
-      .attr('stroke', 'black')
+      .attr('stroke', colors.graticule)
       .attr('stroke-width', 1);
   }
 }
