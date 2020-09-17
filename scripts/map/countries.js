@@ -115,8 +115,12 @@ export class Countries {
       })
       .style('text-anchor', 'middle')
       .attr('transform', d => {
-        return `translate(${this.geoPath.centroid(d)})`;
+        const centroid = this.geoPath.centroid(d);
+        if (!isNaN(centroid[0])) {
+          return `translate(${centroid})`;
+        }
+        return null
       })
-      .text(d => d.properties.NAME);
+      .text(d => (this.isUnclaimed(d) ? '' : d.properties.NAME));
   }
 }

@@ -9,13 +9,39 @@
     font-weight: normal;
   }
 
+  @font-face {
+    font-family: system;
+    font-style: normal;
+    font-weight: 300;
+    src: local(".SFNSText-Light"), local(".HelveticaNeueDeskInterface-Light"), local(".LucidaGrandeUI"), local("Ubuntu Light"), local("Segoe UI Light"), local("Roboto-Light"), local("DroidSans"), local("Tahoma");
+  }
+
+
+  svg * {
+    font-family: 'bodoni';
+    margin: 0;
+    padding: 0;
+  }
+
+  main {
+    display: flex;
+    font-family: system;
+  }
+
   .svg_wrapper {
-    width: 100vw;
+    width: calc(100vw - 200px);
     height: 100vh;
   }
 
-  * {
-    font-family: 'bodoni';
+  :root {
+    --margin-1: 2px;
+    --margin-2: 4px;
+    --margin-3: 8px;
+    --margin-4: 12px;
+    --margin-5: 16px;
+    --margin-6: 32px;
+    --margin-7: 48px;
+    --margin-8: 64px;
   }
 </style>
 <!-- 
@@ -26,11 +52,15 @@ This might help in other cases of running js scripts locally, but should not be 
 - In Firefox: disable strict origin control in about:cofig  
 - Launch Chrome with /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --disable-web-security --user-data-dir
 -->
-<svg class="svg_wrapper"></svg>
+<main>
+  <svg class="svg_wrapper"></svg>
+  <article>
+    <year-select></year-select>
+    <projection-select></projection-select>
+    <!-- <select-element></select-element> -->
+  </article>
+</main>
 <script src="d3/d3.v5.min.js"></script>
-<script src="d3/d3-geo.v1.min.js"></script>
 <script src="d3/d3-geo-projection.v2.min.js"></script>
-<script src="d3/d3-geo-polygon.min.js"></script>
 <!-- <script src="d3/topojson.v2.min.js"></script> -->
-<script src="d3/d3-scale-chromatic.v0.3.min.js"></script>
 <script type="module" src="./scripts/index.js"></script>
