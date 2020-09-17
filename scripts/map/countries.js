@@ -40,7 +40,9 @@ export class Countries {
   }
 
   drawInsideBorders() {
-    this.group
+
+    const addInsideBorder = () => {
+      return this.group
       .append('g')
       .attr('class', 'statesColors')
       .selectAll('path')
@@ -53,12 +55,16 @@ export class Countries {
       .attr('d', this.geoPath)
       .attr('fill', 'none')
       .attr('stroke-alignment', 'inner')
-      .attr('stroke-width', 1.5)
+      
       .attr('stroke', d =>
         this.isUnclaimed(d)
           ? 'none'
           : colors.borders[getRandomInteger(0, colors.borders.length)]
       );
+    }
+
+    addInsideBorder().attr('stroke-width', 1);
+    addInsideBorder().attr('stroke-width', 1.8).attr('opacity', 0.5);
 
     this.group
       .append('g')
@@ -85,7 +91,7 @@ export class Countries {
       .attr('d', this.geoPath)
       .attr('fill', 'none')
       // .attr('fill', colors.background)
-      .attr('stroke-width', 0.5)
+      .attr('stroke-width', 0.3)
       .attr('stroke', 'black');
   }
 
@@ -102,7 +108,7 @@ export class Countries {
       .style('font-size', d => {
         const bounds = this.geoPath.bounds(d);
         const widthCountry = bounds[1][0] - bounds[0][0];
-        let fontSize = widthCountry / 7;
+        let fontSize = widthCountry / 9;
 
         const letterCount = d.properties.NAME ? d.properties.NAME.length : 0;
         const letterCountRatio = mapRange(letterCount, 4, 20, 1.5, 0.7);
