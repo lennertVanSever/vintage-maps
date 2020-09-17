@@ -38,7 +38,7 @@ export class Graticule {
       .datum(this.graticule.outline)
       .attr('class', 'graticule outline')
       .attr('d', this.geoPath)
-      .attr('fill', colors.background)
+      .attr('fill', 'none')
       .attr('stroke', colors.graticule)
       .attr('stroke-width', 1);
   }
