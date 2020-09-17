@@ -1,4 +1,5 @@
 export default [
+  "world_1650.geojson",
   "world_bc2000.geojson",
   "world_bc1000.geojson",
   "world_bc500.geojson",
@@ -12,7 +13,6 @@ export default [
   "world_1279.geojson",
   "world_1492.geojson",
   "world_1530.geojson",
-  "world_1650.geojson",
   "world_1715.geojson",
   "world_1783.geojson",
   "world_1815.geojson",

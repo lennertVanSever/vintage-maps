@@ -1,4 +1,5 @@
 export default [
+  "Kavrayskiy7",
   "Airy",
   "Aitoff",
   "Armadillo",
@@ -48,7 +49,6 @@ export default [
   "Homolosine",
   "Hufnagel",
   "Hyperelliptical",
-  "Kavrayskiy7",
   "Lagrange",
   "Larrivee",
   "Laskowski",
