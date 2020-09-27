@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+  main {
+    width: 100vw;
+    height: 100vh;
+  }
+</style>
+
+
+<!-- Load d3.js -->
+<script src="https://unpkg.com/d3-3d/build/d3-3d.js"></script>
+<script src="https://d3js.org/d3.v5.js"></script>
+<script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+<script src="../dist/index.js"></script>
+
+<!-- Create an element where the map will take place -->
+<main>
+  <div id="map" style="width: 100%;"></div>
+</main>
+<script>
+
+  // The svg
+  const sensitivity = 75;
+
+  let width = d3.select("#map").node().getBoundingClientRect().width
+  let height = 1000
+
+  let svg = d3.select("#map")
+    .append("svg")
+    .attr("width", width)
+    .attr("height", height)
+  console.log(width)
+  
+
+  var projection = d3
+    .geoOrthographic()
+    .scale(370)
+    .rotate([0,-30])
+    .translate([width / 2, height / 2])
+    .clipAngle(90)
+    .precision(.5);
+
+  const initialScale = projection.scale()
+
+  var group = svg.append('g')
+  
+  var path = d3.geoPath().projection(projection);
+
+  group.append("path")
+   .datum({type: "Sphere"})
+   .attr("class", "normalPaths")
+   .attr("d", path)
+   .attr("fill", "#EEE");
+
+
+  const getProjectedCoordinates = ({ properties: { name }, geometry: { coordinates } }) => {
+    if (isNaN(projection(coordinates)[0]) || isNaN(projection(coordinates)[1])) {
+      console.log(name);
+    }
+    return projection(coordinates);
+  }
+
+  var citiesPath = d3.geoPath().projection(projection);
+  citiesPath.pointRadius(function(d) {
+    const { properties: { populationAtGivenYear } } = d;
+    // console.log(populationAtGivenYear)
+    return populationAtGivenYear/100000;
+
+  });
+
+  // Load external data and boot
+  d3.json("./basemap.geojson").then(baseMapData => {
+
+    group.append("g")
+      .selectAll("path")
+      .data(baseMapData.features)
+      .enter().append("path")
+      .attr("class", "normalPaths")
+      .attr("fill", "#69b3a2")
+      .attr("d", d3.geoPath()
+        .projection(projection)
+      );
+    d3.json("../data.geojson").then(data => {
+      const citiesGroup = group.append("g")
+        .selectAll("circle")
+        .data(getAllCitiesUntilYear(data, 1500).features)
+        .enter();
+
+
+      citiesGroup.append("path")
+            .attr("class", "citiesPath")
+            .attr("d", citiesPath)
+            .attr("fill", "#000");
+
+      // citiesGroup.append('text')
+      //   .attr("x", city => getProjectedCoordinates(city)[0])
+      //   .attr("y", city => getProjectedCoordinates(city)[1])
+      //   .attr("dx", city => city.properties.populationAtGivenYear / 70000)
+      //   .text(({ properties: { name } }) => name)
+      //   .attr("font-family", "sans-serif")
+      //   .attr("alignment-baseline", "middle")
+      //   .attr("font-size", city => `${city.properties.populationAtGivenYear / 50000}px`)
+      //   .attr("fill", city => city.properties.name);
+    });
+  })
+
+  svg.call(d3.drag().on('drag', () => {
+    const rotate = projection.rotate()
+    const k = sensitivity / projection.scale()
+    projection.rotate([
+      rotate[0] + d3.event.dx * k,
+      rotate[1] - d3.event.dy * k
+    ])
+    svg.selectAll(".normalPaths").attr("d", path)
+    svg.selectAll(".citiesPath").attr("d", citiesPath)
+
+  })).call(
+    d3
+      .zoom()
+      .scaleExtent([1, 40])
+      .on('zoom', () => {
+        projection.scale(initialScale * d3.event.transform.k)
+        group.attr('transform', d3.event.transform);
+      })
+  );
+
+</script>
