@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
+
 <head>
   <style>
     * {
@@ -7,19 +8,23 @@
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
       color: white;
     }
+
     .inputWrapper {
       position: absolute;
       width: 100%;
       padding: 5px 20px;
     }
+
     label {
       width: 100%;
       display: flex;
       align-items: center;
     }
+
     input {
       flex-grow: 1;
       margin-left: 10px;
@@ -39,7 +44,7 @@
       <input id="yearRange" type="range" min="-2200" max="2020" value="-2200">
     </label>
   </section>
-  
+
   <section id="globeViz"></section>
 
   <script>
@@ -68,13 +73,12 @@
       const threeDataResponse = await fetch('../three.json');
       const threeData = await threeDataResponse.json();
       const initialCityData = getAllCitiesUntilYearThree(threeData, -2200);
-    
 
-      // document.getElementById("yearRange").addEventListener('change', ({ target: { value: year }}) => {
-      //   const cityData = getAllCitiesUntilYearThree(threeData, year)
-      //   document.getElementById("labelValue").innerHTML = year;
-      //   Globe.pointsData(cityData);
-      // })
+      let selectedYear = null;
+      document.getElementById("yearRange").addEventListener('input', ({ target: { value: year } }) => {
+        selectedYear = year;
+        document.getElementById("labelValue").innerHTML = year;
+      })
 
 
       const Globe = new ThreeGlobe()
@@ -112,18 +116,22 @@
       // Kick-off renderer
       (function animate() { // IIFE
         // Frame cycle
-        
+
         tbControls.update();
         renderer.render(scene, camera);
         requestAnimationFrame(animate);
-
-        delay -= 1;
-        if (delay < 0 && year < 2020) {
-          year += 3;
-          document.getElementById("labelValue").innerHTML = year;
-          const cityData = getAllCitiesUntilYearThree(threeData, year)
-          document.getElementById("yearRange").value = year;
+        if (selectedYear) {
+          const cityData = getAllCitiesUntilYearThree(threeData, selectedYear)
           Globe.pointsData(cityData);
+        } else {
+          delay -= 1;
+          if (delay < 0 && year < 2020) {
+            year += 3;
+            document.getElementById("labelValue").innerHTML = year;
+            const cityData = getAllCitiesUntilYearThree(threeData, year)
+            document.getElementById("yearRange").value = year;
+            Globe.pointsData(cityData);
+          }
         }
 
       })();
