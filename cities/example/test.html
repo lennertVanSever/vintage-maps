@@ -41,13 +41,46 @@
   <section class="inputWrapper">
     <label>
       <span id="labelValue">-2200</span>
-      <input id="yearRange" type="range" min="-2200" max="2020" value="-2200">
+      <input id="yearRange" type="range" min="-2200" max="1980" value="-2200">
     </label>
   </section>
 
   <section id="globeViz"></section>
 
   <script>
+
+    function mapRange(value, low1, high1, low2, high2) {
+      return low2 + ((high2 - low2) * (value - low1)) / (high1 - low1);
+    }
+
+    function getColor(weight) {
+      const red = 255;
+      let green = 255;
+      let blue = 255;
+      if (weight > 0) {
+        blue = Math.round(mapRange(weight, 0, 0.5, 255, 0));
+        if (blue < 0) {
+          blue = 0;
+        }
+      }
+      if (weight > 0.5) {
+        green = Math.round(mapRange(weight, 0, 1, 255, 0));
+      }
+      if (weight > 0.4 && weight < 0.6) {
+        console.log([red, green, blue]);
+      }
+      return [red, green, blue]
+    }
+
+    function componentToHex(c) {
+      var hex = c.toString(16);
+      return hex.length == 1 ? "0" + hex : hex;
+    }
+
+    function rgbToHex(r, g, b) {
+      return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+    }
+
     const getAllCitiesUntilYearThree = (cities, givenYear) => {
       cities = cities.filter(({ populationByYear }) => {
         const condition = givenYear >= Number(Object.keys(populationByYear)[0]);
@@ -63,6 +96,8 @@
         });
         // city.size = city.populationByYear[closestYearToGivenYear] / 400000;
         city.sizeTest = city.populationByYear[closestYearToGivenYear] / 10000000;
+        const rgbColor = getColor(city.sizeTest / 2.3);
+        city.color = rgbToHex(rgbColor[0], rgbColor[1], rgbColor[2]);
         return city;
       });
       return cities;
@@ -85,7 +120,8 @@
         .globeImageUrl('//unpkg.com/three-globe/example/img/earth-day.jpg')
         .pointsData(initialCityData)
         .pointAltitude('sizeTest')
-        .pointColor('color');
+        .pointColor('color')
+        .pointsTransitionDuration(100);
 
       // Setup renderer
       const renderer = new THREE.WebGLRenderer();
@@ -102,7 +138,9 @@
       const camera = new THREE.PerspectiveCamera();
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
-      camera.position.z = 500;
+      camera.position.x = 269;
+      camera.position.y = 340;
+      camera.position.z = 267;
 
       // Add camera controls
       const tbControls = new THREE.TrackballControls(camera, renderer.domElement);
@@ -120,12 +158,14 @@
         tbControls.update();
         renderer.render(scene, camera);
         requestAnimationFrame(animate);
+
+        console.log(camera.position);
         if (selectedYear) {
           const cityData = getAllCitiesUntilYearThree(threeData, selectedYear)
           Globe.pointsData(cityData);
         } else {
           delay -= 1;
-          if (delay < 0 && year < 2020) {
+          if (delay < 0 && year < 1980) {
             year += 3;
             document.getElementById("labelValue").innerHTML = year;
             const cityData = getAllCitiesUntilYearThree(threeData, year)
