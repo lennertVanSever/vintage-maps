@@ -29,7 +29,7 @@ fs.createReadStream('data.csv')
   .pipe(csv())
   .on('data', (data) => results.push(data))
   .on('end', () => {
-
+    console.log(results);
     output.features = results.map((city) => {
       return {
         type: 'Feature',
@@ -51,32 +51,6 @@ fs.createReadStream('data.csv')
     try {
       const path = '../data.geojson';
       fs.writeFileSync(path, JSON.stringify(output, null, 1));
-      console.log(`succesfully generated data at ${path}`);
-    } catch (e) {
-      console.error('something went wrong writing the file', e)
-    }
-  });
-
-
-
-  let outputThree = null;
-  fs.createReadStream('data.csv')
-  .pipe(csv())
-  .on('data', (data) => results.push(data))
-  .on('end', () => {
-
-    outputThree = results.map((city) => {
-      return {
-        populationByYear: getPopulationByYear(city),
-        name: city.City,
-        lat: city.Latitude.replace('�', ''),
-        lng: city.Longitude.replace('�', ''),
-        color: 'white'
-      }
-    })
-    try {
-      const path = '../three.json';
-      fs.writeFileSync(path, JSON.stringify(outputThree, null, 1));
       console.log(`succesfully generated data at ${path}`);
     } catch (e) {
       console.error('something went wrong writing the file', e)

@@ -1,5 +1,6 @@
 import { Countries } from './countries.js';
 import { Graticule } from './graticule.js';
+import { Cities } from './cities/index.js';
 import years from '../years.js';
 import projectionNames from '../projections.js';
 
@@ -10,6 +11,8 @@ export class Map {
     this.svg.selectAll("*").remove();
     this.group = this.svg.append('g');
     this.year = years[0];
+    this.minimumZoom = 1;
+    this.maximumZoom = 40;
     this.projectionName = projectionNames[0];
   }
   
@@ -31,11 +34,10 @@ export class Map {
     return this._projectionName;
   }
 
-  reset() {
+  async reset() {
     this.svg.selectAll("*").remove();
     this.group = this.svg.append('g');
     this.render();
-    this.rezoom();
   }
   
   async render() {
@@ -47,34 +49,47 @@ export class Map {
         .precision(0.1);
       this.geoPath = d3.geoPath().projection(projection);
     
-      const countries = new Countries(
+      this.countries = new Countries(
         this.geoPath,
         this.group,
-        `../maps/${this.year}`
+        this.year
       );
-      countries.render();
+      await this.countries.render();
+
+      this.cities = new Cities(this.year, this.group, projection);
+      await this.cities.render()
   
       const graticule = new Graticule(this.geoPath, this.group);
       graticule.render();
   
       this.makeMapZoomable();
+      this.rezoom();
     }
   }
 
   rezoom() {
+    let zoom = { value: this.minimumZoom, minimum: this.minimumZoom, maximum: this.maximumZoom };
     if (this.transform) {
+      zoom = { value: this.transform.k, minimum: this.minimumZoom, maximum: this.maximumZoom };
       this.group.attr('transform', this.transform);
     }
+    this.countries.resizeBorders({ zoom })
+    this.cities.resize({ zoom })
   }
 
+  
   makeMapZoomable() {
     this.svg.call(
       d3
         .zoom()
-        .scaleExtent([1, 40])
+        .scaleExtent([this.minimumZoom, this.maximumZoom])
+        // .wheelDelta(() => {
+        //   return -event.deltaY * (event.deltaMode === 1 ? 0.5 : event.deltaMode ? 1 : 0.02);
+        // })
         .on('zoom', () => {
+          console.log(d3.event.transform)
           this.transform = d3.event.transform;
-          this.group.attr('transform', d3.event.transform);
+          this.rezoom();
         })
     );
   }

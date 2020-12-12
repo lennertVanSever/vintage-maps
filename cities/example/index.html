@@ -93,15 +93,15 @@
             .attr("d", citiesPath)
             .attr("fill", "#000");
 
-      // citiesGroup.append('text')
-      //   .attr("x", city => getProjectedCoordinates(city)[0])
-      //   .attr("y", city => getProjectedCoordinates(city)[1])
-      //   .attr("dx", city => city.properties.populationAtGivenYear / 70000)
-      //   .text(({ properties: { name } }) => name)
-      //   .attr("font-family", "sans-serif")
-      //   .attr("alignment-baseline", "middle")
-      //   .attr("font-size", city => `${city.properties.populationAtGivenYear / 50000}px`)
-      //   .attr("fill", city => city.properties.name);
+      citiesGroup.append('text')
+        .attr("x", city => getProjectedCoordinates(city)[0])
+        .attr("y", city => getProjectedCoordinates(city)[1])
+        .attr("dx", city => city.properties.populationAtGivenYear / 70000)
+        .text(({ properties: { name } }) => name)
+        .attr("font-family", "sans-serif")
+        .attr("alignment-baseline", "middle")
+        .attr("font-size", city => `${city.properties.populationAtGivenYear / 50000}px`)
+        .attr("fill", city => city.properties.name);
     });
   })
 

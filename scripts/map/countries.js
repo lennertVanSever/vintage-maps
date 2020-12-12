@@ -1,18 +1,15 @@
 import colors from './colors.js';
-
-function mapRange(value, low1, high1, low2, high2) {
-  return low2 + ((high2 - low2) * (value - low1)) / (high1 - low1);
-}
+import { mapRange } from './utils.js';
 
 function getRandomInteger(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
 export class Countries {
-  constructor(geoPath, group, countryDataUrl) {
+  constructor(geoPath, group, year) {
     this.geoPath = geoPath;
     this.group = group;
-    this.countryDataUrl = countryDataUrl;
+    this.year = year;
   }
 
   async render() {
@@ -23,7 +20,12 @@ export class Countries {
   }
 
   async getCountryData() {
-    this.countryData = await d3.json(this.countryDataUrl);
+
+    let mapYear = this.year;
+    if (this.year < 0) {
+      mapYear = `bc${Math.abs(this.year)}`;
+    }
+    this.countryData = await d3.json(`maps/world_${mapYear}.geojson`);
   }
 
   isUnclaimed(d) {
@@ -39,12 +41,48 @@ export class Countries {
     return `${prefix}${d.properties.NAME.replace(/\s/g, '_')}`;
   }
 
-  drawInsideBorders() {
+  resizeBorders({ zoom: { value, minimum, maximum }}) {
+    const resizeBorder = ({ pathClass, maximumWidth, inBetweenMinimumWidth, minimumWidth }) => {
+      const inBetween = 5;
+      let newWidth;
+      if (value < inBetween) {
+        newWidth = mapRange(value, inBetween, minimum, inBetweenMinimumWidth, maximumWidth);
+      } else {
+        newWidth = mapRange(value, maximum, inBetween, minimumWidth, inBetweenMinimumWidth);
+      }
+      d3.selectAll(pathClass).attr('stroke-width', newWidth)
 
-    const addInsideBorder = () => {
+    };
+    resizeBorder({
+      pathClass: '.insideBorderDark',
+      maximumWidth: 2.5,
+      inBetweenMinimumWidth: 0.6,
+      minimumWidth: 0.15,
+    })
+
+    resizeBorder({
+      pathClass: '.outsideBorder',
+      maximumWidth: 0.8,
+      inBetweenMinimumWidth: 0.05,
+      minimumWidth: 0.01,
+
+    })
+
+    resizeBorder({
+      pathClass: '.insideBorderLight',
+      maximumWidth: 4,
+      inBetweenMinimumWidth: 1,
+      minimumWidth: 0.3,
+    })
+  }
+
+  drawInsideBorders() {
+    console.log('draw border')
+
+    const addInsideBorder = ({ pathClass }) => {
       return this.group
       .append('g')
-      .attr('class', 'statesColors')
+      .attr('class', 'borders')
       .selectAll('path')
       .data(this.countryData.features)
       .enter()
@@ -54,21 +92,22 @@ export class Countries {
       })
       .attr('d', this.geoPath)
       .attr('fill', 'none')
+      .attr('class', pathClass)
       .attr('stroke-alignment', 'inner')
       
       .attr('stroke', d =>
         this.isUnclaimed(d)
           ? 'none'
-          : colors.borders[getRandomInteger(0, colors.borders.length)]
+          : colors.insideBorders[getRandomInteger(0, colors.insideBorders.length)]
       );
     }
 
-    addInsideBorder().attr('stroke-width', 1);
-    addInsideBorder().attr('stroke-width', 1.8).attr('opacity', 0.5);
+    addInsideBorder({ pathClass: 'insideBorderDark' }).attr('stroke-width', 0);
+    addInsideBorder({ pathClass: 'insideBorderLight' }).attr('stroke-width', 0).attr('opacity', 0.5);
 
     this.group
       .append('g')
-      .attr('class', 'statesClips')
+      .attr('class', 'borderClip')
       .selectAll('path')
       .data(this.countryData.features)
       .enter()
@@ -89,10 +128,11 @@ export class Countries {
       .enter()
       .append('path')
       .attr('d', this.geoPath)
+      .attr('class', 'outsideBorder')
       .attr('fill', 'none')
       // .attr('fill', colors.background)
-      .attr('stroke-width', 0.3)
-      .attr('stroke', 'black');
+      .attr('stroke-width', 0)
+      .attr('stroke', colors.outsideBorder);
   }
 
   drawNamesOfCountries() {

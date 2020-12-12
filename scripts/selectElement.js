@@ -32,7 +32,7 @@ class SelectElement extends ShadowElement {
   get optionHtml() {
     return this.options.map((option) => 
       /* html */ `
-        <option value=${option}>${option}</option>
+        <option value=${option.value}>${option.label}</option>
       `
     )
   }
@@ -48,7 +48,16 @@ class YearSelect extends SelectElement {
     return 'Select a year';
   }
   get options() {
-    return years;
+    return years.map((year) => {
+      let label = `AD ${year}`
+      if (year < 0) {
+        label = `${Math.abs(year)} BC`
+      }
+      return {
+        label,
+        value: year
+      }
+    });
   }
   change(event) {
     map.year = event.target.value;
@@ -66,7 +75,7 @@ class ProjectionSelect extends SelectElement {
     return 'Select a projection';
   }
   get options() {
-    return projections;
+    return projections.map((projection) => ({ label: projection, value: projection }));
   }
   change(event) {
     map.projectionName = event.target.value;
