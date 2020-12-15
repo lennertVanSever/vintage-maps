@@ -56,11 +56,11 @@ export class Map {
       );
       await this.countries.render();
 
-      this.cities = new Cities(this.year, this.group, projection);
-      await this.cities.render();
-
       const graticule = new Graticule(this.geoPath, this.group);
       graticule.render();
+
+      this.cities = new Cities(this.year, this.group, projection);
+      await this.cities.render();
 
       this.makeMapZoomable();
       this.rezoom({ force: true });
