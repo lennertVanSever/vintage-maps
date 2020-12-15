@@ -25,7 +25,8 @@ export class Countries {
     if (this.year < 0) {
       mapYear = `bc${Math.abs(this.year)}`;
     }
-    this.countryData = await d3.json(`maps/world_${mapYear}.geojson`);
+    // this.countryData = await d3.json(`maps/world_${mapYear}.geojson`);
+    this.countryData = await d3.json(`maps/test.geojson`);
   }
 
   isUnclaimed(d) {
@@ -167,7 +168,7 @@ export class Countries {
       .style('fill', colors.text)
       .style('text-anchor', 'middle')
       .text(d => (this.isUnclaimed(d) ? '' : d.properties.NAME));
-    const { projection, geoPath } = this;
+    const { projection, geoPath, group } = this;
     d3.selectAll('.countryName').each(function (country) {
       let longestCoordinates = [[]];
 
@@ -175,16 +176,38 @@ export class Countries {
         if (coordinatesCollection[0].length > longestCoordinates[0].length)
           longestCoordinates = coordinatesCollection;
       });
+
+      longestCoordinates[0] = longestCoordinates[0].map(coordinates => {
+        return projection(coordinates);
+      });
+      const { allCells, bestCell } = polylabel(longestCoordinates, 1, false);
+
+      allCells.forEach(cell => {
+        group
+          .append('rect')
+          .attr('x', cell.x)
+          .attr('y', cell.y)
+          .attr('width', cell.h)
+          .attr('height', cell.h)
+          .attr('stroke-width', 0.1)
+          .attr('fill', () => {
+            if (JSON.stringify(bestCell) === JSON.stringify(cell)) return 'red';
+            return 'none';
+          })
+          .attr('stroke', colors.outsideBorder);
+      });
+
+      /*
       const labelPlacement = polylabel(longestCoordinates, 1, false);
 
       const transform = labelPlacement
-        ? `translate(${projection([labelPlacement.x, labelPlacement.y])})`
+        ? `translate(${labelPlacement.x}, ${labelPlacement.y})`
         : null;
 
       d3.select(this)
         .attr('transform', transform)
         .style('font-size', d => {
-          const fontSize = labelPlacement.d;
+          const fontSize = labelPlacement.d / 5;
           let smallFactor = 1;
           let letterCountFactor = 1;
           const letterCount = d.properties.NAME ? d.properties.NAME.length : 0;
@@ -196,6 +219,7 @@ export class Countries {
 
           return fontSize * smallFactor * letterCountFactor;
         });
+      */
     });
   }
 }
