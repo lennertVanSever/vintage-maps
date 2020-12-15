@@ -25,8 +25,8 @@ export class Countries {
     if (this.year < 0) {
       mapYear = `bc${Math.abs(this.year)}`;
     }
-    // this.countryData = await d3.json(`maps/world_${mapYear}.geojson`);
-    this.countryData = await d3.json(`maps/test.geojson`);
+    this.countryData = await d3.json(`maps/world_${mapYear}.geojson`);
+    // this.countryData = await d3.json(`maps/test.geojson`);
   }
 
   isUnclaimed(d) {
@@ -164,11 +164,11 @@ export class Countries {
       .enter()
       .append('text')
       .attr('d', this.geoPath)
-      .attr('class', 'countryName')
+      .attr('class', 'countryName canOverlapElement')
       .style('fill', colors.text)
       .style('text-anchor', 'middle')
       .text(d => (this.isUnclaimed(d) ? '' : d.properties.NAME));
-    const { projection, geoPath, group } = this;
+    const { projection } = this;
     d3.selectAll('.countryName').each(function (country) {
       let longestCoordinates = [[]];
 
@@ -180,24 +180,6 @@ export class Countries {
       longestCoordinates[0] = longestCoordinates[0].map(coordinates => {
         return projection(coordinates);
       });
-      const { allCells, bestCell } = polylabel(longestCoordinates, 1, false);
-
-      allCells.forEach(cell => {
-        group
-          .append('rect')
-          .attr('x', cell.x)
-          .attr('y', cell.y)
-          .attr('width', cell.h)
-          .attr('height', cell.h)
-          .attr('stroke-width', 0.1)
-          .attr('fill', () => {
-            if (JSON.stringify(bestCell) === JSON.stringify(cell)) return 'red';
-            return 'none';
-          })
-          .attr('stroke', colors.outsideBorder);
-      });
-
-      /*
       const labelPlacement = polylabel(longestCoordinates, 1, false);
 
       const transform = labelPlacement
@@ -209,17 +191,15 @@ export class Countries {
         .style('font-size', d => {
           const fontSize = labelPlacement.d / 5;
           let smallFactor = 1;
-          let letterCountFactor = 1;
           const letterCount = d.properties.NAME ? d.properties.NAME.length : 0;
 
+          if (fontSize < 2.5) smallFactor = 2;
           if (fontSize < 2) smallFactor = 3;
           if (fontSize < 0.5) smallFactor = 5;
           if (fontSize < 0.2) smallFactor = 10;
-          letterCountFactor = mapRange(letterCount, 4, 25, 1.2, 0.1);
-
+          const letterCountFactor = mapRange(letterCount, 30, 4, 0.7, 1.2);
           return fontSize * smallFactor * letterCountFactor;
         });
-      */
     });
   }
 }

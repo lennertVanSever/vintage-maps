@@ -19,7 +19,6 @@ export function polylabel(polygon, precision, debug) {
     if (!i || p[0] > maxX) maxX = p[0];
     if (!i || p[1] > maxY) maxY = p[1];
   }
-  console.log(minX);
   const width = maxX - minX;
   const height = maxY - minY;
   const cellSize = Math.min(width, height);
@@ -44,11 +43,9 @@ export function polylabel(polygon, precision, debug) {
   if (bboxCell.d > bestCell.d) bestCell = bboxCell;
 
   let numProbes = cellQueue.length;
-  const allCells = [];
   while (cellQueue.length) {
     // pick the most promising cell from the queue
     const cell = cellQueue.pop();
-    allCells.push(cell);
 
     // update the best cell if we found a better one
     if (cell.d > bestCell.d) {
@@ -72,8 +69,6 @@ export function polylabel(polygon, precision, debug) {
     cellQueue.push(new Cell(cell.x + h, cell.y + h, h, polygon));
     numProbes += 4;
   }
-  console.log(allCells);
-  return { allCells, bestCell };
 
   if (debug) {
     console.log(`num probes: ${numProbes}`);
