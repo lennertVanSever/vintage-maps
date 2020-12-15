@@ -47,11 +47,16 @@ export class Map {
         .precision(0.1);
       this.geoPath = d3.geoPath().projection(projection);
 
-      this.countries = new Countries(this.geoPath, this.group, this.year);
+      this.countries = new Countries(
+        this.geoPath,
+        this.group,
+        this.year,
+        projection
+      );
       await this.countries.render();
 
       this.cities = new Cities(this.year, this.group, projection);
-      await this.cities.render();
+      // await this.cities.render();
 
       const graticule = new Graticule(this.geoPath, this.group);
       graticule.render();

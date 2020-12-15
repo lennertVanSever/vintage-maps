@@ -1,15 +1,16 @@
 import colors from './colors.js';
-import { mapRange } from './utils.js';
+import { mapRange, polylabel } from './utils.js';
 
 function getRandomInteger(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
 export class Countries {
-  constructor(geoPath, group, year) {
+  constructor(geoPath, group, year, projection) {
     this.geoPath = geoPath;
     this.group = group;
     this.year = year;
+    this.projection = projection;
   }
 
   async render() {
@@ -20,7 +21,6 @@ export class Countries {
   }
 
   async getCountryData() {
-
     let mapYear = this.year;
     if (this.year < 0) {
       mapYear = `bc${Math.abs(this.year)}`;
@@ -41,69 +41,88 @@ export class Countries {
     return `${prefix}${d.properties.NAME.replace(/\s/g, '_')}`;
   }
 
-  resizeBorders({ zoom: { value, minimum, maximum }}) {
-    const resizeBorder = ({ pathClass, maximumWidth, inBetweenMinimumWidth, minimumWidth }) => {
+  resizeBorders({ zoom: { value, minimum, maximum } }) {
+    const resizeBorder = ({
+      pathClass,
+      maximumWidth,
+      inBetweenMinimumWidth,
+      minimumWidth,
+    }) => {
       const inBetween = 5;
       let newWidth;
       if (value < inBetween) {
-        newWidth = mapRange(value, inBetween, minimum, inBetweenMinimumWidth, maximumWidth);
+        newWidth = mapRange(
+          value,
+          inBetween,
+          minimum,
+          inBetweenMinimumWidth,
+          maximumWidth
+        );
       } else {
-        newWidth = mapRange(value, maximum, inBetween, minimumWidth, inBetweenMinimumWidth);
+        newWidth = mapRange(
+          value,
+          maximum,
+          inBetween,
+          minimumWidth,
+          inBetweenMinimumWidth
+        );
       }
-      d3.selectAll(pathClass).attr('stroke-width', newWidth)
-
+      d3.selectAll(pathClass).attr('stroke-width', newWidth);
     };
     resizeBorder({
       pathClass: '.insideBorderDark',
       maximumWidth: 2.5,
       inBetweenMinimumWidth: 0.6,
       minimumWidth: 0.15,
-    })
+    });
 
     resizeBorder({
       pathClass: '.outsideBorder',
       maximumWidth: 0.8,
       inBetweenMinimumWidth: 0.05,
       minimumWidth: 0.01,
-
-    })
+    });
 
     resizeBorder({
       pathClass: '.insideBorderLight',
       maximumWidth: 4,
       inBetweenMinimumWidth: 1,
       minimumWidth: 0.3,
-    })
+    });
   }
 
   drawInsideBorders() {
-    console.log('draw border')
+    console.log('draw border');
 
     const addInsideBorder = ({ pathClass }) => {
       return this.group
-      .append('g')
-      .attr('class', 'borders')
-      .selectAll('path')
-      .data(this.countryData.features)
-      .enter()
-      .append('path')
-      .attr('clip-path', d => {
-        return `url(#${this.getId(d)})`;
-      })
-      .attr('d', this.geoPath)
-      .attr('fill', 'none')
-      .attr('class', pathClass)
-      .attr('stroke-alignment', 'inner')
-      
-      .attr('stroke', d =>
-        this.isUnclaimed(d)
-          ? 'none'
-          : colors.insideBorders[getRandomInteger(0, colors.insideBorders.length)]
-      );
-    }
+        .append('g')
+        .attr('class', 'borders')
+        .selectAll('path')
+        .data(this.countryData.features)
+        .enter()
+        .append('path')
+        .attr('clip-path', d => {
+          return `url(#${this.getId(d)})`;
+        })
+        .attr('d', this.geoPath)
+        .attr('fill', 'none')
+        .attr('class', pathClass)
+        .attr('stroke-alignment', 'inner')
+
+        .attr('stroke', d =>
+          this.isUnclaimed(d)
+            ? 'none'
+            : colors.insideBorders[
+                getRandomInteger(0, colors.insideBorders.length)
+              ]
+        );
+    };
 
     addInsideBorder({ pathClass: 'insideBorderDark' }).attr('stroke-width', 0);
-    addInsideBorder({ pathClass: 'insideBorderLight' }).attr('stroke-width', 0).attr('opacity', 0.5);
+    addInsideBorder({ pathClass: 'insideBorderLight' })
+      .attr('stroke-width', 0)
+      .attr('opacity', 0.5);
 
     this.group
       .append('g')
@@ -144,29 +163,39 @@ export class Countries {
       .enter()
       .append('text')
       .attr('d', this.geoPath)
+      .attr('class', 'countryName')
       .style('fill', colors.text)
-      .style('font-size', d => {
-        const bounds = this.geoPath.bounds(d);
-        const widthCountry = bounds[1][0] - bounds[0][0];
-        let fontSize = widthCountry / 9;
-
-        const letterCount = d.properties.NAME ? d.properties.NAME.length : 0;
-        const letterCountRatio = mapRange(letterCount, 4, 20, 1.5, 0.7);
-        fontSize *= letterCountRatio;
-
-        const maximumFontSize = 15;
-        return fontSize > maximumFontSize
-          ? `${maximumFontSize}px`
-          : `${fontSize}px`;
-      })
       .style('text-anchor', 'middle')
-      .attr('transform', d => {
-        const centroid = this.geoPath.centroid(d);
-        if (!isNaN(centroid[0])) {
-          return `translate(${centroid})`;
-        }
-        return null
-      })
       .text(d => (this.isUnclaimed(d) ? '' : d.properties.NAME));
+    const { projection, geoPath } = this;
+    d3.selectAll('.countryName').each(function (country) {
+      let longestCoordinates = [[]];
+
+      country.geometry.coordinates.forEach(coordinatesCollection => {
+        if (coordinatesCollection[0].length > longestCoordinates[0].length)
+          longestCoordinates = coordinatesCollection;
+      });
+      const labelPlacement = polylabel(longestCoordinates, 1, false);
+
+      const transform = labelPlacement
+        ? `translate(${projection([labelPlacement.x, labelPlacement.y])})`
+        : null;
+
+      d3.select(this)
+        .attr('transform', transform)
+        .style('font-size', d => {
+          const fontSize = labelPlacement.d;
+          let smallFactor = 1;
+          let letterCountFactor = 1;
+          const letterCount = d.properties.NAME ? d.properties.NAME.length : 0;
+
+          if (fontSize < 2) smallFactor = 3;
+          if (fontSize < 0.5) smallFactor = 5;
+          if (fontSize < 0.2) smallFactor = 10;
+          letterCountFactor = mapRange(letterCount, 4, 25, 1.2, 0.1);
+
+          return fontSize * smallFactor * letterCountFactor;
+        });
+    });
   }
 }
