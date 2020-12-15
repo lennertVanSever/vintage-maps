@@ -168,7 +168,7 @@ export class Countries {
       .style('fill', colors.text)
       .style('text-anchor', 'middle')
       .text(d => (this.isUnclaimed(d) ? '' : d.properties.NAME));
-    const { projection } = this;
+    const { projection, group } = this;
     d3.selectAll('.countryName').each(function (country) {
       let longestCoordinates = [[]];
 
@@ -181,13 +181,9 @@ export class Countries {
         return projection(coordinates);
       });
       const labelPlacement = polylabel(longestCoordinates, 1, false);
-
-      const transform = labelPlacement
-        ? `translate(${labelPlacement.x}, ${labelPlacement.y})`
-        : null;
-
       d3.select(this)
-        .attr('transform', transform)
+        .attr('x', labelPlacement.x)
+        .attr('y', labelPlacement.y)
         .style('font-size', d => {
           const fontSize = labelPlacement.d / 5;
           let smallFactor = 1;

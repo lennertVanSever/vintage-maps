@@ -65,12 +65,15 @@ class ModifyCityData {
   }
 }
 
-const getExtremes = ({ x, y, width, height }) => ({
-  left: x - width / 2,
-  right: x + width / 2,
-  bottom: y - height / 2,
-  top: y + height / 2,
-});
+const getExtremes = ({ x, y, width, height }, isCountry) => {
+  const factor = isCountry ? 1 : 2;
+  return {
+    left: x - width / factor,
+    right: x + width / factor,
+    bottom: y - height / factor,
+    top: y + height / factor,
+  };
+};
 
 const citiesOverlap = (city1, city2) => {
   let overlapLeft = false;
@@ -86,12 +89,27 @@ const citiesOverlap = (city1, city2) => {
   if (city1.right < city2.right && city1.right > city2.left) {
     overlapRight = true;
   }
+  // console.log(city2, city1);
+  if (city2.left > city1.left && city2.left < city1.right) {
+    overlapRight = true;
+    overlapLeft = true;
+  }
+  if (city2.top < city1.top && city2.top > city1.bottom) {
+    overlapBottom = true;
+    overlapTop = true;
+  }
   if (city1.bottom > city2.bottom && city1.bottom < city2.top) {
     overlapBottom = true;
   }
   if (city1.top < city2.top && city1.top > city2.bottom) {
     overlapTop = true;
   }
+  // console.log({
+  //   overlapLeft,
+  //   overlapRight,
+  //   overlapTop,
+  //   overlapBottom,
+  // });
   return (
     (overlapLeft && overlapBottom) ||
     (overlapLeft && overlapTop) ||
@@ -109,6 +127,7 @@ export class Cities {
 
   async fetchData() {
     const response = await fetch('./scripts/map/cities/data.json');
+    // const response = await fetch('./scripts/map/cities/dataTest.json');
     const responseJson = await response.json();
     return responseJson;
   }
@@ -120,7 +139,7 @@ export class Cities {
     let textDistance;
 
     if (value < 5) {
-      fontSize = mapRange(value, 5, minimum, 3, 10);
+      fontSize = mapRange(value, 5, minimum, 3, 5);
       textDistance = mapRange(value, 5, minimum, 1.1, 3.5);
       pointRadius = mapRange(value, 5, minimum, 0.5, 2);
     } else {
@@ -140,28 +159,31 @@ export class Cities {
       .attr('opacity', 0);
     d3.selectAll('.cityPath').attr('d', citiesPath).attr('opacity', 0);
 
-    d3.selectAll('.cityName').each(function (node, index) {
+    d3.selectAll('.canOverlapElement').each(function (node, index) {
+      const isCountry = !node.currentPopulation;
       cities.push({
         index,
-        name: node.properties.name,
-        currentPopulation: node.currentPopulation,
-        ...getExtremes(d3.select(this).node().getBBox()),
+        name: node.properties.NAME,
+        currentPopulation: node.currentPopulation || Infinity,
+        isCountry,
+        ...getExtremes(d3.select(this).node().getBBox(), isCountry),
       });
     });
     cities.sort((a, b) => b.currentPopulation - a.currentPopulation);
     const hideCities = [];
     cities.forEach((city, index) => {
-      // console.log(city);
       for (let j = index + 1; j < cities.length; j++) {
         const otherCity = cities[j];
-        if (citiesOverlap(city, otherCity)) {
+        if (citiesOverlap(city, otherCity) && !otherCity.isCountry) {
           hideCities.push(otherCity.name);
         }
       }
     });
-    const hideElement = ({ properties: { name } }) =>
-      hideCities.includes(name) ? 0 : 1;
-    d3.selectAll('.cityName').attr('opacity', hideElement);
+
+    const hideElement = ({ properties: { NAME } }) =>
+      hideCities.includes(NAME) ? 0 : 1;
+
+    d3.selectAll('.canOverlapElement').attr('opacity', hideElement);
     d3.selectAll('.cityPath').attr('opacity', hideElement);
   }
 
@@ -203,12 +225,11 @@ export class Cities {
       .append('text')
       .attr('x', city => this.getProjectedCoordinates(city)[0])
       .attr('y', city => this.getProjectedCoordinates(city)[1])
-      .text(({ properties: { name } }) => name)
+      .text(({ properties: { NAME } }) => NAME)
       .attr('font-family', 'sans-serif')
       .attr('alignment-baseline', 'baseline')
       .attr('text-anchor', 'middle')
-      .attr('class', 'cityName')
-      .attr('font-size', '2px')
-      .attr('fill', city => city.properties.name);
+      .attr('class', 'cityName canOverlapElement')
+      .attr('font-size', '2px');
   }
 }

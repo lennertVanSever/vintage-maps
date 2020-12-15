@@ -9,13 +9,14 @@ export class Map {
     this.svg = d3.select('svg');
     this.svg.selectAll('*').remove();
     this.group = this.svg.append('g');
-    this.year = years[0];
+    this.year = localStorage.getItem('year') || years[0];
     this.minimumZoom = 1;
     this.maximumZoom = 40;
     this.projectionName = projectionNames[0];
   }
 
   set year(newYear) {
+    localStorage.setItem('year', newYear);
     this._year = newYear;
     this.reset();
   }
@@ -56,7 +57,7 @@ export class Map {
       await this.countries.render();
 
       this.cities = new Cities(this.year, this.group, projection);
-      // await this.cities.render();
+      await this.cities.render();
 
       const graticule = new Graticule(this.geoPath, this.group);
       graticule.render();
