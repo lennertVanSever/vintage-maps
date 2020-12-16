@@ -5,11 +5,10 @@ export default {
     '#e0bc4a',
     '#d65d55',
     '#e2ada5',
-    '#c8866c',
+    '#706d74',
     '#b27f50',
     '#ac9e9d',
-    '#706d74',
   ],
   outsideBorder: '#4d4c4c',
-  graticule: '#646057',
+  graticule: '#b1b1b1',
 };

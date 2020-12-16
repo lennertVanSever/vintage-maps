@@ -66,7 +66,7 @@ class ModifyCityData {
 }
 
 const getExtremes = ({ x, y, width, height }, isCountry) => {
-  const factor = isCountry ? 1 : 2;
+  const factor = isCountry ? 1.5 : 2;
   return {
     left: x - width / factor,
     right: x + width / factor,
@@ -89,8 +89,9 @@ const citiesOverlap = (city1, city2) => {
   if (city1.right < city2.right && city1.right > city2.left) {
     overlapRight = true;
   }
-  // console.log(city2, city1);
+  // // console.log(city2, city1);
   if (city2.left > city1.left && city2.left < city1.right) {
+    // revisit this part later, can be optimized
     overlapRight = true;
     overlapLeft = true;
   }
@@ -141,7 +142,7 @@ export class Cities {
     if (value < 5) {
       fontSize = mapRange(value, 5, minimum, 3, 5);
       textDistance = mapRange(value, 5, minimum, 1.1, 3.5);
-      pointRadius = mapRange(value, 5, minimum, 0.5, 2);
+      pointRadius = mapRange(value, 5, minimum, 0.5, 1);
     } else {
       fontSize = mapRange(value, maximum, minimum, 0.5, 3);
       textDistance = mapRange(value, maximum, minimum, 0.2, 1.1);

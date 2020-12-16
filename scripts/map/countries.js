@@ -111,13 +111,11 @@ export class Countries {
         .attr('class', pathClass)
         .attr('stroke-alignment', 'inner')
 
-        .attr('stroke', d =>
-          this.isUnclaimed(d)
+        .attr('stroke', country => {
+          return this.isUnclaimed(country)
             ? 'none'
-            : colors.insideBorders[
-                getRandomInteger(0, colors.insideBorders.length)
-              ]
-        );
+            : colors.insideBorders[country.properties.BORDER_COLOR_INDEX];
+        });
     };
 
     addInsideBorder({ pathClass: 'insideBorderDark' }).attr('stroke-width', 0);
@@ -185,14 +183,13 @@ export class Countries {
         .attr('x', labelPlacement.x)
         .attr('y', labelPlacement.y)
         .style('font-size', d => {
-          const fontSize = labelPlacement.d / 5;
+          const fontSize = labelPlacement.d / 3;
           let smallFactor = 1;
           const letterCount = d.properties.NAME ? d.properties.NAME.length : 0;
 
-          if (fontSize < 2.5) smallFactor = 2;
-          if (fontSize < 2) smallFactor = 3;
-          if (fontSize < 0.5) smallFactor = 5;
-          if (fontSize < 0.2) smallFactor = 10;
+          if (fontSize < 2) smallFactor = 1.5;
+          if (fontSize < 0.5) smallFactor = 3;
+          if (fontSize < 0.2) smallFactor = 5;
           const letterCountFactor = mapRange(letterCount, 30, 4, 0.7, 1.2);
           return fontSize * smallFactor * letterCountFactor;
         });
