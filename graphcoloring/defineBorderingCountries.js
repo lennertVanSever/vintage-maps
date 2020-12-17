@@ -26,7 +26,7 @@ const coordinateInOtherCountry = (
 };
 
 [
-  'bc2000',
+  // 'bc2000',
   // '1000',
   // '1279',
   // '1492',
@@ -48,6 +48,7 @@ const coordinateInOtherCountry = (
   // 'bc1000',
   // 'bc200',
   // 'bc323',
+  'bc500',
 ].forEach(year => {
   const fileName = `world_${year}.geojson`;
   const worldRaw = fs.readFileSync(
