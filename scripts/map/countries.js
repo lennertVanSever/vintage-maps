@@ -1,10 +1,6 @@
 import colors from './colors.js';
 import { mapRange, polylabel } from './utils.js';
 
-function getRandomInteger(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
-}
-
 export class Countries {
   constructor(geoPath, group, year, projection) {
     this.geoPath = geoPath;
@@ -37,9 +33,8 @@ export class Countries {
     );
   }
 
-  getId(d, prefix = 'border') {
-    if (this.isUnclaimed(d)) return '';
-    return `${prefix}${d.properties.NAME.replace(/\s/g, '_')}`;
+  getId(index, prefix = 'border') {
+    return `${prefix}${index}`;
   }
 
   resizeBorders({ zoom: { value, minimum, maximum } }) {
@@ -76,14 +71,12 @@ export class Countries {
       inBetweenMinimumWidth: 0.6,
       minimumWidth: 0.15,
     });
-
     resizeBorder({
       pathClass: '.outsideBorder',
       maximumWidth: 0.8,
       inBetweenMinimumWidth: 0.05,
       minimumWidth: 0.01,
     });
-
     resizeBorder({
       pathClass: '.insideBorderLight',
       maximumWidth: 4,
@@ -103,8 +96,8 @@ export class Countries {
         .data(this.countryData.features)
         .enter()
         .append('path')
-        .attr('clip-path', d => {
-          return `url(#${this.getId(d)})`;
+        .attr('clip-path', (d, index) => {
+          return `url(#${this.getId(index)})`;
         })
         .attr('d', this.geoPath)
         .attr('fill', 'none')
@@ -130,8 +123,8 @@ export class Countries {
       .data(this.countryData.features)
       .enter()
       .append('clipPath')
-      .attr('id', d => {
-        return this.getId(d);
+      .attr('id', (d, index) => {
+        return this.getId(index);
       })
       .append('path')
       .attr('d', this.geoPath);
