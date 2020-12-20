@@ -1,5 +1,12 @@
 import colors from './colors.js';
-import { mapRange, polylabel } from './utils.js';
+import {
+  addParametersToURL,
+  camalize,
+  getCountryNameCamelCase,
+  mapRange,
+  polylabel,
+  resetAlreadySelected,
+} from './utils.js';
 
 export class Countries {
   constructor(geoPath, group, year, projection) {
@@ -14,6 +21,7 @@ export class Countries {
     this.drawInsideBorders();
     this.drawOutsideBorders();
     this.drawNamesOfCountries();
+    this.selectCountryNameIfInUrl();
   }
 
   async getCountryData() {
@@ -33,7 +41,7 @@ export class Countries {
     );
   }
 
-  getId(index, prefix = 'border') {
+  getIdBorderClip(index, prefix = 'border') {
     return `${prefix}${index}`;
   }
 
@@ -85,9 +93,16 @@ export class Countries {
     });
   }
 
-  drawInsideBorders() {
-    console.log('draw border');
+  selectCountryNameIfInUrl() {
+    const newUrl = new URL(window.location.href);
+    const info = newUrl.searchParams.get('info');
+    if (info) {
+      const selectedCountry = d3.select(`#countryName${camalize(info)}`);
+      if (selectedCountry) selectedCountry.dispatch('click');
+    }
+  }
 
+  drawInsideBorders() {
     const addInsideBorder = ({ pathClass }) => {
       return this.group
         .append('g')
@@ -97,13 +112,16 @@ export class Countries {
         .enter()
         .append('path')
         .attr('clip-path', (d, index) => {
-          return `url(#${this.getId(index)})`;
+          return `url(#${this.getIdBorderClip(index)})`;
         })
         .attr('d', this.geoPath)
         .attr('fill', 'none')
-        .attr('class', pathClass)
+        .attr(
+          'class',
+          country =>
+            `${pathClass} ${pathClass}${getCountryNameCamelCase(country)}`
+        )
         .attr('stroke-alignment', 'inner')
-
         .attr('stroke', country => {
           return this.isUnclaimed(country)
             ? 'none'
@@ -124,7 +142,7 @@ export class Countries {
       .enter()
       .append('clipPath')
       .attr('id', (d, index) => {
-        return this.getId(index);
+        return this.getIdBorderClip(index);
       })
       .append('path')
       .attr('d', this.geoPath);
@@ -155,11 +173,29 @@ export class Countries {
       .enter()
       .append('text')
       .attr('d', this.geoPath)
-      .attr('class', 'countryName canOverlapElement')
+      .attr('class', `countryName canOverlapElement`)
+      .attr('id', country => `countryName${getCountryNameCamelCase(country)}`)
       .style('fill', colors.text)
       .style('text-anchor', 'middle')
-      .text(d => (this.isUnclaimed(d) ? '' : d.properties.NAME));
-    const { projection, group } = this;
+      .text(d => (this.isUnclaimed(d) ? '' : d.properties.NAME))
+      .style('cursor', 'pointer')
+      .on('click', country => {
+        resetAlreadySelected();
+        const thisCountryInsideBorder = d3.selectAll(
+          `.insideBorderLight${getCountryNameCamelCase(country)}`
+        );
+        thisCountryInsideBorder.attr(
+          'fill',
+          thisCountryInsideBorder.attr('stroke')
+        );
+        d3.event.stopPropagation();
+        addParametersToURL({
+          info: country.properties.NAME,
+          type: 'country',
+        });
+      });
+
+    const { projection } = this;
     d3.selectAll('.countryName').each(function (country) {
       let longestCoordinates = [[]];
 

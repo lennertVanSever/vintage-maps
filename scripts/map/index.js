@@ -1,22 +1,24 @@
-import projectionNames from '../projections.js';
-import years from '../years.js';
+import projectionNames from '../config/projections.js';
+import years from '../config/years.js';
 import { Cities } from './cities/index.js';
 import { Countries } from './countries.js';
 import { Graticule } from './graticule.js';
+import { addParameterToURL, initialUrl } from './utils.js';
 
 export class Map {
   constructor() {
     this.svg = d3.select('svg');
     this.svg.selectAll('*').remove();
     this.group = this.svg.append('g');
-    this.year = localStorage.getItem('year') || years[0];
+    this.year = initialUrl.searchParams.get('year') || years[0];
     this.minimumZoom = 1;
     this.maximumZoom = 40;
-    this.projectionName = projectionNames[0];
+    this.projectionName =
+      initialUrl.searchParams.get('projection') || projectionNames[0];
   }
 
   set year(newYear) {
-    localStorage.setItem('year', newYear);
+    addParameterToURL('year', newYear);
     this._year = newYear;
     this.reset();
   }
@@ -26,6 +28,7 @@ export class Map {
   }
 
   set projectionName(newProjectionName) {
+    addParameterToURL('projection', newProjectionName);
     this._projectionName = newProjectionName;
     this.reset();
   }

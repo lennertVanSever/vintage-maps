@@ -1,5 +1,6 @@
 export default {
   text: '#534b3e',
+  selectedCity: '#d65d55',
   insideBorders: [
     '#92a671',
     '#e0bc4a',

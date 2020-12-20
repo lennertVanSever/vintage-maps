@@ -1,6 +1,11 @@
 /* eslint-disable max-classes-per-file */
-
-import { mapRange } from '../utils.js';
+import colors from '../colors.js';
+import {
+  addParametersToURL,
+  camalize,
+  mapRange,
+  resetAlreadySelected,
+} from '../utils.js';
 
 class ModifyCityData {
   constructor(data, givenYear) {
@@ -28,9 +33,6 @@ class ModifyCityData {
             Object.keys(populationByYear).length - 1
           ]
         );
-        if (name === 'Caen') {
-          console.log(name, lastRecordedPopulationYear, this.givenYear);
-        }
         if (
           lastRecordedPopulationYear - this.givenYear < 0 ||
           lastRecordedPopulationYear - this.givenYear > 100
@@ -184,7 +186,11 @@ export class Cities {
     const hideElement = ({ properties: { NAME } }) =>
       hideCities.includes(NAME) ? 0 : 1;
 
-    d3.selectAll('.canOverlapElement').attr('opacity', hideElement);
+    d3.selectAll('.canOverlapElement')
+      .attr('pointer-events', ({ properties: { NAME } }) =>
+        hideCities.includes(NAME) ? 'none' : 'auto'
+      )
+      .attr('opacity', hideElement);
     d3.selectAll('.cityPath').attr('opacity', hideElement);
   }
 
@@ -200,6 +206,15 @@ export class Cities {
     }
     return this.projection(coordinates);
   };
+
+  selectCityNameIfInUrl() {
+    const newUrl = new URL(window.location.href);
+    const info = newUrl.searchParams.get('info');
+    if (info) {
+      const selectedCity = d3.select(`#cityName${camalize(info)}`);
+      if (selectedCity) selectedCity.dispatch('click');
+    }
+  }
 
   async render() {
     const rawCityData = await this.fetchData();
@@ -220,7 +235,8 @@ export class Cities {
       .append('path')
       .attr('class', 'cityPath')
       .attr('d', citiesPath)
-      .attr('fill', '#000');
+      .attr('fill', colors.text)
+      .attr('id', city => `cityPath${camalize(city.properties.NAME)}`);
 
     citiesGroup
       .append('text')
@@ -231,6 +247,23 @@ export class Cities {
       .attr('alignment-baseline', 'baseline')
       .attr('text-anchor', 'middle')
       .attr('class', 'cityName canOverlapElement')
-      .attr('font-size', '2px');
+      .attr('font-size', '2px')
+      .style('cursor', 'pointer')
+      .attr('fill', colors.text)
+      .attr('id', city => `cityName${camalize(city.properties.NAME)}`)
+      .on('click', function (city) {
+        resetAlreadySelected();
+        d3.select(this).attr('fill', colors.selectedCity);
+        d3.select(`#cityPath${camalize(city.properties.NAME)}`).attr(
+          'fill',
+          colors.selectedCity
+        );
+        d3.event.stopPropagation();
+        addParametersToURL({
+          info: city.properties.NAME,
+          type: 'city',
+        });
+      });
+    this.selectCityNameIfInUrl();
   }
 }

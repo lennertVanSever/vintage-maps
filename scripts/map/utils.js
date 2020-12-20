@@ -1,7 +1,40 @@
+import colors from './colors.js';
+
 export function mapRange(value, low1, high1, low2, high2) {
   const result = low2 + ((high2 - low2) * (value - low1)) / (high1 - low1);
   if (result < low2) return low2;
   return low2 + ((high2 - low2) * (value - low1)) / (high1 - low1);
+}
+
+export const resetAlreadySelected = () => {
+  d3.selectAll('.insideBorderLight').attr('fill', 'none');
+  d3.selectAll('.cityPath').attr('fill', colors.text);
+  d3.selectAll('.cityName').attr('fill', colors.text);
+};
+export const camalize = str => {
+  if (!str) return str;
+  return str
+    .toLowerCase()
+    .replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase());
+};
+
+export const getCountryNameCamelCase = country => {
+  return camalize(country.properties.NAME);
+};
+export const initialUrl = new URL(window.location.href);
+export function addParameterToURL(key, value) {
+  const newUrl = new URL(window.location.href);
+  newUrl.searchParams.set(key, value);
+  window.history.replaceState({}, '', newUrl.href);
+}
+
+export function addParametersToURL(data) {
+  const newUrl = new URL(window.location.href);
+  Object.keys(data).forEach(key => {
+    const value = data[key];
+    newUrl.searchParams.set(key, value);
+  });
+  window.history.pushState({}, '', newUrl.href);
 }
 
 // https://github.com/mapbox/polylabel
