@@ -45,9 +45,13 @@ export class Map {
 
   async render() {
     if (this.projectionName) {
+      const scale =
+        window.innerWidth > window.innerHeight
+          ? window.innerWidth / 6
+          : window.innerHeight / 3;
       const projection = d3[`geo${this.projectionName}`]()
-        .scale(270)
-        .translate([740, 480])
+        .scale(scale)
+        .translate([window.innerWidth / 2, window.innerHeight / 2])
         .precision(0.1);
       this.geoPath = d3.geoPath().projection(projection);
 
@@ -59,8 +63,8 @@ export class Map {
       );
       await this.countries.render();
 
-      const graticule = new Graticule(this.geoPath, this.group);
-      graticule.render();
+      this.graticule = new Graticule(this.geoPath, this.group);
+      this.graticule.render();
 
       this.cities = new Cities(this.year, this.group, projection);
       await this.cities.render();
@@ -87,6 +91,7 @@ export class Map {
     if (this.previousZoomValue !== zoom.value || force) {
       this.countries.resizeBorders({ zoom });
       this.cities.resize({ zoom });
+      this.graticule.resize({ zoom });
     }
     this.previousZoomValue = zoom.value;
   }

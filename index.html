@@ -15,27 +15,6 @@
     font-weight: 300;
     src: local(".SFNSText-Light"), local(".HelveticaNeueDeskInterface-Light"), local(".LucidaGrandeUI"), local("Ubuntu Light"), local("Segoe UI Light"), local("Roboto-Light"), local("DroidSans"), local("Tahoma");
   }
-  * {
-    margin: 0;
-    padding: 0;
-  }
-  svg {
-    background-color: #eae1ba;
-  }
-  svg * {
-    font-family: 'bodoni';
-  }
-
-  main {
-    display: flex;
-    font-family: system;
-  }
-
-  .svg_wrapper {
-    width: calc(100vw - 200px);
-    height: 100vh;
-  }
-
   :root {
     --margin-1: 2px;
     --margin-2: 4px;
@@ -45,6 +24,42 @@
     --margin-6: 32px;
     --margin-7: 48px;
     --margin-8: 64px;
+    --body-color: #eae1ba;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  svg {
+    background-color: var(--body-color);
+  }
+  svg * {
+    font-family: 'bodoni';
+  }
+
+  main {
+    font-family: system;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .svg_wrapper {
+    width: 100%;
+    height: 100%;
+  }
+
+  
+  #controlsWrapper {
+    position: fixed;
+    top: 0;
+    background-color: rgba(234, 225, 186, 50%);
+    backdrop-filter: blur(3px);
+    display: flex;
+    align-items: center;
+    right: 0;
+    box-shadow: -5px 5px 3px rgba(234, 225, 186, 50%);
+    padding-right: var(--margin-3);
   }
 </style>
 <!-- 
@@ -58,10 +73,9 @@ This might help in other cases of running js scripts locally, but should not be 
 <main>
   <side-panel></side-panel>
   <svg class="svg_wrapper"></svg>
-  <article>
+  <article id="controlsWrapper">
     <year-select></year-select>
     <projection-select></projection-select>
-    <!-- <select-element></select-element> -->
   </article>
 </main>
 <script src="d3/d3.v5.min.js"></script>

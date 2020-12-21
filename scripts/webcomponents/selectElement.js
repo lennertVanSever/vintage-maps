@@ -24,12 +24,14 @@ class SelectElement extends ShadowElement {
       <style>
         label {
           display: block;
-          margin-top: var(--margin-4);
-          margin-left: var(--margin-4);
+          margin: var(--margin-4);
         }
         select {
           display: block;
           margin-top: var(--margin-2);
+          padding: var(--margin-2) var(--margin-1);
+          background-color: var(--body-color);
+          max-width: 100px;
         }
       </style>
       <label>
@@ -56,7 +58,7 @@ window.customElements.define('select-element', SelectElement);
 
 export class YearSelect extends SelectElement {
   get labelText() {
-    return 'Select a year';
+    return 'Year';
   }
 
   get options() {
@@ -85,7 +87,7 @@ window.customElements.define('year-select', YearSelect);
 
 class ProjectionSelect extends SelectElement {
   get labelText() {
-    return 'Select a projection';
+    return 'Projection';
   }
 
   get id() {
