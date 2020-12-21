@@ -127,18 +127,22 @@ class SidePanel extends ShadowElement {
           left: -400px;
         }
         section {
-          width: 400px;
+          max-width: 400px;
+          width: calc(100% - var(--margin-6));
           position: absolute;
           transition: left 0.1s;
           left: 0px;
           height: 100vh;
           background-color: white;
+          z-index: 2;
+          overflow: auto;
         }
         img {
           width: 100%;
         }
         #textContent {
           padding: 0px 30px;
+          padding-bottom: var(--margin-6);
         }
         #closeButton {
           position: absolute;
