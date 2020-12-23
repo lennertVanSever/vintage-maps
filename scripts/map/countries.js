@@ -9,11 +9,13 @@ import {
 } from './utils.js';
 
 export class Countries {
-  constructor(geoPath, group, year, projection) {
+  constructor(geoPath, group, year, projection, svg, zoomController) {
     this.geoPath = geoPath;
     this.group = group;
     this.year = year;
     this.projection = projection;
+    this.svg = svg;
+    this.zoomController = zoomController;
   }
 
   async render() {
@@ -164,6 +166,54 @@ export class Countries {
       .attr('stroke', colors.outsideBorder);
   }
 
+  fillSelectedCountry(selectedCountryInsideBorder) {
+    resetAlreadySelected();
+    selectedCountryInsideBorder.attr(
+      'fill',
+      selectedCountryInsideBorder.attr('stroke')
+    );
+  }
+
+  zoomToSelectedCountry(selectedCountryInsideBorder) {
+    const {
+      x: xSelectedCountry,
+      y: ySelectedCountry,
+      width,
+      height,
+    } = selectedCountryInsideBorder.node().getBBox();
+    const scaleFactor = 2;
+    const scaleWidth = window.innerWidth / width / scaleFactor;
+    const scaleHeight = window.innerHeight / height / scaleFactor;
+    const sidepanelSpace = width / 7;
+    this.svg
+      .transition()
+      .duration(500)
+      .call(
+        this.zoomController.transform,
+        d3.zoomIdentity
+          .translate(window.innerWidth / 2, window.innerHeight / 2)
+          .scale(width > height ? scaleWidth : scaleHeight)
+          .translate(
+            -xSelectedCountry - width / 2 + sidepanelSpace,
+            -ySelectedCountry - height / 2
+          )
+      );
+  }
+
+  countryClicked(selectedCountry) {
+    d3.event.stopPropagation();
+    const selectedCountryInsideBorder = d3.selectAll(
+      `.insideBorderLight${getCountryNameCamelCase(selectedCountry)}`
+    );
+
+    addParametersToURL({
+      info: selectedCountry.properties.NAME,
+      type: 'country',
+    });
+    this.fillSelectedCountry(selectedCountryInsideBorder);
+    this.zoomToSelectedCountry(selectedCountryInsideBorder);
+  }
+
   drawNamesOfCountries() {
     this.group
       .append('g')
@@ -179,21 +229,7 @@ export class Countries {
       .style('text-anchor', 'middle')
       .text(d => (this.isUnclaimed(d) ? '' : d.properties.NAME))
       .style('cursor', 'pointer')
-      .on('click', country => {
-        resetAlreadySelected();
-        const thisCountryInsideBorder = d3.selectAll(
-          `.insideBorderLight${getCountryNameCamelCase(country)}`
-        );
-        thisCountryInsideBorder.attr(
-          'fill',
-          thisCountryInsideBorder.attr('stroke')
-        );
-        d3.event.stopPropagation();
-        addParametersToURL({
-          info: country.properties.NAME,
-          type: 'country',
-        });
-      });
+      .on('click', this.countryClicked.bind(this));
 
     const { projection } = this;
     d3.selectAll('.countryName').each(function (country) {

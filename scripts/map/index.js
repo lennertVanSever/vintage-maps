@@ -7,12 +7,15 @@ import { addParameterToURL, initialUrl } from './utils.js';
 
 export class Map {
   constructor() {
-    this.svg = d3.select('svg');
+    this.svg = d3
+      .select('svg')
+      .attr('viewBox', [0, 0, window.innerWidth, window.innerHeight]);
     this.svg.selectAll('*').remove();
     this.group = this.svg.append('g');
     this.year = initialUrl.searchParams.get('year') || years[0];
     this.minimumZoom = 1;
     this.maximumZoom = 40;
+    this.zoomController = d3.zoom();
     this.projectionName =
       initialUrl.searchParams.get('projection') || projectionNames[0];
   }
@@ -59,7 +62,9 @@ export class Map {
         this.geoPath,
         this.group,
         this.year,
-        projection
+        projection,
+        this.svg,
+        this.zoomController
       );
       await this.countries.render();
 
@@ -98,8 +103,7 @@ export class Map {
 
   makeMapZoomable() {
     this.svg.call(
-      d3
-        .zoom()
+      this.zoomController
         .scaleExtent([this.minimumZoom, this.maximumZoom])
         // .wheelDelta(() => {
         //   return -event.deltaY * (event.deltaMode === 1 ? 0.5 : event.deltaMode ? 1 : 0.02);
