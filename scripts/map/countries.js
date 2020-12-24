@@ -183,7 +183,7 @@ export class Countries {
     } = selectedCountryInsideBorder.node().getBBox();
     let sidepanelSpaceHorizontal = 200;
     let sidepanelSpaceVertical = 0;
-    const scaleFactorHorizontal = 1.5;
+    const scaleFactorHorizontal = 2;
     let scaleFactorVertical = 1.5;
     if (window.innerWidth < 600) {
       sidepanelSpaceVertical = -window.innerHeight * 0.3;
