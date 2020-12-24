@@ -181,20 +181,33 @@ export class Countries {
       width,
       height,
     } = selectedCountryInsideBorder.node().getBBox();
-    const scaleFactor = 2;
-    const scaleWidth = window.innerWidth / width / scaleFactor;
-    const scaleHeight = window.innerHeight / height / scaleFactor;
-    const sidepanelSpace = width / 7;
+    let sidepanelSpaceHorizontal = 200;
+    let sidepanelSpaceVertical = 0;
+    const scaleFactorHorizontal = 1.5;
+    let scaleFactorVertical = 1.5;
+    if (window.innerWidth < 600) {
+      sidepanelSpaceVertical = -window.innerHeight * 0.3;
+      sidepanelSpaceHorizontal = 0;
+      scaleFactorVertical = 3;
+    }
+
+    const scaleWidth = window.innerWidth / width / scaleFactorHorizontal;
+    const scaleHeight = window.innerHeight / height / scaleFactorVertical;
+    const scale = width > height ? scaleWidth : scaleHeight;
+
     this.svg
       .transition()
       .duration(500)
       .call(
         this.zoomController.transform,
         d3.zoomIdentity
-          .translate(window.innerWidth / 2, window.innerHeight / 2)
-          .scale(width > height ? scaleWidth : scaleHeight)
           .translate(
-            -xSelectedCountry - width / 2 + sidepanelSpace,
+            window.innerWidth / 2 + sidepanelSpaceHorizontal,
+            window.innerHeight / 2 + sidepanelSpaceVertical
+          )
+          .scale(scale)
+          .translate(
+            -xSelectedCountry - width / 2,
             -ySelectedCountry - height / 2
           )
       );

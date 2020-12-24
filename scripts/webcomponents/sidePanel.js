@@ -124,15 +124,14 @@ class SidePanel extends ShadowElement {
           display: block;
         }
         .closed {
-          left: -400px;
+          top: 100vh
         }
         section {
-          max-width: 400px;
-          width: calc(100% - var(--margin-6));
+          top: 40vh;
+          height: 60vh;
+          width: 100%;
           position: absolute;
           transition: left 0.1s;
-          left: 0px;
-          height: 100vh;
           background-color: white;
           z-index: 2;
           overflow: auto;
@@ -163,6 +162,18 @@ class SidePanel extends ShadowElement {
         }
         #closeButton:hover, #closeButton:focus {
           background-color: black;
+        }
+        @media only screen and (min-width: 600px) {
+          .closed {
+            left: -400px;
+          }
+          section {
+            max-width: 400px;
+            left: 0px;
+            height: 100vh;
+            width: calc(100% - var(--margin-6));
+            top: 0;
+          }
         }
       </style>
       <section class="closed" id="section">
