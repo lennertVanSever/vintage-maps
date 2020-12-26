@@ -1,11 +1,16 @@
 import colors from '../colors.js';
-import { addParametersToURL, resetAlreadySelected } from '../utils.js';
+import {
+  addParametersToURL,
+  camalize,
+  resetAlreadySelected,
+} from '../utils.js';
 
 export class Rivers {
-  constructor(geoPath, group, projection) {
+  constructor(geoPath, group, projection, map) {
     this.geoPath = geoPath;
     this.group = group;
     this.projection = projection;
+    this.map = map;
   }
 
   async render() {
@@ -25,11 +30,20 @@ export class Rivers {
   riverClicked(selectedRiver) {
     d3.event.stopPropagation();
     resetAlreadySelected();
-    d3.select(this).attr('stroke', colors.rivers).attr('stroke-width', 0.2);
+    const selectedRiverElement = d3.select(
+      `#riverShadow${camalize(selectedRiver.properties.NAME)}`
+    );
+    console.log(selectedRiverElement);
+    selectedRiverElement
+      .attr('stroke', colors.rivers)
+      .attr('stroke-width', 0.2);
     addParametersToURL({
       info: selectedRiver.properties.NAME,
       type: 'river',
     });
+
+    const { x, y, width, height } = selectedRiverElement.node().getBBox();
+    this.map.zoomToCoordinate({ x, y, width, height });
   }
 
   drawRivers() {
@@ -55,10 +69,11 @@ export class Rivers {
       .append('path')
       .attr('d', this.geoPath)
       .attr('class', 'riverShadow')
+      .attr('id', river => `riverShadow${camalize(river.properties.NAME)}`)
       .attr('fill', 'none')
       .attr('stroke-width', 2)
       .attr('stroke', 'transparent')
       .style('cursor', 'pointer')
-      .on('click', this.riverClicked);
+      .on('click', this.riverClicked.bind(this));
   }
 }
