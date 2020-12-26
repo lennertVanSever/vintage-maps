@@ -26,8 +26,8 @@ export class Graticule {
   }
 
   setSpecialParallels() {
-    const polarCircle = 66.33;
-    const tropicCircle = 23.439;
+    const polarCircle = 66.3348;
+    const tropicCircle = 23.4394;
     const equator = 0;
 
     this.specialParallels = [
