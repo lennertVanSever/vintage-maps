@@ -67,17 +67,18 @@ class ModifyCityData {
   }
 }
 
-const getExtremes = ({ x, y, width, height }, isCountry) => {
-  const factor = isCountry ? 1.5 : 2;
+const getExtremes = ({ x, y, width, height }) => {
+  const factor = 1.0005;
   return {
-    left: x - width / factor,
-    right: x + width / factor,
-    bottom: y - height / factor,
-    top: y + height / factor,
+    left: x / factor,
+    right: (x + width) * factor,
+    top: y / factor,
+    bottom: (y + height) * factor,
   };
 };
 
 const citiesOverlap = (city1, city2) => {
+  // todo: make a unit test here to optimize function
   let overlapLeft = false;
   let overlapRight = false;
   let overlapTop = false;
@@ -97,22 +98,28 @@ const citiesOverlap = (city1, city2) => {
     overlapRight = true;
     overlapLeft = true;
   }
-  if (city2.top < city1.top && city2.top > city1.bottom) {
-    overlapBottom = true;
+
+  if (city1.top < city2.top && city1.bottom > city2.bottom) {
     overlapTop = true;
-  }
-  if (city1.bottom > city2.bottom && city1.bottom < city2.top) {
     overlapBottom = true;
   }
-  if (city1.top < city2.top && city1.top > city2.bottom) {
+
+  if (
+    city1.top > city2.top &&
+    city1.top < city2.bottom &&
+    city1.bottom > city2.bottom
+  ) {
     overlapTop = true;
   }
-  // console.log({
-  //   overlapLeft,
-  //   overlapRight,
-  //   overlapTop,
-  //   overlapBottom,
-  // });
+
+  if (
+    city1.bottom > city2.top &&
+    city1.top < city2.top &&
+    city1.bottom < city2.bottom
+  ) {
+    overlapBottom = true;
+  }
+
   return (
     (overlapLeft && overlapBottom) ||
     (overlapLeft && overlapTop) ||
@@ -169,7 +176,7 @@ export class Cities {
         name: node.properties.NAME,
         currentPopulation: node.currentPopulation || Infinity,
         isCountry,
-        ...getExtremes(d3.select(this).node().getBBox(), isCountry),
+        ...getExtremes(d3.select(this).node().getBBox()),
       });
     });
     cities.sort((a, b) => b.currentPopulation - a.currentPopulation);
@@ -177,8 +184,10 @@ export class Cities {
     cities.forEach((city, index) => {
       for (let j = index + 1; j < cities.length; j++) {
         const otherCity = cities[j];
-        if (citiesOverlap(city, otherCity) && !otherCity.isCountry) {
-          hideCities.push(otherCity.name);
+        if (!otherCity.isCountry) {
+          if (citiesOverlap(city, otherCity)) {
+            hideCities.push(otherCity.name);
+          }
         }
       }
     });
