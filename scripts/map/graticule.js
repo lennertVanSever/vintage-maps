@@ -12,8 +12,10 @@ export class Graticule {
 
   render() {
     this.setGraticule();
+    this.setSpecialParallels();
     this.drawOutlineOfGraticule();
     this.drawGraticule();
+    this.drawSpecialParallels();
   }
 
   setGraticule() {
@@ -23,14 +25,66 @@ export class Graticule {
     ]);
   }
 
+  setSpecialParallels() {
+    const polarCircle = 66.33;
+    const tropicCircle = 23.439;
+    const equator = 0;
+
+    this.specialParallels = [
+      polarCircle,
+      tropicCircle,
+      equator,
+      -tropicCircle,
+      -polarCircle,
+    ].map(latitudes => {
+      latitudes += 0.1; // make small correction
+      return d3.geoGraticule().extent([
+        [-this.x, latitudes - 0.11],
+        [this.x, latitudes],
+      ]);
+    });
+
+    this.specialParallels.forEach(singleLine => {
+      singleLine.step([0, 0.1]);
+    });
+  }
+
   resize({ zoom: { value, minimum, maximum } }) {
     let strokeWidth;
+
     if (value < 5) {
       strokeWidth = mapRange(value, 5, minimum, 0.1, this.initialStrokeWidth);
     } else {
       strokeWidth = mapRange(value, maximum, minimum, 0.01, 0.1);
     }
     d3.selectAll('.graticule').attr('stroke-width', strokeWidth);
+    d3.selectAll('.moveGraticule').attr(
+      'transform',
+      `translate(0,-${strokeWidth * 15})`
+    );
+  }
+
+  onlyGetFirstLine(multiLineFunction) {
+    const multiLine = multiLineFunction();
+    return {
+      ...multiLine,
+      coordinates: [multiLine.coordinates[0]],
+    };
+  }
+
+  drawSpecialParallels() {
+    this.specialParallels.forEach(parallel => {
+      ['', 'moveGraticule'].forEach(extraClasses => {
+        this.group
+          .append('path')
+          .datum(this.onlyGetFirstLine(parallel))
+          .attr('class', `graticule specialParallel ${extraClasses}`)
+          .attr('d', this.geoPath)
+          .attr('fill', 'none')
+          .attr('stroke', colors.graticule)
+          .attr('stroke-width', this.initialStrokeWidth);
+      });
+    });
   }
 
   drawGraticule() {
