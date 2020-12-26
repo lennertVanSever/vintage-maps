@@ -68,12 +68,12 @@ class ModifyCityData {
 }
 
 const getExtremes = ({ x, y, width, height }) => {
-  const factor = 1.0005;
+  const round = (number, type) => Math[type](number * 10) / 10;
   return {
-    left: x / factor,
-    right: (x + width) * factor,
-    top: y / factor,
-    bottom: (y + height) * factor,
+    left: round(x, 'floor'),
+    right: round(x + width, 'ceil'),
+    top: round(y, 'floor'),
+    bottom: round(y + height, 'ceil'),
   };
 };
 
@@ -83,39 +83,39 @@ const citiesOverlap = (city1, city2) => {
   let overlapRight = false;
   let overlapTop = false;
   let overlapBottom = false;
-  if (city1.left > city2.left && city1.left < city2.right) {
+  if (city1.left >= city2.left && city1.left <= city2.right) {
     overlapLeft = true;
   }
-  if (city2.left > city1.left && city2.left < city1.right) {
+  if (city2.left >= city1.left && city2.left <= city1.right) {
     overlapLeft = true;
   }
-  if (city1.right < city2.right && city1.right > city2.left) {
+  if (city1.right <= city2.right && city1.right >= city2.left) {
     overlapRight = true;
   }
   // // console.log(city2, city1);
-  if (city2.left > city1.left && city2.left < city1.right) {
+  if (city2.left >= city1.left && city2.left <= city1.right) {
     // revisit this part later, can be optimized
     overlapRight = true;
     overlapLeft = true;
   }
 
-  if (city1.top < city2.top && city1.bottom > city2.bottom) {
+  if (city1.top <= city2.top && city1.bottom >= city2.bottom) {
     overlapTop = true;
     overlapBottom = true;
   }
 
   if (
-    city1.top > city2.top &&
-    city1.top < city2.bottom &&
-    city1.bottom > city2.bottom
+    city1.top >= city2.top &&
+    city1.top <= city2.bottom &&
+    city1.bottom >= city2.bottom
   ) {
     overlapTop = true;
   }
 
   if (
-    city1.bottom > city2.top &&
-    city1.top < city2.top &&
-    city1.bottom < city2.bottom
+    city1.bottom >= city2.top &&
+    city1.top <= city2.top &&
+    city1.bottom <= city2.bottom
   ) {
     overlapBottom = true;
   }
@@ -150,7 +150,7 @@ export class Cities {
 
     if (value < 5) {
       fontSize = mapRange(value, 5, minimum, 3, 5);
-      textDistance = mapRange(value, 5, minimum, 1.1, 3.5);
+      textDistance = mapRange(value, 5, minimum, 1.1, 2);
       pointRadius = mapRange(value, 5, minimum, 0.5, 1);
     } else {
       fontSize = mapRange(value, maximum, minimum, 0.5, 3);
