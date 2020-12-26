@@ -49,18 +49,11 @@ export class Graticule {
     });
   }
 
-  resize({ zoom: { value, minimum, maximum } }) {
-    let strokeWidth;
-
-    if (value < 5) {
-      strokeWidth = mapRange(value, 5, minimum, 0.1, this.initialStrokeWidth);
-    } else {
-      strokeWidth = mapRange(value, maximum, minimum, 0.01, 0.1);
-    }
-    d3.selectAll('.graticule').attr('stroke-width', strokeWidth);
+  resize(zoomFactor) {
+    d3.selectAll('.graticule').attr('stroke-width', zoomFactor);
     d3.selectAll('.moveGraticule').attr(
       'transform',
-      `translate(0,-${strokeWidth * 15})`
+      `translate(0,-${zoomFactor * 15})`
     );
   }
 

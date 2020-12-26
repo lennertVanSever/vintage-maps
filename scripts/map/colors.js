@@ -12,4 +12,5 @@ export default {
   ],
   outsideBorder: '#4d4c4c',
   graticule: '#b1b1b1',
+  rivers: '#146b8d',
 };

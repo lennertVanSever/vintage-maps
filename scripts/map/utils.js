@@ -10,6 +10,9 @@ export const resetAlreadySelected = () => {
   d3.selectAll('.insideBorderLight').attr('fill', 'none');
   d3.selectAll('.cityPath').attr('fill', colors.text);
   d3.selectAll('.cityName').attr('fill', colors.text);
+  d3.selectAll('.riverShadow')
+    .attr('stroke', 'transparent')
+    .attr('stroke-width', 1);
 };
 export const camalize = str => {
   if (!str) return str;

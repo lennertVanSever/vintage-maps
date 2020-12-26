@@ -142,21 +142,17 @@ export class Cities {
     return responseJson;
   }
 
-  resize({ zoom: { value, minimum, maximum } }) {
+  resize(zoomFactor) {
     // d3.selectAll(circle).attr('stroke-width', newWidth)
-    let fontSize;
-    let pointRadius;
-    let textDistance;
+    const fontSize = zoomFactor * 25;
+    const pointRadius = zoomFactor * 5;
+    const textDistance = zoomFactor * 10;
 
-    if (value < 5) {
-      fontSize = mapRange(value, 5, minimum, 3, 5);
-      textDistance = mapRange(value, 5, minimum, 1.1, 2);
-      pointRadius = mapRange(value, 5, minimum, 0.5, 1);
-    } else {
-      fontSize = mapRange(value, maximum, minimum, 0.5, 3);
-      textDistance = mapRange(value, maximum, minimum, 0.2, 1.1);
-      pointRadius = mapRange(value, maximum, minimum, 0.1, 0.5);
-    }
+    // } else {
+    //   fontSize = mapRange(value, maximum, minimum, 0.5, 3);
+    //   textDistance = mapRange(value, maximum, minimum, 0.2, 1.1);
+    //   pointRadius = mapRange(value, maximum, minimum, 0.1, 0.5);
+    // }
 
     const citiesPath = d3.geoPath().projection(this.projection);
     citiesPath.pointRadius(pointRadius);

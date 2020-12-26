@@ -1,9 +1,10 @@
 import projectionNames from '../config/projections.js';
 import years from '../config/years.js';
 import { Cities } from './cities/index.js';
+import { Rivers } from './rivers/index.js';
 import { Countries } from './countries.js';
 import { Graticule } from './graticule.js';
-import { addParameterToURL, initialUrl } from './utils.js';
+import { addParameterToURL, initialUrl, mapRange } from './utils.js';
 
 export class Map {
   constructor() {
@@ -58,6 +59,9 @@ export class Map {
         .precision(0.1);
       this.geoPath = d3.geoPath().projection(projection);
 
+      this.rivers = new Rivers(this.geoPath, this.group, projection);
+      await this.rivers.render();
+
       this.countries = new Countries(
         this.geoPath,
         this.group,
@@ -94,9 +98,22 @@ export class Map {
       this.group.attr('transform', this.transform);
     }
     if (this.previousZoomValue !== zoom.value || force) {
-      this.countries.resizeBorders({ zoom });
-      this.cities.resize({ zoom });
-      this.graticule.resize({ zoom });
+      let zoomFactor;
+      if (zoom.value < 5) {
+        zoomFactor = mapRange(zoom.value, 5, zoom.minimum, 0.1, 0.2);
+      } else {
+        zoomFactor = mapRange(
+          zoom.value,
+          zoom.maximum,
+          zoom.minimum,
+          0.02,
+          0.1
+        );
+      }
+      this.countries.resizeBorders(zoomFactor);
+      this.cities.resize(zoomFactor);
+      this.graticule.resize(zoomFactor);
+      this.rivers.resize(zoomFactor);
     }
     this.previousZoomValue = zoom.value;
   }

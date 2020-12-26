@@ -47,52 +47,10 @@ export class Countries {
     return `${prefix}${index}`;
   }
 
-  resizeBorders({ zoom: { value, minimum, maximum } }) {
-    const resizeBorder = ({
-      pathClass,
-      maximumWidth,
-      inBetweenMinimumWidth,
-      minimumWidth,
-    }) => {
-      const inBetween = 5;
-      let newWidth;
-      if (value < inBetween) {
-        newWidth = mapRange(
-          value,
-          inBetween,
-          minimum,
-          inBetweenMinimumWidth,
-          maximumWidth
-        );
-      } else {
-        newWidth = mapRange(
-          value,
-          maximum,
-          inBetween,
-          minimumWidth,
-          inBetweenMinimumWidth
-        );
-      }
-      d3.selectAll(pathClass).attr('stroke-width', newWidth);
-    };
-    resizeBorder({
-      pathClass: '.insideBorderDark',
-      maximumWidth: 2.5,
-      inBetweenMinimumWidth: 0.6,
-      minimumWidth: 0.15,
-    });
-    resizeBorder({
-      pathClass: '.outsideBorder',
-      maximumWidth: 0.8,
-      inBetweenMinimumWidth: 0.05,
-      minimumWidth: 0.01,
-    });
-    resizeBorder({
-      pathClass: '.insideBorderLight',
-      maximumWidth: 4,
-      inBetweenMinimumWidth: 1,
-      minimumWidth: 0.3,
-    });
+  resizeBorders(zoomFactor) {
+    d3.selectAll('.insideBorderDark').attr('stroke-width', zoomFactor * 10);
+    d3.selectAll('.outsideBorder').attr('stroke-width', zoomFactor * 2);
+    d3.selectAll('.insideBorderLight').attr('stroke-width', zoomFactor * 20);
   }
 
   selectCountryNameIfInUrl() {
