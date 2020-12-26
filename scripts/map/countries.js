@@ -9,13 +9,12 @@ import {
 } from './utils.js';
 
 export class Countries {
-  constructor(geoPath, group, year, projection, svg, zoomController) {
+  constructor(geoPath, group, year, projection, map) {
     this.geoPath = geoPath;
     this.group = group;
     this.year = year;
     this.projection = projection;
-    this.svg = svg;
-    this.zoomController = zoomController;
+    this.map = map;
   }
 
   async render() {
@@ -134,42 +133,12 @@ export class Countries {
 
   zoomToSelectedCountry(selectedCountryInsideBorder) {
     const {
-      x: xSelectedCountry,
-      y: ySelectedCountry,
+      x,
+      y,
       width,
       height,
     } = selectedCountryInsideBorder.node().getBBox();
-    let sidepanelSpaceHorizontal = 200;
-    let sidepanelSpaceVertical = 0;
-    let scaleFactorHorizontal = 2;
-    let scaleFactorVertical = 1.5;
-    if (window.innerWidth < 600) {
-      sidepanelSpaceVertical = -window.innerHeight * 0.3;
-      sidepanelSpaceHorizontal = 0;
-      scaleFactorVertical = 3;
-      scaleFactorHorizontal = 1.5;
-    }
-
-    const scaleWidth = window.innerWidth / width / scaleFactorHorizontal;
-    const scaleHeight = window.innerHeight / height / scaleFactorVertical;
-    const scale = width > height ? scaleWidth : scaleHeight;
-
-    this.svg
-      .transition()
-      .duration(500)
-      .call(
-        this.zoomController.transform,
-        d3.zoomIdentity
-          .translate(
-            window.innerWidth / 2 + sidepanelSpaceHorizontal,
-            window.innerHeight / 2 + sidepanelSpaceVertical
-          )
-          .scale(scale)
-          .translate(
-            -xSelectedCountry - width / 2,
-            -ySelectedCountry - height / 2
-          )
-      );
+    this.map.zoomToCoordinate({ x, y, width, height });
   }
 
   countryClicked(selectedCountry) {

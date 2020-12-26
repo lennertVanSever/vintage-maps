@@ -59,7 +59,7 @@ export class Map {
         .precision(0.1);
       this.geoPath = d3.geoPath().projection(projection);
 
-      this.rivers = new Rivers(this.geoPath, this.group, projection);
+      this.rivers = new Rivers(this.geoPath, this.group, projection, this);
       await this.rivers.render();
 
       this.countries = new Countries(
@@ -67,8 +67,7 @@ export class Map {
         this.group,
         this.year,
         projection,
-        this.svg,
-        this.zoomController
+        this
       );
       await this.countries.render();
 
@@ -81,6 +80,36 @@ export class Map {
       this.makeMapZoomable();
       this.rezoom({ force: true });
     }
+  }
+
+  zoomToCoordinate({ x, y, width, height }) {
+    let sidepanelSpaceHorizontal = 200;
+    let sidepanelSpaceVertical = 0;
+    let scaleFactorHorizontal = 2;
+    let scaleFactorVertical = 1.5;
+    if (window.innerWidth < 600) {
+      sidepanelSpaceVertical = -window.innerHeight * 0.3;
+      sidepanelSpaceHorizontal = 0;
+      scaleFactorVertical = 3;
+      scaleFactorHorizontal = 1.5;
+    }
+
+    const scaleWidth = window.innerWidth / width / scaleFactorHorizontal;
+    const scaleHeight = window.innerHeight / height / scaleFactorVertical;
+    const scale = width > height ? scaleWidth : scaleHeight;
+    this.svg
+      .transition()
+      .duration(500)
+      .call(
+        this.zoomController.transform,
+        d3.zoomIdentity
+          .translate(
+            window.innerWidth / 2 + sidepanelSpaceHorizontal,
+            window.innerHeight / 2 + sidepanelSpaceVertical
+          )
+          .scale(scale)
+          .translate(-x - width / 2, -y - height / 2)
+      );
   }
 
   rezoom(force) {
