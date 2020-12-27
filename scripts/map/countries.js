@@ -13,18 +13,21 @@ export class Countries {
     this.map = map;
   }
 
-  async render() {
+  async render({ yearChange }) {
+    this.map.subGroups.countryBorders.selectAll('*').remove();
+    this.map.subGroups.countryNames.selectAll('*').remove();
     await this.getCountryData();
     this.drawInsideBorders();
     this.drawOutsideBorders();
     this.drawNamesOfCountries();
     this.selectCountryNameIfInUrl();
+    if (yearChange) this.map.rezoom(true);
   }
 
   async getCountryData() {
     let mapYear = this.map.year;
-    if (mapYear < 0) {
-      mapYear = `bc${Math.abs(this.year)}`;
+    if (Number(mapYear) < 0) {
+      mapYear = `bc${Math.abs(mapYear)}`;
     }
     this.countryData = await d3.json(`maps/world_${mapYear}.geojson`);
     // this.countryData = await d3.json(`maps/test.geojson`);

@@ -24,9 +24,13 @@ export class Map {
   }
 
   set year(newYear) {
+    const previousYear = this.year;
     addParameterToURL('year', newYear);
     this._year = newYear;
-    this.reset();
+    if (previousYear) {
+      this.cities.render();
+      this.countries.render({ yearChange: true });
+    }
   }
 
   get year() {
@@ -34,9 +38,11 @@ export class Map {
   }
 
   set projectionName(newProjectionName) {
+    const previousProjection = this.projection;
     addParameterToURL('projection', newProjectionName);
     this._projectionName = newProjectionName;
     this.reset();
+    if (previousProjection) this.countries.render();
   }
 
   get projectionName() {
@@ -79,7 +85,7 @@ export class Map {
       this.graticule.render();
 
       this.countries = new Countries(this);
-      await this.countries.render();
+      await this.countries.render({});
 
       this.cities = new Cities(this);
       await this.cities.render();

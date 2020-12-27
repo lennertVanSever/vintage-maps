@@ -133,10 +133,11 @@ export class Cities {
   }
 
   async fetchData() {
+    if (this.allCities) return this.allCities;
     const response = await fetch('./scripts/map/cities/data.json');
     // const response = await fetch('./scripts/map/cities/dataTest.json');
-    const responseJson = await response.json();
-    return responseJson;
+    this.allCities = await response.json();
+    return this.allCities;
   }
 
   resize(zoomFactor) {
@@ -219,7 +220,10 @@ export class Cities {
   }
 
   async render() {
-    const rawCityData = await this.fetchData();
+    this.map.subGroups.cities.selectAll('*').remove();
+    await this.fetchData();
+    const rawCityData = { ...this.allCities };
+    console.log(rawCityData.features.length);
     const cityData = new ModifyCityData(rawCityData, this.map.year);
     // console.log(cityData.data.features);
 
