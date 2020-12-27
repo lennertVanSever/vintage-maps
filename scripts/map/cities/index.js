@@ -223,7 +223,7 @@ export class Cities {
     const cityData = new ModifyCityData(rawCityData, this.map.year);
     // console.log(cityData.data.features);
 
-    const citiesGroup = this.map.group
+    const citiesGroup = this.map.subGroups.cities
       .append('g')
       .attr('class', 'cities')
       .selectAll('circle')

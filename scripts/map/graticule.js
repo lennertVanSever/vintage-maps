@@ -66,7 +66,7 @@ export class Graticule {
   drawSpecialParallels() {
     this.specialParallels.forEach(parallel => {
       ['', 'moveGraticule'].forEach(extraClasses => {
-        this.map.group
+        this.map.subGroups.graticuleCollection
           .append('path')
           .datum(this.onlyGetFirstLine(parallel))
           .attr('class', `graticule specialParallel ${extraClasses}`)
@@ -79,7 +79,7 @@ export class Graticule {
   }
 
   drawGraticule() {
-    this.map.group
+    this.map.subGroups.graticuleCollection
       .append('path')
       .datum(this.graticule)
       .attr('class', 'graticule')
@@ -90,7 +90,7 @@ export class Graticule {
   }
 
   drawOutlineOfGraticule() {
-    this.map.group
+    this.map.subGroups.graticuleCollection
       .append('path')
       .datum(this.graticule.outline)
       .attr('class', 'graticule outline')

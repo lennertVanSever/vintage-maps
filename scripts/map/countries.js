@@ -59,7 +59,7 @@ export class Countries {
 
   drawInsideBorders() {
     const addInsideBorder = ({ pathClass }) => {
-      return this.map.group
+      return this.map.subGroups.countryBorders
         .append('g')
         .attr('class', 'borders')
         .selectAll('path')
@@ -89,7 +89,7 @@ export class Countries {
       .attr('stroke-width', 0)
       .attr('opacity', 0.5);
 
-    this.map.group
+    this.map.subGroups.countryBorders
       .append('g')
       .attr('class', 'borderClip')
       .selectAll('path')
@@ -104,7 +104,7 @@ export class Countries {
   }
 
   drawOutsideBorders() {
-    this.map.group
+    this.map.subGroups.countryBorders
       .append('g')
       .attr('class', 'states')
       .selectAll('path')
@@ -152,7 +152,7 @@ export class Countries {
   }
 
   drawNamesOfCountries() {
-    this.map.group
+    this.map.subGroups.countryNames
       .append('g')
       .attr('class', 'names')
       .selectAll('text')

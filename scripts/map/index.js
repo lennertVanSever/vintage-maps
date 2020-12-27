@@ -13,6 +13,8 @@ export class Map {
       .attr('viewBox', [0, 0, window.innerWidth, window.innerHeight]);
     this.svg.selectAll('*').remove();
     this.group = this.svg.append('g');
+    this.setInitialSubGroups();
+
     this.year = initialUrl.searchParams.get('year') || years[0];
     this.minimumZoom = 1;
     this.maximumZoom = 40;
@@ -41,9 +43,23 @@ export class Map {
     return this._projectionName;
   }
 
+  setInitialSubGroups() {
+    this.subGroups = {};
+    [
+      'countryBorders',
+      'rivers',
+      'graticuleCollection',
+      'cities',
+      'countryNames',
+    ].forEach(groupName => {
+      this.subGroups[groupName] = this.group.append('g').attr('id', groupName);
+    });
+  }
+
   async reset() {
     this.svg.selectAll('*').remove();
     this.group = this.svg.append('g');
+    this.setInitialSubGroups();
     this.render();
   }
 
@@ -59,17 +75,17 @@ export class Map {
         .precision(0.1);
       this.geoPath = d3.geoPath().projection(this.projection);
 
-      this.rivers = new Rivers(this);
-      await this.rivers.render();
+      this.graticule = new Graticule(this);
+      this.graticule.render();
 
       this.countries = new Countries(this);
       await this.countries.render();
 
-      this.graticule = new Graticule(this);
-      this.graticule.render();
-
       this.cities = new Cities(this);
       await this.cities.render();
+
+      this.rivers = new Rivers(this);
+      await this.rivers.render();
 
       this.makeMapZoomable();
       this.rezoom({ force: true });

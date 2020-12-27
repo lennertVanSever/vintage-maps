@@ -43,7 +43,7 @@ export class Rivers {
   }
 
   drawRivers() {
-    this.map.group
+    this.map.subGroups.rivers
       .append('g')
       .attr('class', 'rivers')
       .selectAll('path')
@@ -56,7 +56,7 @@ export class Rivers {
       .attr('stroke-width', 0.1)
       .attr('stroke', colors.rivers);
 
-    this.map.group
+    this.map.subGroups.rivers
       .append('g')
       .attr('class', 'riverShadows')
       .selectAll('path')
