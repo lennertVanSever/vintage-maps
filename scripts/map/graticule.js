@@ -16,6 +16,10 @@ export class Graticule {
     this.drawSpecialParallels();
   }
 
+  changeProjection() {
+    d3.selectAll('.graticule').attr('d', this.map.geoPath);
+  }
+
   setGraticule() {
     this.graticule = d3.geoGraticule().extent([
       [-this.x, -this.y],

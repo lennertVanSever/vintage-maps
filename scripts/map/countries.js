@@ -13,7 +13,7 @@ export class Countries {
     this.map = map;
   }
 
-  async render({ yearChange }) {
+  async render({ rezoom }) {
     this.map.subGroups.countryBorders.selectAll('*').remove();
     this.map.subGroups.countryNames.selectAll('*').remove();
     await this.getCountryData();
@@ -21,7 +21,7 @@ export class Countries {
     this.drawOutsideBorders();
     this.drawNamesOfCountries();
     this.selectCountryNameIfInUrl();
-    if (yearChange) this.map.rezoom(true);
+    if (rezoom) this.map.rezoom(true);
   }
 
   async getCountryData() {
@@ -29,8 +29,17 @@ export class Countries {
     if (Number(mapYear) < 0) {
       mapYear = `bc${Math.abs(mapYear)}`;
     }
-    this.countryData = await d3.json(`maps/world_${mapYear}.geojson`);
-    // this.countryData = await d3.json(`maps/test.geojson`);
+    const mapName = `world_${mapYear}`;
+    if (this.countryRawData && this.countryRawData.name === mapName) {
+      this.countryData = this.countryRawData;
+    } else {
+      this.countryData = await d3.json(`maps/${mapName}.geojson`);
+    }
+    this.countryRawData = JSON.parse(JSON.stringify(this.countryData));
+  }
+
+  changeProjection() {
+    this.render({ rezoom: true });
   }
 
   isUnclaimed(d) {
@@ -94,11 +103,12 @@ export class Countries {
 
     this.map.subGroups.countryBorders
       .append('g')
-      .attr('class', 'borderClip')
+      .attr('class', 'borderClips')
       .selectAll('path')
       .data(this.countryData.features)
       .enter()
       .append('clipPath')
+      .attr('class', 'borderClip')
       .attr('id', (d, index) => {
         return this.getIdBorderClip(index);
       })

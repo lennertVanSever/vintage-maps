@@ -21,6 +21,7 @@ export class Map {
     this.zoomController = d3.zoom();
     this.projectionName =
       initialUrl.searchParams.get('projection') || projectionNames[0];
+    this.reset();
   }
 
   set year(newYear) {
@@ -28,8 +29,8 @@ export class Map {
     addParameterToURL('year', newYear);
     this._year = newYear;
     if (previousYear) {
-      this.cities.render();
-      this.countries.render({ yearChange: true });
+      this.cities.render({ rezoom: true });
+      this.countries.render({ rezoom: true });
     }
   }
 
@@ -41,8 +42,26 @@ export class Map {
     const previousProjection = this.projection;
     addParameterToURL('projection', newProjectionName);
     this._projectionName = newProjectionName;
-    this.reset();
-    if (previousProjection) this.countries.render();
+
+    const scale =
+      window.innerWidth > window.innerHeight
+        ? window.innerWidth / 6
+        : window.innerHeight / 3;
+
+    this.projection = d3[`geo${this.projectionName}`]()
+      .scale(scale)
+      .translate([window.innerWidth / 2, window.innerHeight / 2])
+      .precision(0.1);
+
+    this.geoPath = d3.geoPath().projection(this.projection);
+
+    if (previousProjection) {
+      // this.reset();
+      this.graticule.changeProjection();
+      this.rivers.changeProjection();
+      this.cities.changeProjection();
+      this.countries.changeProjection();
+    }
   }
 
   get projectionName() {
@@ -71,16 +90,6 @@ export class Map {
 
   async render() {
     if (this.projectionName) {
-      const scale =
-        window.innerWidth > window.innerHeight
-          ? window.innerWidth / 6
-          : window.innerHeight / 3;
-      this.projection = d3[`geo${this.projectionName}`]()
-        .scale(scale)
-        .translate([window.innerWidth / 2, window.innerHeight / 2])
-        .precision(0.1);
-      this.geoPath = d3.geoPath().projection(this.projection);
-
       this.graticule = new Graticule(this);
       this.graticule.render();
 
@@ -88,7 +97,7 @@ export class Map {
       await this.countries.render({});
 
       this.cities = new Cities(this);
-      await this.cities.render();
+      await this.cities.render({});
 
       this.rivers = new Rivers(this);
       await this.rivers.render();

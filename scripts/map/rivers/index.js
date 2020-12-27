@@ -20,6 +20,11 @@ export class Rivers {
     // this.countryData = await d3.json(`maps/test.geojson`);
   }
 
+  changeProjection() {
+    d3.selectAll('.river').attr('d', this.map.geoPath);
+    d3.selectAll('.riverShadow').attr('d', this.map.geoPath);
+  }
+
   resize(zoomFactor) {
     d3.selectAll('.river').attr('stroke-width', zoomFactor / 2);
   }

@@ -140,6 +140,10 @@ export class Cities {
     return this.allCities;
   }
 
+  changeProjection() {
+    this.render({ rezoom: true });
+  }
+
   resize(zoomFactor) {
     // d3.selectAll(circle).attr('stroke-width', newWidth)
     const fontSize = zoomFactor * 25;
@@ -219,11 +223,10 @@ export class Cities {
     }
   }
 
-  async render() {
+  async render({ rezoom }) {
     this.map.subGroups.cities.selectAll('*').remove();
     await this.fetchData();
     const rawCityData = { ...this.allCities };
-    console.log(rawCityData.features.length);
     const cityData = new ModifyCityData(rawCityData, this.map.year);
     // console.log(cityData.data.features);
 
@@ -276,5 +279,6 @@ export class Cities {
         map.zoomToCoordinate({ x, y, width, height, maintainSameScale: true });
       });
     this.selectCityNameIfInUrl();
+    if (rezoom) this.map.rezoom(true);
   }
 }
