@@ -240,6 +240,7 @@ export class Cities {
       .attr('fill', colors.text)
       .attr('id', city => `cityPath${camalize(city.properties.NAME)}`);
 
+    const { map } = this;
     citiesGroup
       .append('text')
       .attr('x', city => this.getProjectedCoordinates(city)[0])
@@ -255,7 +256,8 @@ export class Cities {
       .attr('id', city => `cityName${camalize(city.properties.NAME)}`)
       .on('click', function (city) {
         resetAlreadySelected();
-        d3.select(this).attr('fill', colors.selectedCity);
+        const selectedCity = d3.select(this);
+        selectedCity.attr('fill', colors.selectedCity);
         d3.select(`#cityPath${camalize(city.properties.NAME)}`).attr(
           'fill',
           colors.selectedCity
@@ -265,6 +267,9 @@ export class Cities {
           info: city.properties.NAME,
           type: 'city',
         });
+
+        const { x, y, width, height } = selectedCity.node().getBBox();
+        map.zoomToCoordinate({ x, y, width, height, maintainSameScale: true });
       });
     this.selectCityNameIfInUrl();
   }

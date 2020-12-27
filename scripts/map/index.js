@@ -76,7 +76,7 @@ export class Map {
     }
   }
 
-  zoomToCoordinate({ x, y, width, height }) {
+  zoomToCoordinate({ x, y, width, height, maintainSameScale }) {
     let sidepanelSpaceHorizontal = 200;
     let sidepanelSpaceVertical = 0;
     let scaleFactorHorizontal = 2;
@@ -90,7 +90,14 @@ export class Map {
 
     const scaleWidth = window.innerWidth / width / scaleFactorHorizontal;
     const scaleHeight = window.innerHeight / height / scaleFactorVertical;
-    const scale = width > height ? scaleWidth : scaleHeight;
+    const scale = maintainSameScale
+      ? this.previousZoomValue
+        ? this.previousZoomValue
+        : 40
+      : width > height
+      ? scaleWidth
+      : scaleHeight;
+
     this.svg
       .transition()
       .duration(500)
