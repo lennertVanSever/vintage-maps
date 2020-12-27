@@ -9,11 +9,7 @@ import {
 } from './utils.js';
 
 export class Countries {
-  constructor(geoPath, group, year, projection, map) {
-    this.geoPath = geoPath;
-    this.group = group;
-    this.year = year;
-    this.projection = projection;
+  constructor(map) {
     this.map = map;
   }
 
@@ -26,8 +22,8 @@ export class Countries {
   }
 
   async getCountryData() {
-    let mapYear = this.year;
-    if (this.year < 0) {
+    let mapYear = this.map.year;
+    if (mapYear < 0) {
       mapYear = `bc${Math.abs(this.year)}`;
     }
     this.countryData = await d3.json(`maps/world_${mapYear}.geojson`);
@@ -63,7 +59,7 @@ export class Countries {
 
   drawInsideBorders() {
     const addInsideBorder = ({ pathClass }) => {
-      return this.group
+      return this.map.group
         .append('g')
         .attr('class', 'borders')
         .selectAll('path')
@@ -73,7 +69,7 @@ export class Countries {
         .attr('clip-path', (d, index) => {
           return `url(#${this.getIdBorderClip(index)})`;
         })
-        .attr('d', this.geoPath)
+        .attr('d', this.map.geoPath)
         .attr('fill', 'none')
         .attr(
           'class',
@@ -93,7 +89,7 @@ export class Countries {
       .attr('stroke-width', 0)
       .attr('opacity', 0.5);
 
-    this.group
+    this.map.group
       .append('g')
       .attr('class', 'borderClip')
       .selectAll('path')
@@ -104,18 +100,18 @@ export class Countries {
         return this.getIdBorderClip(index);
       })
       .append('path')
-      .attr('d', this.geoPath);
+      .attr('d', this.map.geoPath);
   }
 
   drawOutsideBorders() {
-    this.group
+    this.map.group
       .append('g')
       .attr('class', 'states')
       .selectAll('path')
       .data(this.countryData.features)
       .enter()
       .append('path')
-      .attr('d', this.geoPath)
+      .attr('d', this.map.geoPath)
       .attr('class', 'outsideBorder')
       .attr('fill', 'none')
       // .attr('fill', colors.background)
@@ -156,14 +152,14 @@ export class Countries {
   }
 
   drawNamesOfCountries() {
-    this.group
+    this.map.group
       .append('g')
       .attr('class', 'names')
       .selectAll('text')
       .data(this.countryData.features)
       .enter()
       .append('text')
-      .attr('d', this.geoPath)
+      .attr('d', this.map.geoPath)
       .attr('class', `countryName canOverlapElement`)
       .attr('id', country => `countryName${getCountryNameCamelCase(country)}`)
       .style('fill', colors.text)
@@ -172,7 +168,7 @@ export class Countries {
       .style('cursor', 'pointer')
       .on('click', this.countryClicked.bind(this));
 
-    const { projection } = this;
+    const { projection } = this.map;
     d3.selectAll('.countryName').each(function (country) {
       let longestCoordinates = [[]];
 

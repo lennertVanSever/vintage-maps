@@ -53,28 +53,22 @@ export class Map {
         window.innerWidth > window.innerHeight
           ? window.innerWidth / 6
           : window.innerHeight / 3;
-      const projection = d3[`geo${this.projectionName}`]()
+      this.projection = d3[`geo${this.projectionName}`]()
         .scale(scale)
         .translate([window.innerWidth / 2, window.innerHeight / 2])
         .precision(0.1);
-      this.geoPath = d3.geoPath().projection(projection);
+      this.geoPath = d3.geoPath().projection(this.projection);
 
-      this.rivers = new Rivers(this.geoPath, this.group, projection, this);
+      this.rivers = new Rivers(this);
       await this.rivers.render();
 
-      this.countries = new Countries(
-        this.geoPath,
-        this.group,
-        this.year,
-        projection,
-        this
-      );
+      this.countries = new Countries(this);
       await this.countries.render();
 
-      this.graticule = new Graticule(this.geoPath, this.group);
+      this.graticule = new Graticule(this);
       this.graticule.render();
 
-      this.cities = new Cities(this.year, this.group, projection);
+      this.cities = new Cities(this);
       await this.cities.render();
 
       this.makeMapZoomable();

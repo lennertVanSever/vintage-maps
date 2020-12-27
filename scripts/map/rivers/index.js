@@ -6,10 +6,7 @@ import {
 } from '../utils.js';
 
 export class Rivers {
-  constructor(geoPath, group, projection, map) {
-    this.geoPath = geoPath;
-    this.group = group;
-    this.projection = projection;
+  constructor(map) {
     this.map = map;
   }
 
@@ -33,7 +30,6 @@ export class Rivers {
     const selectedRiverElement = d3.select(
       `#riverShadow${camalize(selectedRiver.properties.NAME)}`
     );
-    console.log(selectedRiverElement);
     selectedRiverElement
       .attr('stroke', colors.rivers)
       .attr('stroke-width', 0.2);
@@ -47,27 +43,27 @@ export class Rivers {
   }
 
   drawRivers() {
-    this.group
+    this.map.group
       .append('g')
       .attr('class', 'rivers')
       .selectAll('path')
       .data(this.riverData.features)
       .enter()
       .append('path')
-      .attr('d', this.geoPath)
+      .attr('d', this.map.geoPath)
       .attr('class', 'river')
       .attr('fill', 'none')
       .attr('stroke-width', 0.1)
       .attr('stroke', colors.rivers);
 
-    this.group
+    this.map.group
       .append('g')
       .attr('class', 'riverShadows')
       .selectAll('path')
       .data(this.riverData.features)
       .enter()
       .append('path')
-      .attr('d', this.geoPath)
+      .attr('d', this.map.geoPath)
       .attr('class', 'riverShadow')
       .attr('id', river => `riverShadow${camalize(river.properties.NAME)}`)
       .attr('fill', 'none')

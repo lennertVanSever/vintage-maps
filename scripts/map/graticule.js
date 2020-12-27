@@ -1,10 +1,8 @@
 import colors from './colors.js';
-import { mapRange } from './utils.js';
 
 export class Graticule {
-  constructor(geoPath, group) {
-    this.geoPath = geoPath;
-    this.group = group;
+  constructor(map) {
+    this.map = map;
     this.x = 180;
     this.y = 90;
     this.initialStrokeWidth = 0.2;
@@ -68,11 +66,11 @@ export class Graticule {
   drawSpecialParallels() {
     this.specialParallels.forEach(parallel => {
       ['', 'moveGraticule'].forEach(extraClasses => {
-        this.group
+        this.map.group
           .append('path')
           .datum(this.onlyGetFirstLine(parallel))
           .attr('class', `graticule specialParallel ${extraClasses}`)
-          .attr('d', this.geoPath)
+          .attr('d', this.map.geoPath)
           .attr('fill', 'none')
           .attr('stroke', colors.graticule)
           .attr('stroke-width', this.initialStrokeWidth);
@@ -81,22 +79,22 @@ export class Graticule {
   }
 
   drawGraticule() {
-    this.group
+    this.map.group
       .append('path')
       .datum(this.graticule)
       .attr('class', 'graticule')
-      .attr('d', this.geoPath)
+      .attr('d', this.map.geoPath)
       .attr('fill', 'none')
       .attr('stroke', colors.graticule)
       .attr('stroke-width', this.initialStrokeWidth);
   }
 
   drawOutlineOfGraticule() {
-    this.group
+    this.map.group
       .append('path')
       .datum(this.graticule.outline)
       .attr('class', 'graticule outline')
-      .attr('d', this.geoPath)
+      .attr('d', this.map.geoPath)
       .attr('fill', 'none')
       .attr('stroke', colors.graticule)
       .attr('stroke-width', this.initialStrokeWidth);

@@ -3,7 +3,6 @@ import colors from '../colors.js';
 import {
   addParametersToURL,
   camalize,
-  mapRange,
   resetAlreadySelected,
 } from '../utils.js';
 
@@ -129,10 +128,8 @@ const citiesOverlap = (city1, city2) => {
 };
 
 export class Cities {
-  constructor(year, group, projection) {
-    this.year = year;
-    this.group = group;
-    this.projection = projection;
+  constructor(map) {
+    this.map = map;
   }
 
   async fetchData() {
@@ -154,7 +151,7 @@ export class Cities {
     //   pointRadius = mapRange(value, maximum, minimum, 0.1, 0.5);
     // }
 
-    const citiesPath = d3.geoPath().projection(this.projection);
+    const citiesPath = d3.geoPath().projection(this.map.projection);
     citiesPath.pointRadius(pointRadius);
     // let showCities = {};
     const cities = [];
@@ -204,12 +201,12 @@ export class Cities {
     geometry: { coordinates },
   }) => {
     if (
-      isNaN(this.projection(coordinates)[0]) ||
-      isNaN(this.projection(coordinates)[1])
+      isNaN(this.map.projection(coordinates)[0]) ||
+      isNaN(this.map.projection(coordinates)[1])
     ) {
       // console.log(name);
     }
-    return this.projection(coordinates);
+    return this.map.projection(coordinates);
   };
 
   selectCityNameIfInUrl() {
@@ -223,17 +220,17 @@ export class Cities {
 
   async render() {
     const rawCityData = await this.fetchData();
-    const cityData = new ModifyCityData(rawCityData, this.year);
+    const cityData = new ModifyCityData(rawCityData, this.map.year);
     // console.log(cityData.data.features);
 
-    const citiesGroup = this.group
+    const citiesGroup = this.map.group
       .append('g')
       .attr('class', 'cities')
       .selectAll('circle')
       .data(cityData.data.features)
       .enter();
 
-    const citiesPath = d3.geoPath().projection(this.projection);
+    const citiesPath = d3.geoPath().projection(this.map.projection);
     citiesPath.pointRadius(0.5);
 
     citiesGroup
