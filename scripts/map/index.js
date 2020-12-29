@@ -22,6 +22,12 @@ export class Map {
     this.projectionName =
       initialUrl.searchParams.get('projection') || projectionNames[0];
     this.reset();
+
+    window.addEventListener('resize', this.windowResize.bind(this));
+  }
+
+  windowResize() {
+    this.svg.attr('viewBox', [0, 0, window.innerWidth, window.innerHeight]);
   }
 
   set year(newYear) {
