@@ -124,9 +124,10 @@ class SidePanel extends ShadowElement {
           display: block;
         }
         .closed {
-          top: 100vh
+          display: none;
         }
         section {
+          display: static;
           top: 40vh;
           height: 60vh;
           width: 100%;
@@ -164,9 +165,6 @@ class SidePanel extends ShadowElement {
           background-color: black;
         }
         @media only screen and (min-width: 600px) {
-          .closed {
-            left: -400px;
-          }
           section {
             max-width: 400px;
             left: 0px;
