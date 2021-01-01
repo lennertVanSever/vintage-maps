@@ -1,3 +1,5 @@
+import * as d3 from 'd3';
+import * as d3GeoProjection from 'd3-geo-projection';
 import projectionNames from '../config/projections.js';
 import years from '../config/years.js';
 import { Cities } from './cities/index.js';
@@ -53,8 +55,9 @@ export class Map {
       window.innerWidth > window.innerHeight
         ? window.innerWidth / 6
         : window.innerHeight / 3;
-
-    this.projection = d3[`geo${this.projectionName}`]()
+    this.projection = this.projection = d3GeoProjection[
+      `geo${this.projectionName}`
+    ]()
       .scale(scale)
       .translate([window.innerWidth / 2, window.innerHeight / 2])
       .precision(0.1);
@@ -192,8 +195,8 @@ export class Map {
         // .wheelDelta(() => {
         //   return -event.deltaY * (event.deltaMode === 1 ? 0.5 : event.deltaMode ? 1 : 0.02);
         // })
-        .on('zoom', () => {
-          this.transform = d3.event.transform;
+        .on('zoom', event => {
+          this.transform = event.transform;
           this.rezoom();
         })
     );

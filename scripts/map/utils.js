@@ -1,3 +1,4 @@
+import * as d3 from 'd3';
 import colors from './colors.js';
 
 export function mapRange(value, low1, high1, low2, high2) {

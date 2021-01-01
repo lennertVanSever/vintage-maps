@@ -1,4 +1,5 @@
 /* eslint-disable max-classes-per-file */
+import * as d3 from 'd3';
 import colors from '../colors.js';
 import {
   addParametersToURL,
@@ -254,14 +255,13 @@ export class Cities {
       .attr('y', city => this.getProjectedCoordinates(city)[1])
       .text(({ properties: { NAME } }) => NAME)
       .attr('font-family', 'sans-serif')
-      .attr('alignment-baseline', 'baseline')
       .attr('text-anchor', 'middle')
       .attr('class', 'cityName canOverlapElement')
       .attr('font-size', '2px')
       .style('cursor', 'pointer')
       .attr('fill', colors.text)
       .attr('id', city => `cityName${camalize(city.properties.NAME)}`)
-      .on('click', function (city) {
+      .on('click', function (event, city) {
         resetAlreadySelected();
         const selectedCity = d3.select(this);
         selectedCity.attr('fill', colors.selectedCity);
@@ -269,7 +269,7 @@ export class Cities {
           'fill',
           colors.selectedCity
         );
-        d3.event.stopPropagation();
+        event.stopPropagation();
         addParametersToURL({
           info: city.properties.NAME,
           type: 'city',

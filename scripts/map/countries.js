@@ -1,3 +1,4 @@
+import * as d3 from 'd3';
 import colors from './colors.js';
 import {
   addParametersToURL,
@@ -150,8 +151,8 @@ export class Countries {
     this.map.zoomToCoordinate({ x, y, width, height });
   }
 
-  countryClicked(selectedCountry) {
-    d3.event.stopPropagation();
+  countryClicked(event, selectedCountry) {
+    event.stopPropagation();
     const selectedCountryInsideBorder = d3.selectAll(
       `.insideBorderLight${getCountryNameCamelCase(selectedCountry)}`
     );
@@ -206,7 +207,7 @@ export class Countries {
           if (fontSize < 0.5) smallFactor = 3;
           if (fontSize < 0.2) smallFactor = 5;
           const letterCountFactor = mapRange(letterCount, 30, 4, 0.7, 1.2);
-          return fontSize * smallFactor * letterCountFactor;
+          return `${fontSize * smallFactor * letterCountFactor}px`;
         });
     });
   }

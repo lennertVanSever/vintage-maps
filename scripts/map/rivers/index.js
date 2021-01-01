@@ -1,3 +1,4 @@
+import * as d3 from 'd3';
 import colors from '../colors.js';
 import {
   addParametersToURL,
@@ -29,8 +30,8 @@ export class Rivers {
     d3.selectAll('.river').attr('stroke-width', zoomFactor / 2);
   }
 
-  riverClicked(selectedRiver) {
-    d3.event.stopPropagation();
+  riverClicked(event, selectedRiver) {
+    event.stopPropagation();
     resetAlreadySelected();
     const selectedRiverElement = d3.select(
       `#riverShadow${camalize(selectedRiver.properties.NAME)}`

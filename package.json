@@ -1,6 +1,22 @@
 {
   "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/preset-env": "^7.12.11",
     "@borealisgroup/eslint-config": "^1.13.6",
-    "eslint": "^7.9.0"
+    "eslint": "^7.9.0",
+    "geojson": "^0.5.0",
+    "snowpack": "^2.18.5"
+  },
+  "scripts": {
+    "start": "snowpack dev",
+    "build": "snowpack build",
+    "babel:build": "babel scripts -d build --copy-files"
+  },
+  "dependencies": {
+    "@snowpack/plugin-babel": "^2.1.5",
+    "d3": "^6.3.1",
+    "d3-geo-projection": "^3.0.0"
   }
 }
