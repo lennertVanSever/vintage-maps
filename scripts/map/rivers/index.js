@@ -51,7 +51,7 @@ export class Rivers {
   drawRivers() {
     this.map.subGroups.rivers
       .append('g')
-      .attr('class', 'rivers')
+      .attr('class', 'river rivers')
       .selectAll('path')
       .data(this.riverData.features)
       .enter()
@@ -64,7 +64,7 @@ export class Rivers {
 
     this.map.subGroups.rivers
       .append('g')
-      .attr('class', 'riverShadows')
+      .attr('class', 'river riverShadows')
       .selectAll('path')
       .data(this.riverData.features)
       .enter()

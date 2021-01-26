@@ -243,7 +243,7 @@ export class Cities {
 
     citiesGroup
       .append('path')
-      .attr('class', 'cityPath')
+      .attr('class', 'city cityPath')
       .attr('d', citiesPath)
       .attr('fill', colors.text)
       .attr('id', city => `cityPath${camalize(city.properties.NAME)}`);
@@ -256,7 +256,7 @@ export class Cities {
       .text(({ properties: { NAME } }) => NAME)
       .attr('font-family', 'sans-serif')
       .attr('text-anchor', 'middle')
-      .attr('class', 'cityName canOverlapElement')
+      .attr('class', 'city cityName canOverlapElement')
       .attr('font-size', '2px')
       .style('cursor', 'pointer')
       .attr('fill', colors.text)

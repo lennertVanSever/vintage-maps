@@ -5,6 +5,7 @@ import years from '../config/years.js';
 import { map } from '../index.js';
 import { initialUrl } from '../map/utils.js';
 import { ShadowElement } from './shadowElement.js';
+import { formElementStyle, labelStyle } from './sharedStyle.js';
 
 export const ids = {
   YEAR_SELECT: 'yearSelect',
@@ -22,18 +23,16 @@ class SelectElement extends ShadowElement {
   get htmlString() {
     return /* html */ `
       <style>
-        label {
-          display: block;
-          margin: var(--margin-4);
-        }
+        ${labelStyle}
         select {
-          display: block;
-          margin-top: var(--margin-2);
-          padding: var(--margin-2) var(--margin-1);
-          background-color: var(--body-color);
-          max-width: 100px;
+          ${formElementStyle}
+          background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+          background-repeat: no-repeat;
+          background-position-x: calc(100% - var(--margin-2));
+          background-position-y: var(--margin-2);
         }
       </style>
+
       <label>
         ${this.labelText}
         <select>

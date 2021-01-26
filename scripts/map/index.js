@@ -50,14 +50,16 @@ export class Map {
     const previousProjection = this.projection;
     addParameterToURL('projection', newProjectionName);
     this._projectionName = newProjectionName;
+    const projectionFunctionName = `geo${this.projectionName}`;
+    const projectionFunction =
+      d3GeoProjection[projectionFunctionName] || d3[projectionFunctionName];
 
     const scale =
       window.innerWidth > window.innerHeight
         ? window.innerWidth / 6
         : window.innerHeight / 3;
-    this.projection = this.projection = d3GeoProjection[
-      `geo${this.projectionName}`
-    ]()
+
+    this.projection = projectionFunction()
       .scale(scale)
       .translate([window.innerWidth / 2, window.innerHeight / 2])
       .precision(0.1);
@@ -200,5 +202,13 @@ export class Map {
           this.rezoom();
         })
     );
+  }
+
+  showOrHideElements(show, elementClassName) {
+    if (show) {
+      d3.selectAll(elementClassName).attr('display', 'block');
+    } else {
+      d3.selectAll(elementClassName).attr('display', 'none');
+    }
   }
 }

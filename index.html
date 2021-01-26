@@ -43,14 +43,12 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      color: var(--black);
     }
 
-    body {
+    html, body {
       background-color: var(--body-color);
-    }
-
-    svg {
-      background-color: var(--body-color);
+      width: 100vw;
     }
 
     svg * {
@@ -71,26 +69,9 @@
 
 
     #controlsWrapper {
-      position: fixed;
-      top: 0;
-      background-color: rgba(234, 225, 186, 50%);
-      backdrop-filter: blur(3px);
-      display: flex;
-      align-items: center;
-      right: 0;
-      box-shadow: -5px 5px 3px rgba(234, 225, 186, 50%);
-      padding-right: var(--margin-3);
+      padding: 0px var(--margin-3);
     }
   </style>
-  <!-- 
-D3 v5 depeds on Fetch API that does not support local files fetching
-To run locally: 
-- run python -m SimpleHTTPServer from the folder and then call http://localhost:8000/ in navigator
-This might help in other cases of running js scripts locally, but should not be needed with this one:
-- In Firefox: disable strict origin control in about:cofig  
-- Launch Chrome with /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --disable-web-security --user-data-dir
--->
-
 </head>
 
 <body>
@@ -100,13 +81,14 @@ This might help in other cases of running js scripts locally, but should not be 
       <svg class="svg_wrapper">
       </svg>
     </map-wrapper>
-    <!-- <article id="controlsWrapper">
+    <article id="controlsWrapper">
       <year-select></year-select>
       <projection-select></projection-select>
-    </article> -->
+      <title-input></title-input>
+      <hide-or-show-toggle labelText="Cities" elementToHideSelector="#cities" ></hide-or-show-toggle>
+      <hide-or-show-toggle labelText="Graticule" elementToHideSelector="#graticuleCollection" ></hide-or-show-toggle>
+      <hide-or-show-toggle labelText="Rivers" elementToHideSelector="#rivers" ></hide-or-show-toggle>
+    </article>
   </main>
-  <!-- <script src="d3/d3.v5.min.js"></script>
-  <script src="d3/d3-geo-projection.v2.min.js"></script>
-  <script src="d3/topojson.v2.min.js"></script> -->
   <script type="module" src="./scripts/index.js"></script>
 </body>
