@@ -3,3 +3,4 @@ import './sidePanel.js';
 import './mapWrapper.js';
 import './titleInput.js';
 import './toggleSwitches.js';
+import './rangeInputs.js';

@@ -18,8 +18,10 @@ export class Map {
     this.setInitialSubGroups();
 
     this.year = initialUrl.searchParams.get('year') || years[0];
+    this.borderWidth = 10;
     this.minimumZoom = 1;
     this.maximumZoom = 40;
+    this.citySize = 5;
     this.zoomController = d3.zoom();
     this.projectionName =
       initialUrl.searchParams.get('projection') || projectionNames[0];
@@ -44,6 +46,28 @@ export class Map {
 
   get year() {
     return this._year;
+  }
+
+  set borderWidth(borderWidth) {
+    this._borderWidth = borderWidth;
+    if (this.zoomFactor) {
+      this.countries.resizeBorders(this);
+    }
+  }
+
+  get borderWidth() {
+    return this._borderWidth;
+  }
+
+  set citySize(citySize) {
+    this._citySize = citySize;
+    if (this.zoomFactor) {
+      this.cities.resize(this);
+    }
+  }
+
+  get citySize() {
+    return this._citySize;
   }
 
   set projectionName(newProjectionName) {
@@ -170,11 +194,10 @@ export class Map {
       this.group.attr('transform', this.transform);
     }
     if (this.previousZoomValue !== zoom.value || force) {
-      let zoomFactor;
       if (zoom.value < 5) {
-        zoomFactor = mapRange(zoom.value, 5, zoom.minimum, 0.1, 0.2);
+        this.zoomFactor = mapRange(zoom.value, 5, zoom.minimum, 0.1, 0.2);
       } else {
-        zoomFactor = mapRange(
+        this.zoomFactor = mapRange(
           zoom.value,
           zoom.maximum,
           zoom.minimum,
@@ -182,10 +205,10 @@ export class Map {
           0.1
         );
       }
-      this.countries.resizeBorders(zoomFactor);
-      this.cities.resize(zoomFactor);
-      this.graticule.resize(zoomFactor);
-      this.rivers.resize(zoomFactor);
+      this.countries.resizeBorders(this);
+      this.cities.resize(this);
+      this.graticule.resize(this.zoomFactor);
+      this.rivers.resize(this.zoomFactor);
     }
     this.previousZoomValue = zoom.value;
   }

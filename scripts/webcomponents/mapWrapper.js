@@ -27,7 +27,11 @@ class MapWrapper extends ShadowElement {
     return /* html */ `
       <style>
         section {
-          margin: var(--margin-3);
+          position: sticky;
+          top: 0;
+          padding: var(--margin-3);
+          padding-bottom: 0;
+          background-color: var(--body-color);
         }
         #title {
           text-align: center;

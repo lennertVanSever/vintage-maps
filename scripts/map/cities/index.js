@@ -145,11 +145,12 @@ export class Cities {
     this.render({ rezoom: true });
   }
 
-  resize(zoomFactor) {
+  resize(map) {
     // d3.selectAll(circle).attr('stroke-width', newWidth)
-    const fontSize = zoomFactor * 25;
-    const pointRadius = zoomFactor * 5;
-    const textDistance = zoomFactor * 10;
+
+    const fontSize = map.zoomFactor * map.citySize * 5;
+    const pointRadius = map.zoomFactor * map.citySize;
+    const textDistance = map.zoomFactor * map.citySize * 2;
 
     // } else {
     //   fontSize = mapRange(value, maximum, minimum, 0.5, 3);

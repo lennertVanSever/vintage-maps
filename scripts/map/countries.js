@@ -55,10 +55,19 @@ export class Countries {
     return `${prefix}${index}`;
   }
 
-  resizeBorders(zoomFactor) {
-    d3.selectAll('.insideBorderDark').attr('stroke-width', zoomFactor * 10);
-    d3.selectAll('.outsideBorder').attr('stroke-width', zoomFactor * 2);
-    d3.selectAll('.insideBorderLight').attr('stroke-width', zoomFactor * 20);
+  resizeBorders(map) {
+    d3.selectAll('.insideBorderDark').attr(
+      'stroke-width',
+      map.zoomFactor * map.borderWidth
+    );
+    d3.selectAll('.outsideBorder').attr(
+      'stroke-width',
+      (map.zoomFactor * map.borderWidth) / 5
+    );
+    d3.selectAll('.insideBorderLight').attr(
+      'stroke-width',
+      map.zoomFactor * map.borderWidth * 2
+    );
   }
 
   selectCountryNameIfInUrl() {

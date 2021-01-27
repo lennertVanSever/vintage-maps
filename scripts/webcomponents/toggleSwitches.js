@@ -132,39 +132,3 @@ class HideOrShowToggle extends ToggleSwitch {
 }
 
 window.customElements.define('hide-or-show-toggle', HideOrShowToggle);
-
-class CityToggle extends ToggleSwitch {
-  get labelText() {
-    return 'City';
-  }
-
-  get elementToHideClassName() {
-    return '#cities';
-  }
-}
-
-window.customElements.define('city-toggle', CityToggle);
-
-class GraticuleToggle extends ToggleSwitch {
-  get labelText() {
-    return 'Graticule';
-  }
-
-  get elementToHideClassName() {
-    return '#graticuleCollection';
-  }
-}
-
-window.customElements.define('graticule-toggle', GraticuleToggle);
-
-class RiverToggle extends ToggleSwitch {
-  get labelText() {
-    return 'River';
-  }
-
-  get elementToHideClassName() {
-    return '#rivers';
-  }
-}
-
-window.customElements.define('river-toggle', RiverToggle);

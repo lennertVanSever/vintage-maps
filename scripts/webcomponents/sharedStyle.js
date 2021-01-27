@@ -2,7 +2,7 @@ export const labelStyle = `
   label {
     width: 100%;
     display: block;
-    margin: var(--margin-4) 0px;
+    margin: var(--margin-6) 0px;
   }
 `;
 
