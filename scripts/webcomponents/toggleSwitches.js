@@ -29,7 +29,6 @@ class ToggleSwitch extends ShadowElement {
           height: 34px;
           margin-top: var(--margin-2);
           margin-right: var(--margin-3);
-          margin-left: -1px; /* handle overshoot */
         }
 
         /* Hide default HTML checkbox */

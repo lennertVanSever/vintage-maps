@@ -32,6 +32,7 @@ class MapWrapper extends ShadowElement {
           padding: var(--margin-3);
           padding-bottom: 0;
           background-color: var(--body-color);
+          z-index: 1;
         }
         #title {
           text-align: center;
@@ -51,12 +52,29 @@ class MapWrapper extends ShadowElement {
           border: 1px solid var(--black);
           height: calc(100% - 3px);
         }
+        @media only screen and (min-width:768px) {
+          section {
+            width: calc(100vw - 300px);
+            display: flex;
+            justify-content: center;
+          }
+          #subWrapper {
+            width: calc((100vh - 55px) * 4 / 3);
+            height: calc(100vh - 55px);
+          }
+          #firstBorder {
+            height: 100%;
+            width: 100%;
+          }
+        }
       </style>
       <section>
-        <div id="title">My custom title</div>
-        <div id="firstBorder">
-          <div id="secondBorder">
-            <slot></slot>
+        <div id="subWrapper">
+          <div id="title">My custom title</div>
+          <div id="firstBorder">
+            <div id="secondBorder">
+              <slot></slot>
+            </div>
           </div>
         </div>
       </section>

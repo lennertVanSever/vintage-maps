@@ -53,7 +53,7 @@ class RangeInput extends ShadowElement {
           background: linear-gradient(to right, var(--black) 0%, var(--black) ${this.relativeValue}%, transparent ${this.relativeValue}%, transparent 100%);
           border: 1px solid var(--black);
           height: 3px;
-          width: 100%;
+          width: calc(100% - var(--margin-2));
           outline: none;
           -webkit-appearance: none;
           margin-top: var(--margin-4);
