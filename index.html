@@ -4,6 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <link rel="manifest" href="/manifest.webmanifest">
+  <script async src="./sejda.js"></script>
+
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('serviceworker.js');
@@ -93,6 +95,48 @@
       padding-bottom: 100px;
     }
 
+    section {
+      position: sticky;
+      top: 0;
+      padding: var(--margin-3);
+      padding-bottom: 0;
+      background-color: var(--body-color);
+      z-index: 1;
+    }
+    #title {
+      text-align: center;
+      font-family: "bodoni";
+      font-size: 20px;
+      margin-bottom: var(--margin-1);
+      color: var(--black);
+    }
+    #firstBorder {
+      border: 3px solid var(--black);
+      padding: var(--margin-2);
+  
+      height: calc((100vw - 36px) / 4 * 3);
+      /* width: calc(100vw - var(--margin-6)); */
+    }
+    #secondBorder {
+      border: 1px solid var(--black);
+      height: calc(100% - 3px);
+    }
+    @media only screen and (min-width:768px) {
+      section {
+        width: calc(100vw - 300px);
+        display: flex;
+        justify-content: center;
+      }
+      #subWrapper {
+        width: calc((100vh - 55px) * 4 / 3);
+        height: calc(100vh - 55px);
+      }
+      #firstBorder {
+        height: 100%;
+        width: 100%;
+      }
+    }
+
     @media only screen and (min-width:768px) {
       main {
         display: flex;
@@ -130,10 +174,17 @@
 <body>
   <main>
     <side-panel></side-panel>
-    <map-wrapper>
-      <svg class="svg_wrapper">
-      </svg>
-    </map-wrapper>
+    <section id="mapSection">
+      <div id="subWrapper">
+        <div id="title">My custom title</div>
+        <div id="firstBorder">
+          <div id="secondBorder">
+            <svg class="svg_wrapper">
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
     <article id="controlsWrapper">
       <div id="inputElements">
         <title-input></title-input>
@@ -159,10 +210,11 @@
           step="0.1"
         ></range-map-property>
       </div>
-      <div id="buttonWrapper">
+      <add-to-cart></add-to-cart>
+      <!-- <div id="buttonWrapper">
         <button>Download</button>
         <button>Print</button>
-      </div>
+      </div> -->
     </article>
   </main>
   <script type="module" src="./scripts/index.js"></script>

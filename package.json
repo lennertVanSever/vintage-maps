@@ -10,13 +10,16 @@
     "snowpack": "^2.18.5"
   },
   "scripts": {
-    "start": "snowpack dev",
+    "start": "snowpack dev --watch --hmr",
     "build": "snowpack build",
     "babel:build": "babel scripts -d build --copy-files"
   },
   "dependencies": {
     "@snowpack/plugin-babel": "^2.1.5",
     "d3": "^6.3.1",
-    "d3-geo-projection": "^3.0.0"
+    "d3-geo-projection": "^3.0.0",
+    "dotenv": "^8.2.0",
+    "js-sha1": "^0.6.0",
+    "uuid": "^8.3.2"
   }
 }
