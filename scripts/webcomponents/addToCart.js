@@ -1,4 +1,4 @@
-import { getFileName, getMapHtml, uploadFile } from '../checkout';
+import { router } from '../utils';
 import { ShadowElement } from './shadowElement.js';
 
 // console.log(Buffer.from);
@@ -10,23 +10,7 @@ class AddToCart extends ShadowElement {
   }
 
   onClickPrint() {
-    SejdaJsApi.htmlToPdf({
-      pageOrientation: 'landscape',
-      pageSize: '406mmx306mm',
-      publishableKey: process.env.SEJDA_KEY,
-      htmlCode: getMapHtml(),
-      async getResponse(content) {
-        const fileUrl = await uploadFile({
-          fileName: getFileName(),
-          contentType: 'application/pdf',
-          content,
-        });
-        console.log(fileUrl);
-      },
-      error(error) {
-        console.error(error);
-      },
-    });
+    router.navigate(`/order${window.location.search}`);
   }
 
   get htmlString() {

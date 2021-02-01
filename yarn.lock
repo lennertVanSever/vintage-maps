@@ -4242,6 +4242,11 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
 
+navigo@^8.8.0:
+  version "8.8.0"
+  resolved "https://registry.yarnpkg.com/navigo/-/navigo-8.8.0.tgz#f9116cfb8c1bf9ebd3479989394bb6e645a16645"
+  integrity sha512-U4Kn152d5BD56ABT5yakXflL606as6LkoHnmDqyrP5zuIxIEb0fcZHqTqNdvG+n9dGfDacw5Tu7hhHT8cMFleQ==
+
 node-releases@^1.1.67:
   version "1.1.67"
   resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-1.1.67.tgz#28ebfcccd0baa6aad8e8d4d8fe4cbc49ae239c12"
