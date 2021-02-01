@@ -30,7 +30,7 @@ class TextInput extends ShadowElement {
   }
 
   get name() {
-    const attributeValue = this.getAttribute('hintText');
+    const attributeValue = this.getAttribute('name');
     if (!attributeValue) return '';
     return attributeValue;
   }
