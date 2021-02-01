@@ -1,7 +1,6 @@
 /* eslint-disable max-classes-per-file */
 
-import projections from '../config/projections.js';
-import years from '../config/years.js';
+import { countries, projectionNames, years } from '../config';
 import { map } from '../index.js';
 import { initialUrl } from '../map/utils.js';
 import { ShadowElement } from './shadowElement.js';
@@ -10,6 +9,7 @@ import { formElementStyle, labelStyle } from './sharedStyle.js';
 export const ids = {
   YEAR_SELECT: 'yearSelect',
   PROJECTION_SELECT: 'projectionSelect',
+  COUNTRY_SELECT: 'countrySelect',
 };
 
 class SelectElement extends ShadowElement {
@@ -35,7 +35,7 @@ class SelectElement extends ShadowElement {
 
       <label>
         ${this.labelText}
-        <select>
+        <select name=${this.name}>
           ${this.optionHtml}
         </select>
       </label>
@@ -94,7 +94,7 @@ class ProjectionSelect extends SelectElement {
   }
 
   get options() {
-    return projections.map(projection => ({
+    return projectionNames.map(projection => ({
       label: projection,
       value: projection,
     }));
@@ -110,3 +110,34 @@ class ProjectionSelect extends SelectElement {
 }
 
 window.customElements.define('projection-select', ProjectionSelect);
+
+class CountrySelect extends SelectElement {
+  get labelText() {
+    return 'Country';
+  }
+
+  get id() {
+    return ids.COUNTRY_SELECT;
+  }
+
+  get options() {
+    return countries.map(({ name: label, code: value }) => ({
+      label,
+      value,
+    }));
+  }
+
+  get value() {
+    return null;
+  }
+
+  get name() {
+    return 'address-level1';
+  }
+
+  change(event) {
+    // map.projectionName = event.target.value;
+  }
+}
+
+window.customElements.define('country-select', CountrySelect);

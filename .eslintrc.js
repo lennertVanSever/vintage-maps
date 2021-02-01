@@ -13,7 +13,8 @@ module.exports = {
     {
       files: ["scripts/**/*"],
       rules: {
-        "import/extensions": 0
+        "import/extensions": 0,
+        "max-classes-per-file": 0
       }
     }
   ],

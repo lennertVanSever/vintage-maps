@@ -4,6 +4,10 @@ export const labelStyle = `
     display: block;
     margin: var(--margin-6) 0px;
   }
+  #hint {
+    font-size: 12px;
+    font-style: italic;
+  }
 `;
 
 export const formElementStyle = `

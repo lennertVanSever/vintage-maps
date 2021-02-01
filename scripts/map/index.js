@@ -1,7 +1,6 @@
 import * as d3 from 'd3';
 import * as d3GeoProjection from 'd3-geo-projection';
-import projectionNames from '../config/projections.js';
-import years from '../config/years.js';
+import { projectionNames, years } from '../config';
 import { Cities } from './cities/index.js';
 import { Rivers } from './rivers/index.js';
 import { Countries } from './countries.js';

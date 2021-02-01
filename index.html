@@ -67,7 +67,7 @@
     }
 
     main {
-      font-family: system;
+      font-family: Arial, Helvetica, sans-serif;
       width: 100vw;
       height: 100vh;
       overflow-x: hidden;
@@ -206,7 +206,17 @@
         <range-map-property labelText="City name size" mapProperty="citySize" value="5" min="0" max="15" step="0.1">
         </range-map-property>
       </customize-section>
-      
+      <order-section>
+        <text-input name="email" labelText="Email"></text-input>
+        <text-input name="name" labelText="Full name"></text-input>
+        <text-input name="street-address" labelText="Address" hintText="Example: Osloweg 35b"></text-input>
+        <text-input name="postal-code" labelText="Postal code"></text-input>
+        <text-input name="address-level2" labelText="City"></text-input>
+        <country-select></country-select>
+      </order-section>
+      <checkout-section>
+        <p>checkout</p>
+      </checkout-section>
     </article>
   </main>
   <script type="module" src="./scripts/index.js"></script>
