@@ -1,11 +1,12 @@
 /* eslint-disable max-classes-per-file */
-import { router } from '../utils';
+import { dispatchCustomEvent, router } from '../utils';
 import { ShadowElement } from './shadowElement.js';
 
 class Section extends ShadowElement {
   constructor() {
     super();
     this.wrapper = this.shadowRoot.querySelector('#wrapper');
+    this.generalError = this.shadowRoot.querySelector('#generalError');
     const secondButton = this.shadowRoot.querySelector('#secondButton');
     const firstButton = this.shadowRoot.querySelector('#firstButton');
     firstButton.addEventListener('click', this.onClickFirstButton.bind(this));
@@ -62,6 +63,19 @@ class Section extends ShadowElement {
           display: none;
         }
 
+        #generalError {
+          width: 100%;
+          border: 2px solid var(--red);
+          padding: 20px;
+          background-color: white;
+          color: var(--red);
+          box-sizing: border-box;
+          margin-top: var(--margin-6);
+          text-align: center;
+          font-weight: bold;
+          display: none;
+        }
+
         @media only screen and (min-width:768px) {
           #buttonWrapper {
             background-color: var(--body-color);
@@ -85,6 +99,7 @@ class Section extends ShadowElement {
       </style>
       <div id="wrapper">
         <div id="inputElements">
+          <div id="generalError">Please fill in all the fields</div>
           <slot></slot>
         </div>
         <div id="buttonWrapper">
@@ -121,12 +136,64 @@ class CustomizeSection extends Section {
 window.customElements.define('customize-section', CustomizeSection);
 
 class OrderSection extends Section {
+  constructor() {
+    super();
+    this.formData = {
+      email: '',
+      name: '',
+      address: '',
+      zip: '',
+      city: '',
+      country: 'AF',
+    };
+    this.pdfFile =
+      'https://f000.backblazeb2.com/file/map-prints/map-893e7fc1-52c7-4954-a1a5-f27659336d93.pdf';
+    window.addEventListener('updateOrderData', this.updateFormData.bind(this));
+  }
+
   onClickFirstButton() {
     router.navigate(`/${window.location.search}`);
   }
 
+  updateFormData({ detail }) {
+    this.formData[detail.name] = detail.value;
+  }
+
+  isValidFormData() {
+    let valid = true;
+    Object.keys(this.formData).forEach(name => {
+      if (!this.formData[name]) {
+        valid = false;
+        dispatchCustomEvent('validateInput', {
+          name,
+          type: 'INVALID',
+        });
+      } else {
+        dispatchCustomEvent('validateInput', {
+          name,
+          type: 'VALID',
+        });
+      }
+    });
+    return valid;
+  }
+
   onClickSecondButton() {
-    router.navigate(`/checkout${window.location.search}`);
+    if (this.isValidFormData()) {
+      this.hideGeneralError();
+      router.navigate(`/checkout${window.location.search}`);
+    } else {
+      this.showGeneralError();
+    }
+  }
+
+  hideGeneralError() {
+    this.generalError.style.display = 'none';
+  }
+
+  showGeneralError() {
+    this.generalError.style.display = 'block';
+    this.generalError.scrollIntoView(false);
   }
 
   get sectionRoute() {

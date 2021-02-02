@@ -3,6 +3,7 @@
 import { countries, projectionNames, years } from '../config';
 import { map } from '../index.js';
 import { initialUrl } from '../map/utils.js';
+import { dispatchCustomEvent } from '../utils';
 import { ShadowElement } from './shadowElement.js';
 import { formElementStyle, labelStyle } from './sharedStyle.js';
 
@@ -132,11 +133,14 @@ class CountrySelect extends SelectElement {
   }
 
   get name() {
-    return 'address-level1';
+    return 'country';
   }
 
   change(event) {
-    // map.projectionName = event.target.value;
+    dispatchCustomEvent('updateOrderData', {
+      value: event.target.value,
+      name: this.name,
+    });
   }
 }
 
