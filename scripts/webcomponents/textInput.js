@@ -44,7 +44,7 @@ class TextInput extends ShadowElement {
       <label>
         ${this.labelText}
         <div id="hint">${this.hintText}</div>
-        <div id="hint" class="errorText">Please fill in this field</div>
+        <div id="hint" class="errorText">Please fill in your "${this.labelText}"</div>
         <input id=${this.name} name=${this.name} value="${this.initialValue}" type="text"/>
       </label>
      `;
