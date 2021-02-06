@@ -185,6 +185,7 @@ class OrderSection extends Section {
       city: '',
       country: 'AF',
     };
+
     // this.formData = {
     //   email: 'lennert_vansever@hotmail.be',
     //   name: 'Lennert Van Sever',
@@ -193,9 +194,17 @@ class OrderSection extends Section {
     //   city: 'Sint-Joost-ten-Node',
     //   country: 'BE',
     // };
-    this.pdfFile =
-      'https://f000.backblazeb2.com/file/map-prints/map-893e7fc1-52c7-4954-a1a5-f27659336d93.pdf';
+    window.addEventListener('mapUrl', this.handleMapUrlChange.bind(this));
     window.addEventListener('updateOrderData', this.updateFormData.bind(this));
+    this.pdfFile = '';
+  }
+
+  handleMapUrlChange(event) {
+    if (event.detail.state === 'SUCCESS') {
+      console.log(event.detail.data.fileLink);
+      this.pdfFile = event.detail.data.fileLink;
+      // this.inputElements.innerHTML = this.summary;
+    }
   }
 
   onClickFirstButton() {
@@ -305,6 +314,7 @@ class CheckoutSection extends Section {
   }
 
   get summary() {
+    console.log(this.data);
     const {
       checkout: { amount },
       email,

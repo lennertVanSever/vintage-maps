@@ -102,3 +102,38 @@ export const getMapHtml = () => {
     ${subWrapper.innerHTML}
   `;
 };
+
+export const generateMapUrl = async () => {
+  try {
+    dispatchCustomEvent('mapUrl', {
+      data: null,
+      state: 'LOADING',
+    });
+    console.log('generating map');
+    const responseRaw = await fetch(
+      'https://vintage-maps-functions.netlify.app/.netlify/functions/upload_map',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          sejdaParameters: {
+            pageSize: '406mmx306mm',
+            htmlCode: getMapHtml(),
+          },
+        }),
+      }
+    );
+    const response = await responseRaw.json();
+    dispatchCustomEvent('mapUrl', {
+      data: response,
+      state: 'SUCCESS',
+    });
+  } catch (e) {
+    dispatchCustomEvent('mapUrl', {
+      data: e,
+      state: 'ERROR',
+    });
+  }
+};
