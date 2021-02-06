@@ -35,12 +35,17 @@ router.on('/order', async () => {
   //   }
   // );
   // const response = await responseRaw.json();
+
   openSection('/order');
   // console.log(response);
 });
 
 router.on('/checkout', () => {
   openSection('/checkout');
+});
+
+router.on('/status-order', () => {
+  openSection('/status-order');
 });
 
 router.resolve();

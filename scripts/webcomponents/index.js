@@ -7,3 +7,4 @@ import './rangeInputs.js';
 // import './customizeSection.js';
 // import './orderSection.js';
 import './section.js';
+import './keyValue.js';

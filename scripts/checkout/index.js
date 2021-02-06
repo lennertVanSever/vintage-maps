@@ -1,3 +1,70 @@
+import { dispatchCustomEvent } from '../utils';
+
+const fetchPrintToken = async () => {
+  const responseRaw = await fetch(
+    'http://localhost:9000/.netlify/functions/print_key'
+  );
+  return responseRaw.json();
+};
+
+export const goToPayment = async ({ id, checkout: { setupUrl }, shipping }) => {
+  const { access_token: accessToken } = await fetchPrintToken();
+  const responseRaw = await fetch(setupUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${accessToken}`,
+    },
+    body: JSON.stringify({
+      returnUrl: `http://localhost:8080/status-order${window.location.search}&orderId=${id}`,
+      billing: shipping,
+    }),
+  });
+  const response = await responseRaw.json();
+  const { paymentUrl } = response;
+  if (paymentUrl) window.location.href = paymentUrl;
+};
+
+export const orderPrint = async orderData => {
+  try {
+    dispatchCustomEvent('orderData', {
+      data: null,
+      state: 'LOADING',
+    });
+    const { access_token: accessToken } = await fetchPrintToken();
+    const responseRaw = await fetch('https://test.printapi.nl/v2/orders', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${accessToken}`,
+      },
+      body: JSON.stringify(orderData),
+    });
+    const response = await responseRaw.json();
+    dispatchCustomEvent('orderData', {
+      data: response,
+      state: 'SUCCESS',
+    });
+  } catch (e) {
+    dispatchCustomEvent('orderData', {
+      data: e,
+      state: 'ERROR',
+    });
+    console.error('something went wrong', e);
+  }
+};
+
+export const getOrderDetails = async ({ id }) => {
+  const { access_token: accessToken } = await fetchPrintToken();
+  const responseRaw = await fetch(`https://test.printapi.nl/v2/orders/${id}`, {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+  return responseRaw.json();
+};
+
 export const getMapHtml = () => {
   const subWrapper = document.getElementById('mapSection');
   const allCSS = [...document.styleSheets]

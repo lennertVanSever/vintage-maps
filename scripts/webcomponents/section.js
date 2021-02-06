@@ -1,25 +1,33 @@
 /* eslint-disable max-classes-per-file */
+import { getOrderDetails, goToPayment, orderPrint } from '../checkout';
 import { dispatchCustomEvent, router } from '../utils';
 import { ShadowElement } from './shadowElement.js';
 
 class Section extends ShadowElement {
   constructor() {
     super();
-    this.wrapper = this.shadowRoot.querySelector('#wrapper');
+    this.superWrapper = this.shadowRoot.querySelector('#superWrapper');
     this.generalError = this.shadowRoot.querySelector('#generalError');
-    const secondButton = this.shadowRoot.querySelector('#secondButton');
-    const firstButton = this.shadowRoot.querySelector('#firstButton');
-    firstButton.addEventListener('click', this.onClickFirstButton.bind(this));
-    secondButton.addEventListener('click', this.onClickSecondButton.bind(this));
+    this.inputElements = this.shadowRoot.querySelector('#inputElements');
+    this.secondButton = this.shadowRoot.querySelector('#secondButton');
+    this.firstButton = this.shadowRoot.querySelector('#firstButton');
+    this.firstButton.addEventListener(
+      'click',
+      this.onClickFirstButton.bind(this)
+    );
+    this.secondButton.addEventListener(
+      'click',
+      this.onClickSecondButton.bind(this)
+    );
     window.addEventListener('showSection', this.handleShowSection.bind(this));
   }
 
   hideSection() {
-    this.wrapper.style.display = 'none';
+    this.superWrapper.style.display = 'none';
   }
 
   showSection() {
-    this.wrapper.style.display = 'block';
+    this.superWrapper.style.display = 'block';
   }
 
   handleShowSection(event) {
@@ -27,6 +35,7 @@ class Section extends ShadowElement {
       this.hideSection();
     } else {
       this.showSection();
+      if (this.handleExtraOpenSection) this.handleExtraOpenSection();
     }
   }
 
@@ -38,6 +47,10 @@ class Section extends ShadowElement {
           position: fixed;
           bottom: 0;
           width: 100%;
+        }
+
+        #superWrapper {
+          display: none;
         }
 
         #buttonWrapper button:nth-child(2) {
@@ -55,12 +68,14 @@ class Section extends ShadowElement {
         }
 
         #inputElements {
-          padding: 0px var(--margin-3);
+          padding: 0px var(--margin-5);
           padding-bottom: 100px;
+          box-sizing: border-box;
         }
 
         #wrapper {
-          display: none;
+          position: relative;
+          width: 100%;
         }
 
         #generalError {
@@ -74,6 +89,17 @@ class Section extends ShadowElement {
           text-align: center;
           font-weight: bold;
           display: none;
+        }
+
+        hr {
+          border: none;
+          height: 1px;
+          background-color: #dbd4ad;
+          margin: var(--margin-7) 0px;
+        }
+
+        h3 {
+          margin-bottom: calc(var(--margin-4) * -1);
         }
 
         @media only screen and (min-width:768px) {
@@ -90,23 +116,36 @@ class Section extends ShadowElement {
             margin-top: var(--margin-2);
           }
           #inputElements {
-            width: calc(100% - var(--margin-6));
+            width: 100%;
             margin: 0px 0px;
             padding-bottom: 60px;
+          }
+          #superWrapper {
+            width: 300px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            border-left: 1px solid var(--black);
+            height: 100vh;
+            overflow: auto;
+            position: relative;
           }
         }
 
       </style>
-      <div id="wrapper">
-        <div id="inputElements">
-          <div id="generalError">Please fill in all the fields</div>
-          <slot></slot>
+      <article id="superWrapper">
+        <div id="wrapper">
+          <div id="inputElements">
+            <div id="generalError">Please fill in all the fields</div>
+
+            <slot></slot>
+          </div>
+          <div id="buttonWrapper">
+            <button id="firstButton">${this.firstButtonText}</button>
+            <button id="secondButton">${this.secondButtonText}</button>
+          </div>
         </div>
-        <div id="buttonWrapper">
-        <button id="firstButton">${this.firstButtonText}</button>
-        <button id="secondButton">${this.secondButtonText}</button>
-      </div>
-     </div>
+      </article>
      `;
   }
 }
@@ -146,6 +185,14 @@ class OrderSection extends Section {
       city: '',
       country: 'AF',
     };
+    // this.formData = {
+    //   email: 'lennert_vansever@hotmail.be',
+    //   name: 'Lennert Van Sever',
+    //   address: 'Grensstraat 40',
+    //   zip: '1210',
+    //   city: 'Sint-Joost-ten-Node',
+    //   country: 'BE',
+    // };
     this.pdfFile =
       'https://f000.backblazeb2.com/file/map-prints/map-893e7fc1-52c7-4954-a1a5-f27659336d93.pdf';
     window.addEventListener('updateOrderData', this.updateFormData.bind(this));
@@ -178,9 +225,34 @@ class OrderSection extends Section {
     return valid;
   }
 
+  get orderData() {
+    return {
+      email: this.formData.email,
+      items: [
+        {
+          productId: 'aluminium_40x30',
+          quantity: 1,
+          files: {
+            content: this.pdfFile,
+          },
+        },
+      ],
+      shipping: {
+        address: {
+          name: this.formData.name,
+          line1: this.formData.address,
+          postCode: this.formData.zip,
+          city: this.formData.city,
+          country: this.formData.country,
+        },
+      },
+    };
+  }
+
   onClickSecondButton() {
     if (this.isValidFormData()) {
       this.hideGeneralError();
+      orderPrint(this.orderData);
       router.navigate(`/checkout${window.location.search}`);
     } else {
       this.showGeneralError();
@@ -212,12 +284,65 @@ class OrderSection extends Section {
 window.customElements.define('order-section', OrderSection);
 
 class CheckoutSection extends Section {
+  constructor() {
+    super();
+    window.addEventListener('orderData', this.handleChangeOrderData.bind(this));
+  }
+
+  handleChangeOrderData(event) {
+    if (event.detail.state === 'LOADING') {
+      this.inputElements.innerHTML =
+        '<img style="position: absolute; left: 0; right: 0; top: 0; margin: auto; margin-top: 20px;" id="#loading" src="./loading.svg"/>';
+    }
+    if (event.detail.state === 'SUCCESS') {
+      this.data = event.detail.data;
+      this.inputElements.innerHTML = this.summary;
+    }
+  }
+
+  calculatePriceWithTaxes({ cost, taxes: [{ amount }] }) {
+    return `€${Math.round((cost + amount) * 100) / 100}`;
+  }
+
+  get summary() {
+    const {
+      checkout: { amount },
+      email,
+      shipping: {
+        address: { city, country, line1: address, name, postCode },
+      },
+      invoice: { production, shipping, handling },
+    } = this.data;
+
+    return /* html */ `
+      <h3>Price summary</h3>
+      <key-value keyText="Subtotal" valueText="${this.calculatePriceWithTaxes(
+        production
+      )}"></key-value>
+      <key-value keyText="Shipping fee" valueText="${this.calculatePriceWithTaxes(
+        shipping
+      )}"></key-value>
+      <key-value keyText="Handling" valueText="${this.calculatePriceWithTaxes(
+        handling
+      )}"></key-value>
+      <key-value keyText="Total" valueText="€${amount}" attention="1"></key-value>
+      <hr>
+      <h3>Shipping details</h3>
+      <key-value keyText="Name" valueText="${name}" vertical="1"></key-value>
+      <key-value keyText="Email" valueText="${email}" vertical="1"></key-value>
+      <key-value keyText="Address" valueText="${address}" vertical="1"></key-value>
+      <key-value keyText="Postal code" valueText="${postCode}" vertical="1"></key-value>
+      <key-value keyText="City" valueText="${city}" vertical="1"></key-value>
+      <key-value keyText="Country" valueText="${country}" vertical="1"></key-value>
+    `;
+  }
+
   onClickFirstButton() {
     router.navigate(`/order${window.location.search}`);
   }
 
   onClickSecondButton() {
-    console.info('checkout');
+    goToPayment(this.data);
   }
 
   get sectionRoute() {
@@ -234,3 +359,77 @@ class CheckoutSection extends Section {
 }
 
 window.customElements.define('checkout-section', CheckoutSection);
+
+class OrderStatusSection extends Section {
+  get sectionRoute() {
+    return '/status-order';
+  }
+
+  get orderId() {
+    const newUrl = new URL(window.location.href);
+    return newUrl.searchParams.get('orderId');
+  }
+
+  async handleExtraOpenSection() {
+    this.data = await getOrderDetails({ id: this.orderId });
+    this.status = this.data.checkout.status;
+    if (this.status === 'Successful') {
+      this.inputElements.innerHTML = this.confirmation;
+      this.firstButton.innerText = 'New map';
+      this.secondButton.innerText = 'Same map';
+    } else if (this.status === 'Open') {
+      this.inputElements.innerHTML = this.failedPaymenent;
+      this.firstButton.innerText = 'Cancel';
+      this.secondButton.innerText = 'Try again';
+    }
+  }
+
+  get failedPaymenent() {
+    return /* html */ `
+      <h3>⚠️ &nbsp;Something went wrong</h3>
+      <p>Unfortunately we couldn't handle your payment, do you want to try again?</p>
+    `;
+  }
+
+  get confirmation() {
+    const {
+      email,
+      shipping: {
+        address: { city, country, line1: address, name, postCode },
+      },
+    } = this.data;
+
+    return /* html */ `
+      <h3>✅ &nbsp;Payment complete</h3>
+      <p>Thank you, your payment has been succesful. A confirmation email has been sent to ${email}</p>
+      <hr>
+      <h3>Shipping details</h3>
+      <key-value keyText="Name" valueText="${name}" vertical="1"></key-value>
+      <key-value keyText="Address" valueText="${address}" vertical="1"></key-value>
+      <key-value keyText="Postal code" valueText="${postCode}" vertical="1"></key-value>
+      <key-value keyText="City" valueText="${city}" vertical="1"></key-value>
+      <key-value keyText="Country" valueText="${country}" vertical="1"></key-value>
+    `;
+  }
+
+  onClickSecondButton() {
+    if (this.status === 'Open') {
+      window.location.href = this.data.checkout.paymentUrl;
+    }
+    router.navigate(`/${window.location.search}`);
+  }
+
+  onClickFirstButton() {
+    router.navigate(`/`);
+  }
+
+  get firstButtonText() {
+    return '';
+  }
+
+  get secondButtonText() {
+    return '';
+  }
+}
+
+window.customElements.define('order-status-section', OrderStatusSection);
