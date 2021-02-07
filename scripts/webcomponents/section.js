@@ -197,13 +197,18 @@ class OrderSection extends Section {
     window.addEventListener('mapUrl', this.handleMapUrlChange.bind(this));
     window.addEventListener('updateOrderData', this.updateFormData.bind(this));
     this.pdfFile = '';
+    this.sendOrderWhenPdfFileIsReady = false;
   }
 
   handleMapUrlChange(event) {
+    if (event.detail.state === 'LOADING') {
+      this.pdfFile = 'LOADING';
+    }
     if (event.detail.state === 'SUCCESS') {
-      console.log(event.detail.data.fileLink);
       this.pdfFile = event.detail.data.fileLink;
-      // this.inputElements.innerHTML = this.summary;
+      if (this.sendOrderWhenPdfFileIsReady) {
+        orderPrint(this.orderData);
+      }
     }
   }
 
@@ -261,8 +266,12 @@ class OrderSection extends Section {
   onClickSecondButton() {
     if (this.isValidFormData()) {
       this.hideGeneralError();
-      orderPrint(this.orderData);
       router.navigate(`/checkout${window.location.search}`);
+      if (this.pdfFile === 'LOADING') {
+        this.sendOrderWhenPdfFileIsReady = true;
+      } else {
+        orderPrint(this.orderData);
+      }
     } else {
       this.showGeneralError();
     }
@@ -299,10 +308,6 @@ class CheckoutSection extends Section {
   }
 
   handleChangeOrderData(event) {
-    if (event.detail.state === 'LOADING') {
-      this.inputElements.innerHTML =
-        '<img style="position: absolute; left: 0; right: 0; top: 0; margin: auto; margin-top: 20px;" id="#loading" src="./loading.svg"/>';
-    }
     if (event.detail.state === 'SUCCESS') {
       this.data = event.detail.data;
       this.inputElements.innerHTML = this.summary;
