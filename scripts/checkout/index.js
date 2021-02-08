@@ -16,7 +16,7 @@ export const goToPayment = async ({ id, checkout: { setupUrl }, shipping }) => {
       Authorization: `Bearer ${accessToken}`,
     },
     body: JSON.stringify({
-      returnUrl: `http://localhost:8080/status-order${window.location.search}&orderId=${id}`,
+      returnUrl: `${window.location.origin}/status-order${window.location.search}&orderId=${id}`,
       billing: shipping,
     }),
   });
