@@ -146,9 +146,8 @@
         height: 100%;
         width: 100%;
       }
-    }
 
-    @media only screen and (min-width:768px) {
+
       main {
         display: flex;
       }
@@ -164,6 +163,13 @@
         width: calc(50% - (var(--margin-4) / 2));
         margin-bottom: var(--margin-4);
         margin-top: var(--margin-2);
+      }
+    }
+
+    @media only screen and (max-aspect-ratio: 380/237) and (min-width:768px) {
+      #subWrapper {
+        width: calc((100vw - 330px));
+        height: calc((100vw - 330px) / 4 * 3);
       }
     }
   </style>
@@ -204,7 +210,8 @@
       <country-select></country-select>
     </order-section>
     <checkout-section>
-      <img style="position: absolute; left: 0; right: 0; top: 0; margin: auto; margin-top: 20px;" id="#loading" src="./loading.svg"/>
+      <img style="position: absolute; left: 0; right: 0; top: 0; margin: auto; margin-top: 20px;" id="#loading"
+        src="./loading.svg" />
       <!-- Dynamic -->
     </checkout-section>
     <order-status-section></order-status-section>
