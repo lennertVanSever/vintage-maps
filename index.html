@@ -174,7 +174,7 @@
     <!-- <side-panel></side-panel> -->
     <section id="mapSection">
       <div id="subWrapper">
-        <div id="title">My custom title</div>
+        <div id="title">Change me</div>
         <div id="firstBorder">
           <div id="secondBorder">
             <svg class="svg_wrapper">
@@ -210,4 +210,9 @@
     <order-status-section></order-status-section>
   </main>
   <script type="module" src="./scripts/index.js"></script>
+  <script>
+    window.addEventListener('updateMapTitle', (event) => {
+      document.getElementById('title').innerText = event.detail.value;
+    })
+  </script>
 </body>
