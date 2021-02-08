@@ -1,9 +1,9 @@
 import { dispatchCustomEvent } from '../utils';
 
+const serverUrl = 'https://vintage-map-server.herokuapp.com';
+
 const fetchPrintToken = async () => {
-  const responseRaw = await fetch(
-    'http://localhost:9000/.netlify/functions/print_key'
-  );
+  const responseRaw = await fetch(`${serverUrl}/print_key`);
   return responseRaw.json();
 };
 
@@ -110,22 +110,20 @@ export const generateMapUrl = async () => {
       state: 'LOADING',
     });
     console.log('generating map');
-    const responseRaw = await fetch(
-      'https://vintage-maps-functions.netlify.app/.netlify/functions/upload_map',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+    const responseRaw = await fetch(`${serverUrl}/upload_map`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        sejdaParameters: {
+          pageSize: '406mmx306mm',
+          htmlCode: getMapHtml(),
         },
-        body: JSON.stringify({
-          sejdaParameters: {
-            pageSize: '406mmx306mm',
-            htmlCode: getMapHtml(),
-          },
-        }),
-      }
-    );
+      }),
+    });
     const response = await responseRaw.json();
+    console.log('map url', response);
     dispatchCustomEvent('mapUrl', {
       data: response,
       state: 'SUCCESS',
