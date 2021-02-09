@@ -44,6 +44,19 @@ export function addParametersToURL(data) {
   window.history.pushState({}, '', newUrl.href);
 }
 
+export const debounce = (func, wait) => {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+};
+
 // https://github.com/mapbox/polylabel
 export function polylabel(polygon, precision, debug) {
   precision = precision || 1.0;

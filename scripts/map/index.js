@@ -5,7 +5,13 @@ import { Cities } from './cities/index.js';
 import { Rivers } from './rivers/index.js';
 import { Countries } from './countries.js';
 import { Graticule } from './graticule.js';
-import { addParameterToURL, initialUrl, mapRange } from './utils.js';
+import {
+  addParametersToURL,
+  addParameterToURL,
+  debounce,
+  initialUrl,
+  mapRange,
+} from './utils.js';
 
 export class Map {
   constructor() {
@@ -22,9 +28,16 @@ export class Map {
     this.maximumZoom = 40;
     this.citySize = 5;
     this.zoomController = d3.zoom();
+    this.transform = {
+      k: initialUrl.searchParams.get('k') || 1,
+      x: initialUrl.searchParams.get('x') || 0,
+      y: initialUrl.searchParams.get('y') || 0,
+    };
     this.projectionName =
       initialUrl.searchParams.get('projection') || projectionNames[0];
     this.reset();
+
+    this.bouncedSaveZoomInUrl = this.saveZoomInUrl();
 
     window.addEventListener('resize', this.windowResize.bind(this));
   }
@@ -136,6 +149,7 @@ export class Map {
       this.rivers = new Rivers(this);
       await this.rivers.render();
 
+      this.initialZoom();
       this.makeMapZoomable();
       this.rezoom({ force: true });
     }
@@ -165,7 +179,7 @@ export class Map {
 
     this.svg
       .transition()
-      .duration(500)
+      .duration(0)
       .call(
         this.zoomController.transform,
         d3.zoomIdentity
@@ -175,6 +189,18 @@ export class Map {
           )
           .scale(scale)
           .translate(-x - width / 2, -y - height / 2)
+      );
+  }
+
+  initialZoom() {
+    this.svg
+      .transition()
+      .duration(500)
+      .call(
+        this.zoomController.transform,
+        d3.zoomIdentity
+          .translate(this.transform.x, this.transform.y)
+          .scale(this.transform.k)
       );
   }
 
@@ -212,15 +238,19 @@ export class Map {
     this.previousZoomValue = zoom.value;
   }
 
+  saveZoomInUrl() {
+    return debounce(() => {
+      addParametersToURL(this.transform);
+    }, 1000);
+  }
+
   makeMapZoomable() {
     this.svg.call(
       this.zoomController
         .scaleExtent([this.minimumZoom, this.maximumZoom])
-        // .wheelDelta(() => {
-        //   return -event.deltaY * (event.deltaMode === 1 ? 0.5 : event.deltaMode ? 1 : 0.02);
-        // })
         .on('zoom', event => {
           this.transform = event.transform;
+          this.bouncedSaveZoomInUrl();
           this.rezoom();
         })
     );
