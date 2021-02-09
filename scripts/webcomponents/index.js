@@ -8,3 +8,4 @@ import './rangeInputs.js';
 // import './orderSection.js';
 import './section.js';
 import './keyValue.js';
+import './expandContent.js';
