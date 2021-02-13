@@ -28,6 +28,7 @@ export class Map {
     this.maximumZoom = 40;
     this.citySize = 5;
     this.graticuleGapSize = 50;
+    this.graticuleLineSize = 1;
     this.zoomController = d3.zoom();
     this.transform = {
       k: initialUrl.searchParams.get('k') || 1,
@@ -84,7 +85,7 @@ export class Map {
   }
 
   set graticuleGapSize(graticuleGapSize) {
-    this._graticuleGapSize = graticuleGapSize;
+    this._graticuleGapSize = Number(graticuleGapSize);
     if (this.zoomFactor) {
       this.graticule.resize(this);
     }
@@ -92,6 +93,17 @@ export class Map {
 
   get graticuleGapSize() {
     return this._graticuleGapSize;
+  }
+
+  set graticuleLineSize(graticuleLineSize) {
+    this._graticuleLineSize = Number(graticuleLineSize);
+    if (this.zoomFactor) {
+      this.graticule.resize(this);
+    }
+  }
+
+  get graticuleLineSize() {
+    return this._graticuleLineSize;
   }
 
   set projectionName(newProjectionName) {
