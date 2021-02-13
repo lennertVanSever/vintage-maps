@@ -203,23 +203,23 @@ window.customElements.define('customize-section', CustomizeSection);
 class OrderSection extends Section {
   constructor() {
     super();
-    // this.formData = {
-    //   email: '',
-    //   name: '',
-    //   address: '',
-    //   zip: '',
-    //   city: '',
-    //   country: 'AF',
-    // };
-
     this.formData = {
-      email: 'lennert_vansever@hotmail.be',
-      name: 'Lennert Van Sever',
-      address: 'Grensstraat 40',
-      zip: '1210',
-      city: 'Sint-Joost-ten-Node',
-      country: 'BE',
+      email: '',
+      name: '',
+      address: '',
+      zip: '',
+      city: '',
+      country: 'AF',
     };
+
+    // this.formData = {
+    //   email: 'lennert_vansever@hotmail.be',
+    //   name: 'Lennert Van Sever',
+    //   address: 'Grensstraat 40',
+    //   zip: '1210',
+    //   city: 'Sint-Joost-ten-Node',
+    //   country: 'BE',
+    // };
     window.addEventListener('mapUrl', this.handleMapUrlChange.bind(this));
     window.addEventListener('updateOrderData', this.updateFormData.bind(this));
     this.pdfFile = '';
