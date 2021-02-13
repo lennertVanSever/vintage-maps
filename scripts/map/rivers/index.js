@@ -1,5 +1,5 @@
 import * as d3 from 'd3';
-import colors from '../colors.js';
+import { defaultColors } from '../colors.js';
 import {
   addParametersToURL,
   camalize,
@@ -37,7 +37,7 @@ export class Rivers {
       `#riverShadow${camalize(selectedRiver.properties.NAME)}`
     );
     selectedRiverElement
-      .attr('stroke', colors.rivers)
+      .attr('stroke', `var(--rivers)`)
       .attr('stroke-width', 0.2);
     addParametersToURL({
       info: selectedRiver.properties.NAME,
@@ -60,7 +60,7 @@ export class Rivers {
       .attr('class', 'river')
       .attr('fill', 'none')
       .attr('stroke-width', 0.1)
-      .attr('stroke', colors.rivers);
+      .attr('stroke', `var(--rivers)`);
 
     this.map.subGroups.rivers
       .append('g')

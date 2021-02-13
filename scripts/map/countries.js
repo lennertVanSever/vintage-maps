@@ -1,5 +1,5 @@
 import * as d3 from 'd3';
-import colors from './colors.js';
+import { defaultColors } from './colors.js';
 import {
   addParametersToURL,
   camalize,
@@ -79,8 +79,14 @@ export class Countries {
     }
   }
 
+  getColorIndexValue(country) {
+    return this.isUnclaimed(country)
+      ? 'none'
+      : `var(--border-${country.properties.BORDER_COLOR_INDEX})`;
+  }
+
   drawInsideBorders() {
-    const addInsideBorder = ({ pathClass }) => {
+    const addInsideBorder = ({ pathClass, fill }) => {
       return this.map.subGroups.countryBorders
         .append('g')
         .attr('class', 'borders')
@@ -92,24 +98,25 @@ export class Countries {
           return `url(#${this.getIdBorderClip(index)})`;
         })
         .attr('d', this.map.geoPath)
-        .attr('fill', 'none')
+        .attr('fill', country =>
+          fill ? this.getColorIndexValue(country) : 'var(--body-color)'
+        )
         .attr(
           'class',
           country =>
             `${pathClass} ${pathClass}${getCountryNameCamelCase(country)}`
         )
         .attr('stroke-alignment', 'inner')
-        .attr('stroke', country => {
-          return this.isUnclaimed(country)
-            ? 'none'
-            : colors.insideBorders[country.properties.BORDER_COLOR_INDEX];
-        });
+        .attr('stroke', country => this.getColorIndexValue(country));
     };
 
     addInsideBorder({ pathClass: 'insideBorderDark' }).attr('stroke-width', 0);
     addInsideBorder({ pathClass: 'insideBorderLight' })
       .attr('stroke-width', 0)
       .attr('opacity', 0.5);
+    addInsideBorder({ pathClass: 'insideFill', fill: true })
+      .attr('stroke', 'none')
+      .attr('opacity', 0.15);
 
     this.map.subGroups.countryBorders
       .append('g')
@@ -139,7 +146,7 @@ export class Countries {
       .attr('fill', 'none')
       // .attr('fill', colors.background)
       .attr('stroke-width', 0)
-      .attr('stroke', colors.outsideBorder);
+      .attr('stroke', defaultColors.outsideBorder);
   }
 
   fillSelectedCountry(selectedCountryInsideBorder) {
@@ -185,7 +192,7 @@ export class Countries {
       .attr('d', this.map.geoPath)
       .attr('class', `countryName canOverlapElement`)
       .attr('id', country => `countryName${getCountryNameCamelCase(country)}`)
-      .style('fill', colors.text)
+      .style('fill', defaultColors.text)
       .style('text-anchor', 'middle')
       .text(d => (this.isUnclaimed(d) ? '' : d.properties.NAME))
       .style('cursor', 'pointer')

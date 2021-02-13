@@ -1,6 +1,6 @@
 /* eslint-disable max-classes-per-file */
 import * as d3 from 'd3';
-import colors from '../colors.js';
+import { defaultColors } from '../colors.js';
 import {
   addParametersToURL,
   camalize,
@@ -246,7 +246,7 @@ export class Cities {
       .append('path')
       .attr('class', 'city cityPath')
       .attr('d', citiesPath)
-      .attr('fill', colors.text)
+      .attr('fill', defaultColors.text)
       .attr('id', city => `cityPath${camalize(city.properties.NAME)}`);
 
     const { map } = this;
@@ -260,15 +260,15 @@ export class Cities {
       .attr('class', 'city cityName canOverlapElement')
       .attr('font-size', '2px')
       .style('cursor', 'pointer')
-      .attr('fill', colors.text)
+      .attr('fill', defaultColors.text)
       .attr('id', city => `cityName${camalize(city.properties.NAME)}`)
       .on('click', function (event, city) {
         resetAlreadySelected();
         const selectedCity = d3.select(this);
-        selectedCity.attr('fill', colors.selectedCity);
+        selectedCity.attr('fill', defaultColors.selectedCity);
         d3.select(`#cityPath${camalize(city.properties.NAME)}`).attr(
           'fill',
-          colors.selectedCity
+          defaultColors.selectedCity
         );
         event.stopPropagation();
         addParametersToURL({

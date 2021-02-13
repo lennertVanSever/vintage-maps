@@ -1,5 +1,5 @@
 import * as d3 from 'd3';
-import colors from './colors.js';
+import { defaultColors } from './colors.js';
 
 export class Graticule {
   constructor(map) {
@@ -85,7 +85,7 @@ export class Graticule {
           .attr('class', `graticule specialParallel ${extraClasses}`)
           .attr('d', this.map.geoPath)
           .attr('fill', 'none')
-          .attr('stroke', colors.graticule)
+          .attr('stroke', defaultColors.graticule)
           .attr('stroke-width', this.initialStrokeWidth);
       });
     });
@@ -104,7 +104,7 @@ export class Graticule {
       .attr('class', 'graticule graticuleInside')
       .attr('d', this.map.geoPath)
       .attr('fill', 'none')
-      .attr('stroke', colors.graticule)
+      .attr('stroke', defaultColors.graticule)
       .attr('stroke-width', this.initialStrokeWidth);
   }
 
@@ -115,7 +115,7 @@ export class Graticule {
       .attr('class', 'graticule outline')
       .attr('d', this.map.geoPath)
       .attr('fill', 'none')
-      .attr('stroke', colors.graticule)
+      .attr('stroke', defaultColors.graticule)
       .attr('stroke-width', this.initialStrokeWidth);
   }
 }

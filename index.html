@@ -44,7 +44,7 @@
       --margin-7: 32px;
       --margin-8: 48px;
       --margin-9: 64px;
-      --body-color: #eae1ba;
+
       --black: #534b3e;
       --red: #d65d55;
       --breakpoint-1: 600px;
@@ -136,6 +136,7 @@
     #secondBorder {
       border: 1px solid var(--black);
       height: calc(100% - 3px);
+      background-color: var(--ocean);
     }
 
     section {
@@ -220,6 +221,7 @@
     <customize-section>
       <title-input></title-input>
       <year-select></year-select>
+      <radio-map-style></radio-map-style>
       <expand-content>
         <projection-select></projection-select>
         <hide-or-show-toggle labelText="Cities" elementToHideSelector="#cities"></hide-or-show-toggle>

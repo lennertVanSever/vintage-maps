@@ -1,3 +1,4 @@
+import colors from '../map/colors';
 import { dispatchCustomEvent, initial } from '../utils';
 import { ShadowElement } from './shadowElement.js';
 import { labelStyleRaw } from './sharedStyle';
@@ -288,3 +289,74 @@ class RadioMapMaterial extends RadioInputs {
 }
 
 window.customElements.define('radio-map-material', RadioMapMaterial);
+
+class RadioMapStyle extends RadioInputs {
+  constructor() {
+    super();
+    this.setColorVariables('defaultColors');
+  }
+
+  set value(value) {
+    this._value = value;
+  }
+
+  get value() {
+    return this._value || initial.style;
+  }
+
+  get title() {
+    return 'Map style';
+  }
+
+  get name() {
+    return 'map-style';
+  }
+
+  setColorVariables(colorSet) {
+    [
+      {
+        cssVarName: '--body-color',
+        jsVarName: 'body',
+      },
+      {
+        cssVarName: '--ocean',
+        jsVarName: 'ocean',
+      },
+      {
+        cssVarName: '--rivers',
+        jsVarName: 'rivers',
+      },
+    ].forEach(({ cssVarName, jsVarName }) => {
+      document.documentElement.style.setProperty(
+        cssVarName,
+        colors[colorSet][jsVarName]
+      );
+    });
+    colors[colorSet].insideBorders.forEach((value, index) => {
+      document.documentElement.style.setProperty(`--border-${index}`, value);
+    });
+  }
+
+  handleInputChange({ target: { value } }) {
+    this.setColorVariables(value);
+  }
+
+  get options() {
+    return [
+      {
+        label: 'Default',
+        value: 'defaultColors',
+      },
+      {
+        label: 'School',
+        value: 'schoolColors',
+      },
+      {
+        label: 'Minimalist',
+        value: 'minimalistColors',
+      },
+    ];
+  }
+}
+
+window.customElements.define('radio-map-style', RadioMapStyle);

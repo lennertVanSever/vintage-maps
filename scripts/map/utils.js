@@ -1,5 +1,5 @@
 import * as d3 from 'd3';
-import colors from './colors.js';
+import { defaultColors } from './colors.js';
 
 export function mapRange(value, low1, high1, low2, high2) {
   const result = low2 + ((high2 - low2) * (value - low1)) / (high1 - low1);
@@ -9,8 +9,8 @@ export function mapRange(value, low1, high1, low2, high2) {
 
 export const resetAlreadySelected = () => {
   d3.selectAll('.insideBorderLight').attr('fill', 'none');
-  d3.selectAll('.cityPath').attr('fill', colors.text);
-  d3.selectAll('.cityName').attr('fill', colors.text);
+  d3.selectAll('.cityPath').attr('fill', defaultColors.text);
+  d3.selectAll('.cityName').attr('fill', defaultColors.text);
   d3.selectAll('.riverShadow')
     .attr('stroke', 'transparent')
     .attr('stroke-width', 1);
