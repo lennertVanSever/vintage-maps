@@ -93,6 +93,10 @@ export const getMapHtml = () => {
         width: calc(100% - 70px) !important;
         page-break-inside: avoid;
       }
+      #firstBorder {
+        width: 100% !important;
+        height: 100% !important;
+      }
       * {
         page-break-inside: avoid;
         break-inside: avoid;
