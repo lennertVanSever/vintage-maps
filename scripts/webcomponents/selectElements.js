@@ -2,8 +2,7 @@
 
 import { countries, projectionNames, years } from '../config';
 import { map } from '../index.js';
-import { initialUrl } from '../map/utils.js';
-import { dispatchCustomEvent } from '../utils';
+import { dispatchCustomEvent, initialUrl } from '../utils';
 import { ShadowElement } from './shadowElement.js';
 import { formElementStyle, labelStyle } from './sharedStyle.js';
 

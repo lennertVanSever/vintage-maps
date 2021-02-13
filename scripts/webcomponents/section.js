@@ -1,5 +1,10 @@
 /* eslint-disable max-classes-per-file */
-import { getOrderDetails, goToPayment, orderPrint } from '../checkout';
+import {
+  generateMapUrl,
+  getOrderDetails,
+  goToPayment,
+  orderPrint,
+} from '../checkout';
 import { dispatchCustomEvent, router } from '../utils';
 import { ShadowElement } from './shadowElement.js';
 
@@ -20,6 +25,16 @@ class Section extends ShadowElement {
       this.onClickSecondButton.bind(this)
     );
     window.addEventListener('showSection', this.handleShowSection.bind(this));
+    if (this.handleProductChange) {
+      window.addEventListener(
+        'productChange',
+        this.handleProductChange.bind(this)
+      );
+    }
+  }
+
+  updateTextSecondButton() {
+    this.secondButton.innerText = this.secondButtonText;
   }
 
   hideSection() {
@@ -151,7 +166,13 @@ class Section extends ShadowElement {
 }
 
 class CustomizeSection extends Section {
+  handleProductChange({ detail }) {
+    this.product = detail;
+    this.secondButtonText = `€${this.product.price} • Order`;
+  }
+
   onClickSecondButton() {
+    generateMapUrl(this.product.printExactSize);
     router.navigate(`/order${window.location.search}`);
   }
 
@@ -168,7 +189,12 @@ class CustomizeSection extends Section {
   }
 
   get secondButtonText() {
-    return 'Order';
+    return this._secondButtonText || 'Order';
+  }
+
+  set secondButtonText(value) {
+    this._secondButtonText = value;
+    this.updateTextSecondButton();
   }
 }
 
@@ -177,27 +203,31 @@ window.customElements.define('customize-section', CustomizeSection);
 class OrderSection extends Section {
   constructor() {
     super();
-    this.formData = {
-      email: '',
-      name: '',
-      address: '',
-      zip: '',
-      city: '',
-      country: 'AF',
-    };
-
     // this.formData = {
-    //   email: 'lennert_vansever@hotmail.be',
-    //   name: 'Lennert Van Sever',
-    //   address: 'Grensstraat 40',
-    //   zip: '1210',
-    //   city: 'Sint-Joost-ten-Node',
-    //   country: 'BE',
+    //   email: '',
+    //   name: '',
+    //   address: '',
+    //   zip: '',
+    //   city: '',
+    //   country: 'AF',
     // };
+
+    this.formData = {
+      email: 'lennert_vansever@hotmail.be',
+      name: 'Lennert Van Sever',
+      address: 'Grensstraat 40',
+      zip: '1210',
+      city: 'Sint-Joost-ten-Node',
+      country: 'BE',
+    };
     window.addEventListener('mapUrl', this.handleMapUrlChange.bind(this));
     window.addEventListener('updateOrderData', this.updateFormData.bind(this));
     this.pdfFile = '';
     this.sendOrderWhenPdfFileIsReady = false;
+  }
+
+  handleProductChange({ detail }) {
+    this.product = detail;
   }
 
   handleMapUrlChange(event) {
@@ -244,7 +274,7 @@ class OrderSection extends Section {
       email: this.formData.email,
       items: [
         {
-          productId: 'aluminium_40x30',
+          productId: this.product.id,
           quantity: 1,
           files: {
             content: this.pdfFile,
@@ -314,35 +344,53 @@ class CheckoutSection extends Section {
     }
   }
 
+  addCurrency(number) {
+    return `€${number}`;
+  }
+
   calculatePriceWithTaxes({ cost, taxes: [{ amount }] }) {
-    return `€${Math.round((cost + amount) * 100) / 100}`;
+    return this.addCurrency(Math.round((cost + amount) * 100) / 100);
+  }
+
+  handleProductChange({ detail }) {
+    this.product = detail;
   }
 
   get summary() {
-    console.log(this.data);
     const {
       checkout: { amount },
       email,
       shipping: {
         address: { city, country, line1: address, name, postCode },
       },
-      invoice: { production, shipping, handling },
+      invoice: { shipping, handling },
     } = this.data;
 
     return /* html */ `
       <h3>Price summary</h3>
-      <key-value keyText="Subtotal" valueText="${this.calculatePriceWithTaxes(
-        production
-      )}"></key-value>
+      <key-value
+        keyText="Subtotal"
+        valueText="${this.addCurrency(this.product.price)}"
+      ></key-value>
       <key-value keyText="Shipping fee" valueText="${this.calculatePriceWithTaxes(
         shipping
       )}"></key-value>
       <key-value keyText="Handling" valueText="${this.calculatePriceWithTaxes(
         handling
       )}"></key-value>
-      <key-value keyText="Total" valueText="€${amount}" attention="1"></key-value>
+      <key-value
+        keyText="Total"
+        valueText="${this.addCurrency(amount)}"
+        attention="1"
+      ></key-value>
       <hr>
       <h3>Shipping details</h3>
+      <key-value
+        keyText="Product"
+        valueText="${this.product.name}"
+        vertical="1"
+      >
+      </key-value>
       <key-value keyText="Name" valueText="${name}" vertical="1"></key-value>
       <key-value keyText="Email" valueText="${email}" vertical="1"></key-value>
       <key-value keyText="Address" valueText="${address}" vertical="1"></key-value>

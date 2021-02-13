@@ -1,6 +1,7 @@
 import * as d3 from 'd3';
 import * as d3GeoProjection from 'd3-geo-projection';
 import { projectionNames, years } from '../config';
+import { initialUrl } from '../utils';
 import { Cities } from './cities/index.js';
 import { Rivers } from './rivers/index.js';
 import { Countries } from './countries.js';
@@ -9,7 +10,6 @@ import {
   addParametersToURL,
   addParameterToURL,
   debounce,
-  initialUrl,
   mapRange,
 } from './utils.js';
 
@@ -179,7 +179,7 @@ export class Map {
 
     this.svg
       .transition()
-      .duration(0)
+      .duration(500)
       .call(
         this.zoomController.transform,
         d3.zoomIdentity
@@ -195,7 +195,7 @@ export class Map {
   initialZoom() {
     this.svg
       .transition()
-      .duration(500)
+      .duration(0)
       .call(
         this.zoomController.transform,
         d3.zoomIdentity

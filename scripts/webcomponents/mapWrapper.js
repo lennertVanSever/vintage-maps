@@ -1,4 +1,5 @@
-import { addParameterToURL, initialTitle } from '../map/utils.js';
+import { addParameterToURL } from '../map/utils.js';
+import { initial } from '../utils';
 import { ShadowElement } from './shadowElement.js';
 
 class MapWrapper extends ShadowElement {
@@ -6,7 +7,7 @@ class MapWrapper extends ShadowElement {
     super();
     window.addEventListener('updateMapTitle', this.updateMapTitle.bind(this));
 
-    this.title = initialTitle;
+    this.title = initial.title;
   }
 
   updateMapTitle(event) {

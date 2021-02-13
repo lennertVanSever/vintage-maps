@@ -1,8 +1,11 @@
+export const labelStyleRaw = `
+  width: 100%;
+  display: block;
+  margin: var(--margin-6) 0px;
+`;
 export const labelStyle = `
   label {
-    width: 100%;
-    display: block;
-    margin: var(--margin-6) 0px;
+    ${labelStyleRaw}
   }
   #hint {
     font-size: 12px;

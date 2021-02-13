@@ -120,9 +120,17 @@
     #firstBorder {
       border: 3px solid var(--black);
       padding: var(--margin-2);
+      box-sizing: border-box;
+    }
 
+    .landscape {
+      width: calc(100vw - 36px);
       height: calc((100vw - 36px) / 4 * 3);
-      /* width: calc(100vw - var(--margin-6)); */
+    }
+
+    .portrait {
+      width: calc(40vh / 4 * 3);
+      height: 40vh;
     }
 
     #secondBorder {
@@ -130,21 +138,28 @@
       height: calc(100% - 3px);
     }
 
+    section {
+      display: flex;
+      justify-content: center;
+    }
+
     @media only screen and (min-width:768px) {
       section {
         width: calc(100vw - 300px);
-        display: flex;
-        justify-content: center;
       }
 
       #subWrapper {
-        width: calc((100vh - 55px) * 4 / 3);
-        height: calc(100vh - 55px);
+        height: 100%;
       }
 
       #firstBorder {
-        height: 100%;
-        width: 100%;
+        height: calc(100vh - 55px);
+      }
+      .landscape {
+        width: calc((100vh - 55px) * 4 / 3);
+      }
+      .portrait {
+        width: calc((100vh - 55px) * 3 / 4);
       }
 
 
@@ -167,9 +182,15 @@
     }
 
     @media only screen and (max-aspect-ratio: 380/237) and (min-width:768px) {
-      #subWrapper {
+      .landscape {
         width: calc((100vw - 330px));
-        height: calc((100vw - 330px) / 4 * 3);
+        height: calc((100vw - 330px) / 4 * 3) !important;
+      }
+    }
+    @media only screen and (max-aspect-ratio: 500/473) and (min-width:768px) {
+      .portrait {
+        width: calc((100vw - 330px));
+        height: calc((100vw - 330px) / 3 * 4) !important;
       }
     }
   </style>
@@ -181,7 +202,7 @@
     <section id="mapSection">
       <div id="subWrapper">
         <div id="title">Change me</div>
-        <div id="firstBorder">
+        <div id="firstBorder" class="landscape">
           <div id="secondBorder">
             <svg class="svg_wrapper">
             </svg>
@@ -202,6 +223,9 @@
         <range-map-property labelText="City name size" mapProperty="citySize" value="5" min="0" max="15" step="0.1">
         </range-map-property>
       </expand-content>
+      <radio-map-direction></radio-map-direction>
+      <radio-map-sizes></radio-map-sizes>
+      <radio-map-material></radio-map-material>
     </customize-section>
     <order-section>
       <text-input name="email" labelText="Email"></text-input>
@@ -220,8 +244,13 @@
   </main>
   <script type="module" src="./scripts/index.js"></script>
   <script>
-    window.addEventListener('updateMapTitle', (event) => {
-      document.getElementById('title').innerText = event.detail.value;
+    window.addEventListener('updateMapTitle', ({ detail: { value }}) => {
+      document.getElementById('title').innerText = value;
+    })
+    window.addEventListener('directionChange', ({ detail: { value }}) => {
+      const firstBorder = document.getElementById('firstBorder');
+      firstBorder.removeAttribute('class');
+      firstBorder.classList.add(value);
     })
   </script>
 </body>

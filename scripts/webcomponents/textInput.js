@@ -1,5 +1,4 @@
-import { initialTitle } from '../map/utils.js';
-import { dispatchCustomEvent } from '../utils';
+import { dispatchCustomEvent, initial } from '../utils';
 import { ShadowElement } from './shadowElement.js';
 import { formElementStyle, labelStyle } from './sharedStyle.js';
 
@@ -96,7 +95,7 @@ class TitleInput extends TextInput {
   }
 
   get initialValue() {
-    return initialTitle;
+    return initial.title;
   }
 }
 

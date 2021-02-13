@@ -1,4 +1,4 @@
-import { dispatchCustomEvent } from '../utils';
+import { dispatchCustomEvent, initial } from '../utils';
 
 const serverUrl = 'https://vintage-map-server.herokuapp.com';
 
@@ -103,7 +103,7 @@ export const getMapHtml = () => {
   `;
 };
 
-export const generateMapUrl = async () => {
+export const generateMapUrl = async printExactSize => {
   try {
     dispatchCustomEvent('mapUrl', {
       data: null,
@@ -117,7 +117,7 @@ export const generateMapUrl = async () => {
       },
       body: JSON.stringify({
         sejdaParameters: {
-          pageSize: '406mmx306mm',
+          pageSize: printExactSize,
           htmlCode: getMapHtml(),
         },
       }),
@@ -135,3 +135,61 @@ export const generateMapUrl = async () => {
     });
   }
 };
+
+class CalculatePrice {
+  constructor() {
+    this.size = initial.size;
+    this.material = initial.material;
+    this.calculatePrice();
+    window.addEventListener('sizeChange', this.handleSizeChange.bind(this));
+    window.addEventListener(
+      'materialChange',
+      this.handleMaterialChange.bind(this)
+    );
+  }
+
+  handleSizeChange({ detail }) {
+    this.size = detail;
+    this.calculatePrice();
+  }
+
+  handleMaterialChange({ detail }) {
+    this.material = detail;
+    this.calculatePrice();
+  }
+
+  get productNameId() {
+    return `${this.material.value}_${this.size.value}`;
+  }
+
+  get productName() {
+    return `Map ${this.material.label} ${this.size.label}`;
+  }
+
+  async calculatePrice() {
+    const { access_token: accessToken } = await fetchPrintToken();
+    const responseRaw = await fetch(
+      `https://test.printapi.nl/v2/products/${this.productNameId}`,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${accessToken}`,
+        },
+      }
+    );
+    const response = await responseRaw.json();
+    const {
+      files: [{ width, height }],
+    } = response;
+    dispatchCustomEvent('productChange', {
+      id: response.id,
+      price: response.checkout.base,
+      name: this.productName,
+      printExactSize: `${width}mmx${height}mm`,
+    });
+  }
+}
+
+setTimeout(() => {
+  new CalculatePrice(); // otherwise we get initialize error
+}, 0);

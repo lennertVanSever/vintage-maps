@@ -25,9 +25,6 @@ export const camalize = str => {
 export const getCountryNameCamelCase = country => {
   return camalize(country.properties.NAME);
 };
-export const initialUrl = new URL(window.location.href);
-
-export const initialTitle = initialUrl.searchParams.get('title') || 'Change me';
 
 export function addParameterToURL(key, value) {
   const newUrl = new URL(window.location.href);

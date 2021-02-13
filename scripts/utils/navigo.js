@@ -1,5 +1,4 @@
 import Navigo from 'navigo';
-import { generateMapUrl } from '../checkout';
 
 export const router = new Navigo('/');
 
@@ -20,10 +19,7 @@ router.on('/', () => {
 });
 
 router.on('/order', async () => {
-  generateMapUrl();
-
   openSection('/order');
-  // console.log(response);
 });
 
 router.on('/checkout', () => {
