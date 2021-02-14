@@ -207,15 +207,20 @@ export class Countries {
         .attr('x', projectedPoint[0])
         .attr('y', projectedPoint[1])
         .style('font-size', d => {
-          const fontSize = distance;
+          const fontSize = distance / 1.8;
           let smallFactor = 1;
           const letterCount = d.properties.NAME ? d.properties.NAME.length : 0;
 
           if (fontSize < 2) smallFactor = 1.5;
           if (fontSize < 0.5) smallFactor = 3;
           if (fontSize < 0.2) smallFactor = 5;
-          const letterCountFactor = mapRange(letterCount, 30, 4, 0.7, 1.2);
-          return `${fontSize * smallFactor * letterCountFactor}px`;
+          const letterCountFactor = mapRange(letterCount, 30, 4, 0.5, 1.2);
+          const maxSize = 10;
+          const calculatedSize = fontSize * smallFactor * letterCountFactor;
+          if (calculatedSize > maxSize) {
+            return `${maxSize}pt`;
+          }
+          return `${calculatedSize}pt`;
         });
     });
   }
