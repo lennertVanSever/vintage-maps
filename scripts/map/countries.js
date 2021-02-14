@@ -199,23 +199,16 @@ export class Countries {
       .on('click', this.countryClicked.bind(this));
 
     const { projection } = this.map;
-    d3.selectAll('.countryName').each(function (country) {
-      let longestCoordinates = [[]];
+    d3.selectAll('.countryName').each(function (country, index) {
+      const { DISTANCE: distance, X, Y } = country.properties.LABEL_PLACEMENT;
+      const projectedPoint = projection([X, Y]);
 
-      country.geometry.coordinates.forEach(coordinatesCollection => {
-        if (coordinatesCollection[0].length > longestCoordinates[0].length)
-          longestCoordinates = coordinatesCollection;
-      });
-
-      longestCoordinates[0] = longestCoordinates[0].map(coordinates => {
-        return projection(coordinates);
-      });
-      const labelPlacement = polylabel(longestCoordinates, 1, false);
+      // const labelPlacement = polylabel(longestCoordinates[0], 0.1, 0.1);
       d3.select(this)
-        .attr('x', labelPlacement.x)
-        .attr('y', labelPlacement.y)
+        .attr('x', projectedPoint[0])
+        .attr('y', projectedPoint[1])
         .style('font-size', d => {
-          const fontSize = labelPlacement.d / 3;
+          const fontSize = distance;
           let smallFactor = 1;
           const letterCount = d.properties.NAME ? d.properties.NAME.length : 0;
 

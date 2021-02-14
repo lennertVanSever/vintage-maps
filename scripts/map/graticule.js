@@ -57,7 +57,6 @@ export class Graticule {
     this.graticule.step([graticuleStep, graticuleStep]);
     this.removeGraticule();
     this.drawGraticule();
-    console.log(map.graticuleLineSize);
     d3.selectAll('.graticule').attr(
       'stroke-width',
       map.zoomFactor * map.graticuleLineSize
