@@ -5,7 +5,6 @@ import {
   camalize,
   getCountryNameCamelCase,
   mapRange,
-  polylabel,
   resetAlreadySelected,
 } from './utils.js';
 
