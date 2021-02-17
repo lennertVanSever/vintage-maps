@@ -51,6 +51,12 @@ const chickenTest = [
   [4, 11],
 ];
 
+function mapRange(value, low1, high1, low2, high2) {
+  const result = low2 + ((high2 - low2) * (value - low1)) / (high1 - low1);
+  if (result < low2) return low2;
+  return low2 + ((high2 - low2) * (value - low1)) / (high1 - low1);
+}
+
 function lineIntersect(x1, y1, x2, y2, x3, y3, x4, y4) {
   // https://stackoverflow.com/questions/13937782/calculating-the-point-of-intersection-of-two-lines
   const denom = (y4 - y3) * (x2 - x1) - (x4 - x3) * (y2 - y1);
@@ -216,6 +222,24 @@ const findOptimalIntersection = (polygon, resolution, importanceHeight) => {
   return optimalIntersection;
 };
 
+const getFontSize = (distanceValue, d) => {
+  const fontSizeUnit = 'px';
+  const fontSize = distanceValue / 1.8;
+  let smallFactor = 1;
+  const letterCount = d.properties.NAME ? d.properties.NAME.length : 0;
+
+  if (fontSize < 2) smallFactor = 1.5;
+  if (fontSize < 0.5) smallFactor = 3;
+  if (fontSize < 0.2) smallFactor = 5;
+  const letterCountFactor = mapRange(letterCount, 30, 4, 0.5, 1.2);
+  const maxSize = 10;
+  const calculatedSize = fontSize * smallFactor * letterCountFactor;
+  if (calculatedSize > maxSize) {
+    return `${Math.round(maxSize)}${fontSizeUnit}`;
+  }
+  return `${Math.round(calculatedSize)}${fontSizeUnit}`;
+};
+
 const polylabel = (polygon, resolution, importanceHeight) => {
   const optimalIntersection = findOptimalIntersection(
     polygon,
@@ -259,6 +283,7 @@ getWorlds((world, fileName) => {
           X: labelPlacement.x,
           Y: labelPlacement.y,
           DISTANCE: labelPlacement.d,
+          FONT_SIZE: getFontSize(labelPlacement.d, feature),
         },
       },
     };

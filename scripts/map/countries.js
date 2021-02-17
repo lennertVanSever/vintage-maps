@@ -1,4 +1,6 @@
+import 'd3-drag';
 import * as d3 from 'd3';
+import { isLocalHost } from '../utils';
 import { defaultColors } from './colors.js';
 import {
   addParametersToURL,
@@ -11,6 +13,8 @@ import {
 export class Countries {
   constructor(map) {
     this.map = map;
+    this.fontSizeUnit = 'px';
+    window.addEventListener('keyup', this.keyup.bind(this));
   }
 
   async render({ rezoom }) {
@@ -29,11 +33,11 @@ export class Countries {
     if (Number(mapYear) < 0) {
       mapYear = `bc${Math.abs(mapYear)}`;
     }
-    const mapName = `world_${mapYear}`;
-    if (this.countryRawData && this.countryRawData.name === mapName) {
+    this.mapName = `world_${mapYear}`;
+    if (this.countryRawData && this.countryRawData.name === this.mapName) {
       this.countryData = this.countryRawData;
     } else {
-      this.countryData = await d3.json(`maps/${mapName}.geojson`);
+      this.countryData = await d3.json(`maps/${this.mapName}.geojson`);
     }
     this.countryRawData = JSON.parse(JSON.stringify(this.countryData));
   }
@@ -180,6 +184,102 @@ export class Countries {
     this.zoomToSelectedCountry(selectedCountryInsideBorder);
   }
 
+  getPosition(label) {
+    return {
+      x: Number(label.attr('x')),
+      y: Number(label.attr('y')),
+    };
+  }
+
+  async updateCountry(newProperties) {
+    if (isLocalHost) {
+      const responseRaw = await fetch('http://localhost:9000/modify_country', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          mapName: this.mapName,
+          countryName: newProperties.NAME,
+          changeProperties: newProperties,
+        }),
+      });
+      const response = await responseRaw.json();
+      console.log(response);
+    }
+  }
+
+  dragCountryName(event, selectedCountry) {
+    const label = d3.select(
+      `#countryName${getCountryNameCamelCase(selectedCountry)}`
+    );
+    function dragged({ dx, dy }) {
+      const { x: previousX, y: previousY } = this.getPosition(label);
+      label.attr('x', previousX + dx).attr('y', previousY + dy);
+    }
+
+    function ended() {
+      const { x, y } = this.getPosition(label);
+      // console.log(this.map.projection.inverse(label.attr('y')));
+      const [newX, newY] = this.map.projection.invert([x, y]);
+      const customLabelPlacement =
+        selectedCountry.properties.CUSTOM_LABEL_PLACEMENT ||
+        selectedCountry.properties.LABEL_PLACEMENT;
+      this.updateCountry({
+        ...selectedCountry.properties,
+        CUSTOM_LABEL_PLACEMENT: {
+          ...customLabelPlacement,
+          X: newX,
+          Y: newY,
+        },
+      });
+      label.classed('dragging', false);
+    }
+
+    event.on('drag', dragged.bind(this)).on('end', ended.bind(this));
+  }
+
+  keyup(event) {
+    const step = 1;
+    let newFontSize = Number(
+      this.selectedCountryLabel
+        .style('font-size')
+        .replace(this.fontSizeUnit, '')
+    );
+    if (event.code === 'ArrowDown') {
+      newFontSize -= step;
+    }
+    if (event.code === 'ArrowUp') {
+      newFontSize += step;
+    }
+    this.selectedCountryLabel.style(
+      'font-size',
+      `${newFontSize}${this.fontSizeUnit}`
+    );
+
+    const customLabelPlacement =
+      this.selectedCountryLabelData.properties.CUSTOM_LABEL_PLACEMENT ||
+      this.selectedCountryLabelData.properties.LABEL_PLACEMENT;
+    this.updateCountry({
+      ...this.selectedCountryLabelData.properties,
+      CUSTOM_LABEL_PLACEMENT: {
+        ...customLabelPlacement,
+        FONT_SIZE: `${newFontSize}px`,
+      },
+    });
+
+    // this.selectedCountryLabel;
+  }
+
+  countryRightClick(event, selectedCountry) {
+    event.preventDefault();
+    this.selectedCountryLabel = d3.select(
+      `#countryName${getCountryNameCamelCase(selectedCountry)}`
+    );
+    this.selectedCountryLabelData = selectedCountry;
+    this.selectedCountryLabel.style('fill', 'var(--red)');
+  }
+
   drawNamesOfCountries() {
     this.map.subGroups.countryNames
       .append('g')
@@ -195,34 +295,24 @@ export class Countries {
       .style('text-anchor', 'middle')
       .text(d => (this.isUnclaimed(d) ? '' : d.properties.NAME))
       .style('cursor', 'pointer')
+      .call(d3.drag().on('start', this.dragCountryName.bind(this)))
+      .on('contextmenu', this.countryRightClick.bind(this))
       .on('click', this.countryClicked.bind(this));
-
     const { projection } = this.map;
-    d3.selectAll('.countryName').each(function (country, index) {
-      const { DISTANCE: distance, X, Y } = country.properties.LABEL_PLACEMENT;
-      const projectedPoint = projection([X, Y]);
 
+    d3.selectAll('.countryName').each(function (country, index) {
+      const labelPlacementProperty = country.properties.CUSTOM_LABEL_PLACEMENT
+        ? 'CUSTOM_LABEL_PLACEMENT'
+        : 'LABEL_PLACEMENT';
+      const { FONT_SIZE: fontSize, X, Y } = country.properties[
+        labelPlacementProperty
+      ];
+      const projectedPoint = projection([X, Y]);
       // const labelPlacement = polylabel(longestCoordinates[0], 0.1, 0.1);
       d3.select(this)
         .attr('x', projectedPoint[0])
         .attr('y', projectedPoint[1])
-        .style('font-size', d => {
-          const unit = 'mm';
-          const fontSize = distance / 24;
-          let smallFactor = 1;
-          const letterCount = d.properties.NAME ? d.properties.NAME.length : 0;
-
-          if (fontSize < 2) smallFactor = 1.5;
-          if (fontSize < 0.5) smallFactor = 3;
-          if (fontSize < 0.2) smallFactor = 5;
-          const letterCountFactor = mapRange(letterCount, 30, 4, 0.5, 1.2);
-          const maxSize = 20;
-          const calculatedSize = fontSize * smallFactor * letterCountFactor;
-          if (calculatedSize > maxSize) {
-            return `${maxSize}${unit}`;
-          }
-          return `${calculatedSize}${unit}`;
-        });
+        .style('font-size', fontSize);
     });
   }
 }

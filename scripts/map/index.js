@@ -123,6 +123,7 @@ export class Map {
       .scale(scale)
       .translate([window.innerWidth / 2, window.innerHeight / 2])
       .precision(0.1);
+    console.log(this.projection);
 
     this.geoPath = d3.geoPath().projection(this.projection);
 
