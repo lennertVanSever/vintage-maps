@@ -6,7 +6,6 @@ import {
   addParametersToURL,
   camalize,
   getCountryNameCamelCase,
-  mapRange,
   resetAlreadySelected,
 } from './utils.js';
 
@@ -205,7 +204,7 @@ export class Countries {
         }),
       });
       const response = await responseRaw.json();
-      console.log(response);
+      console.info(response);
     }
   }
 
@@ -222,13 +221,10 @@ export class Countries {
       const { x, y } = this.getPosition(label);
       // console.log(this.map.projection.inverse(label.attr('y')));
       const [newX, newY] = this.map.projection.invert([x, y]);
-      const customLabelPlacement =
-        selectedCountry.properties.CUSTOM_LABEL_PLACEMENT ||
-        selectedCountry.properties.LABEL_PLACEMENT;
       this.updateCountry({
         ...selectedCountry.properties,
         CUSTOM_LABEL_PLACEMENT: {
-          ...customLabelPlacement,
+          ...this.getLabelPlacementProperty(selectedCountry),
           X: newX,
           Y: newY,
         },
@@ -246,6 +242,7 @@ export class Countries {
         .style('font-size')
         .replace(this.fontSizeUnit, '')
     );
+    console.log('current font size', newFontSize);
     if (event.code === 'ArrowDown') {
       newFontSize -= step;
     }
@@ -257,18 +254,22 @@ export class Countries {
       `${newFontSize}${this.fontSizeUnit}`
     );
 
-    const customLabelPlacement =
-      this.selectedCountryLabelData.properties.CUSTOM_LABEL_PLACEMENT ||
-      this.selectedCountryLabelData.properties.LABEL_PLACEMENT;
     this.updateCountry({
       ...this.selectedCountryLabelData.properties,
       CUSTOM_LABEL_PLACEMENT: {
-        ...customLabelPlacement,
-        FONT_SIZE: `${newFontSize}px`,
+        ...this.getLabelPlacementProperty(this.selectedCountryLabelData),
+        FONT_SIZE: `${newFontSize}${this.fontSizeUnit}`,
       },
     });
 
     // this.selectedCountryLabel;
+  }
+
+  getLabelPlacementProperty(country) {
+    return (
+      country.properties.CUSTOM_LABEL_PLACEMENT ||
+      country.properties.LABEL_PLACEMENT
+    );
   }
 
   countryRightClick(event, selectedCountry) {
@@ -299,14 +300,9 @@ export class Countries {
       .on('contextmenu', this.countryRightClick.bind(this))
       .on('click', this.countryClicked.bind(this));
     const { projection } = this.map;
-
-    d3.selectAll('.countryName').each(function (country, index) {
-      const labelPlacementProperty = country.properties.CUSTOM_LABEL_PLACEMENT
-        ? 'CUSTOM_LABEL_PLACEMENT'
-        : 'LABEL_PLACEMENT';
-      const { FONT_SIZE: fontSize, X, Y } = country.properties[
-        labelPlacementProperty
-      ];
+    const { getLabelPlacementProperty } = this;
+    d3.selectAll('.countryName').each(function (country) {
+      const { FONT_SIZE: fontSize, X, Y } = getLabelPlacementProperty(country);
       const projectedPoint = projection([X, Y]);
       // const labelPlacement = polylabel(longestCoordinates[0], 0.1, 0.1);
       d3.select(this)
