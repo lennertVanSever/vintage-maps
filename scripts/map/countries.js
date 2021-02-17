@@ -205,6 +205,12 @@ export class Countries {
       });
       const response = await responseRaw.json();
       console.info(response);
+      if (
+        this.selectedCountryLabelData &&
+        newProperties.NAME === this.selectedCountryLabelData.properties.NAME
+      ) {
+        this.selectedCountryLabelData.properties = newProperties;
+      }
     }
   }
 
@@ -242,7 +248,6 @@ export class Countries {
         .style('font-size')
         .replace(this.fontSizeUnit, '')
     );
-    console.log('current font size', newFontSize);
     if (event.code === 'ArrowDown') {
       newFontSize -= step;
     }
