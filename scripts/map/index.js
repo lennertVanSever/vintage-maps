@@ -26,7 +26,7 @@ export class Map {
     this.borderWidth = 10;
     this.minimumZoom = 1;
     this.maximumZoom = 40;
-    this.citySize = 5;
+    this.citySize = 3;
     this.graticuleGapSize = 50;
     this.graticuleLineSize = 1;
     this.zoomController = d3.zoom();
