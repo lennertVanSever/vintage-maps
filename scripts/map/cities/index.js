@@ -259,6 +259,7 @@ export class Cities {
       .attr('text-anchor', 'middle')
       .attr('class', 'city cityName canOverlapElement')
       .attr('font-size', '2px')
+      .attr('font-style', 'italic')
       .style('cursor', 'pointer')
       .attr('fill', defaultColors.text)
       .attr('id', city => `cityName${camalize(city.properties.NAME)}`)
