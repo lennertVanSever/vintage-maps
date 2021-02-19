@@ -233,11 +233,11 @@ const getFontSize = (distanceValue, d) => {
   if (fontSize < 0.2) smallFactor = 5;
   const letterCountFactor = mapRange(letterCount, 30, 4, 0.5, 1.2);
   const maxSize = 10;
-  const calculatedSize = fontSize * smallFactor * letterCountFactor;
+  let calculatedSize = fontSize * smallFactor * letterCountFactor;
   if (calculatedSize > maxSize) {
-    return `${Math.round(maxSize)}${fontSizeUnit}`;
+    calculatedSize = maxSize;
   }
-  return `${Math.round(calculatedSize)}${fontSizeUnit}`;
+  return `${Math.round(calculatedSize * 10) / 10}${fontSizeUnit}`;
 };
 
 const polylabel = (polygon, resolution, importanceHeight) => {
