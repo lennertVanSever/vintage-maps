@@ -5,7 +5,7 @@ import { defaultColors } from './colors.js';
 import {
   addParametersToURL,
   camalize,
-  getCountryNameCamelCase,
+  getCountryId,
   resetAlreadySelected,
 } from './utils.js';
 
@@ -105,8 +105,7 @@ export class Countries {
         )
         .attr(
           'class',
-          country =>
-            `${pathClass} ${pathClass}${getCountryNameCamelCase(country)}`
+          country => `${pathClass} ${pathClass}${getCountryId(country)}`
         )
         .attr('stroke-alignment', 'inner')
         .attr('stroke', country => this.getColorIndexValue(country));
@@ -172,7 +171,7 @@ export class Countries {
   countryClicked(event, selectedCountry) {
     event.stopPropagation();
     const selectedCountryInsideBorder = d3.selectAll(
-      `.insideBorderLight${getCountryNameCamelCase(selectedCountry)}`
+      `.insideBorderLight${getCountryId(selectedCountry)}`
     );
 
     addParametersToURL({
@@ -215,9 +214,7 @@ export class Countries {
   }
 
   dragCountryName(event, selectedCountry) {
-    const label = d3.select(
-      `#countryName${getCountryNameCamelCase(selectedCountry)}`
-    );
+    const label = d3.select(`#countryName${getCountryId(selectedCountry)}`);
     function dragged({ dx, dy }) {
       const { x: previousX, y: previousY } = this.getPosition(label);
       label.attr('x', previousX + dx).attr('y', previousY + dy);
@@ -280,7 +277,7 @@ export class Countries {
   countryRightClick(event, selectedCountry) {
     event.preventDefault();
     this.selectedCountryLabel = d3.select(
-      `#countryName${getCountryNameCamelCase(selectedCountry)}`
+      `#countryName${getCountryId(selectedCountry)}`
     );
     this.selectedCountryLabelData = selectedCountry;
     this.selectedCountryLabel.style('fill', 'var(--red)');
@@ -296,7 +293,7 @@ export class Countries {
       .append('text')
       .attr('d', this.map.geoPath)
       .attr('class', `countryName canOverlapElement`)
-      .attr('id', country => `countryName${getCountryNameCamelCase(country)}`)
+      .attr('id', country => `countryName${getCountryId(country)}`)
       .style('fill', defaultColors.text)
       .style('text-anchor', 'middle')
       .text(d => (this.isUnclaimed(d) ? '' : d.properties.NAME))

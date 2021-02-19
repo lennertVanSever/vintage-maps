@@ -22,8 +22,8 @@ export const camalize = str => {
     .replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase());
 };
 
-export const getCountryNameCamelCase = country => {
-  return camalize(country.properties.NAME);
+export const getCountryId = country => {
+  return country.properties.ID;
 };
 
 export function addParameterToURL(key, value) {
