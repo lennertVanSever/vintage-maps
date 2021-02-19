@@ -330,6 +330,10 @@ class RadioMapStyle extends RadioInputs {
   }
 
   get options() {
+    return Object.keys(colors).map(key => ({
+      label: key.replace('Colors', ''),
+      value: key,
+    }));
     return [
       {
         label: 'Default',
