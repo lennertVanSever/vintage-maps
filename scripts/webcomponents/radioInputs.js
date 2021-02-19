@@ -334,7 +334,7 @@ class RadioMapStyle extends RadioInputs {
       label: key.replace('Colors', ''),
       value: key,
     }));
-    return [
+    /* return [
       {
         label: 'Default',
         value: 'defaultColors',
@@ -347,7 +347,7 @@ class RadioMapStyle extends RadioInputs {
         label: 'Minimalist',
         value: 'minimalistColors',
       },
-    ];
+    ]; */
   }
 }
 
