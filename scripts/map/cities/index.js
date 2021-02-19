@@ -259,6 +259,7 @@ export class Cities {
       .attr('text-anchor', 'middle')
       .attr('class', 'city cityName canOverlapElement')
       .attr('font-size', '2px')
+      .style('fill', 'var(--cityLabel)')
       .attr('font-style', 'italic')
       .style('cursor', 'pointer')
       .attr('fill', defaultColors.text)

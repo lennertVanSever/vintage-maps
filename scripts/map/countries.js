@@ -294,7 +294,7 @@ export class Countries {
       .attr('d', this.map.geoPath)
       .attr('class', `countryName canOverlapElement`)
       .attr('id', country => `countryName${getCountryId(country)}`)
-      .style('fill', 'var(--text)')
+      .style('fill', 'var(--countryLabel)')
       .style('text-anchor', 'middle')
       .text(d => (this.isUnclaimed(d) ? '' : d.properties.NAME))
       .style('cursor', 'pointer')

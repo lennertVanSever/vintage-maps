@@ -2,7 +2,8 @@
   "defaultColors": {
     "body": "#e6cda1",
     "ocean": "#e6cda1",
-    "text": "#534b3e",
+    "countryLabel": "#534b3e",
+    "cityLabel": "#534b3e",
     "insideBorders": [
       "#93a671",
       "#e0bc4a",
@@ -20,7 +21,8 @@
   "schoolColors": {
     "body": "#f6d7bc",
     "ocean": "#d9d2ba",
-    "text": "#534b3e",
+    "countryLabel": "#534b3e",
+    "cityLabel": "#534b3e",
     "insideBorders": [
       "#92a671",
       "#e0bc4a",
@@ -38,7 +40,8 @@
   "minimalistColors": {
     "body": "#ffffff",
     "ocean": "#ffffff",
-    "text": "#534b3e",
+    "countryLabel": "#534b3e",
+    "cityLabel": "#534b3e",
     "insideBorders": [
       "#ffffff",
       "#ffffff",
@@ -56,7 +59,8 @@
   "sara1": {
     "body": "#e6cda1",
     "ocean": "#e6cda1",
-    "text": "#534b3e",
+    "countryLabel": "#534b3e",
+    "cityLabel": "#534b3e",
     "insideBorders": [
       "#93a671",
       "#e0bc4a",
@@ -74,7 +78,8 @@
   "sara2": {
     "body": "#e6cda1",
     "ocean": "#e6cda1",
-    "text": "#534b3e",
+    "countryLabel": "#534b3e",
+    "cityLabel": "#534b3e",
     "insideBorders": [
       "#93a671",
       "#e0bc4a",
@@ -92,7 +97,8 @@
   "sara3": {
     "body": "#e6cda1",
     "ocean": "#e6cda1",
-    "text": "#534b3e",
+    "countryLabel": "#534b3e",
+    "cityLabel": "#534b3e",
     "insideBorders": [
       "#93a671",
       "#e0bc4a",
