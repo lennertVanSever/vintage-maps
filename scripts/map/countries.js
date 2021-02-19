@@ -242,7 +242,7 @@ export class Countries {
   }
 
   keyup(event) {
-    const step = 1;
+    const step = 0.2;
     let newFontSize = Number(
       this.selectedCountryLabel
         .style('font-size')
