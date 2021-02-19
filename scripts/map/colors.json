@@ -53,7 +53,7 @@
     "selectedCity": "#d65d55",
     "rivers": "#534b3e"
   },
-  "option4": {
+  "sara1": {
     "body": "#e6cda1",
     "ocean": "#e6cda1",
     "text": "#534b3e",
@@ -71,7 +71,7 @@
     "selectedCity": "#d65d55",
     "rivers": "#146b8d"
   },
-  "option5": {
+  "sara2": {
     "body": "#e6cda1",
     "ocean": "#e6cda1",
     "text": "#534b3e",
@@ -89,7 +89,7 @@
     "selectedCity": "#d65d55",
     "rivers": "#146b8d"
   },
-  "option6": {
+  "sara3": {
     "body": "#e6cda1",
     "ocean": "#e6cda1",
     "text": "#534b3e",
