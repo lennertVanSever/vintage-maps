@@ -11,30 +11,29 @@ import {
   addParameterToURL,
   debounce,
   mapRange,
+  pixelToNumber,
 } from './utils.js';
 
 export class Map {
   constructor() {
-    this.svg = d3
-      .select('svg')
-      .attr('viewBox', [0, 0, window.innerWidth, window.innerHeight]);
+    this.svg = d3.select('svg');
+
     this.svg.selectAll('*').remove();
+    this.svgWidth = pixelToNumber(this.svg.style('width'));
+    this.svgHeight = pixelToNumber(this.svg.style('height'));
+    this.svg.attr('viewBox', [0, 0, this.svgWidth, this.svgHeight]);
     this.group = this.svg.append('g');
     this.setInitialSubGroups();
-
+    this.setInitialTransform();
     this.year = initialUrl.searchParams.get('year') || years[0];
     this.borderWidth = 10;
-    this.minimumZoom = 1;
+    this.minimumZoom = 0.2;
     this.maximumZoom = 40;
-    this.citySize = 5;
+    this.citySize = 3;
     this.graticuleGapSize = 50;
     this.graticuleLineSize = 1;
     this.zoomController = d3.zoom();
-    this.transform = {
-      k: initialUrl.searchParams.get('k') || 1,
-      x: initialUrl.searchParams.get('x') || 0,
-      y: initialUrl.searchParams.get('y') || 0,
-    };
+
     this.projectionName =
       initialUrl.searchParams.get('projection') || projectionNames[0];
     this.reset();
@@ -45,7 +44,7 @@ export class Map {
   }
 
   windowResize() {
-    this.svg.attr('viewBox', [0, 0, window.innerWidth, window.innerHeight]);
+    this.svg.attr('viewBox', [0, 0, this.svgWidth, this.svgHeight]);
   }
 
   set year(newYear) {
@@ -114,15 +113,8 @@ export class Map {
     const projectionFunction =
       d3GeoProjection[projectionFunctionName] || d3[projectionFunctionName];
 
-    const scale =
-      window.innerWidth > window.innerHeight
-        ? window.innerWidth / 6
-        : window.innerHeight / 3;
-
-    this.projection = projectionFunction()
-      .scale(scale)
-      .translate([window.innerWidth / 2, window.innerHeight / 2])
-      .precision(0.1);
+    // console.log(scale, window.innerWidth / 2, window.innerHeight / 2);
+    this.projection = projectionFunction().scale(300);
 
     this.geoPath = d3.geoPath().projection(this.projection);
 
@@ -150,6 +142,14 @@ export class Map {
     ].forEach(groupName => {
       this.subGroups[groupName] = this.group.append('g').attr('id', groupName);
     });
+  }
+
+  setInitialTransform() {
+    this.transform = {
+      k: initialUrl.searchParams.get('k') || this.svgWidth / 1400,
+      x: initialUrl.searchParams.get('x') || this.svgWidth / 8,
+      y: initialUrl.searchParams.get('y') || this.svgWidth / 5,
+    };
   }
 
   async reset() {

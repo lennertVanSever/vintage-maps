@@ -3,7 +3,7 @@ const path = require('path');
 const { asyncForEach } = require('./async');
 
 const years = [
-  // 'bc2000',
+  'bc2000',
   '1000',
   '1279',
   '1492',

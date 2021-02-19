@@ -9,5 +9,7 @@ module.exports = {
       },
     ],
   ],
-  exclude: ['cities/**/*'],
+  devOptions: {
+    hmr: false,
+  },
 };
