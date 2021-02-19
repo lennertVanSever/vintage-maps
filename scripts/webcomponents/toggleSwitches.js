@@ -46,7 +46,7 @@ class ToggleSwitch extends ShadowElement {
           left: 0;
           right: 0;
           bottom: 0;
-          background-color: var(--body-color);
+          background-color: var(--body);
           border: 1px solid var(--black);
           -webkit-transition: 0.2s;
           transition: 0.2s;
@@ -76,7 +76,7 @@ class ToggleSwitch extends ShadowElement {
           -webkit-transform: translateX(26px);
           -ms-transform: translateX(26px);
           transform: translateX(26px);
-          background-color: var(--body-color);
+          background-color: var(--body);
         }
 
         /* Rounded sliders */

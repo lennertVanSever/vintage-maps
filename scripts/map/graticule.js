@@ -84,7 +84,7 @@ export class Graticule {
           .attr('class', `graticule specialParallel ${extraClasses}`)
           .attr('d', this.map.geoPath)
           .attr('fill', 'none')
-          .attr('stroke', defaultColors.graticule)
+          .attr('stroke', 'var(--graticule)')
           .attr('stroke-width', this.initialStrokeWidth);
       });
     });
@@ -103,7 +103,7 @@ export class Graticule {
       .attr('class', 'graticule graticuleInside')
       .attr('d', this.map.geoPath)
       .attr('fill', 'none')
-      .attr('stroke', defaultColors.graticule)
+      .attr('stroke', 'var(--graticule)')
       .attr('stroke-width', this.initialStrokeWidth);
   }
 
@@ -114,7 +114,7 @@ export class Graticule {
       .attr('class', 'graticule outline')
       .attr('d', this.map.geoPath)
       .attr('fill', 'none')
-      .attr('stroke', defaultColors.graticule)
+      .attr('stroke', 'var(--graticule)')
       .attr('stroke-width', this.initialStrokeWidth);
   }
 }

@@ -101,7 +101,7 @@ export class Countries {
         })
         .attr('d', this.map.geoPath)
         .attr('fill', country =>
-          fill ? this.getColorIndexValue(country) : 'var(--body-color)'
+          fill ? this.getColorIndexValue(country) : 'var(--body)'
         )
         .attr(
           'class',
@@ -147,7 +147,7 @@ export class Countries {
       .attr('fill', 'none')
       // .attr('fill', colors.background)
       .attr('stroke-width', 0)
-      .attr('stroke', defaultColors.outsideBorder);
+      .attr('stroke', 'var(--outsideBorder)');
   }
 
   fillSelectedCountry(selectedCountryInsideBorder) {
@@ -294,7 +294,7 @@ export class Countries {
       .attr('d', this.map.geoPath)
       .attr('class', `countryName canOverlapElement`)
       .attr('id', country => `countryName${getCountryId(country)}`)
-      .style('fill', defaultColors.text)
+      .style('fill', 'var(--text)')
       .style('text-anchor', 'middle')
       .text(d => (this.isUnclaimed(d) ? '' : d.properties.NAME))
       .style('cursor', 'pointer')

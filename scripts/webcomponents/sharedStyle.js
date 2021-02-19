@@ -20,7 +20,7 @@ export const formElementStyle = `
   display: block;
   margin-top: var(--margin-2);
   padding: var(--margin-3);
-  background-color: var(--body-color);
+  background-color: var(--body);
   width: 100%;
   color: var(--black);
   border: 1px solid var(--black);

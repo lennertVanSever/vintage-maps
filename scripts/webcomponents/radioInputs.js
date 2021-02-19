@@ -91,7 +91,7 @@ class RadioInputs extends ShadowElement {
           width: 7px;
           height: 7px;
           border-radius: 50%;
-          background: var(--body-color);
+          background: var(--body);
         }
 
         .labelText {
@@ -313,24 +313,11 @@ class RadioMapStyle extends RadioInputs {
   }
 
   setColorVariables(colorSet) {
-    [
-      {
-        cssVarName: '--body-color',
-        jsVarName: 'body',
-      },
-      {
-        cssVarName: '--ocean',
-        jsVarName: 'ocean',
-      },
-      {
-        cssVarName: '--rivers',
-        jsVarName: 'rivers',
-      },
-    ].forEach(({ cssVarName, jsVarName }) => {
-      document.documentElement.style.setProperty(
-        cssVarName,
-        colors[colorSet][jsVarName]
-      );
+    Object.keys(colors[colorSet]).forEach(key => {
+      const value = colors[colorSet][key];
+      if (typeof value === 'string') {
+        document.documentElement.style.setProperty(`--${key}`, value);
+      }
     });
     colors[colorSet].insideBorders.forEach((value, index) => {
       document.documentElement.style.setProperty(`--border-${index}`, value);
@@ -339,6 +326,7 @@ class RadioMapStyle extends RadioInputs {
 
   handleInputChange({ target: { value } }) {
     this.setColorVariables(value);
+    dispatchCustomEvent('styleChange', { value });
   }
 
   get options() {

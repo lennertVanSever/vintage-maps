@@ -266,10 +266,10 @@ export class Cities {
       .on('click', function (event, city) {
         resetAlreadySelected();
         const selectedCity = d3.select(this);
-        selectedCity.attr('fill', defaultColors.selectedCity);
+        selectedCity.attr('fill', 'var(--selectedCity)');
         d3.select(`#cityPath${camalize(city.properties.NAME)}`).attr(
           'fill',
-          defaultColors.selectedCity
+          'var(--selectedCity)'
         );
         event.stopPropagation();
         addParametersToURL({

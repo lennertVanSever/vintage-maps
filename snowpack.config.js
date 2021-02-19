@@ -8,6 +8,7 @@ module.exports = {
         },
       },
     ],
+    ['babel-plugin-inline-json-import'],
   ],
   devOptions: {
     hmr: false,

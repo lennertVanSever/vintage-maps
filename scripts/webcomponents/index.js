@@ -10,3 +10,4 @@ import './section.js';
 import './keyValue.js';
 import './expandContent.js';
 import './radioInputs.js';
+import './editColors.js';

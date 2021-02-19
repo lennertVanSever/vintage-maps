@@ -32,7 +32,7 @@ class MapWrapper extends ShadowElement {
           top: 0;
           padding: var(--margin-3);
           padding-bottom: 0;
-          background-color: var(--body-color);
+          background-color: var(--body);
           z-index: 1;
         }
         #title {

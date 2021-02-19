@@ -70,7 +70,7 @@ class Section extends ShadowElement {
 
         #buttonWrapper button:nth-child(2) {
           background-color: var(--black);
-          color: var(--body-color);
+          color: var(--body);
         }
 
         button {
@@ -79,7 +79,7 @@ class Section extends ShadowElement {
           appearance: none;
           padding: var(--margin-4) 0px;
           border: 1px solid var(--black);
-          background-color: var(--body-color);
+          background-color: var(--body);
         }
 
         #inputElements {
@@ -119,11 +119,11 @@ class Section extends ShadowElement {
 
         @media only screen and (min-width:768px) {
           #buttonWrapper {
-            background-color: var(--body-color);
+            background-color: var(--body);
             width: 243px;
             right: 34px;
             justify-content: space-between;
-            box-shadow: 0px -4px 3px var(--body-color);
+            box-shadow: 0px -4px 3px var(--body);
           }
           #buttonWrapper button {
             width: calc(50% - (var(--margin-4) / 2));
