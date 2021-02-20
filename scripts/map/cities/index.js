@@ -246,7 +246,7 @@ export class Cities {
       .append('path')
       .attr('class', 'city cityPath')
       .attr('d', citiesPath)
-      .attr('fill', defaultColors.text)
+      .style('fill', 'var(--cityLabel)')
       .attr('id', city => `cityPath${camalize(city.properties.NAME)}`);
 
     const { map } = this;
@@ -262,7 +262,6 @@ export class Cities {
       .style('fill', 'var(--cityLabel)')
       .attr('font-style', 'italic')
       .style('cursor', 'pointer')
-      .attr('fill', defaultColors.text)
       .attr('id', city => `cityName${camalize(city.properties.NAME)}`)
       .on('click', function (event, city) {
         resetAlreadySelected();
