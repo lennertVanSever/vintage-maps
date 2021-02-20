@@ -252,7 +252,6 @@ export class Cities {
     await this.fetchData();
     const rawCityData = { ...this.allCities };
     const cityData = new ModifyCityData(rawCityData, this.map.year);
-    console.log(cityData);
     const citiesGroup = this.map.subGroups.cities
       .append('g')
       .attr('class', 'cities')
@@ -279,7 +278,6 @@ export class Cities {
       .attr('class', 'city cityPathInner')
       .attr('d', citiesPath.pointRadius(0.1))
       .style('fill', ({ size }) => {
-        console.log(size);
         if (size === 'MEDIUM') return 'var(--cityLabel)';
         return 'none';
       })
