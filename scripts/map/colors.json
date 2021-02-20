@@ -19,7 +19,7 @@
     "rivers": "#146b8d",
     "opacity": {
       "oceanOpacity": 0.5,
-      "countryOpacity": 0.5
+      "countryOpacity": 0.2
     }
   },
   "schoolColors": {
@@ -42,7 +42,7 @@
     "rivers": "#146b8d",
     "opacity": {
       "oceanOpacity": 0.5,
-      "countryOpacity": 0.40
+      "countryOpacity": 0.4
     }
   },
   "minimalistColors": {
