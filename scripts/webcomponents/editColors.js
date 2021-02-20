@@ -1,5 +1,5 @@
 import colors from '../map/colors';
-import { isLocalHost } from '../utils';
+import { saveStyle } from '../utils';
 import { ShadowElement } from './shadowElement';
 import { labelStyleRaw } from './sharedStyle';
 
@@ -24,23 +24,6 @@ class EditColorInput extends ShadowElement {
     return this.selectedColorset[this.cssVariable];
   }
 
-  async saveColors(newColors) {
-    if (isLocalHost) {
-      const responseRaw = await fetch('http://localhost:9000/modify_colors', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          styleName: this.mapStyle,
-          colors: newColors,
-        }),
-      });
-      const response = await responseRaw.json();
-      console.info(response);
-    }
-  }
-
   handleOnChange({ target: { value } }) {
     const newColors = {
       ...this.selectedColorset,
@@ -50,7 +33,7 @@ class EditColorInput extends ShadowElement {
     } else {
       newColors[this.cssVariable] = value;
     }
-    this.saveColors(newColors);
+    saveStyle(newColors, this.mapStyle);
   }
 
   styleChanged(event) {
@@ -74,7 +57,7 @@ class EditColorInput extends ShadowElement {
   }
 
   set mapStyle(mapStyle) {
-    return (this._mapStyle = mapStyle);
+    this._mapStyle = mapStyle;
   }
 
   get mapStyle() {
@@ -136,13 +119,16 @@ class EditColors extends ShadowElement {
               <edit-color-input cssVariable="${key}"></edit-color-input>
             `;
             }
-            return value
-              .map((_, index) => {
-                return /* html */ `
-              <edit-color-input  borderIndex="${index}" cssVariable="border-${index}"></edit-color-input>
-            `;
-              })
-              .join('');
+            if (Array.isArray(value)) {
+              return value
+                .map((_, index) => {
+                  return /* html */ `
+                <edit-color-input  borderIndex="${index}" cssVariable="border-${index}"></edit-color-input>
+              `;
+                })
+                .join('');
+            }
+            return '';
           })
           .join('')}
       </div>

@@ -30,6 +30,7 @@ export class Map {
     this.minimumZoom = 0.2;
     this.maximumZoom = 40;
     this.citySize = 3;
+    this.countryFillOpacity = 0.15;
     this.graticuleGapSize = 50;
     this.graticuleLineSize = 1;
     this.zoomController = d3.zoom();
@@ -83,6 +84,18 @@ export class Map {
     return this._citySize;
   }
 
+  set countryFillOpacity(countryFillOpacity) {
+    this._countryFillOpacity = countryFillOpacity;
+    if (this.zoomFactor) {
+      console.log(countryFillOpacity);
+      d3.selectAll('.insideFill').attr('opacity', countryFillOpacity);
+    }
+  }
+
+  get countryFillOpacity() {
+    return this._countryFillOpacity;
+  }
+
   set graticuleGapSize(graticuleGapSize) {
     this._graticuleGapSize = Number(graticuleGapSize);
     if (this.zoomFactor) {
@@ -134,6 +147,7 @@ export class Map {
   setInitialSubGroups() {
     this.subGroups = {};
     [
+      'backgroundRectangle',
       'countryBorders',
       'rivers',
       'graticuleCollection',
@@ -161,6 +175,7 @@ export class Map {
 
   async render() {
     if (this.projectionName) {
+      this.renderBackgroundRectangle();
       this.graticule = new Graticule(this);
       this.graticule.render();
 
@@ -260,6 +275,18 @@ export class Map {
       this.rivers.resize(this.zoomFactor);
     }
     this.previousZoomValue = zoom.value;
+  }
+
+  renderBackgroundRectangle() {
+    this.subGroups.backgroundRectangle
+      .append('rect')
+      .attr('x', -1000)
+      .attr('y', -1000)
+      .attr('id', 'backgroundRectangle')
+      .attr('width', 10000)
+      .attr('height', 10000)
+      .attr('opacity', 'var(--oceanOpacity)')
+      .attr('fill', 'var(--ocean)');
   }
 
   saveZoomInUrl() {

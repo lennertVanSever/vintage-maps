@@ -144,7 +144,6 @@
     #secondBorder {
       border: 1px solid var(--black);
       height: calc(100% - 3px);
-      background-color: var(--ocean);
     }
 
     section {
@@ -231,6 +230,8 @@
       <year-select></year-select>
       <radio-map-style></radio-map-style>
       <edit-colors></edit-colors>
+      <range-css-variable labelText="Ocean opacity" cssVariable="oceanOpacity" min="0" max="1" step="0.01" ></range-css-variable>
+      <range-css-variable labelText="Country fill opacity" cssVariable="countryOpacity" min="0" max="1" step="0.01" ></range-css-variable>
       <expand-content>
         <projection-select></projection-select>
         <hide-or-show-toggle labelText="Cities" elementToHideSelector="#cities"></hide-or-show-toggle>

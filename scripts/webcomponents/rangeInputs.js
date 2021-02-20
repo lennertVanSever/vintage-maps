@@ -1,11 +1,14 @@
 // eslint-disable-next-line max-classes-per-file
 import { map } from '../index.js';
+import style from '../map/colors';
+import { saveStyle } from '../utils';
 import { ShadowElement } from './shadowElement.js';
 import { labelStyle } from './sharedStyle.js';
 
 class RangeInput extends ShadowElement {
-  constructor() {
+  constructor(preventSetValue) {
     super();
+    this.preventSetValue = preventSetValue;
     this.rangeInput = this.shadowRoot.querySelector('input');
     this.rangeInput.addEventListener(
       'input',
@@ -15,9 +18,12 @@ class RangeInput extends ShadowElement {
 
   handleInputChange(event) {
     this.value = event.target.value;
-
-    event.target.style.background = `linear-gradient(to right, var(--black) 0%, var(--black) ${this.relativeValue}%, transparent ${this.relativeValue}%, transparent 100%)`; // https://stackoverflow.com/questions/18389224/how-to-style-html5-range-input-to-have-different-color-before-and-after-slider
+    this.setRangeCompletion();
     this.handleChildInputChange();
+  }
+
+  setRangeCompletion() {
+    this.rangeInput.style.background = `linear-gradient(to right, var(--black) 0%, var(--black) ${this.relativeValue}%, transparent ${this.relativeValue}%, transparent 100%)`; // https://stackoverflow.com/questions/18389224/how-to-style-html5-range-input-to-have-different-color-before-and-after-slider
   }
 
   get min() {
@@ -94,3 +100,59 @@ class RangeMapProperty extends RangeInput {
 }
 
 window.customElements.define('range-map-property', RangeMapProperty);
+class RangeCssVariable extends RangeInput {
+  constructor() {
+    super();
+
+    this.setCssVariable(this.value);
+    this.rangeInput.addEventListener('change', this.handleChange.bind(this));
+    window.addEventListener('styleChange', this.styleChanged.bind(this));
+  }
+
+  styleChanged(event) {
+    this.mapStyle = event.detail.value;
+    this.rangeInput.value = this.value;
+    this.setRangeCompletion();
+  }
+
+  get value() {
+    return style[this.mapStyle].opacity[this.cssVariable];
+  }
+
+  set value(value) {
+    style[this.mapStyle].opacity[this.cssVariable] = Number(value);
+  }
+
+  set mapStyle(mapStyle) {
+    this._mapStyle = mapStyle;
+  }
+
+  get mapStyle() {
+    return this._mapStyle || 'defaultColors';
+  }
+
+  get labelText() {
+    return this.getAttribute('labelText');
+  }
+
+  get cssVariable() {
+    return this.getAttribute('cssVariable');
+  }
+
+  handleChange() {
+    saveStyle(style[this.mapStyle], this.mapStyle);
+  }
+
+  handleChildInputChange() {
+    this.setCssVariable();
+  }
+
+  setCssVariable() {
+    document.documentElement.style.setProperty(
+      `--${this.cssVariable}`,
+      this.value
+    );
+  }
+}
+
+window.customElements.define('range-css-variable', RangeCssVariable);

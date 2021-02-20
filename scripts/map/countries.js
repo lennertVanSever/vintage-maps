@@ -117,7 +117,7 @@ export class Countries {
       .attr('opacity', 0.5);
     addInsideBorder({ pathClass: 'insideFill', fill: true })
       .attr('stroke', 'none')
-      .attr('opacity', 0.15);
+      .attr('opacity', 'var(--countryOpacity)');
 
     this.map.subGroups.countryBorders
       .append('g')
