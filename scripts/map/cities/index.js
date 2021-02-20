@@ -1,6 +1,5 @@
 /* eslint-disable max-classes-per-file */
 import * as d3 from 'd3';
-import { defaultColors } from '../colors.js';
 import {
   addParametersToURL,
   camalize,
@@ -12,6 +11,7 @@ class ModifyCityData {
     this.data = data;
     this.givenYear = givenYear;
     this.maximumSizeOfCity = 2.3;
+    this.largestPopulation = 0;
     this.calculate();
   }
 
@@ -22,6 +22,20 @@ class ModifyCityData {
     this.data.features = this.data.features.map(
       this.modifyDynamicalyPropertiesOfCity.bind(this)
     );
+    this.data.features.forEach(({ currentPopulation }) => {
+      if (currentPopulation > this.largestPopulation) {
+        this.largestPopulation = currentPopulation;
+      }
+    });
+    this.data.features = this.data.features.map(feature => {
+      let size = 'SMALL';
+      if (this.largestPopulation / 10 < feature.currentPopulation) {
+        size = 'LARGE';
+      } else if (this.largestPopulation / 50 < feature.currentPopulation) {
+        size = 'MEDIUM';
+      }
+      return { ...feature, size };
+    });
   }
 
   hasPopulationAtGivenYear({ properties: { name, populationByYear } }) {
@@ -150,6 +164,8 @@ export class Cities {
 
     const fontSize = map.zoomFactor * map.citySize * 5;
     const pointRadius = map.zoomFactor * map.citySize;
+    const pointRadiusInner = (map.zoomFactor * map.citySize) / 2.5;
+    const pointStrokeWidth = (map.zoomFactor * map.citySize) / 2;
     const textDistance = map.zoomFactor * map.citySize * 2;
 
     // } else {
@@ -159,15 +175,21 @@ export class Cities {
     // }
 
     const citiesPath = d3.geoPath().projection(this.map.projection);
-    citiesPath.pointRadius(pointRadius);
     // let showCities = {};
     const cities = [];
 
+    d3.selectAll('.city').attr('opacity', 0);
     d3.selectAll('.cityName')
       .attr('font-size', `${fontSize}px`)
-      .attr('dy', `-${textDistance}px`)
-      .attr('opacity', 0);
-    d3.selectAll('.cityPath').attr('d', citiesPath).attr('opacity', 0);
+      .attr('dy', `-${textDistance}px`);
+    d3.selectAll('.cityPath')
+      .attr('d', citiesPath.pointRadius(pointRadius))
+      .attr('stroke-width', pointStrokeWidth);
+
+    d3.selectAll('.cityPathInner').attr(
+      'd',
+      citiesPath.pointRadius(pointRadiusInner)
+    );
 
     d3.selectAll('.canOverlapElement').each(function (node, index) {
       const isCountry = !node.currentPopulation;
@@ -200,7 +222,7 @@ export class Cities {
         hideCities.includes(NAME) ? 'none' : 'auto'
       )
       .attr('opacity', hideElement);
-    d3.selectAll('.cityPath').attr('opacity', hideElement);
+    d3.selectAll('.city').attr('opacity', hideElement);
   }
 
   getProjectedCoordinates = ({
@@ -230,8 +252,7 @@ export class Cities {
     await this.fetchData();
     const rawCityData = { ...this.allCities };
     const cityData = new ModifyCityData(rawCityData, this.map.year);
-    // console.log(cityData.data.features);
-
+    console.log(cityData);
     const citiesGroup = this.map.subGroups.cities
       .append('g')
       .attr('class', 'cities')
@@ -240,14 +261,29 @@ export class Cities {
       .enter();
 
     const citiesPath = d3.geoPath().projection(this.map.projection);
-    citiesPath.pointRadius(0.5);
 
     citiesGroup
       .append('path')
       .attr('class', 'city cityPath')
-      .attr('d', citiesPath)
-      .style('fill', 'var(--cityLabel)')
+      .attr('d', citiesPath.pointRadius(0.5))
+      .style('fill', ({ size }) => {
+        if (size === 'LARGE') return 'var(--cityLabel)';
+        return 'none';
+      })
+      .attr('stroke-width', 0.2)
+      .attr('stroke', 'var(--cityLabel)')
       .attr('id', city => `cityPath${camalize(city.properties.NAME)}`);
+
+    citiesGroup
+      .append('path')
+      .attr('class', 'city cityPathInner')
+      .attr('d', citiesPath.pointRadius(0.1))
+      .style('fill', ({ size }) => {
+        console.log(size);
+        if (size === 'MEDIUM') return 'var(--cityLabel)';
+        return 'none';
+      })
+      .attr('id', city => `cityPathInner${camalize(city.properties.NAME)}`);
 
     const { map } = this;
     citiesGroup
