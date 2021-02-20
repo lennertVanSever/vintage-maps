@@ -119,9 +119,11 @@ class Section extends ShadowElement {
 
         @media only screen and (min-width:768px) {
           #buttonWrapper {
+            padding: 0px var(--margin-5);
+            box-sizing: border-box;
             background-color: var(--body);
-            width: 243px;
-            right: 34px;
+            width: 300px;
+            right: 0px;
             justify-content: space-between;
             box-shadow: 0px -4px 3px var(--body);
           }
