@@ -65,12 +65,33 @@ export const getOrderDetails = async ({ id }) => {
   return responseRaw.json();
 };
 
+const addGeneratedCssVariables = css => {
+  let cssVariablesConcatenated = '';
+  Object.keys(document.documentElement.style).forEach(key => {
+    if (Number.isInteger(Number(key))) {
+      const cssVariableName = document.documentElement.style[key];
+      const cssVariableValue = getComputedStyle(
+        document.documentElement
+      ).getPropertyValue(cssVariableName);
+      cssVariablesConcatenated += ` ${cssVariableName}: ${cssVariableValue};`;
+    }
+  });
+  return css.replace('}', `${cssVariablesConcatenated}}`);
+};
+
 export const getMapHtml = () => {
   const subWrapper = document.getElementById('mapSection');
   const allCSS = [...document.styleSheets]
     .map(styleSheet => {
       try {
-        return [...styleSheet.cssRules].map(rule => rule.cssText).join('');
+        return [...styleSheet.cssRules]
+          .map(rule => {
+            if (rule.selectorText === ':root') {
+              return addGeneratedCssVariables(rule.cssText);
+            }
+            return rule.cssText;
+          })
+          .join('');
       } catch (e) {
         console.error(
           'Access to stylesheet %s is denied. Ignoring...',
