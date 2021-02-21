@@ -238,30 +238,32 @@ export class Countries {
   }
 
   keyup(event) {
-    const step = 0.2;
-    let newFontSize = Number(
-      this.selectedCountryLabel
-        .style('font-size')
-        .replace(this.fontSizeUnit, '')
-    );
-    if (event.code === 'ArrowDown') {
-      newFontSize -= step;
-    }
-    if (event.code === 'ArrowUp') {
-      newFontSize += step;
-    }
-    this.selectedCountryLabel.style(
-      'font-size',
-      `${newFontSize}${this.fontSizeUnit}`
-    );
+    if (this.selectedCountryLabel) {
+      const step = 0.2;
+      let newFontSize = Number(
+        this.selectedCountryLabel
+          .style('font-size')
+          .replace(this.fontSizeUnit, '')
+      );
+      if (event.code === 'ArrowDown') {
+        newFontSize -= step;
+      }
+      if (event.code === 'ArrowUp') {
+        newFontSize += step;
+      }
+      this.selectedCountryLabel.style(
+        'font-size',
+        `${newFontSize}${this.fontSizeUnit}`
+      );
 
-    this.updateCountry({
-      ...this.selectedCountryLabelData.properties,
-      CUSTOM_LABEL_PLACEMENT: {
-        ...this.getLabelPlacementProperty(this.selectedCountryLabelData),
-        FONT_SIZE: `${newFontSize}${this.fontSizeUnit}`,
-      },
-    });
+      this.updateCountry({
+        ...this.selectedCountryLabelData.properties,
+        CUSTOM_LABEL_PLACEMENT: {
+          ...this.getLabelPlacementProperty(this.selectedCountryLabelData),
+          FONT_SIZE: `${newFontSize}${this.fontSizeUnit}`,
+        },
+      });
+    }
 
     // this.selectedCountryLabel;
   }

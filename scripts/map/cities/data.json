@@ -22,7 +22,8 @@
           "1850": 49000,
           "1851": 48688,
           "1900": 135000
-        }
+        },
+        "alignment": "DOWN"
       },
       "geometry": {
         "type": "Point",
@@ -31,13 +32,14 @@
           "50.77664"
         ]
       },
-      "currentPopulation": 135000,
+      "currentPopulation": 23000,
       "size": "SMALL"
     },
     {
       "type": "Feature",
       "properties": {
         "NAME": "Aberdeen",
+        "alignment": "LEFT",
         "country": "United Kingdom",
         "otherNames": null,
         "populationByYear": {
@@ -61,8 +63,8 @@
           57.03387294355589
         ]
       },
-      "currentPopulation": 150000,
-      "size": "SMALL"
+      "currentPopulation": 26992,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -75,7 +77,8 @@
           "1250": 57000,
           "1785": 30000,
           "1800": 30000
-        }
+        },
+        "alignment": "LEFT"
       },
       "geometry": {
         "type": "Point",
@@ -85,7 +88,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -107,7 +110,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -152,8 +155,8 @@
           "23.039568"
         ]
       },
-      "currentPopulation": 2000000,
-      "size": "LARGE"
+      "currentPopulation": 80000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -179,7 +182,7 @@
           "43.526304"
         ]
       },
-      "currentPopulation": 23000,
+      "currentPopulation": 18575,
       "size": "SMALL"
     },
     {
@@ -203,7 +206,7 @@
           "41.12306"
         ]
       },
-      "currentPopulation": 24000,
+      "currentPopulation": 23000,
       "size": "SMALL"
     },
     {
@@ -248,7 +251,8 @@
           "1900": 130000,
           "1950": 362000,
           "1975": 740000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -257,7 +261,7 @@
           "36.216667"
         ]
       },
-      "currentPopulation": 740000,
+      "currentPopulation": 77000,
       "size": "MEDIUM"
     },
     {
@@ -285,7 +289,7 @@
           "44.91245"
         ]
       },
-      "currentPopulation": 48000,
+      "currentPopulation": 22994,
       "size": "SMALL"
     },
     {
@@ -325,7 +329,9 @@
           "1970": 2250000,
           "1975": 2800000,
           "-200": 300000
-        }
+        },
+        "alignment": "DOWN",
+        "textAnchor": "start"
       },
       "geometry": {
         "type": "Point",
@@ -334,8 +340,8 @@
           31.109373973859025
         ]
       },
-      "currentPopulation": 2800000,
-      "size": "LARGE"
+      "currentPopulation": 12528,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -352,7 +358,8 @@
         "populationByYear": {
           "1000": 110000,
           "1051": 110000
-        }
+        },
+        "alignment": "LEFT"
       },
       "geometry": {
         "type": "Point",
@@ -362,7 +369,7 @@
         ]
       },
       "currentPopulation": 110000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -391,7 +398,7 @@
           36.871562392338596
         ]
       },
-      "currentPopulation": 47000,
+      "currentPopulation": 7200,
       "size": "SMALL"
     },
     {
@@ -409,8 +416,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          "14.602683",
-          "40.634003"
+          14.606403090493993,
+          40.69129936235589
         ]
       },
       "currentPopulation": 3000,
@@ -434,7 +441,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -470,7 +477,8 @@
           "1925": 718000,
           "1950": 859000,
           "1975": 1800000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -479,7 +487,7 @@
           "52.37403"
         ]
       },
-      "currentPopulation": 1800000,
+      "currentPopulation": 196000,
       "size": "LARGE"
     },
     {
@@ -531,7 +539,7 @@
         ]
       },
       "currentPopulation": 60000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -568,7 +576,7 @@
           "47.46667"
         ]
       },
-      "currentPopulation": 82000,
+      "currentPopulation": 25442,
       "size": "SMALL"
     },
     {
@@ -600,7 +608,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -620,7 +628,7 @@
         ]
       },
       "currentPopulation": 75000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -650,7 +658,7 @@
           "36.20655"
         ]
       },
-      "currentPopulation": 21396,
+      "currentPopulation": 10000,
       "size": "SMALL"
     },
     {
@@ -683,7 +691,8 @@
           "1925": 466000,
           "1950": 610000,
           "1975": 1097000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -692,8 +701,8 @@
           "51.219217"
         ]
       },
-      "currentPopulation": 1097000,
-      "size": "LARGE"
+      "currentPopulation": 53906,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -716,7 +725,7 @@
         ]
       },
       "currentPopulation": 70000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -736,7 +745,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -746,7 +755,8 @@
         "otherNames": null,
         "populationByYear": {
           "-100": 37000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -756,7 +766,7 @@
         ]
       },
       "currentPopulation": 37000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -783,7 +793,7 @@
           "-16.39889"
         ]
       },
-      "currentPopulation": 21700,
+      "currentPopulation": 24000,
       "size": "SMALL"
     },
     {
@@ -807,7 +817,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -837,7 +847,7 @@
           "43.6767"
         ]
       },
-      "currentPopulation": 23208,
+      "currentPopulation": 17187,
       "size": "SMALL"
     },
     {
@@ -858,7 +868,7 @@
         ]
       },
       "currentPopulation": 50000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -886,7 +896,7 @@
           "50.291"
         ]
       },
-      "currentPopulation": 25271,
+      "currentPopulation": 19364,
       "size": "SMALL"
     },
     {
@@ -921,8 +931,8 @@
           "46.366681"
         ]
       },
-      "currentPopulation": 270000,
-      "size": "MEDIUM"
+      "currentPopulation": 14198,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -950,7 +960,7 @@
           "27.18096"
         ]
       },
-      "currentPopulation": 42000,
+      "currentPopulation": 25000,
       "size": "SMALL"
     },
     {
@@ -979,7 +989,8 @@
           "1975": 3300000,
           "-430": 155000,
           "-100": 75000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -988,8 +999,8 @@
           "37.97945"
         ]
       },
-      "currentPopulation": 3300000,
-      "size": "LARGE"
+      "currentPopulation": 12000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -1033,8 +1044,8 @@
           "48.371444"
         ]
       },
-      "currentPopulation": 212000,
-      "size": "SMALL"
+      "currentPopulation": 28534,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -1056,7 +1067,7 @@
         ]
       },
       "currentPopulation": 100000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -1090,7 +1101,7 @@
           "43.94834"
         ]
       },
-      "currentPopulation": 46000,
+      "currentPopulation": 21237,
       "size": "SMALL"
     },
     {
@@ -1105,7 +1116,8 @@
           "1500": 33000,
           "1770": 3000,
           "1838": 1700
-        }
+        },
+        "alignment": "LEFT"
       },
       "geometry": {
         "type": "Point",
@@ -1149,7 +1161,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -1164,7 +1176,8 @@
           "1500": 24000,
           "1513": 25000,
           "1900": 10000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -1196,7 +1209,7 @@
         ]
       },
       "currentPopulation": 200000,
-      "size": "SMALL"
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -1211,7 +1224,8 @@
           "1849": 9000,
           "1900": 30000,
           "1905": 25012
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -1220,7 +1234,7 @@
           "38.87789"
         ]
       },
-      "currentPopulation": 25012,
+      "currentPopulation": 5000,
       "size": "SMALL"
     },
     {
@@ -1294,7 +1308,7 @@
         ]
       },
       "currentPopulation": 180000,
-      "size": "SMALL"
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -1344,8 +1358,8 @@
           "33.34058"
         ]
       },
-      "currentPopulation": 2900000,
-      "size": "LARGE"
+      "currentPopulation": 105000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -1363,7 +1377,8 @@
           "1150": 47000,
           "1200": 47000,
           "1213": 47000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -1373,7 +1388,7 @@
         ]
       },
       "currentPopulation": 47000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -1411,7 +1426,8 @@
           "1602": 30000,
           "1800": 18000,
           "1851": 14000
-        }
+        },
+        "alignment": "LEFT"
       },
       "geometry": {
         "type": "Point",
@@ -1420,7 +1436,7 @@
           4.842536517072434
         ]
       },
-      "currentPopulation": 14000,
+      "currentPopulation": 18000,
       "size": "SMALL"
     },
     {
@@ -1472,7 +1488,8 @@
           "1950": 1425000,
           "1970": 2975000,
           "1975": 3500000
-        }
+        },
+        "alignment": "LEFT"
       },
       "geometry": {
         "type": "Point",
@@ -1481,8 +1498,8 @@
           41.422212392338594
         ]
       },
-      "currentPopulation": 3500000,
-      "size": "LARGE"
+      "currentPopulation": 83829,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -1499,7 +1516,8 @@
           "1861": 34000,
           "1900": 77000,
           "1950": 271000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -1508,8 +1526,8 @@
           "41.117142"
         ]
       },
-      "currentPopulation": 271000,
-      "size": "MEDIUM"
+      "currentPopulation": 18000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -1539,7 +1557,8 @@
           "1838": 12000,
           "1854": 5000,
           "1975": 900000
-        }
+        },
+        "alignment": "LEFT"
       },
       "geometry": {
         "type": "Point",
@@ -1548,7 +1567,7 @@
           "30.5"
         ]
       },
-      "currentPopulation": 900000,
+      "currentPopulation": 60000,
       "size": "MEDIUM"
     },
     {
@@ -1607,7 +1626,7 @@
           "39.9075"
         ]
       },
-      "currentPopulation": 5200000,
+      "currentPopulation": 1300000,
       "size": "LARGE"
     },
     {
@@ -1631,7 +1650,8 @@
           "1512": 40000,
           "1674": 3000,
           "1833": 2000
-        }
+        },
+        "alignment": "DOWN"
       },
       "geometry": {
         "type": "Point",
@@ -1668,7 +1688,8 @@
           "1900": 69000,
           "1950": 445000,
           "1975": 1275000
-        }
+        },
+        "alignment": "DOWN"
       },
       "geometry": {
         "type": "Point",
@@ -1677,8 +1698,8 @@
           "44.80401"
         ]
       },
-      "currentPopulation": 1275000,
-      "size": "LARGE"
+      "currentPopulation": 26000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -1708,7 +1729,7 @@
           "45.69798"
         ]
       },
-      "currentPopulation": 22639,
+      "currentPopulation": 14000,
       "size": "SMALL"
     },
     {
@@ -1726,7 +1747,8 @@
           "1850": 25000,
           "1855": 25797,
           "1900": 72000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -1735,7 +1757,7 @@
           60.35306739650075
         ]
       },
-      "currentPopulation": 72000,
+      "currentPopulation": 18080,
       "size": "SMALL"
     },
     {
@@ -1765,7 +1787,7 @@
           "43.34762"
         ]
       },
-      "currentPopulation": 52000,
+      "currentPopulation": 13915,
       "size": "SMALL"
     },
     {
@@ -1780,7 +1802,8 @@
           "1422": 60000,
           "1492": 60000,
           "1881": 9730
-        }
+        },
+        "alignment": "LEFT"
       },
       "geometry": {
         "type": "Point",
@@ -1810,7 +1833,7 @@
         ]
       },
       "currentPopulation": 60000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -1827,7 +1850,8 @@
           "1350": 50000,
           "1400": 50000,
           "1471": 40000
-        }
+        },
+        "alignment": "LEFT"
       },
       "geometry": {
         "type": "Point",
@@ -1837,7 +1861,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -1859,7 +1883,7 @@
         ]
       },
       "currentPopulation": 36000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -1896,7 +1920,8 @@
           "1925": 200000,
           "1950": 346000,
           "1975": 560000
-        }
+        },
+        "alignment": "LEFT"
       },
       "geometry": {
         "type": "Point",
@@ -1905,7 +1930,7 @@
           "44.49381"
         ]
       },
-      "currentPopulation": 560000,
+      "currentPopulation": 66948,
       "size": "MEDIUM"
     },
     {
@@ -1938,7 +1963,8 @@
           "1925": 369000,
           "1950": 427000,
           "1975": 612000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -1947,7 +1973,7 @@
           "44.84044"
         ]
       },
-      "currentPopulation": 612000,
+      "currentPopulation": 88397,
       "size": "MEDIUM"
     },
     {
@@ -1972,7 +1998,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -2001,7 +2027,7 @@
           "47.08333"
         ]
       },
-      "currentPopulation": 39000,
+      "currentPopulation": 15340,
       "size": "SMALL"
     },
     {
@@ -2037,7 +2063,7 @@
           "48.145892"
         ]
       },
-      "currentPopulation": 61000,
+      "currentPopulation": 16952,
       "size": "SMALL"
     },
     {
@@ -2069,7 +2095,7 @@
           "52.268875"
         ]
       },
-      "currentPopulation": 223000,
+      "currentPopulation": 31714,
       "size": "MEDIUM"
     },
     {
@@ -2111,8 +2137,8 @@
           "45.52478"
         ]
       },
-      "currentPopulation": 48000,
-      "size": "SMALL"
+      "currentPopulation": 27000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -2130,7 +2156,8 @@
           "1812": 37712,
           "1850": 31332,
           "1900": 42000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -2139,8 +2166,8 @@
           "21.724644"
         ]
       },
-      "currentPopulation": 42000,
-      "size": "SMALL"
+      "currentPopulation": 37712,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -2173,7 +2200,8 @@
           "1804": 30826,
           "1850": 50698,
           "1900": 53000
-        }
+        },
+        "alignment": "DOWN"
       },
       "geometry": {
         "type": "Point",
@@ -2182,8 +2210,8 @@
           "51.210819"
         ]
       },
-      "currentPopulation": 53000,
-      "size": "SMALL"
+      "currentPopulation": 30826,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -2214,8 +2242,8 @@
           "49.2"
         ]
       },
-      "currentPopulation": 272000,
-      "size": "MEDIUM"
+      "currentPopulation": 23367,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -2260,8 +2288,8 @@
           "50.85045"
         ]
       },
-      "currentPopulation": 2100000,
-      "size": "LARGE"
+      "currentPopulation": 66297,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -2300,8 +2328,8 @@
           "47.49801"
         ]
       },
-      "currentPopulation": 2000000,
-      "size": "LARGE"
+      "currentPopulation": 60259,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -2347,8 +2375,8 @@
           "39.765869"
         ]
       },
-      "currentPopulation": 68000,
-      "size": "SMALL"
+      "currentPopulation": 70000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -2378,7 +2406,7 @@
           "42.35"
         ]
       },
-      "currentPopulation": 31000,
+      "currentPopulation": 10000,
       "size": "SMALL"
     },
     {
@@ -2412,7 +2440,8 @@
           "1852": 73000,
           "1892": 76303,
           "1900": 71000
-        }
+        },
+        "alignment": "DOWN"
       },
       "geometry": {
         "type": "Point",
@@ -2421,8 +2450,8 @@
           "40.19266"
         ]
       },
-      "currentPopulation": 71000,
-      "size": "SMALL"
+      "currentPopulation": 50000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -2444,7 +2473,8 @@
           "1857": 115773,
           "1900": 113000,
           "-100": 62000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -2453,8 +2483,8 @@
           "36.52978"
         ]
       },
-      "currentPopulation": 113000,
-      "size": "SMALL"
+      "currentPopulation": 87000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -2484,7 +2514,8 @@
           "1850": 43000,
           "1851": 43000,
           "1900": 42000
-        }
+        },
+        "alignment": "DOWN"
       },
       "geometry": {
         "type": "Point",
@@ -2493,8 +2524,8 @@
           "49.18585"
         ]
       },
-      "currentPopulation": 42000,
-      "size": "SMALL"
+      "currentPopulation": 34250,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -2573,7 +2604,7 @@
           "30.06263"
         ]
       },
-      "currentPopulation": 8400000,
+      "currentPopulation": 250000,
       "size": "LARGE"
     },
     {
@@ -2584,7 +2615,8 @@
         "otherNames": null,
         "populationByYear": {
           "1400": 40000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -2594,7 +2626,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -2615,7 +2647,8 @@
           "1850": 38000,
           "1871": 48338,
           "1900": 75000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -2624,7 +2657,7 @@
           "11.258753"
         ]
       },
-      "currentPopulation": 75000,
+      "currentPopulation": 25000,
       "size": "SMALL"
     },
     {
@@ -2660,8 +2693,8 @@
           "22.313114"
         ]
       },
-      "currentPopulation": 31000,
-      "size": "SMALL"
+      "currentPopulation": 37000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -2682,7 +2715,7 @@
           "47.5308"
         ]
       },
-      "currentPopulation": 9000,
+      "currentPopulation": 4000,
       "size": "SMALL"
     },
     {
@@ -2703,7 +2736,7 @@
         ]
       },
       "currentPopulation": 36000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -2722,7 +2755,8 @@
           "1850": 31000,
           "1852": 33593,
           "1900": 78000
-        }
+        },
+        "textAnchor": "end"
       },
       "geometry": {
         "type": "Point",
@@ -2731,8 +2765,8 @@
           "37.625683"
         ]
       },
-      "currentPopulation": 78000,
-      "size": "SMALL"
+      "currentPopulation": 29000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -2757,7 +2791,7 @@
         ]
       },
       "currentPopulation": 50000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -2783,7 +2817,8 @@
           "1900": 138000,
           "1925": 263000,
           "1950": 299000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -2792,7 +2827,7 @@
           "37.50213"
         ]
       },
-      "currentPopulation": 299000,
+      "currentPopulation": 48000,
       "size": "MEDIUM"
     },
     {
@@ -2808,7 +2843,8 @@
           "1300": 40000,
           "1400": 30000,
           "1415": 30000
-        }
+        },
+        "alignment": "DOWN"
       },
       "geometry": {
         "type": "Point",
@@ -2818,7 +2854,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -2830,7 +2866,8 @@
         ],
         "populationByYear": {
           "1400": 25000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -2851,7 +2888,8 @@
         "populationByYear": {
           "1128": 9000,
           "1871": 4235
-        }
+        },
+        "alignment": "LEFT"
       },
       "geometry": {
         "type": "Point",
@@ -2895,7 +2933,7 @@
           "28.196111"
         ]
       },
-      "currentPopulation": 939000,
+      "currentPopulation": 95000,
       "size": "MEDIUM"
     },
     {
@@ -2923,7 +2961,7 @@
           "31.77358"
         ]
       },
-      "currentPopulation": 631000,
+      "currentPopulation": 56000,
       "size": "MEDIUM"
     },
     {
@@ -2977,7 +3015,7 @@
           "30.66667"
         ]
       },
-      "currentPopulation": 1401000,
+      "currentPopulation": 150000,
       "size": "LARGE"
     },
     {
@@ -3002,7 +3040,7 @@
           "18.790978"
         ]
       },
-      "currentPopulation": 26062,
+      "currentPopulation": 25000,
       "size": "SMALL"
     },
     {
@@ -3061,8 +3099,8 @@
           "32.2"
         ]
       },
-      "currentPopulation": 168000,
-      "size": "SMALL"
+      "currentPopulation": 60000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -3079,7 +3117,8 @@
           "1544": 48000,
           "1568": 40000,
           "1871": 5572
-        }
+        },
+        "alignment": "LEFT"
       },
       "geometry": {
         "type": "Point",
@@ -3147,8 +3186,8 @@
           "39.162"
         ]
       },
-      "currentPopulation": 1422000,
-      "size": "LARGE"
+      "currentPopulation": 2540,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -3165,7 +3204,8 @@
           "1810": 12982,
           "1871": 13588,
           "1975": 525000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -3174,8 +3214,8 @@
           9.931003304016272
         ]
       },
-      "currentPopulation": 525000,
-      "size": "MEDIUM"
+      "currentPopulation": 12982,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -3198,7 +3238,7 @@
           "40.20564"
         ]
       },
-      "currentPopulation": 18147,
+      "currentPopulation": 15000,
       "size": "SMALL"
     },
     {
@@ -3239,7 +3279,8 @@
           "1925": 698000,
           "1950": 692000,
           "1975": 1800000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -3248,8 +3289,8 @@
           "50.937531"
         ]
       },
-      "currentPopulation": 1800000,
-      "size": "LARGE"
+      "currentPopulation": 41685,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -3280,8 +3321,8 @@
           "36.365"
         ]
       },
-      "currentPopulation": 52000,
-      "size": "SMALL"
+      "currentPopulation": 30000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -3310,7 +3351,8 @@
           "1925": 790000,
           "1950": 1150000,
           "1975": 1500000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -3319,8 +3361,8 @@
           55.67594
         ]
       },
-      "currentPopulation": 1500000,
-      "size": "LARGE"
+      "currentPopulation": 108000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -3366,8 +3408,8 @@
           "38.046133"
         ]
       },
-      "currentPopulation": 55514,
-      "size": "SMALL"
+      "currentPopulation": 28000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -3392,7 +3434,8 @@
           "1850": 28000,
           "1851": 28328,
           "1900": 31000
-        }
+        },
+        "alignment": "LEFT"
       },
       "geometry": {
         "type": "Point",
@@ -3401,7 +3444,7 @@
           "45.13617"
         ]
       },
-      "currentPopulation": 31000,
+      "currentPopulation": 21111,
       "size": "SMALL"
     },
     {
@@ -3414,7 +3457,8 @@
         ],
         "populationByYear": {
           "-430": 35000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -3424,7 +3468,7 @@
         ]
       },
       "currentPopulation": 35000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -3448,7 +3492,7 @@
         ]
       },
       "currentPopulation": 500000,
-      "size": "MEDIUM"
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -3489,8 +3533,8 @@
           "20.46497"
         ]
       },
-      "currentPopulation": 51000,
-      "size": "SMALL"
+      "currentPopulation": 40000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -3521,8 +3565,8 @@
           "-13.525"
         ]
       },
-      "currentPopulation": 41152,
-      "size": "SMALL"
+      "currentPopulation": 46123,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -3535,7 +3579,8 @@
         "populationByYear": {
           "-430": 35000,
           "-200": 30000
-        }
+        },
+        "alignment": "DOWN"
       },
       "geometry": {
         "type": "Point",
@@ -3545,7 +3590,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -3578,8 +3623,8 @@
           "25.606486"
         ]
       },
-      "currentPopulation": 31000,
-      "size": "SMALL"
+      "currentPopulation": 50000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -3627,8 +3672,8 @@
           "33.5102"
         ]
       },
-      "currentPopulation": 1100000,
-      "size": "LARGE"
+      "currentPopulation": 100000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -3703,7 +3748,7 @@
           "28.65381"
         ]
       },
-      "currentPopulation": 4400000,
+      "currentPopulation": 150000,
       "size": "LARGE"
     },
     {
@@ -3746,7 +3791,8 @@
           "1400": 20000,
           "1500": 20000,
           "1900": 6000
-        }
+        },
+        "alignment": "DOWN"
       },
       "geometry": {
         "type": "Point",
@@ -3776,7 +3822,8 @@
           "1800": 20000,
           "1801": 20000,
           "1851": 16216
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -3785,7 +3832,7 @@
           "49.922992"
         ]
       },
-      "currentPopulation": 16216,
+      "currentPopulation": 20000,
       "size": "SMALL"
     },
     {
@@ -3823,7 +3870,7 @@
           "47.31667"
         ]
       },
-      "currentPopulation": 71000,
+      "currentPopulation": 21000,
       "size": "SMALL"
     },
     {
@@ -3859,8 +3906,8 @@
           "37.914411"
         ]
       },
-      "currentPopulation": 27424,
-      "size": "SMALL"
+      "currentPopulation": 38000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -3925,7 +3972,7 @@
           "51.05089"
         ]
       },
-      "currentPopulation": 650000,
+      "currentPopulation": 61794,
       "size": "MEDIUM"
     },
     {
@@ -3961,7 +4008,8 @@
           "1925": 418000,
           "1950": 595000,
           "1975": 850000
-        }
+        },
+        "alignment": "LEFT"
       },
       "geometry": {
         "type": "Point",
@@ -3970,8 +4018,8 @@
           "53.33306"
         ]
       },
-      "currentPopulation": 850000,
-      "size": "MEDIUM"
+      "currentPopulation": 194000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -3993,7 +4041,7 @@
         ]
       },
       "currentPopulation": 32000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -4016,7 +4064,9 @@
           "1850": 27000,
           "1872": 29383,
           "1900": 30000
-        }
+        },
+        "alignment": "DOWN",
+        "textAnchor": "end"
       },
       "geometry": {
         "type": "Point",
@@ -4025,7 +4075,7 @@
           31.34008533589449
         ]
       },
-      "currentPopulation": 30000,
+      "currentPopulation": 22000,
       "size": "SMALL"
     },
     {
@@ -4047,7 +4097,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -4067,7 +4117,7 @@
         ]
       },
       "currentPopulation": 47000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -4080,7 +4130,8 @@
         ],
         "populationByYear": {
           "978": 65000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -4090,7 +4141,7 @@
         ]
       },
       "currentPopulation": 65000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -4100,7 +4151,8 @@
         "otherNames": null,
         "populationByYear": {
           "-2250": 30000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -4110,7 +4162,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -4130,7 +4182,7 @@
         ]
       },
       "currentPopulation": 90000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -4163,13 +4215,14 @@
           "37.15"
         ]
       },
-      "currentPopulation": 55000,
+      "currentPopulation": 20000,
       "size": "SMALL"
     },
     {
       "type": "Feature",
       "properties": {
         "NAME": "Edinburgh",
+        "alignment": "DOWN",
         "country": "United Kingdom",
         "otherNames": null,
         "populationByYear": {
@@ -4205,8 +4258,8 @@
           55.8180644381708
         ]
       },
-      "currentPopulation": 650000,
-      "size": "MEDIUM"
+      "currentPopulation": 145000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -4236,7 +4289,8 @@
           "1859": 80000,
           "1873": 62000,
           "1900": 81000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -4245,8 +4299,8 @@
           "41.681808"
         ]
       },
-      "currentPopulation": 81000,
-      "size": "SMALL"
+      "currentPopulation": 90000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -4272,7 +4326,7 @@
         ]
       },
       "currentPopulation": 50000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -4284,7 +4338,8 @@
         ],
         "populationByYear": {
           "-430": 30000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -4294,7 +4349,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -4315,7 +4370,7 @@
         ]
       },
       "currentPopulation": 45000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -4325,7 +4380,8 @@
         "otherNames": null,
         "populationByYear": {
           "1000": 22000
-        }
+        },
+        "textAnchor": "end"
       },
       "geometry": {
         "type": "Point",
@@ -4346,7 +4402,8 @@
         "populationByYear": {
           "-200": 40000,
           "-100": 51000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -4356,7 +4413,7 @@
         ]
       },
       "currentPopulation": 51000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -4385,7 +4442,7 @@
           "50.9787"
         ]
       },
-      "currentPopulation": 85000,
+      "currentPopulation": 16580,
       "size": "SMALL"
     },
     {
@@ -4436,7 +4493,7 @@
           "32.651389"
         ]
       },
-      "currentPopulation": 648000,
+      "currentPopulation": 60000,
       "size": "MEDIUM"
     },
     {
@@ -4483,7 +4540,7 @@
           "50.7236"
         ]
       },
-      "currentPopulation": 54000,
+      "currentPopulation": 17417,
       "size": "SMALL"
     },
     {
@@ -4515,8 +4572,8 @@
           "26.779386"
         ]
       },
-      "currentPopulation": 75000,
-      "size": "SMALL"
+      "currentPopulation": 45000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -4552,7 +4609,7 @@
           "45.048889"
         ]
       },
-      "currentPopulation": 8435,
+      "currentPopulation": 3700,
       "size": "SMALL"
     },
     {
@@ -4591,7 +4648,7 @@
           "44.82678"
         ]
       },
-      "currentPopulation": 33000,
+      "currentPopulation": 24444,
       "size": "SMALL"
     },
     {
@@ -4639,8 +4696,8 @@
           "34.033333"
         ]
       },
-      "currentPopulation": 200000,
-      "size": "SMALL"
+      "currentPopulation": 40000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -4663,7 +4720,7 @@
         ]
       },
       "currentPopulation": 50000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -4715,7 +4772,7 @@
           "43.771033"
         ]
       },
-      "currentPopulation": 660000,
+      "currentPopulation": 78093,
       "size": "MEDIUM"
     },
     {
@@ -4755,8 +4812,8 @@
           "50.110922"
         ]
       },
-      "currentPopulation": 1600000,
-      "size": "LARGE"
+      "currentPopulation": 42000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -4837,8 +4894,8 @@
           "26.076111"
         ]
       },
-      "currentPopulation": 755000,
-      "size": "MEDIUM"
+      "currentPopulation": 155000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -4870,7 +4927,7 @@
         ]
       },
       "currentPopulation": 75000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -4895,7 +4952,8 @@
           "1800": 20000,
           "1819": 18000,
           "1872": 11492
-        }
+        },
+        "alignment": "LEFT"
       },
       "geometry": {
         "type": "Point",
@@ -4904,7 +4962,7 @@
           "24.866667"
         ]
       },
-      "currentPopulation": 11492,
+      "currentPopulation": 18000,
       "size": "SMALL"
     },
     {
@@ -4935,7 +4993,9 @@
           "1900": 140000,
           "1925": 226000,
           "1975": 730000
-        }
+        },
+        "alignment": "DOWN",
+        "textAnchor": "end"
       },
       "geometry": {
         "type": "Point",
@@ -4944,7 +5004,7 @@
           54.2517570944307
         ]
       },
-      "currentPopulation": 730000,
+      "currentPopulation": 41072,
       "size": "MEDIUM"
     },
     {
@@ -4965,7 +5025,7 @@
         ]
       },
       "currentPopulation": 35000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -4986,7 +5046,8 @@
           "1800": 17000,
           "1810": 15000,
           "1840": 8500
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -4995,7 +5056,7 @@
           "40.333333"
         ]
       },
-      "currentPopulation": 8500,
+      "currentPopulation": 15000,
       "size": "SMALL"
     },
     {
@@ -5020,7 +5081,8 @@
           "1802": 26394,
           "1850": 42123,
           "1900": 112000
-        }
+        },
+        "alignment": "DOWN"
       },
       "geometry": {
         "type": "Point",
@@ -5029,7 +5091,7 @@
           "46.198392"
         ]
       },
-      "currentPopulation": 112000,
+      "currentPopulation": 26394,
       "size": "SMALL"
     },
     {
@@ -5080,7 +5142,7 @@
           "44.40565"
         ]
       },
-      "currentPopulation": 865000,
+      "currentPopulation": 95000,
       "size": "MEDIUM"
     },
     {
@@ -5127,7 +5189,7 @@
           "51.053469"
         ]
       },
-      "currentPopulation": 228000,
+      "currentPopulation": 55161,
       "size": "MEDIUM"
     },
     {
@@ -5183,7 +5245,8 @@
           "1925": 1396000,
           "1950": 1320000,
           "1975": 1900000
-        }
+        },
+        "alignment": "DOWN"
       },
       "geometry": {
         "type": "Point",
@@ -5192,7 +5255,7 @@
           "55.86515"
         ]
       },
-      "currentPopulation": 1900000,
+      "currentPopulation": 173000,
       "size": "LARGE"
     },
     {
@@ -5216,7 +5279,8 @@
           "1700": 20000,
           "1776": 14000,
           "1876": 14134
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -5225,7 +5289,7 @@
           "15.299333"
         ]
       },
-      "currentPopulation": 14134,
+      "currentPopulation": 14000,
       "size": "SMALL"
     },
     {
@@ -5239,7 +5303,8 @@
         ],
         "populationByYear": {
           "-100": 30000
-        }
+        },
+        "textAnchor": "start"
       },
       "geometry": {
         "type": "Point",
@@ -5249,7 +5314,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -5298,8 +5363,8 @@
           "37.177336"
         ]
       },
-      "currentPopulation": 75000,
-      "size": "SMALL"
+      "currentPopulation": 54962,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -5320,7 +5385,8 @@
           "1850": 31000,
           "1851": 31340,
           "1900": 68000
-        }
+        },
+        "alignment": "LEFT"
       },
       "geometry": {
         "type": "Point",
@@ -5329,7 +5395,7 @@
           "45.16667"
         ]
       },
-      "currentPopulation": 68000,
+      "currentPopulation": 22650,
       "size": "SMALL"
     },
     {
@@ -5346,13 +5412,14 @@
           "1500": 30000,
           "1523": 30000,
           "1812": 17555
-        }
+        },
+        "alignment": "LEFT"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          "112.65611",
-          "-7.15389"
+          112.46497132848786,
+          -7.230335662851314
         ]
       },
       "currentPopulation": 17555,
@@ -5412,7 +5479,7 @@
           "23.11667"
         ]
       },
-      "currentPopulation": 3000000,
+      "currentPopulation": 900000,
       "size": "LARGE"
     },
     {
@@ -5445,7 +5512,7 @@
           "26.647661"
         ]
       },
-      "currentPopulation": 784000,
+      "currentPopulation": 65000,
       "size": "MEDIUM"
     },
     {
@@ -5499,7 +5566,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -5552,7 +5619,7 @@
           "52.38084"
         ]
       },
-      "currentPopulation": 214000,
+      "currentPopulation": 21000,
       "size": "SMALL"
     },
     {
@@ -5577,7 +5644,7 @@
         ]
       },
       "currentPopulation": 60000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -5599,7 +5666,8 @@
           "1900": 67000,
           "1950": 392000,
           "1975": 1300000
-        }
+        },
+        "alignment": "LEFT"
       },
       "geometry": {
         "type": "Point",
@@ -5608,8 +5676,8 @@
           "33.591389"
         ]
       },
-      "currentPopulation": 1300000,
-      "size": "LARGE"
+      "currentPopulation": 40000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -5645,7 +5713,8 @@
           "1800": 30000,
           "1809": 30000,
           "1850": 44000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -5654,8 +5723,8 @@
           "35.133333"
         ]
       },
-      "currentPopulation": 44000,
-      "size": "SMALL"
+      "currentPopulation": 30000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -5680,7 +5749,7 @@
           "34.79922"
         ]
       },
-      "currentPopulation": 40000,
+      "currentPopulation": 25000,
       "size": "SMALL"
     },
     {
@@ -5716,7 +5785,8 @@
           "1950": 1580000,
           "1970": 2335000,
           "1975": 2200000
-        }
+        },
+        "alignment": "DOWN"
       },
       "geometry": {
         "type": "Point",
@@ -5725,8 +5795,8 @@
           "53.57532"
         ]
       },
-      "currentPopulation": 2200000,
-      "size": "LARGE"
+      "currentPopulation": 130000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -5749,7 +5819,7 @@
         ]
       },
       "currentPopulation": 615000,
-      "size": "MEDIUM"
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -5806,7 +5876,7 @@
           "30.25"
         ]
       },
-      "currentPopulation": 1112000,
+      "currentPopulation": 410000,
       "size": "LARGE"
     },
     {
@@ -5839,8 +5909,8 @@
           "21.033333"
         ]
       },
-      "currentPopulation": 1500000,
-      "size": "LARGE"
+      "currentPopulation": 60000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -5865,7 +5935,7 @@
         ]
       },
       "currentPopulation": 48000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -5908,7 +5978,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -5939,8 +6009,8 @@
           "34.34817"
         ]
       },
-      "currentPopulation": 80000,
-      "size": "SMALL"
+      "currentPopulation": 45000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -5952,7 +6022,8 @@
         ],
         "populationByYear": {
           "361": 40000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -5962,7 +6033,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -5985,7 +6056,7 @@
         ]
       },
       "currentPopulation": 50000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -6014,7 +6085,7 @@
         ]
       },
       "currentPopulation": 50000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -6047,7 +6118,7 @@
           "21.857353"
         ]
       },
-      "currentPopulation": 150000,
+      "currentPopulation": 4000,
       "size": "SMALL"
     },
     {
@@ -6074,7 +6145,7 @@
           "35.338736"
         ]
       },
-      "currentPopulation": 18910,
+      "currentPopulation": 15000,
       "size": "SMALL"
     },
     {
@@ -6097,7 +6168,7 @@
         ]
       },
       "currentPopulation": 70000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -6120,7 +6191,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -6178,7 +6249,9 @@
           "1970": 2825000,
           "1975": 3200000,
           "-100": 36000
-        }
+        },
+        "alignment": "DOWN",
+        "textAnchor": "end"
       },
       "geometry": {
         "type": "Point",
@@ -6187,7 +6260,7 @@
           "41.005275"
         ]
       },
-      "currentPopulation": 3200000,
+      "currentPopulation": 597600,
       "size": "LARGE"
     },
     {
@@ -6198,7 +6271,8 @@
         "otherNames": null,
         "populationByYear": {
           "-200": 35000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -6208,7 +6282,7 @@
         ]
       },
       "currentPopulation": 35000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -6231,7 +6305,7 @@
           "25.75506"
         ]
       },
-      "currentPopulation": 42000,
+      "currentPopulation": 16177,
       "size": "SMALL"
     },
     {
@@ -6265,7 +6339,7 @@
           "36.6936"
         ]
       },
-      "currentPopulation": 53320,
+      "currentPopulation": 26000,
       "size": "SMALL"
     },
     {
@@ -6292,7 +6366,8 @@
           "-800": 36000,
           "-650": 45000,
           "-430": 49000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -6301,7 +6376,7 @@
           "31.76904"
         ]
       },
-      "currentPopulation": 56000,
+      "currentPopulation": 13000,
       "size": "SMALL"
     },
     {
@@ -6342,8 +6417,8 @@
           "29.268836"
         ]
       },
-      "currentPopulation": 86744,
-      "size": "SMALL"
+      "currentPopulation": 167000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -6367,8 +6442,8 @@
           "29.705078"
         ]
       },
-      "currentPopulation": 36000,
-      "size": "SMALL"
+      "currentPopulation": 35000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -6399,7 +6474,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -6431,7 +6506,7 @@
           "31.5966"
         ]
       },
-      "currentPopulation": 229000,
+      "currentPopulation": 72350,
       "size": "MEDIUM"
     },
     {
@@ -6483,7 +6558,7 @@
           "34.7986"
         ]
       },
-      "currentPopulation": 600000,
+      "currentPopulation": 80000,
       "size": "MEDIUM"
     },
     {
@@ -6517,7 +6592,7 @@
           "35.674444"
         ]
       },
-      "currentPopulation": 12000,
+      "currentPopulation": 20000,
       "size": "SMALL"
     },
     {
@@ -6528,7 +6603,8 @@
         "otherNames": null,
         "populationByYear": {
           "1050": 80000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -6538,7 +6614,7 @@
         ]
       },
       "currentPopulation": 80000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -6594,7 +6670,8 @@
           "1200": 175000,
           "1250": 200000,
           "1300": 200000
-        }
+        },
+        "textAnchor": "start"
       },
       "geometry": {
         "type": "Point",
@@ -6604,7 +6681,7 @@
         ]
       },
       "currentPopulation": 200000,
-      "size": "SMALL"
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -6617,7 +6694,8 @@
         ],
         "populationByYear": {
           "622": 40000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -6627,7 +6705,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -6683,7 +6761,8 @@
           "1800": 35000,
           "1871": 35396,
           "1900": 45000
-        }
+        },
+        "alignment": "LEFT"
       },
       "geometry": {
         "type": "Point",
@@ -6692,8 +6771,8 @@
           "12.834173"
         ]
       },
-      "currentPopulation": 45000,
-      "size": "SMALL"
+      "currentPopulation": 35000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -6729,7 +6808,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -6754,7 +6833,7 @@
           "37.18111"
         ]
       },
-      "currentPopulation": 7500,
+      "currentPopulation": 20000,
       "size": "SMALL"
     },
     {
@@ -6792,8 +6871,8 @@
           "39.4704"
         ]
       },
-      "currentPopulation": 33000,
-      "size": "SMALL"
+      "currentPopulation": 50000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -6817,7 +6896,7 @@
           "27.7"
         ]
       },
-      "currentPopulation": 40000,
+      "currentPopulation": 25000,
       "size": "SMALL"
     },
     {
@@ -6831,7 +6910,8 @@
         ],
         "populationByYear": {
           "1300": 50000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -6841,7 +6921,7 @@
         ]
       },
       "currentPopulation": 50000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -6874,7 +6954,7 @@
           "38.73222"
         ]
       },
-      "currentPopulation": 60000,
+      "currentPopulation": 25000,
       "size": "SMALL"
     },
     {
@@ -6910,31 +6990,7 @@
           "55.790278"
         ]
       },
-      "currentPopulation": 947000,
-      "size": "MEDIUM"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "NAME": "Kerkira",
-        "country": "Greece",
-        "otherNames": [
-          "Corfu",
-          "Corcyra",
-          " K�rkira"
-        ],
-        "populationByYear": {
-          "-430": 35000
-        }
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          "19.866667",
-          "39.583333"
-        ]
-      },
-      "currentPopulation": 35000,
+      "currentPopulation": 25000,
       "size": "SMALL"
     },
     {
@@ -6966,7 +7022,7 @@
           "30.28321"
         ]
       },
-      "currentPopulation": 49000,
+      "currentPopulation": 20000,
       "size": "SMALL"
     },
     {
@@ -6987,7 +7043,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -7003,7 +7059,8 @@
           "1786": 10000,
           "1850": 24338,
           "1900": 73000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -7012,7 +7069,7 @@
           "46.635417"
         ]
       },
-      "currentPopulation": 73000,
+      "currentPopulation": 10000,
       "size": "SMALL"
     },
     {
@@ -7054,8 +7111,8 @@
           "50.45466"
         ]
       },
-      "currentPopulation": 1900000,
-      "size": "LARGE"
+      "currentPopulation": 23000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -7103,7 +7160,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -7123,7 +7180,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -7136,7 +7193,8 @@
           "1600": 40000,
           "1645": 40000,
           "1900": 35000
-        }
+        },
+        "alignment": "LEFT"
       },
       "geometry": {
         "type": "Point",
@@ -7146,7 +7204,7 @@
         ]
       },
       "currentPopulation": 35000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -7173,7 +7231,8 @@
           "1850": 76122,
           "1900": 189000,
           "1925": 279000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -7182,7 +7241,7 @@
           "54.716667"
         ]
       },
-      "currentPopulation": 279000,
+      "currentPopulation": 56140,
       "size": "MEDIUM"
     },
     {
@@ -7212,8 +7271,8 @@
           "37.87135"
         ]
       },
-      "currentPopulation": 33000,
-      "size": "SMALL"
+      "currentPopulation": 30000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -7257,7 +7316,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -7290,7 +7349,7 @@
           "50.06143"
         ]
       },
-      "currentPopulation": 660000,
+      "currentPopulation": 27278,
       "size": "MEDIUM"
     },
     {
@@ -7316,7 +7375,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -7355,8 +7414,8 @@
           "25.03889"
         ]
       },
-      "currentPopulation": 1284000,
-      "size": "LARGE"
+      "currentPopulation": 46000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -7432,8 +7491,8 @@
           "35.02107"
         ]
       },
-      "currentPopulation": 517000,
-      "size": "MEDIUM"
+      "currentPopulation": 350000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -7457,7 +7516,8 @@
           "1925": 355000,
           "1950": 600000,
           "1975": 2400000
-        }
+        },
+        "alignment": "LEFT"
       },
       "geometry": {
         "type": "Point",
@@ -7466,8 +7526,8 @@
           "31.54972"
         ]
       },
-      "currentPopulation": 2400000,
-      "size": "LARGE"
+      "currentPopulation": 94000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -7519,8 +7579,8 @@
           "36.061089"
         ]
       },
-      "currentPopulation": 2000000,
-      "size": "LARGE"
+      "currentPopulation": 95000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -7543,7 +7603,7 @@
           "49.56667"
         ]
       },
-      "currentPopulation": 9466,
+      "currentPopulation": 7034,
       "size": "SMALL"
     },
     {
@@ -7581,7 +7641,7 @@
           "51.33962"
         ]
       },
-      "currentPopulation": 730000,
+      "currentPopulation": 30796,
       "size": "MEDIUM"
     },
     {
@@ -7604,7 +7664,7 @@
           "42.605556"
         ]
       },
-      "currentPopulation": 55000,
+      "currentPopulation": 6170,
       "size": "SMALL"
     },
     {
@@ -7617,7 +7677,9 @@
         ],
         "populationByYear": {
           "361": 50000
-        }
+        },
+        "alignment": "DOWN",
+        "textAnchor": "end"
       },
       "geometry": {
         "type": "Point",
@@ -7627,7 +7689,7 @@
         ]
       },
       "currentPopulation": 50000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -7655,8 +7717,8 @@
           "29.645563"
         ]
       },
-      "currentPopulation": 30000,
-      "size": "SMALL"
+      "currentPopulation": 50000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -7669,7 +7731,8 @@
         "populationByYear": {
           "361": 40000,
           "622": 40000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -7679,7 +7742,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -7707,8 +7770,8 @@
           "41.266667"
         ]
       },
-      "currentPopulation": 39000,
-      "size": "SMALL"
+      "currentPopulation": 30000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -7747,7 +7810,7 @@
           "50.63373"
         ]
       },
-      "currentPopulation": 560000,
+      "currentPopulation": 39000,
       "size": "MEDIUM"
     },
     {
@@ -7782,7 +7845,9 @@
           "1925": 504000,
           "1950": 670000,
           "1975": 935000
-        }
+        },
+        "alignment": "DOWN",
+        "textAnchor": "end"
       },
       "geometry": {
         "type": "Point",
@@ -7791,7 +7856,7 @@
           "50.628442"
         ]
       },
-      "currentPopulation": 935000,
+      "currentPopulation": 54756,
       "size": "MEDIUM"
     },
     {
@@ -7820,7 +7885,7 @@
           "45.83153"
         ]
       },
-      "currentPopulation": 75906,
+      "currentPopulation": 16436,
       "size": "SMALL"
     },
     {
@@ -7865,7 +7930,8 @@
           "1925": 567000,
           "1950": 875000,
           "1975": 1600000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -7874,7 +7940,7 @@
           38.77396563380238
         ]
       },
-      "currentPopulation": 1600000,
+      "currentPopulation": 258000,
       "size": "LARGE"
     },
     {
@@ -7925,7 +7991,7 @@
           "51.511214"
         ]
       },
-      "currentPopulation": 10500000,
+      "currentPopulation": 1335000,
       "size": "LARGE"
     },
     {
@@ -7960,7 +8026,7 @@
           "50.877572"
         ]
       },
-      "currentPopulation": 42000,
+      "currentPopulation": 18587,
       "size": "SMALL"
     },
     {
@@ -7983,7 +8049,7 @@
           "19.884111"
         ]
       },
-      "currentPopulation": 20000,
+      "currentPopulation": 15000,
       "size": "SMALL"
     },
     {
@@ -8012,7 +8078,8 @@
           "1851": 23000,
           "1900": 82000,
           "1950": 237000
-        }
+        },
+        "alignment": "LEFT"
       },
       "geometry": {
         "type": "Point",
@@ -8021,8 +8088,8 @@
           "53.865886"
         ]
       },
-      "currentPopulation": 237000,
-      "size": "MEDIUM"
+      "currentPopulation": 22631,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -8055,7 +8122,7 @@
           "43.84357"
         ]
       },
-      "currentPopulation": 43000,
+      "currentPopulation": 17160,
       "size": "SMALL"
     },
     {
@@ -8076,7 +8143,7 @@
         ]
       },
       "currentPopulation": 50000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -8114,7 +8181,7 @@
           "34.669722"
         ]
       },
-      "currentPopulation": 887000,
+      "currentPopulation": 27000,
       "size": "MEDIUM"
     },
     {
@@ -8166,7 +8233,7 @@
           "45.74846"
         ]
       },
-      "currentPopulation": 1170000,
+      "currentPopulation": 141000,
       "size": "LARGE"
     },
     {
@@ -8202,7 +8269,7 @@
           "52.130808"
         ]
       },
-      "currentPopulation": 236000,
+      "currentPopulation": 32013,
       "size": "MEDIUM"
     },
     {
@@ -8238,8 +8305,8 @@
           "9.91735"
         ]
       },
-      "currentPopulation": 685000,
-      "size": "MEDIUM"
+      "currentPopulation": 20069,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -8273,7 +8340,7 @@
           "49.98419"
         ]
       },
-      "currentPopulation": 44741,
+      "currentPopulation": 21163,
       "size": "SMALL"
     },
     {
@@ -8286,7 +8353,8 @@
           "1300": 40000,
           "1350": 40000,
           "1400": 40000
-        }
+        },
+        "alignment": "LEFT"
       },
       "geometry": {
         "type": "Point",
@@ -8296,7 +8364,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -8332,7 +8400,7 @@
           36.816753965855135
         ]
       },
-      "currentPopulation": 218000,
+      "currentPopulation": 36054,
       "size": "MEDIUM"
     },
     {
@@ -8351,7 +8419,8 @@
           "1400": 50000,
           "1500": 40000,
           "1515": 30000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -8361,7 +8430,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -8387,7 +8456,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -8417,8 +8486,8 @@
           "25.590258"
         ]
       },
-      "currentPopulation": 680000,
-      "size": "MEDIUM"
+      "currentPopulation": 14000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -8459,7 +8528,7 @@
           "45.156417"
         ]
       },
-      "currentPopulation": 29884,
+      "currentPopulation": 21902,
       "size": "SMALL"
     },
     {
@@ -8483,7 +8552,7 @@
         ]
       },
       "currentPopulation": 100000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -8517,7 +8586,8 @@
         ],
         "populationByYear": {
           "-650": 45000
-        }
+        },
+        "alignment": "LEFT"
       },
       "geometry": {
         "type": "Point",
@@ -8527,7 +8597,7 @@
         ]
       },
       "currentPopulation": 45000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -8576,7 +8646,7 @@
           "31.63416"
         ]
       },
-      "currentPopulation": 224000,
+      "currentPopulation": 30000,
       "size": "MEDIUM"
     },
     {
@@ -8616,7 +8686,9 @@
           "1925": 612000,
           "1950": 625000,
           "1975": 1070000
-        }
+        },
+        "alignment": "UP",
+        "textAnchor": "start"
       },
       "geometry": {
         "type": "Point",
@@ -8625,7 +8697,7 @@
           "43.29695"
         ]
       },
-      "currentPopulation": 1070000,
+      "currentPopulation": 78445,
       "size": "MEDIUM"
     },
     {
@@ -8639,7 +8711,9 @@
         "populationByYear": {
           "1350": 40000,
           "1661": 45000
-        }
+        },
+        "alignment": "DOWN",
+        "textAnchor": "end"
       },
       "geometry": {
         "type": "Point",
@@ -8649,7 +8723,7 @@
         ]
       },
       "currentPopulation": 45000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -8674,8 +8748,8 @@
           "27.4925"
         ]
       },
-      "currentPopulation": 60000,
-      "size": "SMALL"
+      "currentPopulation": 49672,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -8726,7 +8800,8 @@
           "1850": 45000,
           "1853": 50000,
           "1900": 60000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -8735,8 +8810,8 @@
           "21.42667"
         ]
       },
-      "currentPopulation": 60000,
-      "size": "SMALL"
+      "currentPopulation": 31000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -8754,7 +8829,9 @@
           "1800": 20000,
           "1853": 17000,
           "1900": 27500
-        }
+        },
+        "alignment": "UP",
+        "textAnchor": "start"
       },
       "geometry": {
         "type": "Point",
@@ -8763,7 +8840,7 @@
           "24.4609"
         ]
       },
-      "currentPopulation": 27500,
+      "currentPopulation": 20000,
       "size": "SMALL"
     },
     {
@@ -8801,8 +8878,8 @@
           "33.89352"
         ]
       },
-      "currentPopulation": 50000,
-      "size": "SMALL"
+      "currentPopulation": 45000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -8834,8 +8911,8 @@
           "20.979719"
         ]
       },
-      "currentPopulation": 43000,
-      "size": "SMALL"
+      "currentPopulation": 28000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -8883,7 +8960,7 @@
         ]
       },
       "currentPopulation": 200000,
-      "size": "SMALL"
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -8928,7 +9005,8 @@
           "1900": 93000,
           "-430": 38000,
           "-200": 35000
-        }
+        },
+        "textAnchor": "end"
       },
       "geometry": {
         "type": "Point",
@@ -8937,8 +9015,8 @@
           "38.19327"
         ]
       },
-      "currentPopulation": 93000,
-      "size": "SMALL"
+      "currentPopulation": 37000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -8970,7 +9048,9 @@
           "1804": 34659,
           "1851": 57713,
           "1900": 58000
-        }
+        },
+        "alignment": "DOWN",
+        "textAnchor": "start"
       },
       "geometry": {
         "type": "Point",
@@ -8979,8 +9059,8 @@
           "49.11911"
         ]
       },
-      "currentPopulation": 58000,
-      "size": "SMALL"
+      "currentPopulation": 34659,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -9042,7 +9122,7 @@
           "45.465453"
         ]
       },
-      "currentPopulation": 3800000,
+      "currentPopulation": 156000,
       "size": "LARGE"
     },
     {
@@ -9053,7 +9133,8 @@
         "otherNames": null,
         "populationByYear": {
           "-650": 50000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -9063,7 +9144,7 @@
         ]
       },
       "currentPopulation": 50000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -9107,7 +9188,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -9145,8 +9226,8 @@
           "43.61092"
         ]
       },
-      "currentPopulation": 75000,
-      "size": "SMALL"
+      "currentPopulation": 31237,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -9194,7 +9275,7 @@
           "55.75222"
         ]
       },
-      "currentPopulation": 10700000,
+      "currentPopulation": 270184,
       "size": "LARGE"
     },
     {
@@ -9226,7 +9307,7 @@
           "36.335"
         ]
       },
-      "currentPopulation": 710000,
+      "currentPopulation": 34000,
       "size": "MEDIUM"
     },
     {
@@ -9255,7 +9336,7 @@
           "30.19556"
         ]
       },
-      "currentPopulation": 575000,
+      "currentPopulation": 30000,
       "size": "MEDIUM"
     },
     {
@@ -9294,8 +9375,8 @@
           "48.136739"
         ]
       },
-      "currentPopulation": 1700000,
-      "size": "LARGE"
+      "currentPopulation": 48745,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -9328,8 +9409,8 @@
           "37.98704"
         ]
       },
-      "currentPopulation": 206000,
-      "size": "SMALL"
+      "currentPopulation": 44000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -9349,7 +9430,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -9404,7 +9485,7 @@
           "28.68333"
         ]
       },
-      "currentPopulation": 808000,
+      "currentPopulation": 36000,
       "size": "MEDIUM"
     },
     {
@@ -9463,8 +9544,8 @@
           "32.05"
         ]
       },
-      "currentPopulation": 2000000,
-      "size": "LARGE"
+      "currentPopulation": 50000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -9489,7 +9570,7 @@
           "22.81667"
         ]
       },
-      "currentPopulation": 790000,
+      "currentPopulation": 40000,
       "size": "MEDIUM"
     },
     {
@@ -9537,7 +9618,8 @@
           "1950": 1210000,
           "1970": 1930000,
           "1975": 1900000
-        }
+        },
+        "textAnchor": "start"
       },
       "geometry": {
         "type": "Point",
@@ -9546,7 +9628,7 @@
           "40.851775"
         ]
       },
-      "currentPopulation": 1900000,
+      "currentPopulation": 350000,
       "size": "LARGE"
     },
     {
@@ -9595,7 +9677,7 @@
           "43.18333"
         ]
       },
-      "currentPopulation": 11907,
+      "currentPopulation": 9086,
       "size": "SMALL"
     },
     {
@@ -9603,6 +9685,7 @@
       "properties": {
         "NAME": "Newcastle upon Tyne",
         "country": "United Kingdom",
+        "alignment": "RIGHT",
         "otherNames": null,
         "populationByYear": {
           "1400": 4000,
@@ -9630,8 +9713,8 @@
           "54.978253"
         ]
       },
-      "currentPopulation": 1360000,
-      "size": "LARGE"
+      "currentPopulation": 36891,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -9657,7 +9740,7 @@
           "35.16667"
         ]
       },
-      "currentPopulation": 14940,
+      "currentPopulation": 17000,
       "size": "SMALL"
     },
     {
@@ -9694,8 +9777,8 @@
           "43.83333"
         ]
       },
-      "currentPopulation": 72000,
-      "size": "SMALL"
+      "currentPopulation": 39921,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -9718,7 +9801,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -9738,7 +9821,7 @@
         ]
       },
       "currentPopulation": 120000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -9777,8 +9860,8 @@
           29.81892051707243
         ]
       },
-      "currentPopulation": 210000,
-      "size": "SMALL"
+      "currentPopulation": 80000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -9798,7 +9881,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -9827,7 +9910,7 @@
           "36.213333"
         ]
       },
-      "currentPopulation": 8000,
+      "currentPopulation": 5000,
       "size": "SMALL"
     },
     {
@@ -9863,8 +9946,8 @@
           "56.3269"
         ]
       },
-      "currentPopulation": 1700000,
-      "size": "LARGE"
+      "currentPopulation": 21687,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -9889,7 +9972,8 @@
           "1850": 67000,
           "1851": 68195,
           "1900": 110000
-        }
+        },
+        "alignment": "LEFT"
       },
       "geometry": {
         "type": "Point",
@@ -9898,8 +9982,8 @@
           "52.62783"
         ]
       },
-      "currentPopulation": 110000,
-      "size": "SMALL"
+      "currentPopulation": 36832,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -9975,8 +10059,8 @@
           "49.452031"
         ]
       },
-      "currentPopulation": 860000,
-      "size": "MEDIUM"
+      "currentPopulation": 25000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -10000,7 +10084,7 @@
           "43.454967"
         ]
       },
-      "currentPopulation": 7000,
+      "currentPopulation": 16000,
       "size": "SMALL"
     },
     {
@@ -10011,7 +10095,9 @@
         "otherNames": null,
         "populationByYear": {
           "-200": 30000
-        }
+        },
+        "alignment": "DOWN",
+        "textAnchor": "end"
       },
       "geometry": {
         "type": "Point",
@@ -10021,7 +10107,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -10046,7 +10132,8 @@
           "1925": 256000,
           "1950": 355000,
           "1975": 860000
-        }
+        },
+        "alignment": "LEFT"
       },
       "geometry": {
         "type": "Point",
@@ -10055,7 +10142,7 @@
           "41.167972"
         ]
       },
-      "currentPopulation": 860000,
+      "currentPopulation": 70505,
       "size": "MEDIUM"
     },
     {
@@ -10098,8 +10185,8 @@
           "47.902964"
         ]
       },
-      "currentPopulation": 57000,
-      "size": "SMALL"
+      "currentPopulation": 32000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -10119,7 +10206,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -10164,7 +10251,7 @@
         ]
       },
       "currentPopulation": 34000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -10199,8 +10286,8 @@
           "7.85"
         ]
       },
-      "currentPopulation": 45000,
-      "size": "SMALL"
+      "currentPopulation": 60000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -10263,8 +10350,8 @@
           "45.406436"
         ]
       },
-      "currentPopulation": 50000,
-      "size": "SMALL"
+      "currentPopulation": 45475,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -10286,7 +10373,7 @@
         ]
       },
       "currentPopulation": 60000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -10339,43 +10426,8 @@
           "38.115689"
         ]
       },
-      "currentPopulation": 672000,
-      "size": "MEDIUM"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "NAME": "Palma",
-        "country": "Spain",
-        "otherNames": null,
-        "populationByYear": {
-          "1100": 27000,
-          "1184": 25000,
-          "1200": 23000,
-          "1229": 20000,
-          "1300": 25000,
-          "1400": 15000,
-          "1559": 15000,
-          "1591": 23161,
-          "1600": 23000,
-          "1787": 29529,
-          "1800": 31000,
-          "1809": 33000,
-          "1848": 40892,
-          "1850": 41000,
-          "1857": 42910,
-          "1900": 63000
-        }
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          "2.65024",
-          "39.56939"
-        ]
-      },
-      "currentPopulation": 63000,
-      "size": "SMALL"
+      "currentPopulation": 144000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -10385,7 +10437,8 @@
         "otherNames": null,
         "populationByYear": {
           "1400": 60000
-        }
+        },
+        "alignment": "LEFT"
       },
       "geometry": {
         "type": "Point",
@@ -10395,7 +10448,7 @@
         ]
       },
       "currentPopulation": 60000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -10456,7 +10509,7 @@
           "48.856614"
         ]
       },
-      "currentPopulation": 9400000,
+      "currentPopulation": 855000,
       "size": "LARGE"
     },
     {
@@ -10489,8 +10542,8 @@
           "44.80266"
         ]
       },
-      "currentPopulation": 49000,
-      "size": "SMALL"
+      "currentPopulation": 32640,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -10525,7 +10578,7 @@
         ]
       },
       "currentPopulation": 31000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -10562,8 +10615,8 @@
           "25.610533"
         ]
       },
-      "currentPopulation": 635000,
-      "size": "MEDIUM"
+      "currentPopulation": 204000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -10598,7 +10651,7 @@
           "45.18446"
         ]
       },
-      "currentPopulation": 25006,
+      "currentPopulation": 23772,
       "size": "SMALL"
     },
     {
@@ -10649,7 +10702,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -10669,7 +10722,7 @@
         ]
       },
       "currentPopulation": 50000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -10686,7 +10739,8 @@
           "1850": 53970,
           "1853": 53295,
           "1900": 96000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -10695,8 +10749,8 @@
           "34.008"
         ]
       },
-      "currentPopulation": 96000,
-      "size": "SMALL"
+      "currentPopulation": 80000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -10706,7 +10760,8 @@
         "otherNames": null,
         "populationByYear": {
           "-100": 30000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -10716,7 +10771,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -10752,8 +10807,8 @@
           "45.04676"
         ]
       },
-      "currentPopulation": 35000,
-      "size": "SMALL"
+      "currentPopulation": 27920,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -10785,7 +10840,7 @@
           "43.71553"
         ]
       },
-      "currentPopulation": 23755,
+      "currentPopulation": 17000,
       "size": "SMALL"
     },
     {
@@ -10808,7 +10863,7 @@
         ]
       },
       "currentPopulation": 34000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -10842,8 +10897,8 @@
           "42.15"
         ]
       },
-      "currentPopulation": 42000,
-      "size": "SMALL"
+      "currentPopulation": 30000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -10865,7 +10920,8 @@
           "1900": 179000,
           "1925": 209000,
           "1950": 228000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -10874,7 +10930,7 @@
           50.41842790749016
         ]
       },
-      "currentPopulation": 228000,
+      "currentPopulation": 43194,
       "size": "MEDIUM"
     },
     {
@@ -10905,7 +10961,7 @@
           "46.58333"
         ]
       },
-      "currentPopulation": 31000,
+      "currentPopulation": 18223,
       "size": "SMALL"
     },
     {
@@ -10928,7 +10984,7 @@
         ]
       },
       "currentPopulation": 75000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -10975,8 +11031,8 @@
           "50.08804"
         ]
       },
-      "currentPopulation": 1275000,
-      "size": "LARGE"
+      "currentPopulation": 98000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -10988,7 +11044,8 @@
         ],
         "populationByYear": {
           "800": 60000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -10998,7 +11055,7 @@
         ]
       },
       "currentPopulation": 60000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -11060,7 +11117,8 @@
           "1782": 7000,
           "1840": 14000,
           "1900": 30000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -11069,7 +11127,7 @@
           "57.8136"
         ]
       },
-      "currentPopulation": 30000,
+      "currentPopulation": 14000,
       "size": "SMALL"
     },
     {
@@ -11090,7 +11148,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -11114,7 +11172,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -11140,7 +11198,8 @@
           "-1000": 25000,
           "-800": 25000,
           "-650": 30000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -11149,7 +11208,7 @@
           "39.03385"
         ]
       },
-      "currentPopulation": 400000,
+      "currentPopulation": 68000,
       "size": "MEDIUM"
     },
     {
@@ -11185,8 +11244,8 @@
           "36.26877"
         ]
       },
-      "currentPopulation": 50000,
-      "size": "SMALL"
+      "currentPopulation": 40000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -11207,7 +11266,7 @@
         ]
       },
       "currentPopulation": 50000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -11229,7 +11288,8 @@
           "1661": 35000,
           "1800": 20000,
           "1875": 14366
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -11238,7 +11298,7 @@
           8.897747563539363
         ]
       },
-      "currentPopulation": 14366,
+      "currentPopulation": 20000,
       "size": "SMALL"
     },
     {
@@ -11275,7 +11335,7 @@
           "-0.22985"
         ]
       },
-      "currentPopulation": 782000,
+      "currentPopulation": 30000,
       "size": "MEDIUM"
     },
     {
@@ -11328,7 +11388,8 @@
           "1900": 40000,
           "1950": 217000,
           "1975": 745000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -11337,7 +11398,7 @@
           "34.01325"
         ]
       },
-      "currentPopulation": 745000,
+      "currentPopulation": 43000,
       "size": "MEDIUM"
     },
     {
@@ -11351,7 +11412,8 @@
           "1850": 17500,
           "1872": 19738,
           "1900": 35000
-        }
+        },
+        "alignment": "LEFT"
       },
       "geometry": {
         "type": "Point",
@@ -11360,7 +11422,7 @@
           "17.00517"
         ]
       },
-      "currentPopulation": 35000,
+      "currentPopulation": 17500,
       "size": "SMALL"
     },
     {
@@ -11389,7 +11451,7 @@
         ]
       },
       "currentPopulation": 80000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -11419,7 +11481,7 @@
           "49.015"
         ]
       },
-      "currentPopulation": 45000,
+      "currentPopulation": 23000,
       "size": "SMALL"
     },
     {
@@ -11442,7 +11504,7 @@
           "38.1113"
         ]
       },
-      "currentPopulation": 37000,
+      "currentPopulation": 20000,
       "size": "SMALL"
     },
     {
@@ -11483,7 +11545,7 @@
           "49.25"
         ]
       },
-      "currentPopulation": 108000,
+      "currentPopulation": 20295,
       "size": "SMALL"
     },
     {
@@ -11505,7 +11567,8 @@
           "1925": 337000,
           "1950": 475000,
           "1975": 870000
-        }
+        },
+        "alignment": "DOWN"
       },
       "geometry": {
         "type": "Point",
@@ -11514,7 +11577,7 @@
           "56.946"
         ]
       },
-      "currentPopulation": 870000,
+      "currentPopulation": 30219,
       "size": "MEDIUM"
     },
     {
@@ -11595,7 +11658,7 @@
           "41.89474"
         ]
       },
-      "currentPopulation": 3600000,
+      "currentPopulation": 134242,
       "size": "LARGE"
     },
     {
@@ -11611,7 +11674,8 @@
           "1443": 36000,
           "1500": 27000,
           "1800": 2000
-        }
+        },
+        "alignment": "DOWN"
       },
       "geometry": {
         "type": "Point",
@@ -11660,7 +11724,8 @@
           "1851": 105225,
           "1900": 185000,
           "1950": 225000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -11669,7 +11734,7 @@
           "49.44313"
         ]
       },
-      "currentPopulation": 225000,
+      "currentPopulation": 86672,
       "size": "MEDIUM"
     },
     {
@@ -11687,7 +11752,8 @@
           "1841": 20661,
           "1850": 21000,
           "1851": 22054
-        }
+        },
+        "alignment": "DOWN"
       },
       "geometry": {
         "type": "Point",
@@ -11696,7 +11762,7 @@
           "50.750114"
         ]
       },
-      "currentPopulation": 22054,
+      "currentPopulation": 20100,
       "size": "SMALL"
     },
     {
@@ -11719,7 +11785,7 @@
         ]
       },
       "currentPopulation": 48000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -11746,7 +11812,7 @@
           "40.67797"
         ]
       },
-      "currentPopulation": 11500,
+      "currentPopulation": 23000,
       "size": "SMALL"
     },
     {
@@ -11760,7 +11826,8 @@
         ],
         "populationByYear": {
           "-800": 27000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -11770,7 +11837,7 @@
         ]
       },
       "currentPopulation": 27000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -11813,7 +11880,7 @@
           "39.6576"
         ]
       },
-      "currentPopulation": 58000,
+      "currentPopulation": 8000,
       "size": "SMALL"
     },
     {
@@ -11865,7 +11932,7 @@
         ]
       },
       "currentPopulation": 120000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -11887,7 +11954,7 @@
         ]
       },
       "currentPopulation": 35000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -11908,7 +11975,7 @@
         ]
       },
       "currentPopulation": 250000,
-      "size": "MEDIUM"
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -11948,7 +12015,7 @@
           "37.56826"
         ]
       },
-      "currentPopulation": 6800000,
+      "currentPopulation": 192000,
       "size": "LARGE"
     },
     {
@@ -11998,7 +12065,7 @@
           "37.388097"
         ]
       },
-      "currentPopulation": 685000,
+      "currentPopulation": 96000,
       "size": "MEDIUM"
     },
     {
@@ -12025,8 +12092,8 @@
           "30"
         ]
       },
-      "currentPopulation": 92533,
-      "size": "SMALL"
+      "currentPopulation": 30000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -12058,8 +12125,8 @@
           "41.79222"
         ]
       },
-      "currentPopulation": 3100000,
-      "size": "LARGE"
+      "currentPopulation": 30000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -12077,7 +12144,9 @@
           "1796": 12627,
           "1850": 21000,
           "1900": 32000
-        }
+        },
+        "alignment": "DOWN",
+        "textAnchor": "end"
       },
       "geometry": {
         "type": "Point",
@@ -12086,7 +12155,7 @@
           "51.697819"
         ]
       },
-      "currentPopulation": 32000,
+      "currentPopulation": 12627,
       "size": "SMALL"
     },
     {
@@ -12122,7 +12191,7 @@
           "29.61031"
         ]
       },
-      "currentPopulation": 53000,
+      "currentPopulation": 19000,
       "size": "SMALL"
     },
     {
@@ -12142,7 +12211,8 @@
           "1810": 16000,
           "1850": 38000,
           "1900": 32000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -12151,7 +12221,7 @@
           "42.0743"
         ]
       },
-      "currentPopulation": 32000,
+      "currentPopulation": 16000,
       "size": "SMALL"
     },
     {
@@ -12185,7 +12255,8 @@
         "otherNames": null,
         "populationByYear": {
           "-430": 36000
-        }
+        },
+        "alignment": "LEFT"
       },
       "geometry": {
         "type": "Point",
@@ -12195,7 +12266,7 @@
         ]
       },
       "currentPopulation": 36000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -12227,7 +12298,7 @@
           "43.32004"
         ]
       },
-      "currentPopulation": 22435,
+      "currentPopulation": 20333,
       "size": "SMALL"
     },
     {
@@ -12249,7 +12320,7 @@
         ]
       },
       "currentPopulation": 50000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -12277,7 +12348,7 @@
           "39.74833"
         ]
       },
-      "currentPopulation": 43000,
+      "currentPopulation": 26000,
       "size": "SMALL"
     },
     {
@@ -12299,7 +12370,8 @@
           "1840": 15000,
           "1858": 20800,
           "1859": 27000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -12308,7 +12380,7 @@
           "41.99646"
         ]
       },
-      "currentPopulation": 27000,
+      "currentPopulation": 6000,
       "size": "SMALL"
     },
     {
@@ -12332,7 +12404,8 @@
           "1812": 11410,
           "1850": 10792,
           "1900": 57000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -12341,7 +12414,7 @@
           "54.7818"
         ]
       },
-      "currentPopulation": 57000,
+      "currentPopulation": 11410,
       "size": "SMALL"
     },
     {
@@ -12423,7 +12496,7 @@
           "42.69751"
         ]
       },
-      "currentPopulation": 965000,
+      "currentPopulation": 46000,
       "size": "MEDIUM"
     },
     {
@@ -12454,7 +12527,7 @@
         ]
       },
       "currentPopulation": 50000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -12465,7 +12538,9 @@
         "populationByYear": {
           "1000": 54000,
           "1800": 5000
-        }
+        },
+        "textAnchor": "end",
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -12499,7 +12574,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -12526,7 +12601,7 @@
           "49.320478"
         ]
       },
-      "currentPopulation": 11749,
+      "currentPopulation": 3703,
       "size": "SMALL"
     },
     {
@@ -12555,7 +12630,8 @@
           "1900": 122000,
           "1901": 122618,
           "1950": 243000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -12564,7 +12640,7 @@
           "34.08842"
         ]
       },
-      "currentPopulation": 243000,
+      "currentPopulation": 52000,
       "size": "MEDIUM"
     },
     {
@@ -12595,8 +12671,8 @@
           "38.626978"
         ]
       },
-      "currentPopulation": 2200000,
-      "size": "LARGE"
+      "currentPopulation": 925,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -12617,7 +12693,8 @@
           "1925": 442000,
           "1950": 923000,
           "1975": 1357000
-        }
+        },
+        "alignment": "UP"
       },
       "geometry": {
         "type": "Point",
@@ -12626,8 +12703,8 @@
           59.39942478467719
         ]
       },
-      "currentPopulation": 1357000,
-      "size": "LARGE"
+      "currentPopulation": 75517,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -12671,7 +12748,7 @@
           "48.58342"
         ]
       },
-      "currentPopulation": 230000,
+      "currentPopulation": 48213,
       "size": "MEDIUM"
     },
     {
@@ -12719,7 +12796,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -12746,7 +12823,7 @@
         ]
       },
       "currentPopulation": 70000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -12808,8 +12885,8 @@
           "31.3"
         ]
       },
-      "currentPopulation": 825000,
-      "size": "MEDIUM"
+      "currentPopulation": 257000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -12827,7 +12904,8 @@
           "1900": 108000,
           "-430": 125000,
           "-200": 100000
-        }
+        },
+        "alignment": "LEFT"
       },
       "geometry": {
         "type": "Point",
@@ -12836,7 +12914,7 @@
           "37.06082237"
         ]
       },
-      "currentPopulation": 108000,
+      "currentPopulation": 16805,
       "size": "SMALL"
     },
     {
@@ -12860,7 +12938,8 @@
           "1852": 52252,
           "1900": 210000,
           "1925": 253000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -12869,8 +12948,8 @@
           "53.416667"
         ]
       },
-      "currentPopulation": 253000,
-      "size": "MEDIUM"
+      "currentPopulation": 18430,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -12911,7 +12990,7 @@
           "38.08"
         ]
       },
-      "currentPopulation": 568000,
+      "currentPopulation": 40000,
       "size": "MEDIUM"
     },
     {
@@ -12956,8 +13035,8 @@
           "37.87059"
         ]
       },
-      "currentPopulation": 1600000,
-      "size": "LARGE"
+      "currentPopulation": 40000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -12980,7 +13059,7 @@
         ]
       },
       "currentPopulation": 50000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -13002,7 +13081,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -13015,7 +13094,8 @@
         ],
         "populationByYear": {
           "-430": 40000
-        }
+        },
+        "textAnchor": "start"
       },
       "geometry": {
         "type": "Point",
@@ -13025,7 +13105,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -13055,7 +13135,7 @@
           "44.924167"
         ]
       },
-      "currentPopulation": 14000,
+      "currentPopulation": 5000,
       "size": "SMALL"
     },
     {
@@ -13082,7 +13162,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -13104,7 +13184,7 @@
         ]
       },
       "currentPopulation": 60000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -13136,8 +13216,8 @@
           "41.709975"
         ]
       },
-      "currentPopulation": 1148000,
-      "size": "LARGE"
+      "currentPopulation": 15000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -13183,7 +13263,7 @@
         ]
       },
       "currentPopulation": 60000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -13225,7 +13305,8 @@
           "1300": 48000,
           "1580": 30000,
           "1853": 14000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -13260,7 +13341,7 @@
           "24.746117"
         ]
       },
-      "currentPopulation": 10000,
+      "currentPopulation": 18000,
       "size": "SMALL"
     },
     {
@@ -13283,7 +13364,7 @@
         ]
       },
       "currentPopulation": 80000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -13333,7 +13414,7 @@
           "40.63935"
         ]
       },
-      "currentPopulation": 600000,
+      "currentPopulation": 62000,
       "size": "MEDIUM"
     },
     {
@@ -13346,7 +13427,8 @@
         ],
         "populationByYear": {
           "800": 20000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -13382,7 +13464,7 @@
         ]
       },
       "currentPopulation": 50000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -13405,7 +13487,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -13420,7 +13502,8 @@
           "1100": 110000,
           "1150": 125000,
           "1193": 125000
-        }
+        },
+        "alignment": "DOWN"
       },
       "geometry": {
         "type": "Point",
@@ -13430,7 +13513,7 @@
         ]
       },
       "currentPopulation": 125000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -13450,7 +13533,8 @@
           "1520": 30000,
           "1600": 25000,
           "1859": 19067
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -13498,7 +13582,7 @@
           "39.862831"
         ]
       },
-      "currentPopulation": 13431,
+      "currentPopulation": 18000,
       "size": "SMALL"
     },
     {
@@ -13521,7 +13605,7 @@
         ]
       },
       "currentPopulation": 50000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -13547,7 +13631,7 @@
           "16.77348"
         ]
       },
-      "currentPopulation": 13000,
+      "currentPopulation": 12000,
       "size": "SMALL"
     },
     {
@@ -13579,7 +13663,7 @@
           "43.11667"
         ]
       },
-      "currentPopulation": 78000,
+      "currentPopulation": 20500,
       "size": "SMALL"
     },
     {
@@ -13624,7 +13708,7 @@
           "43.60426"
         ]
       },
-      "currentPopulation": 509000,
+      "currentPopulation": 45094,
       "size": "MEDIUM"
     },
     {
@@ -13652,7 +13736,7 @@
           "50.60715"
         ]
       },
-      "currentPopulation": 35000,
+      "currentPopulation": 21349,
       "size": "SMALL"
     },
     {
@@ -13693,7 +13777,7 @@
           "47.38333"
         ]
       },
-      "currentPopulation": 64000,
+      "currentPopulation": 22000,
       "size": "SMALL"
     },
     {
@@ -13729,7 +13813,7 @@
           "41.00145"
         ]
       },
-      "currentPopulation": 40000,
+      "currentPopulation": 25000,
       "size": "SMALL"
     },
     {
@@ -13766,7 +13850,8 @@
         "otherNames": null,
         "populationByYear": {
           "-200": 30000
-        }
+        },
+        "alignment": "LEFT"
       },
       "geometry": {
         "type": "Point",
@@ -13776,7 +13861,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -13801,7 +13886,8 @@
           "1849": 19016,
           "1852": 19762,
           "1900": 43000
-        }
+        },
+        "alignment": "LEFT"
       },
       "geometry": {
         "type": "Point",
@@ -13810,7 +13896,7 @@
           "49.75565"
         ]
       },
-      "currentPopulation": 43000,
+      "currentPopulation": 19016,
       "size": "SMALL"
     },
     {
@@ -13835,7 +13921,8 @@
           "1900": 30000,
           "1911": 29761,
           "1975": 800000
-        }
+        },
+        "alignment": "DOWN"
       },
       "geometry": {
         "type": "Point",
@@ -13844,8 +13931,8 @@
           32.77590709443071
         ]
       },
-      "currentPopulation": 800000,
-      "size": "MEDIUM"
+      "currentPopulation": 25000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -13883,7 +13970,7 @@
           "48.3"
         ]
       },
-      "currentPopulation": 53000,
+      "currentPopulation": 21357,
       "size": "SMALL"
     },
     {
@@ -13933,8 +14020,8 @@
           "24.913889"
         ]
       },
-      "currentPopulation": 120655,
-      "size": "SMALL"
+      "currentPopulation": 43000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -13967,7 +14054,8 @@
           "1900": 156000,
           "1950": 405000,
           "1975": 920000
-        }
+        },
+        "alignment": "LEFT"
       },
       "geometry": {
         "type": "Point",
@@ -13976,7 +14064,7 @@
           "36.818811"
         ]
       },
-      "currentPopulation": 920000,
+      "currentPopulation": 100000,
       "size": "MEDIUM"
     },
     {
@@ -14014,8 +14102,8 @@
           "45.07049"
         ]
       },
-      "currentPopulation": 1800000,
-      "size": "LARGE"
+      "currentPopulation": 56066,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -14040,7 +14128,7 @@
         ]
       },
       "currentPopulation": 60000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -14068,8 +14156,8 @@
           "56.858722"
         ]
       },
-      "currentPopulation": 220000,
-      "size": "MEDIUM"
+      "currentPopulation": 18000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -14079,7 +14167,8 @@
         "otherNames": null,
         "populationByYear": {
           "-430": 35000
-        }
+        },
+        "alignment": "LEFT"
       },
       "geometry": {
         "type": "Point",
@@ -14089,7 +14178,7 @@
         ]
       },
       "currentPopulation": 35000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -14099,7 +14188,8 @@
         "otherNames": null,
         "populationByYear": {
           "-1360": 24000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -14139,8 +14229,8 @@
           "23.18239"
         ]
       },
-      "currentPopulation": 39000,
-      "size": "SMALL"
+      "currentPopulation": 100000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -14173,7 +14263,7 @@
           "48.39841"
         ]
       },
-      "currentPopulation": 52000,
+      "currentPopulation": 13000,
       "size": "SMALL"
     },
     {
@@ -14194,7 +14284,7 @@
         ]
       },
       "currentPopulation": 65000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -14242,7 +14332,8 @@
           "1853": 39000,
           "1900": 104000,
           "1950": 274000
-        }
+        },
+        "alignment": "DOWN"
       },
       "geometry": {
         "type": "Point",
@@ -14251,7 +14342,7 @@
           "52.09083"
         ]
       },
-      "currentPopulation": 274000,
+      "currentPopulation": 27454,
       "size": "MEDIUM"
     },
     {
@@ -14274,7 +14365,7 @@
         ]
       },
       "currentPopulation": 45000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -14307,7 +14398,8 @@
           "1925": 262000,
           "1950": 534000,
           "1975": 1050000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -14316,7 +14408,7 @@
           39.489007030303135
         ]
       },
-      "currentPopulation": 1050000,
+      "currentPopulation": 66840,
       "size": "MEDIUM"
     },
     {
@@ -14347,7 +14439,7 @@
           "50.35"
         ]
       },
-      "currentPopulation": 19609,
+      "currentPopulation": 13000,
       "size": "SMALL"
     },
     {
@@ -14360,7 +14452,8 @@
         ],
         "populationByYear": {
           "622": 40000
-        }
+        },
+        "alignment": "LEFT"
       },
       "geometry": {
         "type": "Point",
@@ -14370,7 +14463,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -14404,7 +14497,7 @@
           "41.65518"
         ]
       },
-      "currentPopulation": 68000,
+      "currentPopulation": 24000,
       "size": "SMALL"
     },
     {
@@ -14443,8 +14536,8 @@
           "25.317645"
         ]
       },
-      "currentPopulation": 640000,
-      "size": "MEDIUM"
+      "currentPopulation": 168000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -14472,7 +14565,7 @@
           "43.083333"
         ]
       },
-      "currentPopulation": 15000,
+      "currentPopulation": 8000,
       "size": "SMALL"
     },
     {
@@ -14516,7 +14609,8 @@
           "1900": 171000,
           "1925": 226000,
           "1950": 354000
-        }
+        },
+        "alignment": "LEFT"
       },
       "geometry": {
         "type": "Point",
@@ -14525,7 +14619,7 @@
           "45.440847"
         ]
       },
-      "currentPopulation": 354000,
+      "currentPopulation": 99000,
       "size": "MEDIUM"
     },
     {
@@ -14570,8 +14664,8 @@
           "45.43419"
         ]
       },
-      "currentPopulation": 66000,
-      "size": "SMALL"
+      "currentPopulation": 55887,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -14615,7 +14709,7 @@
           "48.20849"
         ]
       },
-      "currentPopulation": 1600000,
+      "currentPopulation": 288000,
       "size": "LARGE"
     },
     {
@@ -14636,7 +14730,7 @@
         ]
       },
       "currentPopulation": 45000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -14664,7 +14758,7 @@
         ]
       },
       "currentPopulation": 480000,
-      "size": "MEDIUM"
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -14722,8 +14816,8 @@
           "54.683333"
         ]
       },
-      "currentPopulation": 255000,
-      "size": "MEDIUM"
+      "currentPopulation": 25430,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -14746,7 +14840,7 @@
           "56.13655"
         ]
       },
-      "currentPopulation": 32000,
+      "currentPopulation": 13405,
       "size": "SMALL"
     },
     {
@@ -14769,7 +14863,7 @@
         ]
       },
       "currentPopulation": 35000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -14796,8 +14890,8 @@
           "27.99942"
         ]
       },
-      "currentPopulation": 202000,
-      "size": "SMALL"
+      "currentPopulation": 50000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -14819,7 +14913,7 @@
           "47.8"
         ]
       },
-      "currentPopulation": 14544,
+      "currentPopulation": 5000,
       "size": "SMALL"
     },
     {
@@ -14846,7 +14940,7 @@
           "49.63278"
         ]
       },
-      "currentPopulation": 40000,
+      "currentPopulation": 4800,
       "size": "SMALL"
     },
     {
@@ -14897,7 +14991,7 @@
           "51.116667"
         ]
       },
-      "currentPopulation": 570000,
+      "currentPopulation": 64520,
       "size": "MEDIUM"
     },
     {
@@ -14944,7 +15038,7 @@
           "30.58333"
         ]
       },
-      "currentPopulation": 2900000,
+      "currentPopulation": 170000,
       "size": "LARGE"
     },
     {
@@ -15002,7 +15096,7 @@
           "34.341485"
         ]
       },
-      "currentPopulation": 1800000,
+      "currentPopulation": 231530,
       "size": "LARGE"
     },
     {
@@ -15030,8 +15124,8 @@
           "27.85"
         ]
       },
-      "currentPopulation": 82589,
-      "size": "SMALL"
+      "currentPopulation": 55000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -15060,8 +15154,8 @@
           "32.017"
         ]
       },
-      "currentPopulation": 83000,
-      "size": "SMALL"
+      "currentPopulation": 70000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -15100,7 +15194,7 @@
           "34.26"
         ]
       },
-      "currentPopulation": 758000,
+      "currentPopulation": 75000,
       "size": "MEDIUM"
     },
     {
@@ -15132,7 +15226,7 @@
           "31.896611"
         ]
       },
-      "currentPopulation": 60000,
+      "currentPopulation": 24000,
       "size": "SMALL"
     },
     {
@@ -15209,8 +15303,8 @@
           "32.4"
         ]
       },
-      "currentPopulation": 137735,
-      "size": "SMALL"
+      "currentPopulation": 65000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -15247,7 +15341,7 @@
         ]
       },
       "currentPopulation": 60000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -15281,7 +15375,7 @@
           "50.849997"
         ]
       },
-      "currentPopulation": 16800,
+      "currentPopulation": 15148,
       "size": "SMALL"
     },
     {
@@ -15294,7 +15388,8 @@
         ],
         "populationByYear": {
           "-100": 60000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -15304,7 +15399,7 @@
         ]
       },
       "currentPopulation": 60000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -15344,7 +15439,7 @@
           "41.648792"
         ]
       },
-      "currentPopulation": 549000,
+      "currentPopulation": 55000,
       "size": "MEDIUM"
     },
     {
@@ -15359,7 +15454,8 @@
           "1300": 25000,
           "1400": 35000,
           "1450": 40000
-        }
+        },
+        "alignment": "LEFT"
       },
       "geometry": {
         "type": "Point",
@@ -15369,7 +15465,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "SMALL"
+      "size": "MEDIUM"
     }
   ]
 }

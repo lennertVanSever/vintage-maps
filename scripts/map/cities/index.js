@@ -146,6 +146,7 @@ const citiesOverlap = (city1, city2) => {
 export class Cities {
   constructor(map) {
     this.map = map;
+    window.addEventListener('keyup', this.keyup.bind(this));
   }
 
   async fetchData() {
@@ -158,6 +159,25 @@ export class Cities {
 
   changeProjection() {
     this.render({ rezoom: true });
+  }
+
+  calculateDy(alignment, textDistance) {
+    if (alignment === 'LEFT' || alignment === 'RIGHT')
+      return `${textDistance / 2}px`;
+    if (alignment === 'DOWN') return `${textDistance * 2.5}px`;
+    return `-${textDistance}px`;
+  }
+
+  calculateDx(alignment, textDistance) {
+    if (alignment === 'LEFT') return `-${textDistance}px`;
+    if (alignment === 'RIGHT') return `${textDistance}px`;
+  }
+
+  calculateTextAnchor(alignment, textAnchor) {
+    if (textAnchor) return textAnchor;
+    if (alignment === 'LEFT') return `end`;
+    if (alignment === 'RIGHT') return `start`;
+    return 'middle';
   }
 
   resize(map) {
@@ -182,7 +202,9 @@ export class Cities {
     d3.selectAll('.city').attr('opacity', 0);
     d3.selectAll('.cityName')
       .attr('font-size', `${fontSize}px`)
-      .attr('dy', `-${textDistance}px`);
+      .attr('text-distance', textDistance)
+      .attr('dy', d => this.calculateDy(d.properties.alignment, textDistance))
+      .attr('dx', d => this.calculateDx(d.properties.alignment, textDistance));
     d3.selectAll('.cityPath')
       .attr('d', citiesPath.pointRadius(pointRadius))
       .attr('stroke-width', pointStrokeWidth);
@@ -274,6 +296,71 @@ export class Cities {
     }
   }
 
+  keyup(event) {
+    if (this.selectedCityLabel) {
+      let { alignment, textAnchor } = this.selectedCityData.properties;
+      switch (event.code) {
+        case 'KeyR':
+          textAnchor = 'start';
+          break;
+        case 'KeyL':
+          textAnchor = 'end';
+          break;
+        case 'KeyM':
+          textAnchor = 'middle';
+          break;
+        case 'ArrowDown':
+          alignment = 'DOWN';
+          break;
+        case 'ArrowUp':
+          alignment = 'UP';
+          break;
+        case 'ArrowLeft':
+          alignment = 'LEFT';
+          break;
+        case 'ArrowRight':
+          alignment = 'RIGHT';
+          break;
+        default:
+          break;
+      }
+      console.log(alignment, textAnchor);
+      const textDistance = Number(this.selectedCityLabel.attr('text-distance'));
+      this.selectedCityLabel
+        .attr('dy', this.calculateDy(alignment, textDistance))
+        .attr('dx', this.calculateDx(alignment, textDistance))
+        .attr('text-anchor', () => {
+          return this.calculateTextAnchor(alignment, textAnchor);
+        });
+      this.cityData.data.features = this.cityData.data.features.map(feature => {
+        if (
+          JSON.stringify(feature.properties) ===
+          JSON.stringify(this.selectedCityData.properties)
+        ) {
+          return {
+            ...feature,
+            properties: {
+              ...feature.properties,
+              textAnchor,
+              alignment,
+            },
+          };
+        }
+        return feature;
+      });
+      this.saveNewCityData();
+    }
+  }
+
+  cityRightClick(event, city) {
+    event.preventDefault();
+    this.selectedCityLabel = d3.select(
+      `#cityName${camalize(city.properties.NAME)}`
+    );
+    this.selectedCityData = city;
+    this.selectedCityLabel.style('fill', 'var(--red)');
+  }
+
   dragCityPath(event, city) {
     const cityPath = d3.select(`#cityPath${camalize(city.properties.NAME)}`);
     function dragged({ dx, dy }) {
@@ -360,7 +447,13 @@ export class Cities {
       .attr('y', city => this.getProjectedCoordinates(city)[1])
       .text(({ properties: { NAME } }) => NAME)
       .attr('font-family', 'sans-serif')
-      .attr('text-anchor', 'middle')
+      .attr('text-anchor', d => {
+        return this.calculateTextAnchor(
+          d.properties.alignment,
+          d.properties.textAnchor
+        );
+      })
+      .on('contextmenu', this.cityRightClick.bind(this))
       .attr('class', 'city cityName canOverlapElement')
       .attr('font-size', '2px')
       .style('fill', 'var(--cityLabel)')
