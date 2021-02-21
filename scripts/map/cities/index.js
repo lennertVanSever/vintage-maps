@@ -1,5 +1,6 @@
 /* eslint-disable max-classes-per-file */
 import * as d3 from 'd3';
+import { isLocalHost } from '../../utils';
 import {
   addParametersToURL,
   camalize,
@@ -247,16 +248,82 @@ export class Cities {
     }
   }
 
+  getPosition(cityPath) {
+    const [x, y] = cityPath
+      .attr('transform')
+      .replace('translate(', '')
+      .replace(')', '')
+      .replace(' ', '')
+      .split(',');
+    return [Number(x), Number(y)];
+  }
+
+  async saveNewCityData() {
+    if (isLocalHost) {
+      const responseRaw = await fetch('http://localhost:9000/modify_cities', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          cities: this.cityData.data,
+        }),
+      });
+      const response = await responseRaw.json();
+      console.info(response);
+    }
+  }
+
+  dragCityPath(event, city) {
+    const cityPath = d3.select(`#cityPath${camalize(city.properties.NAME)}`);
+    function dragged({ dx, dy }) {
+      const [previousX, previousY] = this.getPosition(cityPath);
+      const newX = previousX + dx;
+      const newY = previousY + dy;
+      cityPath.attr('transform', `translate(${newX}, ${newY})`);
+    }
+
+    function ended() {
+      const [previousProjectedX, previousProjectedY] = this.map.projection(
+        city.geometry.coordinates
+      );
+      const [newX, newY] = this.getPosition(cityPath);
+      const newProjectedX = previousProjectedX + newX;
+      const newProjectedY = previousProjectedY + newY;
+      const [
+        reverseProjectedX,
+        reverseProjectedY,
+      ] = this.map.projection.invert([newProjectedX, newProjectedY]);
+      this.cityData.data.features = this.cityData.data.features.map(feature => {
+        if (
+          JSON.stringify(feature.properties) === JSON.stringify(city.properties)
+        ) {
+          return {
+            ...feature,
+            geometry: {
+              ...feature.geometry,
+              coordinates: [reverseProjectedX, reverseProjectedY],
+            },
+          };
+        }
+        return feature;
+      });
+      this.saveNewCityData();
+    }
+
+    event.on('drag', dragged.bind(this)).on('end', ended.bind(this));
+  }
+
   async render({ rezoom }) {
     this.map.subGroups.cities.selectAll('*').remove();
     await this.fetchData();
     const rawCityData = { ...this.allCities };
-    const cityData = new ModifyCityData(rawCityData, this.map.year);
+    this.cityData = new ModifyCityData(rawCityData, this.map.year);
     const citiesGroup = this.map.subGroups.cities
       .append('g')
       .attr('class', 'cities')
       .selectAll('circle')
-      .data(cityData.data.features)
+      .data(this.cityData.data.features)
       .enter();
 
     const citiesPath = d3.geoPath().projection(this.map.projection);
@@ -266,9 +333,12 @@ export class Cities {
       .attr('class', 'city cityPath')
       .attr('d', citiesPath.pointRadius(0.5))
       .style('fill', ({ size }) => {
+        // return 'var(--cityLabel)';
         if (size === 'LARGE') return 'var(--cityLabel)';
         return 'none';
       })
+      .attr('transform', 'translate(0, 0)')
+      .call(d3.drag().on('start', this.dragCityPath.bind(this)))
       .attr('stroke-width', 0.2)
       .attr('stroke', 'var(--cityLabel)')
       .attr('id', city => `cityPath${camalize(city.properties.NAME)}`);

@@ -31,8 +31,8 @@
           "50.77664"
         ]
       },
-      "currentPopulation": 18000,
-      "size": "MEDIUM"
+      "currentPopulation": 135000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -57,11 +57,11 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          "-2.09814",
-          "57.14369"
+          -2.2810586471884227,
+          57.03387294355589
         ]
       },
-      "currentPopulation": 5833,
+      "currentPopulation": 150000,
       "size": "SMALL"
     },
     {
@@ -84,8 +84,8 @@
           "32.927778"
         ]
       },
-      "currentPopulation": 57000,
-      "size": "MEDIUM"
+      "currentPopulation": 30000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -107,7 +107,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -152,8 +152,8 @@
           "23.039568"
         ]
       },
-      "currentPopulation": 60000,
-      "size": "MEDIUM"
+      "currentPopulation": 2000000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -180,7 +180,7 @@
         ]
       },
       "currentPopulation": 23000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -203,8 +203,8 @@
           "41.12306"
         ]
       },
-      "currentPopulation": 23000,
-      "size": "MEDIUM"
+      "currentPopulation": 24000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -257,8 +257,8 @@
           "36.216667"
         ]
       },
-      "currentPopulation": 67000,
-      "size": "LARGE"
+      "currentPopulation": 740000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -285,7 +285,7 @@
           "44.91245"
         ]
       },
-      "currentPopulation": 8800,
+      "currentPopulation": 48000,
       "size": "SMALL"
     },
     {
@@ -330,12 +330,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          "29.918739",
-          "31.200092"
+          29.956352336371566,
+          31.109373973859025
         ]
       },
-      "currentPopulation": 35000,
-      "size": "MEDIUM"
+      "currentPopulation": 2800000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -362,7 +362,7 @@
         ]
       },
       "currentPopulation": 110000,
-      "size": "LARGE"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -387,12 +387,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          "-2.45974",
-          "36.83814"
+          -2.4718518868068995,
+          36.871562392338596
         ]
       },
-      "currentPopulation": 25000,
-      "size": "MEDIUM"
+      "currentPopulation": 47000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -413,7 +413,7 @@
           "40.634003"
         ]
       },
-      "currentPopulation": 12500,
+      "currentPopulation": 3000,
       "size": "SMALL"
     },
     {
@@ -434,7 +434,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -479,8 +479,8 @@
           "52.37403"
         ]
       },
-      "currentPopulation": 10000,
-      "size": "SMALL"
+      "currentPopulation": 1800000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -508,8 +508,8 @@
           "14.08339"
         ]
       },
-      "currentPopulation": 40000,
-      "size": "MEDIUM"
+      "currentPopulation": 6806,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -531,7 +531,7 @@
         ]
       },
       "currentPopulation": 60000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -568,8 +568,8 @@
           "47.46667"
         ]
       },
-      "currentPopulation": 16000,
-      "size": "MEDIUM"
+      "currentPopulation": 82000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -600,7 +600,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -620,7 +620,7 @@
         ]
       },
       "currentPopulation": 75000,
-      "size": "LARGE"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -650,7 +650,7 @@
           "36.20655"
         ]
       },
-      "currentPopulation": 1500,
+      "currentPopulation": 21396,
       "size": "SMALL"
     },
     {
@@ -692,8 +692,8 @@
           "51.219217"
         ]
       },
-      "currentPopulation": 36000,
-      "size": "MEDIUM"
+      "currentPopulation": 1097000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -716,7 +716,7 @@
         ]
       },
       "currentPopulation": 70000,
-      "size": "LARGE"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -736,7 +736,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -756,7 +756,7 @@
         ]
       },
       "currentPopulation": 37000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -783,7 +783,7 @@
           "-16.39889"
         ]
       },
-      "currentPopulation": 5000,
+      "currentPopulation": 21700,
       "size": "SMALL"
     },
     {
@@ -807,7 +807,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -837,7 +837,7 @@
           "43.6767"
         ]
       },
-      "currentPopulation": 6000,
+      "currentPopulation": 23208,
       "size": "SMALL"
     },
     {
@@ -858,7 +858,7 @@
         ]
       },
       "currentPopulation": 50000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -886,7 +886,7 @@
           "50.291"
         ]
       },
-      "currentPopulation": 12000,
+      "currentPopulation": 25271,
       "size": "SMALL"
     },
     {
@@ -921,7 +921,7 @@
           "46.366681"
         ]
       },
-      "currentPopulation": 18000,
+      "currentPopulation": 270000,
       "size": "MEDIUM"
     },
     {
@@ -950,8 +950,8 @@
           "27.18096"
         ]
       },
-      "currentPopulation": 30000,
-      "size": "MEDIUM"
+      "currentPopulation": 42000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -988,8 +988,8 @@
           "37.97945"
         ]
       },
-      "currentPopulation": 35000,
-      "size": "MEDIUM"
+      "currentPopulation": 3300000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -1033,8 +1033,8 @@
           "48.371444"
         ]
       },
-      "currentPopulation": 34000,
-      "size": "MEDIUM"
+      "currentPopulation": 212000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -1056,7 +1056,7 @@
         ]
       },
       "currentPopulation": 100000,
-      "size": "LARGE"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -1090,8 +1090,8 @@
           "43.94834"
         ]
       },
-      "currentPopulation": 15340,
-      "size": "MEDIUM"
+      "currentPopulation": 46000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -1114,8 +1114,8 @@
           "14.131781"
         ]
       },
-      "currentPopulation": 33000,
-      "size": "MEDIUM"
+      "currentPopulation": 1700,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -1148,8 +1148,8 @@
           "14.35"
         ]
       },
-      "currentPopulation": 125000,
-      "size": "LARGE"
+      "currentPopulation": 30000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -1173,8 +1173,8 @@
           "33.287778"
         ]
       },
-      "currentPopulation": 24000,
-      "size": "MEDIUM"
+      "currentPopulation": 10000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -1196,7 +1196,7 @@
         ]
       },
       "currentPopulation": 200000,
-      "size": "LARGE"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -1220,8 +1220,8 @@
           "38.87789"
         ]
       },
-      "currentPopulation": 15000,
-      "size": "MEDIUM"
+      "currentPopulation": 25012,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -1268,7 +1268,7 @@
           "37.99384"
         ]
       },
-      "currentPopulation": 13000,
+      "currentPopulation": 10800,
       "size": "SMALL"
     },
     {
@@ -1294,7 +1294,7 @@
         ]
       },
       "currentPopulation": 180000,
-      "size": "LARGE"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -1344,7 +1344,7 @@
           "33.34058"
         ]
       },
-      "currentPopulation": 90000,
+      "currentPopulation": 2900000,
       "size": "LARGE"
     },
     {
@@ -1373,7 +1373,7 @@
         ]
       },
       "currentPopulation": 47000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -1396,8 +1396,8 @@
           "36.75635"
         ]
       },
-      "currentPopulation": 23000,
-      "size": "MEDIUM"
+      "currentPopulation": 6000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -1416,12 +1416,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          "114.942217",
-          "4.890283"
+          114.9562992437613,
+          4.842536517072434
         ]
       },
-      "currentPopulation": 40000,
-      "size": "MEDIUM"
+      "currentPopulation": 14000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -1477,12 +1477,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          "2.15899",
-          "41.38879"
+          2.093194382901665,
+          41.422212392338594
         ]
       },
-      "currentPopulation": 28500,
-      "size": "MEDIUM"
+      "currentPopulation": 3500000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -1508,8 +1508,8 @@
           "41.117142"
         ]
       },
-      "currentPopulation": 7000,
-      "size": "SMALL"
+      "currentPopulation": 271000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -1548,8 +1548,8 @@
           "30.5"
         ]
       },
-      "currentPopulation": 10000,
-      "size": "SMALL"
+      "currentPopulation": 900000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -1607,7 +1607,7 @@
           "39.9075"
         ]
       },
-      "currentPopulation": 669033,
+      "currentPopulation": 5200000,
       "size": "LARGE"
     },
     {
@@ -1636,12 +1636,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          "5.066667",
-          "36.75"
+          5.058142660366096,
+          36.61630970209211
         ]
       },
-      "currentPopulation": 40000,
-      "size": "MEDIUM"
+      "currentPopulation": 2000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -1677,8 +1677,8 @@
           "44.80401"
         ]
       },
-      "currentPopulation": 30000,
-      "size": "MEDIUM"
+      "currentPopulation": 1275000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -1708,7 +1708,7 @@
           "45.69798"
         ]
       },
-      "currentPopulation": 10000,
+      "currentPopulation": 22639,
       "size": "SMALL"
     },
     {
@@ -1731,12 +1731,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          "5.322053",
-          "60.391264"
+          5.394832658053767,
+          60.35306739650075
         ]
       },
-      "currentPopulation": 15000,
-      "size": "MEDIUM"
+      "currentPopulation": 72000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -1765,7 +1765,7 @@
           "43.34762"
         ]
       },
-      "currentPopulation": 4280,
+      "currentPopulation": 52000,
       "size": "SMALL"
     },
     {
@@ -1789,8 +1789,8 @@
           "16.54541"
         ]
       },
-      "currentPopulation": 60000,
-      "size": "MEDIUM"
+      "currentPopulation": 9730,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -1810,7 +1810,7 @@
         ]
       },
       "currentPopulation": 60000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -1837,7 +1837,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -1854,12 +1854,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          "-4.416667",
-          "36.716667"
+          -4.417651112615645,
+          36.773962633802384
         ]
       },
       "currentPopulation": 36000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -1905,7 +1905,7 @@
           "44.49381"
         ]
       },
-      "currentPopulation": 55000,
+      "currentPopulation": 560000,
       "size": "MEDIUM"
     },
     {
@@ -1947,7 +1947,7 @@
           "44.84044"
         ]
       },
-      "currentPopulation": 20000,
+      "currentPopulation": 612000,
       "size": "MEDIUM"
     },
     {
@@ -1972,7 +1972,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -2001,8 +2001,8 @@
           "47.08333"
         ]
       },
-      "currentPopulation": 32350,
-      "size": "MEDIUM"
+      "currentPopulation": 39000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -2037,7 +2037,7 @@
           "48.145892"
         ]
       },
-      "currentPopulation": 9000,
+      "currentPopulation": 61000,
       "size": "SMALL"
     },
     {
@@ -2069,7 +2069,7 @@
           "52.268875"
         ]
       },
-      "currentPopulation": 16000,
+      "currentPopulation": 223000,
       "size": "MEDIUM"
     },
     {
@@ -2111,8 +2111,8 @@
           "45.52478"
         ]
       },
-      "currentPopulation": 37000,
-      "size": "MEDIUM"
+      "currentPopulation": 48000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -2139,7 +2139,7 @@
           "21.724644"
         ]
       },
-      "currentPopulation": 10000,
+      "currentPopulation": 42000,
       "size": "SMALL"
     },
     {
@@ -2182,8 +2182,8 @@
           "51.210819"
         ]
       },
-      "currentPopulation": 60000,
-      "size": "MEDIUM"
+      "currentPopulation": 53000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -2214,7 +2214,7 @@
           "49.2"
         ]
       },
-      "currentPopulation": 15000,
+      "currentPopulation": 272000,
       "size": "MEDIUM"
     },
     {
@@ -2260,8 +2260,8 @@
           "50.85045"
         ]
       },
-      "currentPopulation": 31000,
-      "size": "MEDIUM"
+      "currentPopulation": 2100000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -2300,8 +2300,8 @@
           "47.49801"
         ]
       },
-      "currentPopulation": 23000,
-      "size": "MEDIUM"
+      "currentPopulation": 2000000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -2347,8 +2347,8 @@
           "39.765869"
         ]
       },
-      "currentPopulation": 50000,
-      "size": "MEDIUM"
+      "currentPopulation": 68000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -2378,7 +2378,7 @@
           "42.35"
         ]
       },
-      "currentPopulation": 7000,
+      "currentPopulation": 31000,
       "size": "SMALL"
     },
     {
@@ -2421,8 +2421,8 @@
           "40.19266"
         ]
       },
-      "currentPopulation": 42000,
-      "size": "MEDIUM"
+      "currentPopulation": 71000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -2453,7 +2453,7 @@
           "36.52978"
         ]
       },
-      "currentPopulation": 10000,
+      "currentPopulation": 113000,
       "size": "SMALL"
     },
     {
@@ -2493,8 +2493,8 @@
           "49.18585"
         ]
       },
-      "currentPopulation": 25000,
-      "size": "MEDIUM"
+      "currentPopulation": 42000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -2573,7 +2573,7 @@
           "30.06263"
         ]
       },
-      "currentPopulation": 400000,
+      "currentPopulation": 8400000,
       "size": "LARGE"
     },
     {
@@ -2594,7 +2594,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -2624,8 +2624,8 @@
           "11.258753"
         ]
       },
-      "currentPopulation": 42000,
-      "size": "MEDIUM"
+      "currentPopulation": 75000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -2660,8 +2660,8 @@
           "22.313114"
         ]
       },
-      "currentPopulation": 65000,
-      "size": "MEDIUM"
+      "currentPopulation": 31000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -2682,8 +2682,8 @@
           "47.5308"
         ]
       },
-      "currentPopulation": 17000,
-      "size": "MEDIUM"
+      "currentPopulation": 9000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -2703,7 +2703,7 @@
         ]
       },
       "currentPopulation": 36000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -2731,7 +2731,7 @@
           "37.625683"
         ]
       },
-      "currentPopulation": 2000,
+      "currentPopulation": 78000,
       "size": "SMALL"
     },
     {
@@ -2757,7 +2757,7 @@
         ]
       },
       "currentPopulation": 50000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -2792,8 +2792,8 @@
           "37.50213"
         ]
       },
-      "currentPopulation": 10000,
-      "size": "SMALL"
+      "currentPopulation": 299000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -2813,12 +2813,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          "-5.31979",
-          "35.88933"
+          -5.559059135525652,
+          35.812935335894494
         ]
       },
       "currentPopulation": 30000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -2840,7 +2840,7 @@
         ]
       },
       "currentPopulation": 25000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -2860,7 +2860,7 @@
           "13.5833"
         ]
       },
-      "currentPopulation": 9000,
+      "currentPopulation": 4235,
       "size": "SMALL"
     },
     {
@@ -2895,7 +2895,7 @@
           "28.196111"
         ]
       },
-      "currentPopulation": 37000,
+      "currentPopulation": 939000,
       "size": "MEDIUM"
     },
     {
@@ -2923,8 +2923,8 @@
           "31.77358"
         ]
       },
-      "currentPopulation": 85000,
-      "size": "LARGE"
+      "currentPopulation": 631000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -2977,7 +2977,7 @@
           "30.66667"
         ]
       },
-      "currentPopulation": 85000,
+      "currentPopulation": 1401000,
       "size": "LARGE"
     },
     {
@@ -3002,8 +3002,8 @@
           "18.790978"
         ]
       },
-      "currentPopulation": 45000,
-      "size": "MEDIUM"
+      "currentPopulation": 26062,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -3026,7 +3026,7 @@
         ]
       },
       "currentPopulation": 18000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -3061,8 +3061,8 @@
           "32.2"
         ]
       },
-      "currentPopulation": 39000,
-      "size": "MEDIUM"
+      "currentPopulation": 168000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -3088,8 +3088,8 @@
           "13.217176"
         ]
       },
-      "currentPopulation": 50000,
-      "size": "MEDIUM"
+      "currentPopulation": 5572,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -3119,8 +3119,8 @@
           "19.06333"
         ]
       },
-      "currentPopulation": 36000,
-      "size": "MEDIUM"
+      "currentPopulation": 6000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -3147,8 +3147,8 @@
           "39.162"
         ]
       },
-      "currentPopulation": 10000,
-      "size": "SMALL"
+      "currentPopulation": 1422000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -3174,7 +3174,7 @@
           "9.93988"
         ]
       },
-      "currentPopulation": 33000,
+      "currentPopulation": 525000,
       "size": "MEDIUM"
     },
     {
@@ -3198,7 +3198,7 @@
           "40.20564"
         ]
       },
-      "currentPopulation": 6000,
+      "currentPopulation": 18147,
       "size": "SMALL"
     },
     {
@@ -3248,8 +3248,8 @@
           "50.937531"
         ]
       },
-      "currentPopulation": 38000,
-      "size": "MEDIUM"
+      "currentPopulation": 1800000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -3280,8 +3280,8 @@
           "36.365"
         ]
       },
-      "currentPopulation": 40000,
-      "size": "MEDIUM"
+      "currentPopulation": 52000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -3315,12 +3315,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          "12.56553",
-          "55.67594"
+          12.405419919418248,
+          55.67594
         ]
       },
-      "currentPopulation": 9000,
-      "size": "SMALL"
+      "currentPopulation": 1500000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -3366,8 +3366,8 @@
           "38.046133"
         ]
       },
-      "currentPopulation": 30000,
-      "size": "MEDIUM"
+      "currentPopulation": 55514,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -3401,8 +3401,8 @@
           "45.13617"
         ]
       },
-      "currentPopulation": 40000,
-      "size": "MEDIUM"
+      "currentPopulation": 31000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -3424,7 +3424,7 @@
         ]
       },
       "currentPopulation": 35000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -3448,7 +3448,7 @@
         ]
       },
       "currentPopulation": 500000,
-      "size": "LARGE"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -3489,8 +3489,8 @@
           "20.46497"
         ]
       },
-      "currentPopulation": 144000,
-      "size": "LARGE"
+      "currentPopulation": 51000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -3521,8 +3521,8 @@
           "-13.525"
         ]
       },
-      "currentPopulation": 50000,
-      "size": "MEDIUM"
+      "currentPopulation": 41152,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -3540,12 +3540,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          "21.85583296",
-          "32.81901498"
+          21.861469983709192,
+          32.737845376180324
         ]
       },
       "currentPopulation": 30000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -3578,8 +3578,8 @@
           "25.606486"
         ]
       },
-      "currentPopulation": 25000,
-      "size": "MEDIUM"
+      "currentPopulation": 31000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -3627,8 +3627,8 @@
           "33.5102"
         ]
       },
-      "currentPopulation": 60000,
-      "size": "MEDIUM"
+      "currentPopulation": 1100000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -3651,7 +3651,7 @@
           "19.942724"
         ]
       },
-      "currentPopulation": 13000,
+      "currentPopulation": 1357,
       "size": "SMALL"
     },
     {
@@ -3703,7 +3703,7 @@
           "28.65381"
         ]
       },
-      "currentPopulation": 80000,
+      "currentPopulation": 4400000,
       "size": "LARGE"
     },
     {
@@ -3727,8 +3727,8 @@
           "22.59373"
         ]
       },
-      "currentPopulation": 30000,
-      "size": "MEDIUM"
+      "currentPopulation": 20000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -3755,8 +3755,8 @@
           "15.033366"
         ]
       },
-      "currentPopulation": 20000,
-      "size": "MEDIUM"
+      "currentPopulation": 6000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -3785,8 +3785,8 @@
           "49.922992"
         ]
       },
-      "currentPopulation": 20000,
-      "size": "MEDIUM"
+      "currentPopulation": 16216,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -3823,8 +3823,8 @@
           "47.31667"
         ]
       },
-      "currentPopulation": 24000,
-      "size": "MEDIUM"
+      "currentPopulation": 71000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -3859,7 +3859,7 @@
           "37.914411"
         ]
       },
-      "currentPopulation": 12000,
+      "currentPopulation": 27424,
       "size": "SMALL"
     },
     {
@@ -3888,8 +3888,8 @@
           "19.16667"
         ]
       },
-      "currentPopulation": 20000,
-      "size": "MEDIUM"
+      "currentPopulation": 10000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -3925,8 +3925,8 @@
           "51.05089"
         ]
       },
-      "currentPopulation": 4800,
-      "size": "SMALL"
+      "currentPopulation": 650000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -3970,8 +3970,8 @@
           "53.33306"
         ]
       },
-      "currentPopulation": 12000,
-      "size": "SMALL"
+      "currentPopulation": 850000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -3993,7 +3993,7 @@
         ]
       },
       "currentPopulation": 32000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -4025,8 +4025,8 @@
           "31.41648"
         ]
       },
-      "currentPopulation": 67000,
-      "size": "LARGE"
+      "currentPopulation": 30000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -4047,7 +4047,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -4067,7 +4067,7 @@
         ]
       },
       "currentPopulation": 47000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -4090,7 +4090,7 @@
         ]
       },
       "currentPopulation": 65000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -4110,7 +4110,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -4130,7 +4130,7 @@
         ]
       },
       "currentPopulation": 90000,
-      "size": "LARGE"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -4163,8 +4163,8 @@
           "37.15"
         ]
       },
-      "currentPopulation": 22000,
-      "size": "MEDIUM"
+      "currentPopulation": 55000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -4201,11 +4201,11 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          "-3.19648",
-          "55.95206"
+          -3.051926037865671,
+          55.8180644381708
         ]
       },
-      "currentPopulation": 22000,
+      "currentPopulation": 650000,
       "size": "MEDIUM"
     },
     {
@@ -4245,8 +4245,8 @@
           "41.681808"
         ]
       },
-      "currentPopulation": 127000,
-      "size": "LARGE"
+      "currentPopulation": 81000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -4272,7 +4272,7 @@
         ]
       },
       "currentPopulation": 50000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -4294,7 +4294,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -4315,7 +4315,7 @@
         ]
       },
       "currentPopulation": 45000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -4335,7 +4335,7 @@
         ]
       },
       "currentPopulation": 22000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -4356,7 +4356,7 @@
         ]
       },
       "currentPopulation": 51000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -4385,8 +4385,8 @@
           "50.9787"
         ]
       },
-      "currentPopulation": 18680,
-      "size": "MEDIUM"
+      "currentPopulation": 85000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -4436,7 +4436,7 @@
           "32.651389"
         ]
       },
-      "currentPopulation": 45000,
+      "currentPopulation": 648000,
       "size": "MEDIUM"
     },
     {
@@ -4458,7 +4458,7 @@
           "47.7928"
         ]
       },
-      "currentPopulation": 12000,
+      "currentPopulation": 11454,
       "size": "SMALL"
     },
     {
@@ -4483,8 +4483,8 @@
           "50.7236"
         ]
       },
-      "currentPopulation": 17417,
-      "size": "MEDIUM"
+      "currentPopulation": 54000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -4515,8 +4515,8 @@
           "26.779386"
         ]
       },
-      "currentPopulation": 25000,
-      "size": "MEDIUM"
+      "currentPopulation": 75000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -4552,8 +4552,8 @@
           "45.048889"
         ]
       },
-      "currentPopulation": 35000,
-      "size": "MEDIUM"
+      "currentPopulation": 8435,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -4591,8 +4591,8 @@
           "44.82678"
         ]
       },
-      "currentPopulation": 38000,
-      "size": "MEDIUM"
+      "currentPopulation": 33000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -4639,8 +4639,8 @@
           "34.033333"
         ]
       },
-      "currentPopulation": 130000,
-      "size": "LARGE"
+      "currentPopulation": 200000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -4663,7 +4663,7 @@
         ]
       },
       "currentPopulation": 50000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -4715,8 +4715,8 @@
           "43.771033"
         ]
       },
-      "currentPopulation": 70000,
-      "size": "LARGE"
+      "currentPopulation": 660000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -4755,8 +4755,8 @@
           "50.110922"
         ]
       },
-      "currentPopulation": 18000,
-      "size": "MEDIUM"
+      "currentPopulation": 1600000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -4779,7 +4779,7 @@
           "31.207161"
         ]
       },
-      "currentPopulation": 12000,
+      "currentPopulation": 9900,
       "size": "SMALL"
     },
     {
@@ -4837,8 +4837,8 @@
           "26.076111"
         ]
       },
-      "currentPopulation": 83000,
-      "size": "LARGE"
+      "currentPopulation": 755000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -4869,8 +4869,8 @@
           "16.27167"
         ]
       },
-      "currentPopulation": 60000,
-      "size": "MEDIUM"
+      "currentPopulation": 75000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -4904,8 +4904,8 @@
           "24.866667"
         ]
       },
-      "currentPopulation": 210000,
-      "size": "LARGE"
+      "currentPopulation": 11492,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -4940,11 +4940,11 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          "18.64663",
-          "54.352025"
+          18.601383385022693,
+          54.2517570944307
         ]
       },
-      "currentPopulation": 30000,
+      "currentPopulation": 730000,
       "size": "MEDIUM"
     },
     {
@@ -4965,7 +4965,7 @@
         ]
       },
       "currentPopulation": 35000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -4995,7 +4995,7 @@
           "40.333333"
         ]
       },
-      "currentPopulation": 5000,
+      "currentPopulation": 8500,
       "size": "SMALL"
     },
     {
@@ -5029,7 +5029,7 @@
           "46.198392"
         ]
       },
-      "currentPopulation": 11000,
+      "currentPopulation": 112000,
       "size": "SMALL"
     },
     {
@@ -5080,7 +5080,7 @@
           "44.40565"
         ]
       },
-      "currentPopulation": 62000,
+      "currentPopulation": 865000,
       "size": "MEDIUM"
     },
     {
@@ -5127,8 +5127,8 @@
           "51.053469"
         ]
       },
-      "currentPopulation": 80000,
-      "size": "LARGE"
+      "currentPopulation": 228000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -5192,8 +5192,8 @@
           "55.86515"
         ]
       },
-      "currentPopulation": 2000,
-      "size": "SMALL"
+      "currentPopulation": 1900000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -5225,8 +5225,8 @@
           "15.299333"
         ]
       },
-      "currentPopulation": 40000,
-      "size": "MEDIUM"
+      "currentPopulation": 14134,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -5249,7 +5249,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -5298,8 +5298,8 @@
           "37.177336"
         ]
       },
-      "currentPopulation": 200000,
-      "size": "LARGE"
+      "currentPopulation": 75000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -5329,7 +5329,7 @@
           "45.16667"
         ]
       },
-      "currentPopulation": 10000,
+      "currentPopulation": 68000,
       "size": "SMALL"
     },
     {
@@ -5355,8 +5355,8 @@
           "-7.15389"
         ]
       },
-      "currentPopulation": 30000,
-      "size": "MEDIUM"
+      "currentPopulation": 17555,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -5412,7 +5412,7 @@
           "23.11667"
         ]
       },
-      "currentPopulation": 150000,
+      "currentPopulation": 3000000,
       "size": "LARGE"
     },
     {
@@ -5445,8 +5445,8 @@
           "26.647661"
         ]
       },
-      "currentPopulation": 12000,
-      "size": "SMALL"
+      "currentPopulation": 784000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -5468,8 +5468,8 @@
           "17.33764"
         ]
       },
-      "currentPopulation": 90000,
-      "size": "LARGE"
+      "currentPopulation": 22384,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -5498,8 +5498,8 @@
           "14.7667"
         ]
       },
-      "currentPopulation": 40000,
-      "size": "MEDIUM"
+      "currentPopulation": 30000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -5521,7 +5521,7 @@
         ]
       },
       "currentPopulation": 18000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -5552,7 +5552,7 @@
           "52.38084"
         ]
       },
-      "currentPopulation": 13000,
+      "currentPopulation": 214000,
       "size": "SMALL"
     },
     {
@@ -5577,7 +5577,7 @@
         ]
       },
       "currentPopulation": 60000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -5608,8 +5608,8 @@
           "33.591389"
         ]
       },
-      "currentPopulation": 30000,
-      "size": "MEDIUM"
+      "currentPopulation": 1300000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -5632,7 +5632,7 @@
         ]
       },
       "currentPopulation": 25000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -5654,8 +5654,8 @@
           "35.133333"
         ]
       },
-      "currentPopulation": 30000,
-      "size": "MEDIUM"
+      "currentPopulation": 44000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -5680,8 +5680,8 @@
           "34.79922"
         ]
       },
-      "currentPopulation": 18000,
-      "size": "MEDIUM"
+      "currentPopulation": 40000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -5725,8 +5725,8 @@
           "53.57532"
         ]
       },
-      "currentPopulation": 22000,
-      "size": "MEDIUM"
+      "currentPopulation": 2200000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -5749,7 +5749,7 @@
         ]
       },
       "currentPopulation": 615000,
-      "size": "LARGE"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -5806,7 +5806,7 @@
           "30.25"
         ]
       },
-      "currentPopulation": 250000,
+      "currentPopulation": 1112000,
       "size": "LARGE"
     },
     {
@@ -5839,8 +5839,8 @@
           "21.033333"
         ]
       },
-      "currentPopulation": 46000,
-      "size": "MEDIUM"
+      "currentPopulation": 1500000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -5865,7 +5865,7 @@
         ]
       },
       "currentPopulation": 48000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -5888,7 +5888,7 @@
         ]
       },
       "currentPopulation": 24000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -5908,7 +5908,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -5939,8 +5939,8 @@
           "34.34817"
         ]
       },
-      "currentPopulation": 40000,
-      "size": "MEDIUM"
+      "currentPopulation": 80000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -5962,7 +5962,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -5985,7 +5985,7 @@
         ]
       },
       "currentPopulation": 50000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -6014,7 +6014,7 @@
         ]
       },
       "currentPopulation": 50000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -6047,8 +6047,8 @@
           "21.857353"
         ]
       },
-      "currentPopulation": 60000,
-      "size": "MEDIUM"
+      "currentPopulation": 150000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -6074,7 +6074,7 @@
           "35.338736"
         ]
       },
-      "currentPopulation": 11474,
+      "currentPopulation": 18910,
       "size": "SMALL"
     },
     {
@@ -6097,7 +6097,7 @@
         ]
       },
       "currentPopulation": 70000,
-      "size": "LARGE"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -6120,7 +6120,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -6187,7 +6187,7 @@
           "41.005275"
         ]
       },
-      "currentPopulation": 200000,
+      "currentPopulation": 3200000,
       "size": "LARGE"
     },
     {
@@ -6208,7 +6208,7 @@
         ]
       },
       "currentPopulation": 35000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -6231,8 +6231,8 @@
           "25.75506"
         ]
       },
-      "currentPopulation": 50000,
-      "size": "MEDIUM"
+      "currentPopulation": 42000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -6265,8 +6265,8 @@
           "36.6936"
         ]
       },
-      "currentPopulation": 21000,
-      "size": "MEDIUM"
+      "currentPopulation": 53320,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -6301,7 +6301,7 @@
           "31.76904"
         ]
       },
-      "currentPopulation": 4000,
+      "currentPopulation": 56000,
       "size": "SMALL"
     },
     {
@@ -6342,8 +6342,8 @@
           "29.268836"
         ]
       },
-      "currentPopulation": 80000,
-      "size": "LARGE"
+      "currentPopulation": 86744,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -6367,8 +6367,8 @@
           "29.705078"
         ]
       },
-      "currentPopulation": 37000,
-      "size": "MEDIUM"
+      "currentPopulation": 36000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -6398,8 +6398,8 @@
           "37.97083"
         ]
       },
-      "currentPopulation": 25000,
-      "size": "MEDIUM"
+      "currentPopulation": 30000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -6431,7 +6431,7 @@
           "31.5966"
         ]
       },
-      "currentPopulation": 25000,
+      "currentPopulation": 229000,
       "size": "MEDIUM"
     },
     {
@@ -6483,8 +6483,8 @@
           "34.7986"
         ]
       },
-      "currentPopulation": 80000,
-      "size": "LARGE"
+      "currentPopulation": 600000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -6517,8 +6517,8 @@
           "35.674444"
         ]
       },
-      "currentPopulation": 20000,
-      "size": "MEDIUM"
+      "currentPopulation": 12000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -6538,7 +6538,7 @@
         ]
       },
       "currentPopulation": 80000,
-      "size": "LARGE"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -6558,8 +6558,8 @@
           "25.011586"
         ]
       },
-      "currentPopulation": 50000,
-      "size": "MEDIUM"
+      "currentPopulation": 4019,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -6581,8 +6581,8 @@
           "19.2437"
         ]
       },
-      "currentPopulation": 125000,
-      "size": "LARGE"
+      "currentPopulation": 11191,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -6604,7 +6604,7 @@
         ]
       },
       "currentPopulation": 200000,
-      "size": "LARGE"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -6627,7 +6627,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -6659,8 +6659,8 @@
           "27.05519"
         ]
       },
-      "currentPopulation": 92000,
-      "size": "LARGE"
+      "currentPopulation": 16486,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -6692,8 +6692,8 @@
           "12.834173"
         ]
       },
-      "currentPopulation": 35000,
-      "size": "MEDIUM"
+      "currentPopulation": 45000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -6728,8 +6728,8 @@
           "12.00012"
         ]
       },
-      "currentPopulation": 50000,
-      "size": "MEDIUM"
+      "currentPopulation": 40000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -6754,8 +6754,8 @@
           "37.18111"
         ]
       },
-      "currentPopulation": 80000,
-      "size": "LARGE"
+      "currentPopulation": 7500,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -6792,8 +6792,8 @@
           "39.4704"
         ]
       },
-      "currentPopulation": 30000,
-      "size": "MEDIUM"
+      "currentPopulation": 33000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -6817,8 +6817,8 @@
           "27.7"
         ]
       },
-      "currentPopulation": 25000,
-      "size": "MEDIUM"
+      "currentPopulation": 40000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -6841,7 +6841,7 @@
         ]
       },
       "currentPopulation": 50000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -6874,8 +6874,8 @@
           "38.73222"
         ]
       },
-      "currentPopulation": 50000,
-      "size": "MEDIUM"
+      "currentPopulation": 60000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -6910,7 +6910,7 @@
           "55.790278"
         ]
       },
-      "currentPopulation": 15000,
+      "currentPopulation": 947000,
       "size": "MEDIUM"
     },
     {
@@ -6935,7 +6935,7 @@
         ]
       },
       "currentPopulation": 35000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -6966,8 +6966,8 @@
           "30.28321"
         ]
       },
-      "currentPopulation": 40000,
-      "size": "MEDIUM"
+      "currentPopulation": 49000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -6987,7 +6987,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -7012,7 +7012,7 @@
           "46.635417"
         ]
       },
-      "currentPopulation": 10000,
+      "currentPopulation": 73000,
       "size": "SMALL"
     },
     {
@@ -7054,8 +7054,8 @@
           "50.45466"
         ]
       },
-      "currentPopulation": 10500,
-      "size": "SMALL"
+      "currentPopulation": 1900000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -7080,8 +7080,8 @@
           "-9.149644"
         ]
       },
-      "currentPopulation": 30000,
-      "size": "MEDIUM"
+      "currentPopulation": 12500,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -7103,7 +7103,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -7123,7 +7123,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -7145,8 +7145,8 @@
           "13.13671"
         ]
       },
-      "currentPopulation": 40000,
-      "size": "MEDIUM"
+      "currentPopulation": 35000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -7182,8 +7182,8 @@
           "54.716667"
         ]
       },
-      "currentPopulation": 8000,
-      "size": "SMALL"
+      "currentPopulation": 279000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -7212,7 +7212,7 @@
           "37.87135"
         ]
       },
-      "currentPopulation": 6100,
+      "currentPopulation": 33000,
       "size": "SMALL"
     },
     {
@@ -7235,7 +7235,7 @@
         ]
       },
       "currentPopulation": 25000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -7257,7 +7257,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -7290,7 +7290,7 @@
           "50.06143"
         ]
       },
-      "currentPopulation": 22000,
+      "currentPopulation": 660000,
       "size": "MEDIUM"
     },
     {
@@ -7316,7 +7316,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -7355,8 +7355,8 @@
           "25.03889"
         ]
       },
-      "currentPopulation": 50000,
-      "size": "MEDIUM"
+      "currentPopulation": 1284000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -7388,8 +7388,8 @@
           "18.53"
         ]
       },
-      "currentPopulation": 50000,
-      "size": "MEDIUM"
+      "currentPopulation": 10282,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -7432,7 +7432,7 @@
           "35.02107"
         ]
       },
-      "currentPopulation": 40000,
+      "currentPopulation": 517000,
       "size": "MEDIUM"
     },
     {
@@ -7466,7 +7466,7 @@
           "31.54972"
         ]
       },
-      "currentPopulation": 300000,
+      "currentPopulation": 2400000,
       "size": "LARGE"
     },
     {
@@ -7489,7 +7489,7 @@
         ]
       },
       "currentPopulation": 25000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -7519,8 +7519,8 @@
           "36.061089"
         ]
       },
-      "currentPopulation": 25000,
-      "size": "MEDIUM"
+      "currentPopulation": 2000000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -7543,7 +7543,7 @@
           "49.56667"
         ]
       },
-      "currentPopulation": 10000,
+      "currentPopulation": 9466,
       "size": "SMALL"
     },
     {
@@ -7581,8 +7581,8 @@
           "51.33962"
         ]
       },
-      "currentPopulation": 8556,
-      "size": "SMALL"
+      "currentPopulation": 730000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -7604,8 +7604,8 @@
           "42.605556"
         ]
       },
-      "currentPopulation": 40000,
-      "size": "MEDIUM"
+      "currentPopulation": 55000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -7627,7 +7627,7 @@
         ]
       },
       "currentPopulation": 50000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -7655,8 +7655,8 @@
           "29.645563"
         ]
       },
-      "currentPopulation": 80000,
-      "size": "LARGE"
+      "currentPopulation": 30000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -7679,7 +7679,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -7707,8 +7707,8 @@
           "41.266667"
         ]
       },
-      "currentPopulation": 25000,
-      "size": "MEDIUM"
+      "currentPopulation": 39000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -7747,7 +7747,7 @@
           "50.63373"
         ]
       },
-      "currentPopulation": 25000,
+      "currentPopulation": 560000,
       "size": "MEDIUM"
     },
     {
@@ -7791,7 +7791,7 @@
           "50.628442"
         ]
       },
-      "currentPopulation": 25000,
+      "currentPopulation": 935000,
       "size": "MEDIUM"
     },
     {
@@ -7820,8 +7820,8 @@
           "45.83153"
         ]
       },
-      "currentPopulation": 14000,
-      "size": "MEDIUM"
+      "currentPopulation": 75906,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -7870,12 +7870,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          "-9.13333",
-          "38.71667"
+          -9.20087551667461,
+          38.77396563380238
         ]
       },
-      "currentPopulation": 55000,
-      "size": "MEDIUM"
+      "currentPopulation": 1600000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -7925,8 +7925,8 @@
           "51.511214"
         ]
       },
-      "currentPopulation": 50000,
-      "size": "MEDIUM"
+      "currentPopulation": 10500000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -7960,8 +7960,8 @@
           "50.877572"
         ]
       },
-      "currentPopulation": 18000,
-      "size": "MEDIUM"
+      "currentPopulation": 42000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -7983,8 +7983,8 @@
           "19.884111"
         ]
       },
-      "currentPopulation": 40000,
-      "size": "MEDIUM"
+      "currentPopulation": 20000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -8021,7 +8021,7 @@
           "53.865886"
         ]
       },
-      "currentPopulation": 29000,
+      "currentPopulation": 237000,
       "size": "MEDIUM"
     },
     {
@@ -8055,8 +8055,8 @@
           "43.84357"
         ]
       },
-      "currentPopulation": 23000,
-      "size": "MEDIUM"
+      "currentPopulation": 43000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -8076,7 +8076,7 @@
         ]
       },
       "currentPopulation": 50000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -8114,7 +8114,7 @@
           "34.669722"
         ]
       },
-      "currentPopulation": 35000,
+      "currentPopulation": 887000,
       "size": "MEDIUM"
     },
     {
@@ -8166,8 +8166,8 @@
           "45.74846"
         ]
       },
-      "currentPopulation": 40000,
-      "size": "MEDIUM"
+      "currentPopulation": 1170000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -8202,7 +8202,7 @@
           "52.130808"
         ]
       },
-      "currentPopulation": 22000,
+      "currentPopulation": 236000,
       "size": "MEDIUM"
     },
     {
@@ -8238,7 +8238,7 @@
           "9.91735"
         ]
       },
-      "currentPopulation": 50000,
+      "currentPopulation": 685000,
       "size": "MEDIUM"
     },
     {
@@ -8273,8 +8273,8 @@
           "49.98419"
         ]
       },
-      "currentPopulation": 24000,
-      "size": "MEDIUM"
+      "currentPopulation": 44741,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -8296,7 +8296,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -8328,11 +8328,11 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          "-4.421267",
-          "36.721261"
+          -4.42291038428716,
+          36.816753965855135
         ]
       },
-      "currentPopulation": 30000,
+      "currentPopulation": 218000,
       "size": "MEDIUM"
     },
     {
@@ -8360,8 +8360,8 @@
           "11"
         ]
       },
-      "currentPopulation": 40000,
-      "size": "MEDIUM"
+      "currentPopulation": 30000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -8386,8 +8386,8 @@
           "22.36667"
         ]
       },
-      "currentPopulation": 70000,
-      "size": "LARGE"
+      "currentPopulation": 40000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -8417,7 +8417,7 @@
           "25.590258"
         ]
       },
-      "currentPopulation": 14000,
+      "currentPopulation": 680000,
       "size": "MEDIUM"
     },
     {
@@ -8459,8 +8459,8 @@
           "45.156417"
         ]
       },
-      "currentPopulation": 23185,
-      "size": "MEDIUM"
+      "currentPopulation": 29884,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -8483,7 +8483,7 @@
         ]
       },
       "currentPopulation": 100000,
-      "size": "LARGE"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -8504,7 +8504,7 @@
           "37.383531"
         ]
       },
-      "currentPopulation": 12000,
+      "currentPopulation": 15000,
       "size": "SMALL"
     },
     {
@@ -8527,7 +8527,7 @@
         ]
       },
       "currentPopulation": 45000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -8576,7 +8576,7 @@
           "31.63416"
         ]
       },
-      "currentPopulation": 50000,
+      "currentPopulation": 224000,
       "size": "MEDIUM"
     },
     {
@@ -8625,7 +8625,7 @@
           "43.29695"
         ]
       },
-      "currentPopulation": 30000,
+      "currentPopulation": 1070000,
       "size": "MEDIUM"
     },
     {
@@ -8648,8 +8648,8 @@
           "16.52834"
         ]
       },
-      "currentPopulation": 40000,
-      "size": "MEDIUM"
+      "currentPopulation": 45000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -8674,8 +8674,8 @@
           "27.4925"
         ]
       },
-      "currentPopulation": 49672,
-      "size": "MEDIUM"
+      "currentPopulation": 60000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -8699,7 +8699,7 @@
         ]
       },
       "currentPopulation": 25000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -8735,8 +8735,8 @@
           "21.42667"
         ]
       },
-      "currentPopulation": 34000,
-      "size": "MEDIUM"
+      "currentPopulation": 60000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -8763,8 +8763,8 @@
           "24.4609"
         ]
       },
-      "currentPopulation": 30000,
-      "size": "MEDIUM"
+      "currentPopulation": 27500,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -8801,8 +8801,8 @@
           "33.89352"
         ]
       },
-      "currentPopulation": 30000,
-      "size": "MEDIUM"
+      "currentPopulation": 50000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -8834,8 +8834,8 @@
           "20.979719"
         ]
       },
-      "currentPopulation": 25000,
-      "size": "MEDIUM"
+      "currentPopulation": 43000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -8883,7 +8883,7 @@
         ]
       },
       "currentPopulation": 200000,
-      "size": "LARGE"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -8937,8 +8937,8 @@
           "38.19327"
         ]
       },
-      "currentPopulation": 31000,
-      "size": "MEDIUM"
+      "currentPopulation": 93000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -8979,8 +8979,8 @@
           "49.11911"
         ]
       },
-      "currentPopulation": 30000,
-      "size": "MEDIUM"
+      "currentPopulation": 58000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -9042,7 +9042,7 @@
           "45.465453"
         ]
       },
-      "currentPopulation": 83000,
+      "currentPopulation": 3800000,
       "size": "LARGE"
     },
     {
@@ -9063,7 +9063,7 @@
         ]
       },
       "currentPopulation": 50000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -9085,7 +9085,7 @@
         ]
       },
       "currentPopulation": 20000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -9107,7 +9107,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -9145,8 +9145,8 @@
           "43.61092"
         ]
       },
-      "currentPopulation": 13560,
-      "size": "MEDIUM"
+      "currentPopulation": 75000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -9194,7 +9194,7 @@
           "55.75222"
         ]
       },
-      "currentPopulation": 80000,
+      "currentPopulation": 10700000,
       "size": "LARGE"
     },
     {
@@ -9226,7 +9226,7 @@
           "36.335"
         ]
       },
-      "currentPopulation": 45000,
+      "currentPopulation": 710000,
       "size": "MEDIUM"
     },
     {
@@ -9255,7 +9255,7 @@
           "30.19556"
         ]
       },
-      "currentPopulation": 34000,
+      "currentPopulation": 575000,
       "size": "MEDIUM"
     },
     {
@@ -9294,8 +9294,8 @@
           "48.136739"
         ]
       },
-      "currentPopulation": 13000,
-      "size": "SMALL"
+      "currentPopulation": 1700000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -9328,7 +9328,7 @@
           "37.98704"
         ]
       },
-      "currentPopulation": 12000,
+      "currentPopulation": 206000,
       "size": "SMALL"
     },
     {
@@ -9349,7 +9349,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -9369,8 +9369,8 @@
           "23.501389"
         ]
       },
-      "currentPopulation": 30000,
-      "size": "MEDIUM"
+      "currentPopulation": 8863,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -9404,7 +9404,7 @@
           "28.68333"
         ]
       },
-      "currentPopulation": 50000,
+      "currentPopulation": 808000,
       "size": "MEDIUM"
     },
     {
@@ -9463,7 +9463,7 @@
           "32.05"
         ]
       },
-      "currentPopulation": 147000,
+      "currentPopulation": 2000000,
       "size": "LARGE"
     },
     {
@@ -9489,7 +9489,7 @@
           "22.81667"
         ]
       },
-      "currentPopulation": 40000,
+      "currentPopulation": 790000,
       "size": "MEDIUM"
     },
     {
@@ -9546,7 +9546,7 @@
           "40.851775"
         ]
       },
-      "currentPopulation": 114000,
+      "currentPopulation": 1900000,
       "size": "LARGE"
     },
     {
@@ -9570,7 +9570,7 @@
           "34.685333"
         ]
       },
-      "currentPopulation": 10000,
+      "currentPopulation": 22746,
       "size": "SMALL"
     },
     {
@@ -9595,7 +9595,7 @@
           "43.18333"
         ]
       },
-      "currentPopulation": 1000,
+      "currentPopulation": 11907,
       "size": "SMALL"
     },
     {
@@ -9630,8 +9630,8 @@
           "54.978253"
         ]
       },
-      "currentPopulation": 10000,
-      "size": "SMALL"
+      "currentPopulation": 1360000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -9657,8 +9657,8 @@
           "35.16667"
         ]
       },
-      "currentPopulation": 16000,
-      "size": "MEDIUM"
+      "currentPopulation": 14940,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -9694,7 +9694,7 @@
           "43.83333"
         ]
       },
-      "currentPopulation": 1000,
+      "currentPopulation": 72000,
       "size": "SMALL"
     },
     {
@@ -9718,7 +9718,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -9738,7 +9738,7 @@
         ]
       },
       "currentPopulation": 120000,
-      "size": "LARGE"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -9773,12 +9773,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          "121.55",
-          "29.866667"
+          121.50949379051124,
+          29.81892051707243
         ]
       },
-      "currentPopulation": 30000,
-      "size": "MEDIUM"
+      "currentPopulation": 210000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -9798,7 +9798,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -9827,8 +9827,8 @@
           "36.213333"
         ]
       },
-      "currentPopulation": 70000,
-      "size": "LARGE"
+      "currentPopulation": 8000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -9863,8 +9863,8 @@
           "56.3269"
         ]
       },
-      "currentPopulation": 55000,
-      "size": "MEDIUM"
+      "currentPopulation": 1700000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -9898,7 +9898,7 @@
           "52.62783"
         ]
       },
-      "currentPopulation": 12000,
+      "currentPopulation": 110000,
       "size": "SMALL"
     },
     {
@@ -9930,8 +9930,8 @@
           "58.525569"
         ]
       },
-      "currentPopulation": 37000,
-      "size": "MEDIUM"
+      "currentPopulation": 7126,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -9975,7 +9975,7 @@
           "49.452031"
         ]
       },
-      "currentPopulation": 31000,
+      "currentPopulation": 860000,
       "size": "MEDIUM"
     },
     {
@@ -10000,7 +10000,7 @@
           "43.454967"
         ]
       },
-      "currentPopulation": 3750,
+      "currentPopulation": 7000,
       "size": "SMALL"
     },
     {
@@ -10021,7 +10021,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -10055,7 +10055,7 @@
           "41.167972"
         ]
       },
-      "currentPopulation": 15000,
+      "currentPopulation": 860000,
       "size": "MEDIUM"
     },
     {
@@ -10098,8 +10098,8 @@
           "47.902964"
         ]
       },
-      "currentPopulation": 27000,
-      "size": "MEDIUM"
+      "currentPopulation": 57000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -10119,7 +10119,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -10144,7 +10144,7 @@
         ]
       },
       "currentPopulation": 25000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -10164,7 +10164,7 @@
         ]
       },
       "currentPopulation": 34000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -10199,8 +10199,8 @@
           "7.85"
         ]
       },
-      "currentPopulation": 60000,
-      "size": "MEDIUM"
+      "currentPopulation": 45000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -10263,8 +10263,8 @@
           "45.406436"
         ]
       },
-      "currentPopulation": 29000,
-      "size": "MEDIUM"
+      "currentPopulation": 50000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -10286,7 +10286,7 @@
         ]
       },
       "currentPopulation": 60000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -10339,7 +10339,7 @@
           "38.115689"
         ]
       },
-      "currentPopulation": 39000,
+      "currentPopulation": 672000,
       "size": "MEDIUM"
     },
     {
@@ -10374,8 +10374,8 @@
           "39.56939"
         ]
       },
-      "currentPopulation": 15000,
-      "size": "MEDIUM"
+      "currentPopulation": 63000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -10395,7 +10395,7 @@
         ]
       },
       "currentPopulation": 60000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -10456,7 +10456,7 @@
           "48.856614"
         ]
       },
-      "currentPopulation": 185000,
+      "currentPopulation": 9400000,
       "size": "LARGE"
     },
     {
@@ -10489,8 +10489,8 @@
           "44.80266"
         ]
       },
-      "currentPopulation": 18000,
-      "size": "MEDIUM"
+      "currentPopulation": 49000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -10524,8 +10524,8 @@
           "23.8507"
         ]
       },
-      "currentPopulation": 60000,
-      "size": "MEDIUM"
+      "currentPopulation": 31000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -10562,8 +10562,8 @@
           "25.610533"
         ]
       },
-      "currentPopulation": 80000,
-      "size": "LARGE"
+      "currentPopulation": 635000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -10598,8 +10598,8 @@
           "45.18446"
         ]
       },
-      "currentPopulation": 17000,
-      "size": "MEDIUM"
+      "currentPopulation": 25006,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -10627,8 +10627,8 @@
           "17.333333"
         ]
       },
-      "currentPopulation": 60000,
-      "size": "MEDIUM"
+      "currentPopulation": 4337,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -10649,7 +10649,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -10669,7 +10669,7 @@
         ]
       },
       "currentPopulation": 50000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -10695,8 +10695,8 @@
           "34.008"
         ]
       },
-      "currentPopulation": 80000,
-      "size": "LARGE"
+      "currentPopulation": 96000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -10716,7 +10716,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -10752,8 +10752,8 @@
           "45.04676"
         ]
       },
-      "currentPopulation": 25000,
-      "size": "MEDIUM"
+      "currentPopulation": 35000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -10785,7 +10785,7 @@
           "43.71553"
         ]
       },
-      "currentPopulation": 9940,
+      "currentPopulation": 23755,
       "size": "SMALL"
     },
     {
@@ -10808,7 +10808,7 @@
         ]
       },
       "currentPopulation": 34000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -10842,8 +10842,8 @@
           "42.15"
         ]
       },
-      "currentPopulation": 29000,
-      "size": "MEDIUM"
+      "currentPopulation": 42000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -10870,12 +10870,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          "-4.14305",
-          "50.375456"
+          -4.106307860349162,
+          50.41842790749016
         ]
       },
-      "currentPopulation": 2500,
-      "size": "SMALL"
+      "currentPopulation": 228000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -10905,8 +10905,8 @@
           "46.58333"
         ]
       },
-      "currentPopulation": 18000,
-      "size": "MEDIUM"
+      "currentPopulation": 31000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -10928,7 +10928,7 @@
         ]
       },
       "currentPopulation": 75000,
-      "size": "LARGE"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -10975,7 +10975,7 @@
           "50.08804"
         ]
       },
-      "currentPopulation": 70000,
+      "currentPopulation": 1275000,
       "size": "LARGE"
     },
     {
@@ -10998,7 +10998,7 @@
         ]
       },
       "currentPopulation": 60000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -11020,7 +11020,7 @@
         ]
       },
       "currentPopulation": 20000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -11042,7 +11042,7 @@
           "48.55"
         ]
       },
-      "currentPopulation": 3000,
+      "currentPopulation": 6198,
       "size": "SMALL"
     },
     {
@@ -11069,8 +11069,8 @@
           "57.8136"
         ]
       },
-      "currentPopulation": 45000,
-      "size": "MEDIUM"
+      "currentPopulation": 30000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -11090,7 +11090,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -11114,7 +11114,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -11149,7 +11149,7 @@
           "39.03385"
         ]
       },
-      "currentPopulation": 55000,
+      "currentPopulation": 400000,
       "size": "MEDIUM"
     },
     {
@@ -11185,8 +11185,8 @@
           "36.26877"
         ]
       },
-      "currentPopulation": 70000,
-      "size": "LARGE"
+      "currentPopulation": 50000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -11207,7 +11207,7 @@
         ]
       },
       "currentPopulation": 50000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -11238,8 +11238,8 @@
           "8.88"
         ]
       },
-      "currentPopulation": 35000,
-      "size": "MEDIUM"
+      "currentPopulation": 14366,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -11275,7 +11275,7 @@
           "-0.22985"
         ]
       },
-      "currentPopulation": 30000,
+      "currentPopulation": 782000,
       "size": "MEDIUM"
     },
     {
@@ -11302,8 +11302,8 @@
           "34.64"
         ]
       },
-      "currentPopulation": 37000,
-      "size": "MEDIUM"
+      "currentPopulation": 22578,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -11337,7 +11337,7 @@
           "34.01325"
         ]
       },
-      "currentPopulation": 50000,
+      "currentPopulation": 745000,
       "size": "MEDIUM"
     },
     {
@@ -11360,8 +11360,8 @@
           "17.00517"
         ]
       },
-      "currentPopulation": 17500,
-      "size": "MEDIUM"
+      "currentPopulation": 35000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -11389,7 +11389,7 @@
         ]
       },
       "currentPopulation": 80000,
-      "size": "LARGE"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -11419,7 +11419,7 @@
           "49.015"
         ]
       },
-      "currentPopulation": 12000,
+      "currentPopulation": 45000,
       "size": "SMALL"
     },
     {
@@ -11442,7 +11442,7 @@
           "38.1113"
         ]
       },
-      "currentPopulation": 9000,
+      "currentPopulation": 37000,
       "size": "SMALL"
     },
     {
@@ -11483,7 +11483,7 @@
           "49.25"
         ]
       },
-      "currentPopulation": 12000,
+      "currentPopulation": 108000,
       "size": "SMALL"
     },
     {
@@ -11504,7 +11504,7 @@
         ]
       },
       "currentPopulation": 42000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -11534,8 +11534,8 @@
           "56.946"
         ]
       },
-      "currentPopulation": 7000,
-      "size": "SMALL"
+      "currentPopulation": 870000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -11560,8 +11560,8 @@
           "-1.67083"
         ]
       },
-      "currentPopulation": 60000,
-      "size": "MEDIUM"
+      "currentPopulation": 12000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -11615,8 +11615,8 @@
           "41.89474"
         ]
       },
-      "currentPopulation": 38000,
-      "size": "MEDIUM"
+      "currentPopulation": 3600000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -11640,8 +11640,8 @@
           "55.64152"
         ]
       },
-      "currentPopulation": 27000,
-      "size": "MEDIUM"
+      "currentPopulation": 2000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -11689,7 +11689,7 @@
           "49.44313"
         ]
       },
-      "currentPopulation": 50000,
+      "currentPopulation": 225000,
       "size": "MEDIUM"
     },
     {
@@ -11716,8 +11716,8 @@
           "50.750114"
         ]
       },
-      "currentPopulation": 20000,
-      "size": "MEDIUM"
+      "currentPopulation": 22054,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -11739,7 +11739,7 @@
         ]
       },
       "currentPopulation": 48000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -11766,7 +11766,7 @@
           "40.67797"
         ]
       },
-      "currentPopulation": 3500,
+      "currentPopulation": 11500,
       "size": "SMALL"
     },
     {
@@ -11790,7 +11790,7 @@
         ]
       },
       "currentPopulation": 27000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -11833,8 +11833,8 @@
           "39.6576"
         ]
       },
-      "currentPopulation": 60000,
-      "size": "MEDIUM"
+      "currentPopulation": 58000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -11885,7 +11885,7 @@
         ]
       },
       "currentPopulation": 120000,
-      "size": "LARGE"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -11907,7 +11907,7 @@
         ]
       },
       "currentPopulation": 35000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -11928,7 +11928,7 @@
         ]
       },
       "currentPopulation": 250000,
-      "size": "LARGE"
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -11968,7 +11968,7 @@
           "37.56826"
         ]
       },
-      "currentPopulation": 125000,
+      "currentPopulation": 6800000,
       "size": "LARGE"
     },
     {
@@ -12018,7 +12018,7 @@
           "37.388097"
         ]
       },
-      "currentPopulation": 46000,
+      "currentPopulation": 685000,
       "size": "MEDIUM"
     },
     {
@@ -12045,8 +12045,8 @@
           "30"
         ]
       },
-      "currentPopulation": 30000,
-      "size": "MEDIUM"
+      "currentPopulation": 92533,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -12078,7 +12078,7 @@
           "41.79222"
         ]
       },
-      "currentPopulation": 200000,
+      "currentPopulation": 3100000,
       "size": "LARGE"
     },
     {
@@ -12106,8 +12106,8 @@
           "51.697819"
         ]
       },
-      "currentPopulation": 19000,
-      "size": "MEDIUM"
+      "currentPopulation": 32000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -12142,8 +12142,8 @@
           "29.61031"
         ]
       },
-      "currentPopulation": 60000,
-      "size": "MEDIUM"
+      "currentPopulation": 53000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -12171,8 +12171,8 @@
           "42.0743"
         ]
       },
-      "currentPopulation": 19000,
-      "size": "MEDIUM"
+      "currentPopulation": 32000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -12195,7 +12195,7 @@
         ]
       },
       "currentPopulation": 24000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -12215,7 +12215,7 @@
         ]
       },
       "currentPopulation": 36000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -12247,8 +12247,8 @@
           "43.32004"
         ]
       },
-      "currentPopulation": 22000,
-      "size": "MEDIUM"
+      "currentPopulation": 22435,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -12269,7 +12269,7 @@
         ]
       },
       "currentPopulation": 50000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -12297,7 +12297,7 @@
           "39.74833"
         ]
       },
-      "currentPopulation": 5300,
+      "currentPopulation": 43000,
       "size": "SMALL"
     },
     {
@@ -12328,8 +12328,8 @@
           "41.99646"
         ]
       },
-      "currentPopulation": 45000,
-      "size": "MEDIUM"
+      "currentPopulation": 27000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -12361,8 +12361,8 @@
           "54.7818"
         ]
       },
-      "currentPopulation": 50000,
-      "size": "MEDIUM"
+      "currentPopulation": 57000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -12384,7 +12384,7 @@
         ]
       },
       "currentPopulation": 20000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -12409,8 +12409,8 @@
           "51.57558"
         ]
       },
-      "currentPopulation": 15000,
-      "size": "MEDIUM"
+      "currentPopulation": 5400,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -12443,7 +12443,7 @@
           "42.69751"
         ]
       },
-      "currentPopulation": 22000,
+      "currentPopulation": 965000,
       "size": "MEDIUM"
     },
     {
@@ -12474,7 +12474,7 @@
         ]
       },
       "currentPopulation": 50000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -12519,7 +12519,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -12546,7 +12546,7 @@
           "49.320478"
         ]
       },
-      "currentPopulation": 13000,
+      "currentPopulation": 11749,
       "size": "SMALL"
     },
     {
@@ -12584,7 +12584,7 @@
           "34.08842"
         ]
       },
-      "currentPopulation": 42000,
+      "currentPopulation": 243000,
       "size": "MEDIUM"
     },
     {
@@ -12615,8 +12615,8 @@
           "38.626978"
         ]
       },
-      "currentPopulation": 925,
-      "size": "SMALL"
+      "currentPopulation": 2200000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -12642,12 +12642,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          "18.0649",
-          "59.33258"
+          18.0411606844518,
+          59.39942478467719
         ]
       },
-      "currentPopulation": 10000,
-      "size": "SMALL"
+      "currentPopulation": 1357000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -12691,7 +12691,7 @@
           "48.58342"
         ]
       },
-      "currentPopulation": 22000,
+      "currentPopulation": 230000,
       "size": "MEDIUM"
     },
     {
@@ -12715,8 +12715,8 @@
           "44.84924"
         ]
       },
-      "currentPopulation": 30000,
-      "size": "MEDIUM"
+      "currentPopulation": 600,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -12739,7 +12739,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -12766,7 +12766,7 @@
         ]
       },
       "currentPopulation": 70000,
-      "size": "LARGE"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -12828,8 +12828,8 @@
           "31.3"
         ]
       },
-      "currentPopulation": 112000,
-      "size": "LARGE"
+      "currentPopulation": 825000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -12856,7 +12856,7 @@
           "37.06082237"
         ]
       },
-      "currentPopulation": 11000,
+      "currentPopulation": 108000,
       "size": "SMALL"
     },
     {
@@ -12889,8 +12889,8 @@
           "53.416667"
         ]
       },
-      "currentPopulation": 10000,
-      "size": "SMALL"
+      "currentPopulation": 253000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -12931,8 +12931,8 @@
           "38.08"
         ]
       },
-      "currentPopulation": 250000,
-      "size": "LARGE"
+      "currentPopulation": 568000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -12976,8 +12976,8 @@
           "37.87059"
         ]
       },
-      "currentPopulation": 61000,
-      "size": "MEDIUM"
+      "currentPopulation": 1600000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -13000,7 +13000,7 @@
         ]
       },
       "currentPopulation": 50000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -13022,7 +13022,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -13045,7 +13045,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -13075,8 +13075,8 @@
           "44.924167"
         ]
       },
-      "currentPopulation": 50000,
-      "size": "MEDIUM"
+      "currentPopulation": 14000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -13102,7 +13102,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -13124,7 +13124,7 @@
         ]
       },
       "currentPopulation": 60000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -13156,8 +13156,8 @@
           "41.709975"
         ]
       },
-      "currentPopulation": 20000,
-      "size": "MEDIUM"
+      "currentPopulation": 1148000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -13203,7 +13203,7 @@
         ]
       },
       "currentPopulation": 60000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -13232,8 +13232,8 @@
           "19.504422"
         ]
       },
-      "currentPopulation": 60000,
-      "size": "MEDIUM"
+      "currentPopulation": 2000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -13254,8 +13254,8 @@
           "19.218331"
         ]
       },
-      "currentPopulation": 30000,
-      "size": "MEDIUM"
+      "currentPopulation": 14000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -13280,8 +13280,8 @@
           "24.746117"
         ]
       },
-      "currentPopulation": 45000,
-      "size": "MEDIUM"
+      "currentPopulation": 10000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -13303,7 +13303,7 @@
         ]
       },
       "currentPopulation": 80000,
-      "size": "LARGE"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -13353,7 +13353,7 @@
           "40.63935"
         ]
       },
-      "currentPopulation": 40000,
+      "currentPopulation": 600000,
       "size": "MEDIUM"
     },
     {
@@ -13376,7 +13376,7 @@
         ]
       },
       "currentPopulation": 20000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -13401,8 +13401,8 @@
           "34.57952"
         ]
       },
-      "currentPopulation": 85000,
-      "size": "LARGE"
+      "currentPopulation": 50000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -13425,7 +13425,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -13445,12 +13445,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          "32.233333",
-          "31.2"
+          32.21289496765362,
+          30.9994641888614
         ]
       },
       "currentPopulation": 125000,
-      "size": "LARGE"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -13479,8 +13479,8 @@
           "34.87833"
         ]
       },
-      "currentPopulation": 35000,
-      "size": "MEDIUM"
+      "currentPopulation": 19067,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -13518,8 +13518,8 @@
           "39.862831"
         ]
       },
-      "currentPopulation": 35000,
-      "size": "MEDIUM"
+      "currentPopulation": 13431,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -13541,7 +13541,7 @@
         ]
       },
       "currentPopulation": 50000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -13567,8 +13567,8 @@
           "16.77348"
         ]
       },
-      "currentPopulation": 25000,
-      "size": "MEDIUM"
+      "currentPopulation": 13000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -13599,7 +13599,7 @@
           "43.11667"
         ]
       },
-      "currentPopulation": 1000,
+      "currentPopulation": 78000,
       "size": "SMALL"
     },
     {
@@ -13644,7 +13644,7 @@
           "43.60426"
         ]
       },
-      "currentPopulation": 25000,
+      "currentPopulation": 509000,
       "size": "MEDIUM"
     },
     {
@@ -13672,8 +13672,8 @@
           "50.60715"
         ]
       },
-      "currentPopulation": 19000,
-      "size": "MEDIUM"
+      "currentPopulation": 35000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -13713,8 +13713,8 @@
           "47.38333"
         ]
       },
-      "currentPopulation": 25000,
-      "size": "MEDIUM"
+      "currentPopulation": 64000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -13749,8 +13749,8 @@
           "41.00145"
         ]
       },
-      "currentPopulation": 30000,
-      "size": "MEDIUM"
+      "currentPopulation": 40000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -13775,8 +13775,8 @@
           "54.633333"
         ]
       },
-      "currentPopulation": 50000,
-      "size": "MEDIUM"
+      "currentPopulation": 4656,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -13796,7 +13796,7 @@
         ]
       },
       "currentPopulation": 30000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -13830,7 +13830,7 @@
           "49.75565"
         ]
       },
-      "currentPopulation": 10413,
+      "currentPopulation": 43000,
       "size": "SMALL"
     },
     {
@@ -13864,7 +13864,7 @@
           "32.876175"
         ]
       },
-      "currentPopulation": 16000,
+      "currentPopulation": 800000,
       "size": "MEDIUM"
     },
     {
@@ -13903,8 +13903,8 @@
           "48.3"
         ]
       },
-      "currentPopulation": 23000,
-      "size": "MEDIUM"
+      "currentPopulation": 53000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -13953,8 +13953,8 @@
           "24.913889"
         ]
       },
-      "currentPopulation": 60000,
-      "size": "MEDIUM"
+      "currentPopulation": 120655,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -13996,7 +13996,7 @@
           "36.818811"
         ]
       },
-      "currentPopulation": 65000,
+      "currentPopulation": 920000,
       "size": "MEDIUM"
     },
     {
@@ -14034,8 +14034,8 @@
           "45.07049"
         ]
       },
-      "currentPopulation": 15000,
-      "size": "MEDIUM"
+      "currentPopulation": 1800000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -14060,7 +14060,7 @@
         ]
       },
       "currentPopulation": 60000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -14088,7 +14088,7 @@
           "56.858722"
         ]
       },
-      "currentPopulation": 20000,
+      "currentPopulation": 220000,
       "size": "MEDIUM"
     },
     {
@@ -14109,7 +14109,7 @@
         ]
       },
       "currentPopulation": 35000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -14129,7 +14129,7 @@
         ]
       },
       "currentPopulation": 24000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -14159,8 +14159,8 @@
           "23.18239"
         ]
       },
-      "currentPopulation": 60000,
-      "size": "MEDIUM"
+      "currentPopulation": 39000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -14193,8 +14193,8 @@
           "48.39841"
         ]
       },
-      "currentPopulation": 14000,
-      "size": "MEDIUM"
+      "currentPopulation": 52000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -14214,7 +14214,7 @@
         ]
       },
       "currentPopulation": 65000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -14236,7 +14236,7 @@
         ]
       },
       "currentPopulation": 25000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -14271,8 +14271,8 @@
           "52.09083"
         ]
       },
-      "currentPopulation": 12000,
-      "size": "SMALL"
+      "currentPopulation": 274000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -14294,7 +14294,7 @@
         ]
       },
       "currentPopulation": 45000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -14332,11 +14332,11 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          "-0.376289",
-          "39.469908"
+          -0.42996435212230455,
+          39.489007030303135
         ]
       },
-      "currentPopulation": 40000,
+      "currentPopulation": 1050000,
       "size": "MEDIUM"
     },
     {
@@ -14367,8 +14367,8 @@
           "50.35"
         ]
       },
-      "currentPopulation": 17000,
-      "size": "MEDIUM"
+      "currentPopulation": 19609,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -14390,7 +14390,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -14424,8 +14424,8 @@
           "41.65518"
         ]
       },
-      "currentPopulation": 40000,
-      "size": "MEDIUM"
+      "currentPopulation": 68000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -14463,7 +14463,7 @@
           "25.317645"
         ]
       },
-      "currentPopulation": 50000,
+      "currentPopulation": 640000,
       "size": "MEDIUM"
     },
     {
@@ -14492,8 +14492,8 @@
           "43.083333"
         ]
       },
-      "currentPopulation": 35000,
-      "size": "MEDIUM"
+      "currentPopulation": 15000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -14545,8 +14545,8 @@
           "45.440847"
         ]
       },
-      "currentPopulation": 115000,
-      "size": "LARGE"
+      "currentPopulation": 354000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -14590,8 +14590,8 @@
           "45.43419"
         ]
       },
-      "currentPopulation": 38500,
-      "size": "MEDIUM"
+      "currentPopulation": 66000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -14635,8 +14635,8 @@
           "48.20849"
         ]
       },
-      "currentPopulation": 40000,
-      "size": "MEDIUM"
+      "currentPopulation": 1600000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -14656,7 +14656,7 @@
         ]
       },
       "currentPopulation": 45000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -14683,8 +14683,8 @@
           "15.335"
         ]
       },
-      "currentPopulation": 500000,
-      "size": "LARGE"
+      "currentPopulation": 480000,
+      "size": "MEDIUM"
     },
     {
       "type": "Feature",
@@ -14742,7 +14742,7 @@
           "54.683333"
         ]
       },
-      "currentPopulation": 25000,
+      "currentPopulation": 255000,
       "size": "MEDIUM"
     },
     {
@@ -14765,8 +14765,8 @@
           "57.64089"
         ]
       },
-      "currentPopulation": 17000,
-      "size": "MEDIUM"
+      "currentPopulation": 4260,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -14789,8 +14789,8 @@
           "56.13655"
         ]
       },
-      "currentPopulation": 31000,
-      "size": "MEDIUM"
+      "currentPopulation": 32000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -14812,7 +14812,7 @@
         ]
       },
       "currentPopulation": 35000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -14839,8 +14839,8 @@
           "27.99942"
         ]
       },
-      "currentPopulation": 25000,
-      "size": "MEDIUM"
+      "currentPopulation": 202000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -14862,8 +14862,8 @@
           "47.8"
         ]
       },
-      "currentPopulation": 15000,
-      "size": "MEDIUM"
+      "currentPopulation": 14544,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -14889,7 +14889,7 @@
           "49.63278"
         ]
       },
-      "currentPopulation": 7000,
+      "currentPopulation": 40000,
       "size": "SMALL"
     },
     {
@@ -14940,7 +14940,7 @@
           "51.116667"
         ]
       },
-      "currentPopulation": 21000,
+      "currentPopulation": 570000,
       "size": "MEDIUM"
     },
     {
@@ -14987,8 +14987,8 @@
           "30.58333"
         ]
       },
-      "currentPopulation": 64000,
-      "size": "MEDIUM"
+      "currentPopulation": 2900000,
+      "size": "LARGE"
     },
     {
       "type": "Feature",
@@ -15045,7 +15045,7 @@
           "34.341485"
         ]
       },
-      "currentPopulation": 127000,
+      "currentPopulation": 1800000,
       "size": "LARGE"
     },
     {
@@ -15073,8 +15073,8 @@
           "27.85"
         ]
       },
-      "currentPopulation": 33000,
-      "size": "MEDIUM"
+      "currentPopulation": 82589,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -15103,8 +15103,8 @@
           "32.017"
         ]
       },
-      "currentPopulation": 47000,
-      "size": "MEDIUM"
+      "currentPopulation": 83000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -15143,7 +15143,7 @@
           "34.26"
         ]
       },
-      "currentPopulation": 55000,
+      "currentPopulation": 758000,
       "size": "MEDIUM"
     },
     {
@@ -15175,8 +15175,8 @@
           "31.896611"
         ]
       },
-      "currentPopulation": 30000,
-      "size": "MEDIUM"
+      "currentPopulation": 60000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -15201,8 +15201,8 @@
           "34.185956"
         ]
       },
-      "currentPopulation": 35000,
-      "size": "MEDIUM"
+      "currentPopulation": 11600,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -15252,8 +15252,8 @@
           "32.4"
         ]
       },
-      "currentPopulation": 60000,
-      "size": "MEDIUM"
+      "currentPopulation": 137735,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -15289,8 +15289,8 @@
           "38.4667"
         ]
       },
-      "currentPopulation": 20000,
-      "size": "MEDIUM"
+      "currentPopulation": 60000,
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -15324,7 +15324,7 @@
           "50.849997"
         ]
       },
-      "currentPopulation": 7390,
+      "currentPopulation": 16800,
       "size": "SMALL"
     },
     {
@@ -15347,7 +15347,7 @@
         ]
       },
       "currentPopulation": 60000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     },
     {
       "type": "Feature",
@@ -15387,7 +15387,7 @@
           "41.648792"
         ]
       },
-      "currentPopulation": 19840,
+      "currentPopulation": 549000,
       "size": "MEDIUM"
     },
     {
@@ -15412,7 +15412,7 @@
         ]
       },
       "currentPopulation": 40000,
-      "size": "MEDIUM"
+      "size": "SMALL"
     }
   ]
 }

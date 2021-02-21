@@ -1,7 +1,6 @@
 import 'd3-drag';
 import * as d3 from 'd3';
 import { isLocalHost } from '../utils';
-import { defaultColors } from './colors.js';
 import {
   addParametersToURL,
   camalize,

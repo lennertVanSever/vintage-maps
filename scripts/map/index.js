@@ -30,6 +30,7 @@ export class Map {
     this.minimumZoom = 0.2;
     this.maximumZoom = 40;
     this.citySize = 3;
+    // this.citySize = 10;
     this.countryFillOpacity = 0.15;
     this.graticuleGapSize = 50;
     this.graticuleLineSize = 1;
