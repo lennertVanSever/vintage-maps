@@ -92,49 +92,71 @@ const getExtremes = ({ x, y, width, height }) => {
   };
 };
 
-const citiesOverlap = (city1, city2) => {
+const citiesOverlap = (city1, city2, isCountry) => {
   // todo: make a unit test here to optimize function
+  const padding = 2;
+  let { top: top1, bottom: bottom1, left: left1, right: right1 } = city1;
+  let { top: top2, bottom: bottom2, left: left2, right: right2 } = city2;
+  if (top1 < 0 && top2 < 0) {
+    top1 = Math.abs(top1);
+    top2 = Math.abs(top2);
+  }
+
+  if (bottom1 < 0 && bottom2 < 0) {
+    bottom1 = Math.abs(bottom1);
+    bottom2 = Math.abs(bottom2);
+  }
+
+  if (left1 < 0 && left1 < 0) {
+    left1 = Math.abs(left1);
+    left2 = Math.abs(left2);
+  }
+
+  if (right1 < 0 && right2 < 0) {
+    right1 = Math.abs(right1);
+    right2 = Math.abs(right2);
+  }
+
   let overlapLeft = false;
   let overlapRight = false;
   let overlapTop = false;
   let overlapBottom = false;
-  if (city1.left >= city2.left && city1.left <= city2.right) {
+  if (left1 + padding >= left2 && left1 <= right2 + padding) {
     overlapLeft = true;
   }
-  if (city2.left >= city1.left && city2.left <= city1.right) {
+  if (left2 + padding >= left1 && left2 <= right1 + padding) {
     overlapLeft = true;
   }
-  if (city1.right <= city2.right && city1.right >= city2.left) {
+  if (right1 <= right2 + padding && right1 + padding >= left2) {
     overlapRight = true;
   }
   // // console.log(city2, city1);
-  if (city2.left >= city1.left && city2.left <= city1.right) {
+  if (left2 + padding >= left1 && left2 <= right1 + padding) {
     // revisit this part later, can be optimized
     overlapRight = true;
     overlapLeft = true;
   }
 
-  if (city1.top <= city2.top && city1.bottom >= city2.bottom) {
+  if (top1 <= top2 + padding && bottom1 + padding >= bottom2) {
     overlapTop = true;
     overlapBottom = true;
   }
 
   if (
-    city1.top >= city2.top &&
-    city1.top <= city2.bottom &&
-    city1.bottom >= city2.bottom
+    top1 + padding >= top2 &&
+    top1 <= bottom2 + padding &&
+    bottom1 + padding >= bottom2
   ) {
     overlapTop = true;
   }
 
   if (
-    city1.bottom >= city2.top &&
-    city1.top <= city2.top &&
-    city1.bottom <= city2.bottom
+    bottom1 + padding >= top2 &&
+    top1 <= top2 + padding &&
+    bottom1 <= bottom2 + padding
   ) {
     overlapBottom = true;
   }
-
   return (
     (overlapLeft && overlapBottom) ||
     (overlapLeft && overlapTop) ||
@@ -230,7 +252,7 @@ export class Cities {
       for (let j = index + 1; j < cities.length; j++) {
         const otherCity = cities[j];
         if (!otherCity.isCountry) {
-          if (citiesOverlap(city, otherCity)) {
+          if (citiesOverlap(city, otherCity, city.isCountry)) {
             hideCities.push(otherCity.name);
           }
         }
@@ -324,7 +346,6 @@ export class Cities {
         default:
           break;
       }
-      console.log(alignment, textAnchor);
       const textDistance = Number(this.selectedCityLabel.attr('text-distance'));
       this.selectedCityLabel
         .attr('dy', this.calculateDy(alignment, textDistance))
