@@ -3170,8 +3170,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          "76.26022",
-          "9.93988"
+          76.37283876994188,
+          9.931003304016272
         ]
       },
       "currentPopulation": 525000,
@@ -4021,8 +4021,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          "31.81332",
-          "31.41648"
+          31.71303993510291,
+          31.34008533589449
         ]
       },
       "currentPopulation": 30000,
@@ -4775,8 +4775,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          "29.960322",
-          "31.207161"
+          30.00247374624255,
+          31.164189456786595
         ]
       },
       "currentPopulation": 9900,
@@ -6009,8 +6009,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          "56.45",
-          "27.1"
+          56.45290385726699,
+          27.119098301749627
         ]
       },
       "currentPopulation": 50000,
@@ -7622,8 +7622,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          "14.29232884",
-          "32.63777029"
+          14.237793238646447,
+          32.59002380707243
         ]
       },
       "currentPopulation": 50000,
@@ -7674,8 +7674,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          "121.5",
-          "40.5"
+          121.7378689646615,
+          40.835948409547605
         ]
       },
       "currentPopulation": 40000,
@@ -11234,8 +11234,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          "76.6",
-          "8.88"
+          76.72455255963528,
+          8.897747563539363
         ]
       },
       "currentPopulation": 14366,
@@ -11484,26 +11484,6 @@
         ]
       },
       "currentPopulation": 108000,
-      "size": "SMALL"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "NAME": "Rhodes",
-        "country": "Greece",
-        "otherNames": null,
-        "populationByYear": {
-          "-200": 42000
-        }
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          "28.2167",
-          "36.4333"
-        ]
-      },
-      "currentPopulation": 42000,
       "size": "SMALL"
     },
     {
@@ -13860,8 +13840,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          "13.187508",
-          "32.876175"
+          13.188845601042603,
+          32.77590709443071
         ]
       },
       "currentPopulation": 800000,
@@ -14744,29 +14724,6 @@
       },
       "currentPopulation": 255000,
       "size": "MEDIUM"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "NAME": "Visby",
-        "country": "Sweden",
-        "otherNames": null,
-        "populationByYear": {
-          "1300": 15000,
-          "1361": 17000,
-          "1800": 3730,
-          "1845": 4260
-        }
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          "18.29602",
-          "57.64089"
-        ]
-      },
-      "currentPopulation": 4260,
-      "size": "SMALL"
     },
     {
       "type": "Feature",
