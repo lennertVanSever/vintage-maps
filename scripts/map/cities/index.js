@@ -221,7 +221,7 @@ export class Cities {
         name: node.properties.NAME,
         currentPopulation: node.currentPopulation || Infinity,
         isCountry,
-        ...getExtremes(d3.select(this).node().getBBox(), textDistance),
+        ...getExtremes(d3.select(this).node().getBBox(), textDistance / 2),
       });
     });
     cities.sort((a, b) => b.currentPopulation - a.currentPopulation);
