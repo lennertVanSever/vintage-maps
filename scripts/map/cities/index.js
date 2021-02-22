@@ -82,81 +82,59 @@ class ModifyCityData {
   }
 }
 
-const getExtremes = ({ x, y, width, height }) => {
+const getExtremes = ({ x, y, width, height }, padding) => {
   const round = (number, type) => Math[type](number * 10) / 10;
   return {
-    left: round(x, 'floor'),
-    right: round(x + width, 'ceil'),
-    top: round(y, 'floor'),
-    bottom: round(y + height, 'ceil'),
+    left: round(x, 'floor') - padding,
+    right: round(x + width, 'ceil') + padding,
+    top: round(y, 'floor') - padding,
+    bottom: round(y + height, 'ceil') + padding,
   };
 };
 
-const citiesOverlap = (city1, city2, isCountry) => {
+const citiesOverlap = (city1, city2) => {
   // todo: make a unit test here to optimize function
-  const padding = 2;
-  let { top: top1, bottom: bottom1, left: left1, right: right1 } = city1;
-  let { top: top2, bottom: bottom2, left: left2, right: right2 } = city2;
-  if (top1 < 0 && top2 < 0) {
-    top1 = Math.abs(top1);
-    top2 = Math.abs(top2);
-  }
-
-  if (bottom1 < 0 && bottom2 < 0) {
-    bottom1 = Math.abs(bottom1);
-    bottom2 = Math.abs(bottom2);
-  }
-
-  if (left1 < 0 && left1 < 0) {
-    left1 = Math.abs(left1);
-    left2 = Math.abs(left2);
-  }
-
-  if (right1 < 0 && right2 < 0) {
-    right1 = Math.abs(right1);
-    right2 = Math.abs(right2);
-  }
-
   let overlapLeft = false;
   let overlapRight = false;
   let overlapTop = false;
   let overlapBottom = false;
-  if (left1 + padding >= left2 && left1 <= right2 + padding) {
+  if (city1.left >= city2.left && city1.left <= city2.right) {
     overlapLeft = true;
   }
-  if (left2 + padding >= left1 && left2 <= right1 + padding) {
+  if (city2.left >= city1.left && city2.left <= city1.right) {
     overlapLeft = true;
   }
-  if (right1 <= right2 + padding && right1 + padding >= left2) {
+  if (city1.right <= city2.right && city1.right >= city2.left) {
     overlapRight = true;
   }
   // // console.log(city2, city1);
-  if (left2 + padding >= left1 && left2 <= right1 + padding) {
+  if (city2.left >= city1.left && city2.left <= city1.right) {
     // revisit this part later, can be optimized
     overlapRight = true;
     overlapLeft = true;
   }
 
-  if (top1 <= top2 + padding && bottom1 + padding >= bottom2) {
+  if (city1.top <= city2.top && city1.bottom >= city2.bottom) {
     overlapTop = true;
     overlapBottom = true;
   }
 
   if (
-    top1 + padding >= top2 &&
-    top1 <= bottom2 + padding &&
-    bottom1 + padding >= bottom2
+    city1.top >= city2.top &&
+    city1.top <= city2.bottom &&
+    city1.bottom >= city2.bottom
   ) {
     overlapTop = true;
   }
 
   if (
-    bottom1 + padding >= top2 &&
-    top1 <= top2 + padding &&
-    bottom1 <= bottom2 + padding
+    city1.bottom >= city2.top &&
+    city1.top <= city2.top &&
+    city1.bottom <= city2.bottom
   ) {
     overlapBottom = true;
   }
+
   return (
     (overlapLeft && overlapBottom) ||
     (overlapLeft && overlapTop) ||
@@ -243,7 +221,7 @@ export class Cities {
         name: node.properties.NAME,
         currentPopulation: node.currentPopulation || Infinity,
         isCountry,
-        ...getExtremes(d3.select(this).node().getBBox()),
+        ...getExtremes(d3.select(this).node().getBBox(), textDistance),
       });
     });
     cities.sort((a, b) => b.currentPopulation - a.currentPopulation);
@@ -252,7 +230,7 @@ export class Cities {
       for (let j = index + 1; j < cities.length; j++) {
         const otherCity = cities[j];
         if (!otherCity.isCountry) {
-          if (citiesOverlap(city, otherCity, city.isCountry)) {
+          if (citiesOverlap(city, otherCity)) {
             hideCities.push(otherCity.name);
           }
         }
