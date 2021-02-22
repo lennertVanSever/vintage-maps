@@ -5,7 +5,7 @@ import {
   goToPayment,
   orderPrint,
 } from '../checkout';
-import { dispatchCustomEvent, router } from '../utils';
+import { dispatchCustomEvent, fallBackTitle, router } from '../utils';
 import { ShadowElement } from './shadowElement.js';
 
 class Section extends ShadowElement {
@@ -171,11 +171,24 @@ class CustomizeSection extends Section {
   handleProductChange({ detail }) {
     this.product = detail;
     this.secondButtonText = `€${this.product.price} • Order`;
+    this.title = fallBackTitle;
+    window.addEventListener('updateMapTitle', this.updateMapTitle.bind(this));
+  }
+
+  updateMapTitle({ detail: { value } }) {
+    this.title = value;
   }
 
   onClickSecondButton() {
-    generateMapUrl(this.product.printExactSize);
-    router.navigate(`/order${window.location.search}`);
+    if (
+      this.title !== fallBackTitle ||
+      window.confirm(
+        `Are you sure you want to order a map with the title "${this.title}"`
+      )
+    ) {
+      generateMapUrl(this.product.printExactSize);
+      router.navigate(`/order${window.location.search}`);
+    }
   }
 
   onClickFirstButton() {

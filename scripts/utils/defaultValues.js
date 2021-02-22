@@ -1,7 +1,9 @@
 export const initialUrl = new URL(window.location.href);
 
+export const fallBackTitle = 'Change me';
+
 export const initial = {
-  title: initialUrl.searchParams.get('title') || 'Change me',
+  title: initialUrl.searchParams.get('title') || fallBackTitle,
   direction: 'landscape',
   style: 'defaultColors',
   size: {
