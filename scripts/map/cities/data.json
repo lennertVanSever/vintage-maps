@@ -3557,7 +3557,8 @@
           "1800": 34000,
           "1826": 46123,
           "1850": 41152
-        }
+        },
+        "alignment": "DOWN"
       },
       "geometry": {
         "type": "Point",
@@ -4361,7 +4362,8 @@
         "populationByYear": {
           "800": 45000,
           "900": 45000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -10365,7 +10367,8 @@
         ],
         "populationByYear": {
           "-200": 60000
-        }
+        },
+        "textAnchor": "start"
       },
       "geometry": {
         "type": "Point",
@@ -12541,8 +12544,8 @@
           "1000": 54000,
           "1800": 5000
         },
-        "textAnchor": "end",
-        "alignment": "RIGHT"
+        "textAnchor": "start",
+        "alignment": "UP"
       },
       "geometry": {
         "type": "Point",
@@ -13625,7 +13628,8 @@
           "1600": 25000,
           "1828": 12000,
           "1850": 13000
-        }
+        },
+        "alignment": "RIGHT"
       },
       "geometry": {
         "type": "Point",
@@ -15247,7 +15251,8 @@
           "1582": 90000,
           "1600": 80000,
           "1873": 11600
-        }
+        },
+        "alignment": "DOWN"
       },
       "geometry": {
         "type": "Point",
