@@ -1,6 +1,6 @@
 /* eslint-disable max-classes-per-file */
 
-import { countries, projectionNames, years } from '../config';
+import { countries, languages, projectionNames, years } from '../config';
 import { map } from '../index.js';
 import { dispatchCustomEvent, initialUrl } from '../utils';
 import { ShadowElement } from './shadowElement.js';
@@ -10,6 +10,7 @@ export const ids = {
   YEAR_SELECT: 'yearSelect',
   PROJECTION_SELECT: 'projectionSelect',
   COUNTRY_SELECT: 'countrySelect',
+  LANGUAGE_SELECT: 'languageSelect',
 };
 
 class SelectElement extends ShadowElement {
@@ -144,3 +145,52 @@ class CountrySelect extends SelectElement {
 }
 
 window.customElements.define('country-select', CountrySelect);
+
+class LanguageSelect extends SelectElement {
+  get labelText() {
+    return 'Language';
+  }
+
+  get id() {
+    return ids.LANGUAGE_SELECT;
+  }
+
+  get options() {
+    const optionLanguages = [
+      {
+        value: 'en',
+        label: 'English',
+      },
+      ...Object.keys(languages).map(key => {
+        const { nativeName, name } = languages[key];
+        return {
+          value: key,
+          label: `${nativeName} (${name})`,
+        };
+      }),
+    ];
+    return optionLanguages.sort((a, b) => {
+      if (a.label < b.label) {
+        return -1;
+      }
+      if (a.label > b.label) {
+        return 1;
+      }
+      return 0;
+    });
+  }
+
+  get value() {
+    return 'en';
+  }
+
+  get name() {
+    return 'language';
+  }
+
+  change(event) {
+    map.language = event.target.value;
+  }
+}
+
+window.customElements.define('language-select', LanguageSelect);

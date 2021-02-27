@@ -270,6 +270,12 @@ export class Cities {
     }
   }
 
+  updateLanguage() {
+    d3.selectAll('.cityName').text(
+      ({ properties: { translations } }) => translations[this.map.language]
+    );
+  }
+
   getPosition(cityPath) {
     const [x, y] = cityPath
       .attr('transform')
@@ -444,7 +450,9 @@ export class Cities {
       .append('text')
       .attr('x', city => this.getProjectedCoordinates(city)[0])
       .attr('y', city => this.getProjectedCoordinates(city)[1])
-      .text(({ properties: { translations } }) => translations.ar)
+      .text(
+        ({ properties: { translations } }) => translations[this.map.language]
+      )
       .attr('font-family', 'sans-serif')
       .attr('text-anchor', d => {
         return this.calculateTextAnchor(

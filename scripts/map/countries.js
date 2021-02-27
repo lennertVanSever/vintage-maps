@@ -191,6 +191,12 @@ export class Countries {
     };
   }
 
+  updateLanguage() {
+    d3.selectAll('.countryName').text(d =>
+      this.isUnclaimed(d) ? '' : d.properties.translations[this.map.language]
+    );
+  }
+
   async updateCountry(newProperties) {
     if (isLocalHost) {
       const responseRaw = await fetch('http://localhost:9000/modify_country', {
@@ -300,7 +306,9 @@ export class Countries {
       .attr('id', country => `countryName${getCountryId(country)}`)
       .style('fill', 'var(--countryLabel)')
       .style('text-anchor', 'middle')
-      .text(d => (this.isUnclaimed(d) ? '' : d.properties.translations.ar))
+      .text(d =>
+        this.isUnclaimed(d) ? '' : d.properties.translations[this.map.language]
+      )
       .style('cursor', 'pointer')
       .call(d3.drag().on('start', this.dragCountryName.bind(this)))
       .on('contextmenu', this.countryRightClick.bind(this))
