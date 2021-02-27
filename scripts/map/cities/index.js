@@ -444,7 +444,7 @@ export class Cities {
       .append('text')
       .attr('x', city => this.getProjectedCoordinates(city)[0])
       .attr('y', city => this.getProjectedCoordinates(city)[1])
-      .text(({ properties: { NAME } }) => NAME)
+      .text(({ properties: { translations } }) => translations.ar)
       .attr('font-family', 'sans-serif')
       .attr('text-anchor', d => {
         return this.calculateTextAnchor(

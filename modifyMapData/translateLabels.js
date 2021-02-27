@@ -1,9 +1,11 @@
 require('dotenv').config();
 const { getWorlds, saveWorld } = require('./utils/worlds');
 const { asyncForEach } = require('./utils/async');
-
+const cities = require('../scripts/map/cities/data.json');
 const fetch = require('node-fetch');
 const languages = require('../scripts/config/languages.json');
+const fs = require('fs');
+const path = require('path');
 
 const getTranslations = async (body, languageSelection) => {
   const responseRaw = await fetch(
@@ -40,42 +42,47 @@ const convertTranslationToKeyValueObject = input => {
   return returnObject;
 };
 
-getWorlds(async (world, fileName) => {
-  // const translation = await getTranslations(
-  //   [{ Text: 'Holy Roman Empire' }, { Text: '' }],
-  //   languagesQuery
-  // );
-
-  await asyncForEach(world.features, async (feature, index) => {
-    const { NAME: name } = feature.properties;
-    if (name && name !== 'unclaimed') {
-      const rawTranslations = await getTranslations(
-        [{ Text: name }],
-        languagesQuery
-      );
-      world.features[index].properties.translations = {
-        ...convertTranslationToKeyValueObject(rawTranslations[0].translations),
-        en: name,
-      };
-      console.info(`translated ${name}`);
-    }
+const translateCountries = () =>
+  getWorlds(async (world, fileName) => {
+    await asyncForEach(world.features, async (feature, index) => {
+      const { NAME: name } = feature.properties;
+      if (name && name !== 'unclaimed') {
+        const rawTranslations = await getTranslations(
+          [{ Text: name }],
+          languagesQuery
+        );
+        world.features[index].properties.translations = {
+          ...convertTranslationToKeyValueObject(
+            rawTranslations[0].translations
+          ),
+          en: name,
+        };
+        console.info(`translated ${name}`);
+      }
+    });
+    saveWorld(world, fileName);
   });
-  // const textToTranslate = world.features.map(features => {
-  //   const { NAME: name } = features.properties;
-  //   let Text;
-  //   if (!name || name === 'unclaimed') Text = '';
-  //   else Text = name;
-  //   return { Text };
-  // });
 
-  // world.features = world.features.map((features, index) => ({
-  //   ...features,
-  //   properties: {
-  //     ...features.properties,
-  //     translations: convertTranslationToKeyValueObject(
-  //       translations[index].translations
-  //     ),
-  //   },
-  // }));
-  saveWorld(world, fileName);
-});
+const translateCities = async () => {
+  await asyncForEach(cities.features, async (city, index) => {
+    const { NAME: name } = city.properties;
+
+    const rawTranslations = await getTranslations(
+      [{ Text: name }],
+      languagesQuery
+    );
+    cities.features[index].properties.translations = {
+      ...convertTranslationToKeyValueObject(rawTranslations[0].translations),
+      en: name,
+    };
+
+    console.info(`translated ${name}`);
+  });
+  fs.writeFileSync(
+    path.resolve(__dirname, `../scripts/map/cities/data.json`),
+    JSON.stringify(cities)
+  );
+  console.info(`updated cities`);
+};
+
+translateCities();
