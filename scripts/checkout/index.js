@@ -102,28 +102,35 @@ export const getMapHtml = () => {
     })
     .filter(Boolean)
     .join('\n');
+  const links = Array.from(document.querySelectorAll('link'))
+    .map(link => link.outerHTML)
+    .join('');
   return `
-    <style>
-      #subWrapper {
-        position: absolute;
-        left: 0px;
-        right: 0px;
-        margin: auto;
-        margin-top: 10px;
-        height: calc(100% - 50px) !important;
-        width: calc(100% - 70px) !important;
-        page-break-inside: avoid;
-      }
-      #firstBorder {
-        width: 100% !important;
-        height: 100% !important;
-      }
-      * {
-        page-break-inside: avoid;
-        break-inside: avoid;
-      }
-      ${allCSS}
-    </style>
+    <head>
+      <meta charset="utf-8">
+      ${links}
+      <style>
+        #subWrapper {
+          position: absolute;
+          left: 0px;
+          right: 0px;
+          margin: auto;
+          margin-top: 10px;
+          height: calc(100% - 50px) !important;
+          width: calc(100% - 70px) !important;
+          page-break-inside: avoid;
+        }
+        #firstBorder {
+          width: 100% !important;
+          height: 100% !important;
+        }
+        * {
+          page-break-inside: avoid;
+          break-inside: avoid;
+        }
+        ${allCSS}
+      </style>
+    </head>
     ${subWrapper.innerHTML}
   `;
 };
@@ -134,7 +141,7 @@ export const generateMapUrl = async printExactSize => {
       data: null,
       state: 'LOADING',
     });
-    console.log('generating map');
+    console.info('generating map');
     const responseRaw = await fetch(`${serverUrl}/upload_map`, {
       method: 'POST',
       headers: {
@@ -148,7 +155,7 @@ export const generateMapUrl = async printExactSize => {
       }),
     });
     const response = await responseRaw.json();
-    console.log('map url', response);
+    console.info('map url', response);
     dispatchCustomEvent('mapUrl', {
       data: response,
       state: 'SUCCESS',

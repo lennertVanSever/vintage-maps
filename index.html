@@ -9,6 +9,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#eae1ba">
+  <link href="https://fonts.googleapis.com/css2?family=Bellefair&display=swap" rel="stylesheet">
   <meta name="msapplication-TileColor" content="#eae1ba">
   <meta name="theme-color" content="#eae1ba">
 
@@ -18,28 +19,7 @@
     };
   </script>
   <style>
-    @font-face {
-      font-family: "bodoni";
-      src:
-        url("./fonts/bodoniflf-roman_500-webfont.woff2") format("woff2"),
-        url("./fonts/bodoniflf-roman_500-webfont.woff") format("woff");
-      font-weight: normal;
-    }
 
-    @font-face {
-      font-family: "bodoni";
-      src:
-        url("./fonts/BodoniFLF-Italic-500.ttf") format("ttf");
-      font-weight: normal;
-      font-style: italic;
-    }
-
-    @font-face {
-      font-family: system;
-      font-style: normal;
-      font-weight: 300;
-      src: local(".SFNSText-Light"), local(".HelveticaNeueDeskInterface-Light"), local(".LucidaGrandeUI"), local("Ubuntu Light"), local("Segoe UI Light"), local("Roboto-Light"), local("DroidSans"), local("Tahoma");
-    }
 
     :root {
       /* define these values through JS */
@@ -71,8 +51,8 @@
       width: 100vw;
     }
 
-    svg * {
-      font-family: 'Times New Roman';
+    #subWrapper {
+      font-family: 'Bellefair';
     }
 
     main {
@@ -119,7 +99,7 @@
 
     #title {
       text-align: center;
-      font-family: "bodoni";
+      font-family: inherit;
       font-size: 20px;
       margin-bottom: var(--margin-1);
       color: var(--black);
@@ -238,6 +218,7 @@
         <hide-or-show-toggle labelText="Cities" elementToHideSelector="#cities"></hide-or-show-toggle>
         <hide-or-show-toggle labelText="Graticule" elementToHideSelector="#graticuleCollection"></hide-or-show-toggle>
         <hide-or-show-toggle labelText="Rivers" elementToHideSelector="#rivers"></hide-or-show-toggle>
+        <font-select></font-select>
         <range-map-property labelText="Country border size" mapProperty="borderWidth" value="10" min="0" max="100" step="1"></range-map-property>
         <range-map-property labelText="City name size" mapProperty="citySize" value="2.4" min="0" max="15" step="0.1"></range-map-property>
         <range-map-property labelText="Graticule gap size" mapProperty="graticuleGapSize" value="50" min="5" max="250" step="1"></range-map-property>

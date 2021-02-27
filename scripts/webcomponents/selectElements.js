@@ -1,6 +1,6 @@
 /* eslint-disable max-classes-per-file */
 
-import { countries, languages, projectionNames, years } from '../config';
+import { countries, fonts, languages, projectionNames, years } from '../config';
 import { map } from '../index.js';
 import { dispatchCustomEvent, initialUrl } from '../utils';
 import { ShadowElement } from './shadowElement.js';
@@ -11,6 +11,7 @@ export const ids = {
   PROJECTION_SELECT: 'projectionSelect',
   COUNTRY_SELECT: 'countrySelect',
   LANGUAGE_SELECT: 'languageSelect',
+  FONT_SELECT: 'fontSelect',
 };
 
 class SelectElement extends ShadowElement {
@@ -194,3 +195,44 @@ class LanguageSelect extends SelectElement {
 }
 
 window.customElements.define('language-select', LanguageSelect);
+
+class FontSelect extends SelectElement {
+  get labelText() {
+    return 'Font family';
+  }
+
+  get id() {
+    return ids.FONT_SELECT;
+  }
+
+  get options() {
+    return fonts.map(font => ({
+      label: font,
+      value: font.replace(' ', '+'),
+    }));
+  }
+
+  get value() {
+    return 'Bellefair';
+  }
+
+  get name() {
+    return 'font';
+  }
+
+  change(event) {
+    const newFont = event.target.value;
+    const headID = document.getElementsByTagName('head')[0];
+    const link = document.createElement('link');
+    link.type = 'text/css';
+    link.rel = 'stylesheet';
+    headID.appendChild(link);
+    link.href = `http://fonts.googleapis.com/css?family=${newFont}`;
+    document.querySelector('#subWrapper').style.fontFamily = newFont.replace(
+      '+',
+      ' '
+    );
+  }
+}
+
+window.customElements.define('font-select', FontSelect);

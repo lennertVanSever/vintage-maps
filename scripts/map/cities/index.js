@@ -453,7 +453,7 @@ export class Cities {
       .text(
         ({ properties: { translations } }) => translations[this.map.language]
       )
-      .attr('font-family', 'sans-serif')
+      .attr('font-family', 'inherit')
       .attr('text-anchor', d => {
         return this.calculateTextAnchor(
           d.properties.alignment,
