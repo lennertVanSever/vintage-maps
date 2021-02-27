@@ -150,11 +150,14 @@ export class Countries {
   }
 
   fillSelectedCountry(selectedCountryInsideBorder) {
-    resetAlreadySelected();
-    selectedCountryInsideBorder.attr(
-      'fill',
-      selectedCountryInsideBorder.attr('stroke')
-    );
+    // resetAlreadySelected();
+    if (Number(selectedCountryInsideBorder.attr('selected')) === 1) {
+      selectedCountryInsideBorder.attr('fill', 'none').attr('selected', 0);
+    } else {
+      selectedCountryInsideBorder
+        .attr('fill', selectedCountryInsideBorder.attr('stroke'))
+        .attr('selected', 1);
+    }
   }
 
   zoomToSelectedCountry(selectedCountryInsideBorder) {
@@ -178,7 +181,7 @@ export class Countries {
       type: 'country',
     });
     this.fillSelectedCountry(selectedCountryInsideBorder);
-    this.zoomToSelectedCountry(selectedCountryInsideBorder);
+    // this.zoomToSelectedCountry(selectedCountryInsideBorder);
   }
 
   getPosition(label) {
