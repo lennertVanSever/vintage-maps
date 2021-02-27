@@ -8,7 +8,7 @@ const years = [
   '1279',
   '1492',
   '1530',
-  '1650',
+  // '1650',
   '1715',
   '1783',
   '1815',
@@ -22,7 +22,7 @@ const years = [
   '600',
   '800',
   'bc1',
-  'bc1000',
+  // 'bc1000',
   'bc200',
   'bc323',
   'bc500',
@@ -40,6 +40,7 @@ const getWorlds = async callback => {
 };
 
 const saveWorld = (world, fileName) => {
+  console.log('saveWorld');
   try {
     fs.writeFileSync(
       path.resolve(__dirname, `../../maps/${fileName}`),

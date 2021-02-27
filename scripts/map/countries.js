@@ -300,7 +300,7 @@ export class Countries {
       .attr('id', country => `countryName${getCountryId(country)}`)
       .style('fill', 'var(--countryLabel)')
       .style('text-anchor', 'middle')
-      .text(d => (this.isUnclaimed(d) ? '' : d.properties.NAME))
+      .text(d => (this.isUnclaimed(d) ? '' : d.properties.translations.nl))
       .style('cursor', 'pointer')
       .call(d3.drag().on('start', this.dragCountryName.bind(this)))
       .on('contextmenu', this.countryRightClick.bind(this))
