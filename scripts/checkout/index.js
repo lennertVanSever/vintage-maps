@@ -111,18 +111,45 @@ export const getMapHtml = () => {
       ${links}
       <style>
         #subWrapper {
+          height: 100%;
+          width: 100% !important;
           position: absolute;
           left: 0px;
           right: 0px;
-          margin: auto;
-          margin-top: 10px;
-          height: calc(100% - 50px) !important;
-          width: calc(100% - 70px) !important;
+          top: 0;
+          box-shadow: none !important;
+          margin: 0px !important;
+          height: 100% !important;
+          width: 100% !important;
           page-break-inside: avoid;
         }
+        .subWrapperlandscape {
+          padding: 0.6vh 0.6vw 1vh 0.6vw !important;
+        }
         #firstBorder {
+          padding: 0.2vw !important;
           width: 100% !important;
-          height: 100% !important;
+          height: calc(100% - 1vw - 10px) !important;
+          border: 0.15vw solid var(--black) !important;
+        }
+        #secondBorder {
+          border: 0.08vw solid var(--black) !important;
+        }
+        #title {
+          font-size: 1vw !important;
+        }
+        .subWrapperportrait {
+          padding: 0.6vw 1.2vw 2vw 1.2vw !important;
+        }
+        .subWrapperportrait #title {
+          font-size: 2vw !important;
+        }
+        .subWrapperportrait #secondBorder {
+          border: 0.16vw solid var(--black) !important;
+        }
+        .subWrapperportrait #firstBorder {
+          padding: 0.4vw !important;
+          border: 0.3vw solid var(--black) !important;
         }
         * {
           page-break-inside: avoid;
@@ -136,6 +163,7 @@ export const getMapHtml = () => {
 };
 
 export const generateMapUrl = async printExactSize => {
+  console.log(getMapHtml());
   try {
     dispatchCustomEvent('mapUrl', {
       data: null,

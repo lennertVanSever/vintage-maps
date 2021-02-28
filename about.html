@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#eae1ba">
+  <meta name="msapplication-TileColor" content="#eae1ba">
+  <meta name="theme-color" content="#eae1ba">
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('serviceworker.js');
+    };
+  </script>
+  <style>
+    :root {
+      /* define these values through JS */
+      --margin-1: 2px;
+      --margin-2: 4px;
+      --margin-3: 8px;
+      --margin-4: 12px;
+      --margin-5: 16px;
+      --margin-6: 24px;
+      --margin-7: 32px;
+      --margin-8: 48px;
+      --margin-9: 64px;
+      --black: #534b3e;
+      --red: #d65d55;
+      --breakpoint-1: 600px;
+      --oceanOpacity: 0.5;
+      --countryOpacity: 0.09;
+      --body: #e6cda1;
+      --ocean: #e6cda1;
+      --countryLabel: #534b3e;
+      --cityLabel: #534b3e;
+      --outsideBorder: #8c8c8c;
+      --graticule: #b1b1b1;
+      --selectedCity: #d65d55;
+      --rivers: #146b8d;
+      --border-0: #93a671;
+      --border-1: #e0bc4a;
+      --border-2: #d65d55;
+      --border-3: #e2ada5;
+      --border-4: #706d74;
+      --border-5: #b27f50;
+      --border-6: #ac9e9d;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      color: var(--black);
+    }
+
+    html,
+    body {
+      background-color: var(--body);
+      width: 100vw;
+      overflow-x: hidden;
+    }
+
+    main {
+      font-family: Arial, Helvetica, sans-serif;
+      width: 100vw;
+      height: calc(100vh - 26px);
+    }
+  </style>
+</head>
+
+<body>
+  <navigation-header></navigation-header>
+  <main>
+    Put fancy marketing here
+  </main>
+  <script type="module" src="./scripts/index.js"></script>
+
+</body>

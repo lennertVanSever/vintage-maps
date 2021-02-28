@@ -149,7 +149,7 @@ class Section extends ShadowElement {
             align-items: center;
             flex-direction: column;
             border-left: 1px solid var(--black);
-            height: 100vh;
+            height: calc(100vh - var(--height-header));
             overflow: auto;
             position: relative;
           }

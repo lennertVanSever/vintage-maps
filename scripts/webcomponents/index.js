@@ -1,6 +1,5 @@
 import './selectElements.js';
 import './sidePanel.js';
-import './mapWrapper.js';
 import './textInput.js';
 import './toggleSwitches.js';
 import './rangeInputs.js';
@@ -12,3 +11,4 @@ import './expandContent.js';
 import './radioInputs.js';
 import './editColors.js';
 import './spinningWorld.js';
+import './navigation.js';
