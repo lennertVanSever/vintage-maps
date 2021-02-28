@@ -111,18 +111,21 @@ export const getMapHtml = () => {
       ${links}
       <style>
         #subWrapper {
+          height: 100%;
+          width: 100% !important;
           position: absolute;
           left: 0px;
           right: 0px;
-          margin: auto;
-          margin-top: 10px;
-          height: calc(100% - 50px) !important;
-          width: calc(100% - 70px) !important;
+          top: 0;
+          box-shadow: none !important;
+          margin: 0px !important;
+          height: 100% !important;
+          width: 100% !important;
           page-break-inside: avoid;
         }
         #firstBorder {
           width: 100% !important;
-          height: 100% !important;
+          height: calc(100% - 30px) !important;
         }
         * {
           page-break-inside: avoid;
