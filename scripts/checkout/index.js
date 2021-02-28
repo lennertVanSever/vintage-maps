@@ -123,9 +123,33 @@ export const getMapHtml = () => {
           width: 100% !important;
           page-break-inside: avoid;
         }
+        .subWrapperlandscape {
+          padding: 0.6vh 0.6vw 1vh 0.6vw !important;
+        }
         #firstBorder {
+          padding: 0.2vw !important;
           width: 100% !important;
-          height: calc(100% - 30px) !important;
+          height: calc(100% - 1vw - 10px) !important;
+          border: 0.15vw solid var(--black) !important;
+        }
+        #secondBorder {
+          border: 0.08vw solid var(--black) !important;
+        }
+        #title {
+          font-size: 1vw !important;
+        }
+        .subWrapperportrait {
+          padding: 0.6vw 1.2vw 2vw 1.2vw !important;
+        }
+        .subWrapperportrait #title {
+          font-size: 2vw !important;
+        }
+        .subWrapperportrait #secondBorder {
+          border: 0.16vw solid var(--black) !important;
+        }
+        .subWrapperportrait #firstBorder {
+          padding: 0.4vw !important;
+          border: 0.3vw solid var(--black) !important;
         }
         * {
           page-break-inside: avoid;
