@@ -136,6 +136,7 @@ export const getMapHtml = () => {
 };
 
 export const generateMapUrl = async printExactSize => {
+  console.log(getMapHtml());
   try {
     dispatchCustomEvent('mapUrl', {
       data: null,
