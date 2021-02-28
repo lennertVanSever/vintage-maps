@@ -11,3 +11,4 @@ import './keyValue.js';
 import './expandContent.js';
 import './radioInputs.js';
 import './editColors.js';
+import './spinningWorld.js';

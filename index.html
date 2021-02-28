@@ -12,6 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Bellefair&display=swap" rel="stylesheet">
   <meta name="msapplication-TileColor" content="#eae1ba">
   <meta name="theme-color" content="#eae1ba">
+  <script async src="https://js.stripe.com/v3/"></script>
 
   <script>
     if ('serviceWorker' in navigator) {
@@ -131,6 +132,16 @@
       justify-content: center;
     }
 
+    #downloadLink {
+      font-weight: bold;
+    }
+    h3 {
+      margin-top: var(--margin-4);
+    }
+    p {
+      margin-top: var(--margin-3);
+    }
+
     @media only screen and (max-width:768px) {
       #mapSection {
         border-bottom: 1px solid var(--black);
@@ -228,6 +239,12 @@
       <radio-map-sizes></radio-map-sizes>
       <radio-map-material></radio-map-material>
     </customize-section>
+    <prepare-download-section>
+      <h3>Before you can download your map</h3>
+      <p>We charge a small fee of €5. Before you take a screenshot, consider that this PDF download will always have a better quality.</p>
+      <p>Vintage Maps is developed by a single web developer with a passion for geography and history, it took countless evenings to create this service, I absolutely appreciate your contribution.</p>
+      <p>When you press the checkout button below, you will be redirected to a payment page. If successful you will be able to download your custom map</p>
+    </prepare-download-section>
     <order-section>
       <text-input name="email" labelText="Email"></text-input>
       <text-input name="name" labelText="Full name"></text-input>
@@ -237,10 +254,18 @@
       <country-select></country-select>
     </order-section>
     <checkout-section>
-      <img style="position: absolute; left: 0; right: 0; top: 0; margin: auto; margin-top: 20px;" id="#loading"
-        src="./loading.svg" />
+      <spinning-world/>
       <!-- Dynamic -->
     </checkout-section>
+    <download-success-section>
+      <h3>✅ &nbsp;Payment complete</h3>
+      <p>Thank you, your payment has been succesful. You can download your map with the link below.</p>
+      <a target="_blank" id="downloadLink">Download map</a> <!-- Href is dynamically set -->
+    </download-success-section>
+    <download-fail-section>
+      <h3>⚠️ &nbsp;Something went wrong</h3>
+      <p>Unfortunately we couldn't handle your payment, do you want to try again?</p>
+    </download-fail-section>
     <order-status-section></order-status-section>
   </main>
   <script type="module" src="./scripts/index.js"></script>

@@ -30,4 +30,16 @@ router.on('/status-order', () => {
   openSection('/status-order');
 });
 
+router.on('/prepare-download', () => {
+  openSection('/prepare-download');
+});
+
+router.on('/download-success', () => {
+  openSection('/download-success');
+});
+
+router.on('/download-fail', () => {
+  openSection('/download-fail');
+});
+
 router.resolve();

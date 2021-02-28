@@ -4,8 +4,14 @@ import {
   getOrderDetails,
   goToPayment,
   orderPrint,
+  stripeCheckout,
 } from '../checkout';
-import { dispatchCustomEvent, fallBackTitle, router } from '../utils';
+import {
+  dispatchCustomEvent,
+  fallBackTitle,
+  initialUrl,
+  router,
+} from '../utils';
 import { ShadowElement } from './shadowElement.js';
 
 class Section extends ShadowElement {
@@ -192,7 +198,8 @@ class CustomizeSection extends Section {
   }
 
   onClickFirstButton() {
-    console.info('reset');
+    generateMapUrl(this.product.printExactSize);
+    router.navigate(`/prepare-download${window.location.search}`);
   }
 
   get sectionRoute() {
@@ -200,7 +207,7 @@ class CustomizeSection extends Section {
   }
 
   get firstButtonText() {
-    return 'Reset';
+    return 'Download';
   }
 
   get secondButtonText() {
@@ -511,3 +518,111 @@ class OrderStatusSection extends Section {
 }
 
 window.customElements.define('order-status-section', OrderStatusSection);
+
+class PrepareDownloadSection extends Section {
+  constructor() {
+    super();
+    window.addEventListener('mapUrl', this.handleMapUrlChange.bind(this));
+    this.pdfFile = '';
+  }
+
+  handleMapUrlChange(event) {
+    if (event.detail.state === 'LOADING') {
+      this.pdfFile = 'LOADING';
+    }
+    if (event.detail.state === 'SUCCESS') {
+      this.pdfFile = event.detail.data.fileLink;
+      if (this.checkoutWhenPdfFileIsReady) {
+        this.stripeCheckout();
+      }
+    }
+  }
+
+  onClickSecondButton() {
+    if (this.pdfFile === 'LOADING') {
+      this.checkoutWhenPdfFileIsReady = true;
+      this.inputElements.innerHTML = /* html */ `<spinning-world></spinning-world>`;
+    } else {
+      this.stripeCheckout();
+    }
+  }
+
+  get sectionRoute() {
+    return '/prepare-download';
+  }
+
+  stripeCheckout() {
+    stripeCheckout(this.pdfFile);
+  }
+
+  onClickFirstButton() {
+    router.navigate(`/${window.location.search}`);
+  }
+
+  get firstButtonText() {
+    return 'Back';
+  }
+
+  get secondButtonText() {
+    return 'Checkout €5';
+  }
+}
+
+window.customElements.define(
+  'prepare-download-section',
+  PrepareDownloadSection
+);
+
+class DownloadSuccess extends Section {
+  get sectionRoute() {
+    return '/download-success';
+  }
+
+  async handleExtraOpenSection() {
+    document
+      .querySelector('#downloadLink')
+      .setAttribute('href', initialUrl.searchParams.get('pdfFile'));
+  }
+
+  onClickSecondButton() {
+    router.navigate(`/${window.location.search}`);
+  }
+
+  onClickFirstButton() {
+    router.navigate(`/`);
+  }
+
+  get firstButtonText() {
+    return 'New map';
+  }
+
+  get secondButtonText() {
+    return 'Same map';
+  }
+}
+
+window.customElements.define('download-success-section', DownloadSuccess);
+
+class DownloadFail extends Section {
+  get sectionRoute() {
+    return '/download-fail';
+  }
+
+  onClickSecondButton() {
+    router.navigate(`/${window.location.search}`);
+  }
+
+  onClickFirstButton() {
+    router.navigate(`/${window.location.search}`);
+  }
+
+  get firstButtonText() {
+    return 'New map';
+  }
+
+  get secondButtonText() {
+    return 'Try again';
+  }
+}
+
+window.customElements.define('download-fail-section', DownloadFail);
