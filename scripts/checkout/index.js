@@ -225,3 +225,34 @@ class CalculatePrice {
 setTimeout(() => {
   new CalculatePrice(); // otherwise we get initialize error
 }, 0);
+
+export const stripeCheckout = pdfFile => {
+  const stripe = Stripe(
+    'pk_test_51IPXmRAyNgTukX9zBreHfqpRKgCO8c5oDkpNHQxnTVy9xDY5D1TP8o9tax4ZmgAYSo3fGFpOMpEatP5DxCiAWIjR001cHiZQwx'
+  );
+
+  fetch(`${serverUrl}/pay-downloaded-map`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      pdfFile,
+      searchParameters: window.location.search,
+    }),
+  })
+    .then(response => {
+      return response.json();
+    })
+    .then(session => {
+      return stripe.redirectToCheckout({ sessionId: session.id });
+    })
+    .then(result => {
+      if (result.error) {
+        alert(result.error.message);
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+};

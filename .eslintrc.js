@@ -7,7 +7,8 @@ module.exports = {
     sourceType: "module"
   },
   globals: {
-    d3: true
+    d3: true,
+    Stripe: true
   },
   overrides: [
     {

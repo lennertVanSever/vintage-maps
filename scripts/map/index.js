@@ -102,7 +102,6 @@ export class Map {
   set countryFillOpacity(countryFillOpacity) {
     this._countryFillOpacity = countryFillOpacity;
     if (this.zoomFactor) {
-      console.log(countryFillOpacity);
       d3.selectAll('.insideFill').attr('opacity', countryFillOpacity);
     }
   }
