@@ -1,6 +1,5 @@
 import * as d3 from 'd3';
 import * as d3GeoProjection from 'd3-geo-projection';
-import { projectionNames, years } from '../config';
 import {
   addParametersToURL,
   addParameterToURL,
@@ -20,7 +19,7 @@ export class Map {
     this.svg.selectAll('*').remove();
     this.svgWidth = pixelToNumber(this.svg.style('width'));
     this.svgHeight = pixelToNumber(this.svg.style('height'));
-    this.svg.attr('viewBox', [0, 0, this.svgWidth, this.svgHeight]);
+    this.svg.attr('viewBox', [0, -200, 980, 920]);
     this.group = this.svg.append('g');
     this.setInitialSubGroups();
     this.setInitialTransform();
@@ -30,7 +29,6 @@ export class Map {
     this.maximumZoom = 40;
     this.citySize = initial.citySize;
     this.language = initial.language;
-    // this.citySize = 10;
     this.graticuleGapSize = initial.graticuleGapSize;
     this.graticuleLineSize = initial.graticuleLineSize;
     this.zoomController = d3.zoom();
@@ -44,7 +42,7 @@ export class Map {
   }
 
   windowResize() {
-    this.svg.attr('viewBox', [0, 0, this.svgWidth, this.svgHeight]);
+    // this.svg.attr('viewBox', [0, 0, this.svgWidth, this.svgHeight]);
   }
 
   set year(newYear) {
@@ -160,9 +158,9 @@ export class Map {
 
   setInitialTransform() {
     this.transform = {
-      k: getInitialUrlParameter('k') || this.svgWidth / 1400,
-      x: getInitialUrlParameter('x') || this.svgWidth / 8,
-      y: getInitialUrlParameter('y') || this.svgWidth / 5,
+      k: getInitialUrlParameter('k') || 1,
+      x: getInitialUrlParameter('x') || 0,
+      y: getInitialUrlParameter('y') || 0,
     };
   }
 
