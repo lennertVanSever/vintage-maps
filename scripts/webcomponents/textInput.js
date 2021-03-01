@@ -1,13 +1,12 @@
-import { dispatchCustomEvent, initial } from '../utils';
+import { addParameterToURL, dispatchCustomEvent, initial } from '../utils';
 import { ShadowElement } from './shadowElement.js';
 import { formElementStyle, labelStyle } from './sharedStyle.js';
 
 class TextInput extends ShadowElement {
   constructor() {
     super();
-    this.shadowRoot
-      .querySelector('input')
-      .addEventListener('change', this.change.bind(this));
+    this.input = this.shadowRoot.querySelector('input');
+    this.input.addEventListener('change', this.change.bind(this));
     window.addEventListener('validateInput', this.handleValidation.bind(this));
   }
 
@@ -75,18 +74,22 @@ window.customElements.define('text-input', TextInput);
 class TitleInput extends TextInput {
   constructor() {
     super();
-    this.shadowRoot
-      .querySelector('input')
-      .addEventListener('keyup', this.keyUp);
+    this.input.addEventListener('keyup', this.keyUp);
+    this.keyUp({ target: { value: initial.title } });
+  }
+
+  change(event) {
+    addParameterToURL('title', event.target.value);
   }
 
   orderSubmit() {
     // console.log(this.name);
   }
 
-  keyUp(event) {
+  keyUp({ target: { value } }) {
+    document.getElementById('title').innerText = value;
     dispatchCustomEvent('updateMapTitle', {
-      value: event.target.value,
+      value,
     });
   }
 

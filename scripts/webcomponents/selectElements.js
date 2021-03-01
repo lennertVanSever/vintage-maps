@@ -2,7 +2,7 @@
 
 import { countries, fonts, languages, projectionNames, years } from '../config';
 import { map } from '../index.js';
-import { dispatchCustomEvent, initialUrl } from '../utils';
+import { addParameterToURL, dispatchCustomEvent, initial } from '../utils';
 import { ShadowElement } from './shadowElement.js';
 import { formElementStyle, labelStyle } from './sharedStyle.js';
 
@@ -83,7 +83,7 @@ export class YearSelect extends SelectElement {
   }
 
   get value() {
-    return initialUrl.searchParams.get('year');
+    return initial.year;
   }
 
   change(event) {
@@ -110,7 +110,7 @@ class ProjectionSelect extends SelectElement {
   }
 
   get value() {
-    return initialUrl.searchParams.get('projection');
+    return initial.projection;
   }
 
   change(event) {
@@ -189,21 +189,31 @@ class LanguageSelect extends SelectElement {
   }
 
   get value() {
-    return 'en';
+    return initial[this.name];
   }
 
   get name() {
     return 'language';
   }
 
-  change(event) {
-    map.language = event.target.value;
+  change({ target: { value } }) {
+    addParameterToURL(this.name, value);
+    map.language = value;
   }
 }
 
 window.customElements.define('language-select', LanguageSelect);
 
 class FontSelect extends SelectElement {
+  constructor() {
+    super();
+    this.change({
+      target: {
+        value: this.value,
+      },
+    });
+  }
+
   get labelText() {
     return 'Font family';
   }
@@ -220,15 +230,16 @@ class FontSelect extends SelectElement {
   }
 
   get value() {
-    return 'Bellefair';
+    return initial[this.name];
   }
 
   get name() {
     return 'font';
   }
 
-  change(event) {
-    const newFont = event.target.value;
+  change({ target: { value } }) {
+    addParameterToURL(this.name, value);
+    const newFont = value;
     const headID = document.getElementsByTagName('head')[0];
     const link = document.createElement('link');
     link.type = 'text/css';

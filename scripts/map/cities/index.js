@@ -1,11 +1,7 @@
 /* eslint-disable max-classes-per-file */
 import * as d3 from 'd3';
-import { isLocalHost } from '../../utils';
-import {
-  addParametersToURL,
-  camalize,
-  resetAlreadySelected,
-} from '../utils.js';
+import { addParametersToURL, isLocalHost } from '../../utils';
+import { camalize, resetAlreadySelected } from '../utils.js';
 
 class ModifyCityData {
   constructor(data, givenYear) {

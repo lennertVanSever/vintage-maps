@@ -1,5 +1,6 @@
 /* eslint-disable max-classes-per-file */
 import { map } from '../index.js';
+import { addParameterToURL, initial } from '../utils';
 import { ShadowElement } from './shadowElement.js';
 import { labelStyle } from './sharedStyle.js';
 
@@ -11,10 +12,19 @@ class ToggleSwitch extends ShadowElement {
       .addEventListener('change', this.change.bind(this));
   }
 
-  updateStatusText(event) {
-    let newText = 'Off';
-    if (event.target.checked) newText = 'On';
+  updateStatusText({ target: { checked } }) {
+    let newText = this.offText;
+    if (checked) newText = this.onText;
     this.shadowRoot.getElementById('statusText').innerText = newText;
+    this.shadowRoot.querySelector('input').checked = checked;
+  }
+
+  get offText() {
+    return 'Hide';
+  }
+
+  get onText() {
+    return 'Show';
   }
 
   get htmlString() {
@@ -102,7 +112,7 @@ class ToggleSwitch extends ShadowElement {
             <input checked type="checkbox">
             <span class="slider round"></span>
           </div>
-          <div id="statusText">On</div>
+          <div id="statusText">Show</div>
         </div>
       </label>
      `;
@@ -112,6 +122,26 @@ class ToggleSwitch extends ShadowElement {
 window.customElements.define('toggle-switch', ToggleSwitch);
 
 class HideOrShowToggle extends ToggleSwitch {
+  constructor() {
+    super();
+    setTimeout(() => {
+      this.showOrHideElement({
+        target: {
+          checked: this.initialChecked,
+        },
+      });
+      this.updateStatusText({
+        target: {
+          checked: this.initialChecked,
+        },
+      });
+    }, 1000);
+  }
+
+  get elementToHideSelectorWithoutHashtag() {
+    return this.elementToHideSelector.replace('#', '');
+  }
+
   get elementToHideSelector() {
     return this.getAttribute('elementToHideSelector');
   }
@@ -120,8 +150,16 @@ class HideOrShowToggle extends ToggleSwitch {
     return this.getAttribute('labelText');
   }
 
-  showOrHideElement(event) {
-    map.showOrHideElements(event.target.checked, this.elementToHideSelector);
+  get initialChecked() {
+    return (
+      // eslint-disable-next-line eqeqeq
+      initial.hideOrShow[this.elementToHideSelectorWithoutHashtag] == 'true'
+    );
+  }
+
+  showOrHideElement({ target: { checked } }) {
+    addParameterToURL(this.elementToHideSelectorWithoutHashtag, checked);
+    map.showOrHideElements(checked, this.elementToHideSelector);
   }
 
   change(event) {

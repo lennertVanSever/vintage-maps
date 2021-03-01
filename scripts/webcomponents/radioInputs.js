@@ -1,5 +1,10 @@
 import colors from '../map/colors';
-import { dispatchCustomEvent, initial } from '../utils';
+import {
+  addParametersToURL,
+  addParameterToURL,
+  dispatchCustomEvent,
+  initial,
+} from '../utils';
 import { ShadowElement } from './shadowElement.js';
 import { labelStyleRaw } from './sharedStyle';
 
@@ -13,6 +18,11 @@ class RadioInputs extends ShadowElement {
     this.shadowRoot.querySelectorAll('input').forEach(input => {
       input.addEventListener('change', this.handleInputChange.bind(this));
     });
+  }
+
+  getOptionLabelFromValue(value) {
+    return this.options.find(({ value: optionValue }) => optionValue === value)
+      .label;
   }
 
   get htmlString() {
@@ -152,6 +162,11 @@ class RadioInputs extends ShadowElement {
 window.customElements.define('radio-input', RadioInputs);
 
 class RadioMapDirection extends RadioInputs {
+  constructor() {
+    super();
+    this.handleInputChange({ target: { value: this.value } });
+  }
+
   set value(value) {
     this._value = value;
   }
@@ -169,6 +184,7 @@ class RadioMapDirection extends RadioInputs {
   }
 
   handleInputChange({ target: { value } }) {
+    addParameterToURL('direction', value);
     dispatchCustomEvent('directionChange', { value });
   }
 
@@ -191,13 +207,18 @@ window.customElements.define('radio-map-direction', RadioMapDirection);
 class RadioMapSizes extends RadioInputs {
   constructor() {
     super();
+    this.changeDirection({
+      detail: {
+        value: initial.direction,
+      },
+    });
     window.addEventListener('directionChange', this.changeDirection.bind(this));
   }
 
   changeDirection({ detail: { value: direction } }) {
     const previousValueIndex = this.valueIndex;
     this.direction = direction;
-    this.value = this.options[previousValueIndex].value;
+    if (previousValueIndex) this.value = this.options[previousValueIndex].value;
     this.shadowRoot.querySelector('#inputWrapper').innerHTML = this.optionsHtml;
     this.addEventListeners();
   }
@@ -207,6 +228,10 @@ class RadioMapSizes extends RadioInputs {
   }
 
   set value(value) {
+    addParametersToURL({
+      sizeValue: value,
+      sizeLabel: this.getOptionLabelFromValue(value),
+    });
     this._value = value;
     dispatchCustomEvent('sizeChange', { value, label: this.valueLabel });
   }
@@ -224,7 +249,7 @@ class RadioMapSizes extends RadioInputs {
   }
 
   get isLandscape() {
-    return this.direction === initial.direction || this.direction === undefined;
+    return this.direction === 'landscape' || this.direction === undefined;
   }
 
   get options() {
@@ -262,6 +287,10 @@ class RadioMapMaterial extends RadioInputs {
   }
 
   handleInputChange({ target: { value } }) {
+    addParametersToURL({
+      materialValue: value,
+      materialLabel: this.getOptionLabelFromValue(value),
+    });
     this.value = value;
     dispatchCustomEvent('materialChange', { value, label: this.valueLabel });
   }
@@ -293,7 +322,7 @@ window.customElements.define('radio-map-material', RadioMapMaterial);
 class RadioMapStyle extends RadioInputs {
   constructor() {
     super();
-    this.setColorVariables('defaultColors');
+    this.setColorVariables(this.value);
   }
 
   set value(value) {
@@ -325,6 +354,7 @@ class RadioMapStyle extends RadioInputs {
   }
 
   handleInputChange({ target: { value } }) {
+    addParameterToURL('style', value);
     this.setColorVariables(value);
     dispatchCustomEvent('styleChange', { value });
   }
@@ -334,20 +364,6 @@ class RadioMapStyle extends RadioInputs {
       label: key.replace('Colors', ''),
       value: key,
     }));
-    /* return [
-      {
-        label: 'Default',
-        value: 'defaultColors',
-      },
-      {
-        label: 'School',
-        value: 'schoolColors',
-      },
-      {
-        label: 'Minimalist',
-        value: 'minimalistColors',
-      },
-    ]; */
   }
 }
 
