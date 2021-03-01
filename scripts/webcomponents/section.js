@@ -9,6 +9,7 @@ import {
 import {
   dispatchCustomEvent,
   fallBackTitle,
+  initial,
   initialUrl,
   router,
 } from '../utils';
@@ -177,7 +178,7 @@ class CustomizeSection extends Section {
   handleProductChange({ detail }) {
     this.product = detail;
     this.secondButtonText = `€${this.product.price} • Order`;
-    this.title = fallBackTitle;
+    this.title = initial.title;
     window.addEventListener('updateMapTitle', this.updateMapTitle.bind(this));
   }
 

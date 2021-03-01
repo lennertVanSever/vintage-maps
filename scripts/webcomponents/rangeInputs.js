@@ -1,7 +1,7 @@
 // eslint-disable-next-line max-classes-per-file
 import { map } from '../index.js';
 import style from '../map/colors';
-import { saveStyle } from '../utils';
+import { addParameterToURL, initial, saveStyle } from '../utils';
 import { ShadowElement } from './shadowElement.js';
 import { labelStyle } from './sharedStyle.js';
 
@@ -14,6 +14,7 @@ class RangeInput extends ShadowElement {
       'input',
       this.handleInputChange.bind(this)
     );
+    this.rangeInput.addEventListener('change', this.handleChange.bind(this));
   }
 
   handleInputChange(event) {
@@ -35,7 +36,7 @@ class RangeInput extends ShadowElement {
   }
 
   get value() {
-    return this.getAttribute('value');
+    return this.getAttribute('value') || initial[this.mapProperty];
   }
 
   get step() {
@@ -97,6 +98,10 @@ class RangeMapProperty extends RangeInput {
   handleChildInputChange() {
     map[this.mapProperty] = this.value;
   }
+
+  handleChange() {
+    addParameterToURL(this.mapProperty, this.value);
+  }
 }
 
 window.customElements.define('range-map-property', RangeMapProperty);
@@ -105,7 +110,6 @@ class RangeCssVariable extends RangeInput {
     super();
 
     this.setCssVariable(this.value);
-    this.rangeInput.addEventListener('change', this.handleChange.bind(this));
     window.addEventListener('styleChange', this.styleChanged.bind(this));
   }
 

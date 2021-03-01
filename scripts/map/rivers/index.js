@@ -1,10 +1,6 @@
 import * as d3 from 'd3';
-import { defaultColors } from '../colors.js';
-import {
-  addParametersToURL,
-  camalize,
-  resetAlreadySelected,
-} from '../utils.js';
+import { addParametersToURL } from '../../utils';
+import { camalize, resetAlreadySelected } from '../utils.js';
 
 export class Rivers {
   constructor(map) {

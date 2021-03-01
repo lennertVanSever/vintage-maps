@@ -1,18 +1,17 @@
 import * as d3 from 'd3';
 import * as d3GeoProjection from 'd3-geo-projection';
 import { projectionNames, years } from '../config';
-import { initialUrl } from '../utils';
+import {
+  addParametersToURL,
+  addParameterToURL,
+  getInitialUrlParameter,
+  initial,
+} from '../utils';
 import { Cities } from './cities/index.js';
 import { Rivers } from './rivers/index.js';
 import { Countries } from './countries.js';
 import { Graticule } from './graticule.js';
-import {
-  addParametersToURL,
-  addParameterToURL,
-  debounce,
-  mapRange,
-  pixelToNumber,
-} from './utils.js';
+import { debounce, mapRange, pixelToNumber } from './utils.js';
 
 export class Map {
   constructor() {
@@ -25,20 +24,18 @@ export class Map {
     this.group = this.svg.append('g');
     this.setInitialSubGroups();
     this.setInitialTransform();
-    this.year = initialUrl.searchParams.get('year') || years[0];
-    this.borderWidth = 10;
+    this.year = initial.year;
+    this.borderWidth = initial.borderWidth;
     this.minimumZoom = 0.2;
     this.maximumZoom = 40;
-    this.citySize = 3;
-    this.language = 'en';
+    this.citySize = initial.citySize;
+    this.language = initial.language;
     // this.citySize = 10;
-    this.countryFillOpacity = 0.15;
-    this.graticuleGapSize = 50;
-    this.graticuleLineSize = 1;
+    this.graticuleGapSize = initial.graticuleGapSize;
+    this.graticuleLineSize = initial.graticuleLineSize;
     this.zoomController = d3.zoom();
 
-    this.projectionName =
-      initialUrl.searchParams.get('projection') || projectionNames[0];
+    this.projectionName = initial.projectionName;
     this.reset();
 
     this.bouncedSaveZoomInUrl = this.saveZoomInUrl();
@@ -97,17 +94,6 @@ export class Map {
 
   get citySize() {
     return this._citySize;
-  }
-
-  set countryFillOpacity(countryFillOpacity) {
-    this._countryFillOpacity = countryFillOpacity;
-    if (this.zoomFactor) {
-      d3.selectAll('.insideFill').attr('opacity', countryFillOpacity);
-    }
-  }
-
-  get countryFillOpacity() {
-    return this._countryFillOpacity;
   }
 
   set graticuleGapSize(graticuleGapSize) {
@@ -174,9 +160,9 @@ export class Map {
 
   setInitialTransform() {
     this.transform = {
-      k: initialUrl.searchParams.get('k') || this.svgWidth / 1400,
-      x: initialUrl.searchParams.get('x') || this.svgWidth / 8,
-      y: initialUrl.searchParams.get('y') || this.svgWidth / 5,
+      k: getInitialUrlParameter('k') || this.svgWidth / 1400,
+      x: getInitialUrlParameter('x') || this.svgWidth / 8,
+      y: getInitialUrlParameter('y') || this.svgWidth / 5,
     };
   }
 

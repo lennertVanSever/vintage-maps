@@ -1,12 +1,7 @@
 import 'd3-drag';
 import * as d3 from 'd3';
-import { isLocalHost } from '../utils';
-import {
-  addParametersToURL,
-  camalize,
-  getCountryId,
-  resetAlreadySelected,
-} from './utils.js';
+import { addParametersToURL, isLocalHost } from '../utils';
+import { camalize, getCountryId } from './utils.js';
 
 export class Countries {
   constructor(map) {
