@@ -1,12 +1,30 @@
 import { ShadowElement } from './shadowElement.js';
 
 class NavigationElement extends ShadowElement {
+  constructor() {
+    super();
+    window.addEventListener(
+      'updateUrlSearchQuery',
+      this.updateUrlSearchQuery.bind(this)
+    );
+  }
+
   get isActive() {
     return window.location.pathname === this.href;
   }
 
+  updateUrlSearchQuery() {
+    this.shadowRoot
+      .querySelector('a')
+      .setAttribute('href', this.hrefWithQueryParameters);
+  }
+
   get href() {
     return this.getAttribute('href');
+  }
+
+  get hrefWithQueryParameters() {
+    return `${this.href}${window.location.search}`;
   }
 
   get htmlString() {
@@ -30,7 +48,9 @@ class NavigationElement extends ShadowElement {
           }
         }
       </style>
-      <a href="${this.href}" class="${this.isActive ? 'active' : ''}">
+      <a href="${this.hrefWithQueryParameters}" class="${
+      this.isActive ? 'active' : ''
+    }">
         <slot></slot>
       </a>
      `;

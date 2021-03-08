@@ -38,5 +38,3 @@ export const debounce = (func, wait) => {
     timeout = setTimeout(later, wait);
   };
 };
-
-export const pixelToNumber = pixels => Number(pixels.replace('px', ''));

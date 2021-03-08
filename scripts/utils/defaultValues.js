@@ -31,4 +31,9 @@ export const initial = {
   language: getInitialUrlParameter('language') || 'en',
   font: getInitialUrlParameter('font') || 'Bellefair',
   projectionName: getInitialUrlParameter('projection') || projectionNames[0],
+  transform: {
+    k: getInitialUrlParameter('k') || 1,
+    x: getInitialUrlParameter('x') || 0,
+    y: getInitialUrlParameter('y') || 0,
+  },
 };

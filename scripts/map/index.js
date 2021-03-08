@@ -1,17 +1,12 @@
 import * as d3 from 'd3';
 import * as d3GeoProjection from 'd3-geo-projection';
-import {
-  addParametersToURL,
-  addParameterToURL,
-  getInitialUrlParameter,
-  initial,
-} from '../utils';
+import { addParametersToURL, addParameterToURL, initial } from '../utils';
 import { Cities } from './cities/index.js';
 import { Rivers } from './rivers/index.js';
 import { Countries } from './countries.js';
 import { Framework } from './framework.js';
 import { Graticule } from './graticule.js';
-import { debounce, mapRange, pixelToNumber } from './utils.js';
+import { debounce, mapRange } from './utils.js';
 
 export class Map {
   constructor() {
@@ -30,7 +25,7 @@ export class Map {
 
     this.mapContentGroup = this.svg.append('g');
     this.setInitialSubGroups();
-    this.setInitialTransform();
+    this.transform = initial.transform;
     this.year = initial.year;
     this.borderWidth = initial.borderWidth;
     this.minimumZoom = 0.2;
@@ -174,14 +169,6 @@ export class Map {
         .append('g')
         .attr('id', groupName);
     });
-  }
-
-  setInitialTransform() {
-    this.transform = {
-      k: getInitialUrlParameter('k') || 1,
-      x: getInitialUrlParameter('x') || 0,
-      y: getInitialUrlParameter('y') || 0,
-    };
   }
 
   async reset() {
