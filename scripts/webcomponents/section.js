@@ -193,13 +193,13 @@ class CustomizeSection extends Section {
         `Are you sure you want to order a map with the title "${this.title}"`
       )
     ) {
-      generateMapUrl(this.product.printExactSize);
+      generateMapUrl(this.product.printExactSize, 'PRINT');
       router.navigate(`/order${window.location.search}`);
     }
   }
 
   onClickFirstButton() {
-    generateMapUrl(this.product.printExactSize);
+    generateMapUrl(this.product.printExactSize, 'DOWNLOAD');
     router.navigate(`/prepare-download${window.location.search}`);
   }
 

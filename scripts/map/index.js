@@ -9,18 +9,26 @@ import {
 import { Cities } from './cities/index.js';
 import { Rivers } from './rivers/index.js';
 import { Countries } from './countries.js';
+import { Framework } from './framework.js';
 import { Graticule } from './graticule.js';
 import { debounce, mapRange, pixelToNumber } from './utils.js';
 
 export class Map {
   constructor() {
     this.svg = d3.select('svg');
-
     this.svg.selectAll('*').remove();
-    this.svgWidth = pixelToNumber(this.svg.style('width'));
-    this.svgHeight = pixelToNumber(this.svg.style('height'));
-    this.svg.attr('viewBox', [0, -200, 980, 920]);
-    this.group = this.svg.append('g');
+    this.bleedCorrections = {
+      '360mmx260mm': -120,
+      '660mmx460mm': -70,
+      '960mmx660mm': -50,
+      '260mmx360mm': 50,
+      '460mmx660mm': 25,
+      '660mmx960mm': 15,
+    };
+    this.direction = initial.direction;
+    this.setSvgDimension();
+
+    this.mapContentGroup = this.svg.append('g');
     this.setInitialSubGroups();
     this.setInitialTransform();
     this.year = initial.year;
@@ -32,17 +40,10 @@ export class Map {
     this.graticuleGapSize = initial.graticuleGapSize;
     this.graticuleLineSize = initial.graticuleLineSize;
     this.zoomController = d3.zoom();
-
     this.projectionName = initial.projectionName;
     this.reset();
 
     this.bouncedSaveZoomInUrl = this.saveZoomInUrl();
-
-    window.addEventListener('resize', this.windowResize.bind(this));
-  }
-
-  windowResize() {
-    // this.svg.attr('viewBox', [0, 0, this.svgWidth, this.svgHeight]);
   }
 
   set year(newYear) {
@@ -70,6 +71,19 @@ export class Map {
 
   get language() {
     return this._language;
+  }
+
+  set direction(newDirection) {
+    const previousDirection = this.direction;
+    this._direction = newDirection;
+    if (previousDirection) {
+      this.setSvgDimension();
+      this.framework.reset();
+    }
+  }
+
+  get direction() {
+    return this._direction;
   }
 
   set borderWidth(borderWidth) {
@@ -142,6 +156,10 @@ export class Map {
     return this._projectionName;
   }
 
+  get isExploreVersion() {
+    return this.svg.attr('data-explore');
+  }
+
   setInitialSubGroups() {
     this.subGroups = {};
     [
@@ -152,7 +170,9 @@ export class Map {
       'cities',
       'countryNames',
     ].forEach(groupName => {
-      this.subGroups[groupName] = this.group.append('g').attr('id', groupName);
+      this.subGroups[groupName] = this.mapContentGroup
+        .append('g')
+        .attr('id', groupName);
     });
   }
 
@@ -166,7 +186,11 @@ export class Map {
 
   async reset() {
     this.svg.selectAll('*').remove();
-    this.group = this.svg.append('g');
+    const superGroup = this.svg
+      .append('g')
+      .attr('clip-path', 'url(#mapContentClip)');
+
+    this.mapContentGroup = superGroup.append('g');
     this.setInitialSubGroups();
     this.render();
   }
@@ -174,6 +198,10 @@ export class Map {
   async render() {
     if (this.projectionName) {
       this.renderBackgroundRectangle();
+
+      this.framework = new Framework(this);
+      this.framework.render();
+
       this.graticule = new Graticule(this);
       this.graticule.render();
 
@@ -253,7 +281,7 @@ export class Map {
         minimum: this.minimumZoom,
         maximum: this.maximumZoom,
       };
-      this.group.attr('transform', this.transform);
+      this.mapContentGroup.attr('transform', this.transform);
     }
     if (this.previousZoomValue !== zoom.value || force) {
       if (zoom.value < 5) {
@@ -311,5 +339,22 @@ export class Map {
     } else {
       d3.selectAll(elementClassName).attr('display', 'none');
     }
+  }
+
+  addBleedCorrection(printSize) {
+    this.setSvgDimension(this.bleedCorrections[printSize]);
+    this.framework.reset();
+  }
+
+  setSvgDimension(bleedCorrection = 0) {
+    const width = 1109;
+    const height = (() => {
+      if (this.direction === 'landscape') {
+        return (width * 3) / 2;
+      }
+      return (width * 2) / 3;
+    })();
+    this.svgDimensions = [0, 0, height + bleedCorrection, width];
+    this.svg.attr('viewBox', this.svgDimensions);
   }
 }

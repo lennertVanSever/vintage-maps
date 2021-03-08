@@ -87,7 +87,6 @@ class TitleInput extends TextInput {
   }
 
   keyUp({ target: { value } }) {
-    document.getElementById('title').innerText = value;
     dispatchCustomEvent('updateMapTitle', {
       value,
     });

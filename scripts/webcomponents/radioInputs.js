@@ -1,3 +1,4 @@
+import { map } from '../index.js';
 import colors from '../map/colors';
 import {
   addParametersToURL,
@@ -184,6 +185,9 @@ class RadioMapDirection extends RadioInputs {
   }
 
   handleInputChange({ target: { value } }) {
+    setTimeout(() => {
+      map.direction = value;
+    }, 0);
     addParameterToURL('direction', value);
     dispatchCustomEvent('directionChange', { value });
   }

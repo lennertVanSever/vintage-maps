@@ -105,28 +105,17 @@
       color: var(--black);
     }
 
-    #firstBorder {
-      border: 3px solid var(--black);
-      padding: var(--margin-2);
-      box-sizing: border-box;
-    }
-
     #subWrapper {
       /* font-family: 'Bellefair'; */
-      padding: 5px 10px 10px 10px;
       box-shadow: 0px 0px 15px var(--black);
     }
 
-    .landscape {
-      --map-margin: 51px;
+    .subWrapperlandscape {
+      --map-margin: 33px;
       width: calc(100vw - var(--map-margin));
-      height: calc((100vw - var(--map-margin)) / 4 * 3);
+      height: calc((100vw - var(--map-margin)) / 3 * 2);
     }
 
-    .portrait {
-      width: calc(40vh / 4 * 3);
-      height: 40vh;
-    }
 
     #secondBorder {
       border: 1px solid var(--black);
@@ -149,8 +138,9 @@
     }
 
     @media only screen and (max-width:768px) {
-      #mapSection {
-        padding-bottom: var(--margin-2);
+      .subWrapperportrait {
+        width: calc(40vh / 3 * 2);
+        height: 40vh;
       }
     }
 
@@ -160,19 +150,17 @@
       }
 
       #subWrapper {
-        height: calc(100% - 20px);
-        --margin-map: 97px;
+        /* height: calc(100% - 20px); */
+        --margin-map: 60px;
         margin-top: 8px;
-      }
-
-      #firstBorder {
         height: calc(100vh - var(--margin-map));
       }
-      .landscape {
-        width: calc((100vh - var(--margin-map)) * 4 / 3);
+
+      .subWrapperlandscape {
+        width: calc((100vh - var(--margin-map)) * 3 / 2);
       }
-      .portrait {
-        width: calc((100vh - var(--margin-map)) * 3 / 4);
+      .subWrapperportrait {
+        width: calc((100vh - var(--margin-map)) * 2 / 3);
       }
 
 
@@ -194,23 +182,16 @@
       }
     }
 
-    @media only screen and (max-aspect-ratio: 363/244) and (min-width:768px) {
-      .landscape {
-        width: calc((100vw - 350px));
-        height: calc((100vw - 350px) / 4 * 3) !important;
-      }
-
+    @media only screen and (max-aspect-ratio: 1485/914) and (min-width:768px) {
       .subWrapperlandscape {
-        height: calc((100vw - 295px) / 4 * 3) !important;
+        width: calc((100vw - 350px));
+        height: calc((100vw - 350px) / 3 * 2) !important;
       }
     }
     @media only screen and (max-aspect-ratio: 175/183) and (min-width:768px) {
-      .portrait {
-        width: calc((100vw - 350px));
-        height: calc((100vw - 350px) / 3 * 4) !important;
-      }
       .subWrapperportrait {
-        height: calc((100vw - 320px) / 3 * 4) !important;
+        width: calc((100vw - 350px));
+        height: calc((100vw - 350px) / 2 * 3) !important;
       }
     }
   </style>
@@ -222,13 +203,8 @@
     <!-- <side-panel></side-panel> -->
     <section id="mapSection">
       <div id="subWrapper" class="subWrapperlandscape">
-        <div id="title">Change me</div>
-        <div id="firstBorder" class="landscape">
-          <div id="secondBorder">
-            <svg class="svg_wrapper">
-            </svg>
-          </div>
-        </div>
+        <svg class="svg_wrapper">
+        </svg>
       </div>
     </section>
     <customize-section>
@@ -285,16 +261,9 @@
   </main>
   <script type="module" src="./scripts/index.js"></script>
   <script>
-    
-    // window.addEventListener('updateMapTitle', ({ detail: { value }}) => {
-    //   document.getElementById('title').innerText = value;
-    // })
     window.addEventListener('directionChange', ({ detail: { value }}) => {
-      const firstBorder = document.getElementById('firstBorder');
       const subWrapper = document.getElementById('subWrapper');
-      firstBorder.removeAttribute('class');
       subWrapper.removeAttribute('class');
-      firstBorder.classList.add(value);
       subWrapper.classList.add(`subWrapper${value}`);
     })
   </script>
