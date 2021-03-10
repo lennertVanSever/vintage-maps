@@ -145,6 +145,7 @@ export class Map {
       this.rivers.changeProjection();
       this.cities.changeProjection();
       this.countries.changeProjection();
+      this.mountains.changeProjection();
     }
   }
 
@@ -162,10 +163,10 @@ export class Map {
       'backgroundRectangle',
       'countryBorders',
       'rivers',
-      'mountains',
       'graticuleCollection',
       'cities',
       'countryNames',
+      'mountains',
     ].forEach(groupName => {
       this.subGroups[groupName] = this.mapContentGroup
         .append('g')

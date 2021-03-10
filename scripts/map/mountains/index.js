@@ -1,10 +1,12 @@
 import * as d3 from 'd3';
-import { mapRange } from '../utils.js';
+import { isLocalHost } from '../../utils';
+import { camalize, getExtremes, isOverlapping } from '../utils.js';
 
 export class Mountains {
   constructor(map) {
     this.map = map;
     this.minimumScale = 0.03;
+    // this.minimumScale = 0.05;
     this.paths = {
       BIG: [
         'M37.2,13.6L32.6,22c-0.1,0.2-0.4,0.2-0.5,0L19.9,0.1c-0.1-0.2-0.4-0.2-0.5,0L0,34.9c-0.1,0.2,0,0.4,0.2,0.4h24.8h14.5h9.8c0.2,0,0.3-0.2,0.2-0.4L37.7,13.6C37.6,13.4,37.4,13.4,37.2,13.6z',
@@ -31,7 +33,7 @@ export class Mountains {
 
   async getData() {
     this.data = await d3.json(`./scripts/map/mountains/data.json`);
-    // this.countryData = await d3.json(`maps/test.geojson`);
+    // this.data = await d3.json(`./scripts/map/mountains/dataTest.json`);
   }
 
   resize({ zoomFactor }) {
@@ -59,7 +61,81 @@ export class Mountains {
     return this.map.projection([longitude, latitude]);
   }
 
+  async saveNewMountainData() {
+    if (isLocalHost) {
+      const responseRaw = await fetch(
+        'http://localhost:9000/modify_mountains',
+        {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            mountains: this.data,
+          }),
+        }
+      );
+      const response = await responseRaw.json();
+      console.info(response);
+    }
+  }
+
+  mountainRightClick(event, selectedMountain) {
+    event.preventDefault();
+    this.data.features = this.data.features.filter(mountain => {
+      return JSON.stringify(mountain) !== JSON.stringify(selectedMountain);
+    });
+    d3.selectAll(`#${this.getId(selectedMountain)}`).remove();
+    this.saveNewMountainData();
+  }
+
+  getId({ properties: { name } }) {
+    return `mountainPath${camalize(name)}`;
+  }
+
+  changeProjection() {
+    this.draw();
+  }
+
+  hideIfOverlapping() {
+    setTimeout(() => {
+      // to make it non blocking
+      const mountains = this.data.features.map(mountain => {
+        try {
+          const d3Element = d3.select(`#${this.getId(mountain)}`);
+          return {
+            d3Element,
+            extremes: getExtremes({
+              x: Number(d3Element.attr('x')),
+              y: Number(d3Element.attr('y')),
+              width: 0,
+              height: 0,
+            }),
+          };
+        } catch (e) {
+          return null;
+        }
+      });
+      const { map } = this;
+      d3.selectAll('.canOverlapElement').each(function (node) {
+        const extremesDominantElement = getExtremes(
+          d3.select(this).node().getBBox()
+        );
+        mountains.forEach(mountain => {
+          if (mountain) {
+            if (isOverlapping(extremesDominantElement, mountain.extremes)) {
+              mountain.d3Element.remove();
+            }
+          }
+        });
+        // const extremesMountain =
+        // console.log(node, getExtremes(d3.select(this).node().getBBox()));
+      });
+    }, 200);
+  }
+
   draw() {
+    this.map.subGroups.mountains.selectAll('*').remove();
     this.map.subGroups.mountains
       .append('g')
       .attr('class', 'mountains')
@@ -73,6 +149,10 @@ export class Mountains {
       })
       .append('path')
       .attr('class', 'mountainPaths')
+      .on('click', (_, d) => {
+        console.log(d);
+      })
+      .on('contextmenu', this.mountainRightClick.bind(this))
       .attr('d', ({ properties: { meters } }, index) => {
         const size = (() => {
           if (meters < 1500) {
@@ -85,7 +165,17 @@ export class Mountains {
         })();
         return this.paths[size][index % 3];
       })
+      .attr('x', d => {
+        const [x, y] = this.getProjectedCoordinates(d);
+        return x;
+      })
+      .attr('y', d => {
+        const [x, y] = this.getProjectedCoordinates(d);
+        return y;
+      })
+      .attr('id', this.getId)
       .attr('transform', `scale(${this.minimumScale})`)
       .attr('fill', 'var(--mountains)');
+    this.hideIfOverlapping();
   }
 }
