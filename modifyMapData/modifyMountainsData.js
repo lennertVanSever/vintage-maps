@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const { distance } = require('./utils/coordinates.js');
 
-const maximumDistanceInKm = 15;
+const maximumDistanceInKm = 25;
 
 mountains.features = mountains.features
   .map(

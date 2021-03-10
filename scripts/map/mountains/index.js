@@ -1,23 +1,10 @@
 import * as d3 from 'd3';
 import { mapRange } from '../utils.js';
 
-/*
-<?xml version="1.0" encoding="utf-8"?>
-  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1.5 1" style="enable-background:new 0 0 1.5 1;" xml:space="preserve">
-	<path id="small_1" d="M1.1,0.7L1.1,0.7L0.8,0.5c-0.1-0.1-0.3-0.1-0.4,0L0,1h0.8h0.4h0.3L1.2,0.7C1.1,0.7,1.1,0.7,1.1,0.7z"/>
-	<path id="small_2" d="M-1.1,0.6l-0.1,0.1l-0.1-0.1c-0.1-0.1-0.3-0.2-0.4,0L-1.9,1h0.5h0.5h0.5l-0.3-0.4C-0.9,0.5-1,0.5-1.1,0.6z"/>
-	<path id="small_3" d="M-3.9,1h0.3h0.4h0.8l-0.3-0.4c-0.1-0.2-0.4-0.1-0.5,0l-0.1,0.2l-0.1-0.1c0-0.1-0.1-0.1-0.2,0L-3.9,1z"/>
-	<path id="medium_1" d="M-5,0.7l-0.1,0.1c0,0,0,0,0,0l-0.4-0.5c0,0,0,0,0,0L-6.1,1c0,0,0,0,0,0h0.7h0.4h0.3c0,0,0,0,0,0L-5,0.7C-5,0.7-5,0.7-5,0.7z"/>
-	<path id="medium_2" d="M-7,0.3l-0.2,0.4c0,0,0,0,0,0l-0.2-0.4c0,0,0,0,0,0L-8,1c0,0,0,0,0,0h0.5H-7h0.5c0,0,0,0,0,0L-7,0.3C-7,0.3-7,0.3-7,0.3z"/>
-	<path id="medium_3" d="M-9.6,0.5L-9.9,1c0,0,0,0,0,0h0.3h0.4h0.7c0,0,0,0,0,0L-9,0.3c0,0,0,0,0,0l-0.3,0.5c0,0,0,0,0,0L-9.6,0.5C-9.6,0.5-9.6,0.5-9.6,0.5z"/>
-	<path id="big_1" d="M-11.1,0.4l-0.1,0.2c0,0,0,0,0,0L-11.6,0c0,0,0,0,0,0l-0.6,1c0,0,0,0,0,0h0.7h0.4h0.3c0,0,0,0,0,0L-11.1,0.4C-11,0.4-11,0.4-11.1,0.4z"/>
-	<path id="big_2_1_" d="M-13.2,0l-0.2,0.4c0,0,0,0,0,0L-13.7,0c0,0,0,0,0,0l-0.5,1c0,0,0,0,0,0h0.5h0.6h0.5c0,0,0,0,0,0L-13.2,0C-13.2,0-13.2,0-13.2,0z"/>
-	<path id="big_3_1_" d="M-15.7,0.2L-16.1,1c0,0,0,0,0,0h0.3h0.4h0.7c0,0,0,0,0,0l-0.6-1c0,0,0,0,0,0l-0.3,0.6c0,0,0,0,0,0L-15.7,0.2C-15.7,0.2-15.7,0.2-15.7,0.2z"/>
-</svg>
-*/
 export class Mountains {
   constructor(map) {
     this.map = map;
+    this.minimumScale = 0.03;
     this.paths = {
       BIG: [
         'M37.2,13.6L32.6,22c-0.1,0.2-0.4,0.2-0.5,0L19.9,0.1c-0.1-0.2-0.4-0.2-0.5,0L0,34.9c-0.1,0.2,0,0.4,0.2,0.4h24.8h14.5h9.8c0.2,0,0.3-0.2,0.2-0.4L37.7,13.6C37.6,13.4,37.4,13.4,37.2,13.6z',
@@ -47,6 +34,18 @@ export class Mountains {
     // this.countryData = await d3.json(`maps/test.geojson`);
   }
 
+  resize({ zoomFactor }) {
+    const scale = zoomFactor / 5;
+    if (this.minimumScale > scale) {
+      d3.selectAll('.mountainPaths').attr('transform', `scale(${scale})`);
+    } else {
+      d3.selectAll('.mountainPaths').attr(
+        'transform',
+        `scale(${this.minimumScale})`
+      );
+    }
+  }
+
   // changeProjection() {
   //   d3.selectAll('.river').attr('d', this.map.geoPath);
   //   d3.selectAll('.riverShadow').attr('d', this.map.geoPath);
@@ -67,12 +66,13 @@ export class Mountains {
       .selectAll('path')
       .data(this.data.features)
       .enter()
+      .append('g')
+      .attr('transform', d => {
+        const [x, y] = this.getProjectedCoordinates(d);
+        return `translate(${x}, ${y})`;
+      })
       .append('path')
-      // .attr('d', ({ properties: { meters } }) => {
-      //   const height = mapRange(meters, 500, 8848, 0.02, 0.7);
-      //   // d3.symbol().type(d3.symbolTriangle).size(0.15)()
-      //   return `M0,${-height}L0.29428309563827115,0.16990442448471224L-0.29428309563827115,0.16990442448471224Z`;
-      // })
+      .attr('class', 'mountainPaths')
       .attr('d', ({ properties: { meters } }, index) => {
         const size = (() => {
           if (meters < 1500) {
@@ -85,14 +85,7 @@ export class Mountains {
         })();
         return this.paths[size][index % 3];
       })
-      .attr('transform', d => {
-        const [x, y] = this.getProjectedCoordinates(d);
-        // return `translate(${x}, ${y})`;
-        return `translate(${x}, ${y}), scale(0.015)`;
-      })
+      .attr('transform', `scale(${this.minimumScale})`)
       .attr('fill', 'var(--mountains)');
-    // .attr('fill', 'none')
-    // .attr('stroke', 'var(--mountains)')
-    // .attr('stroke-width', 5);
   }
 }

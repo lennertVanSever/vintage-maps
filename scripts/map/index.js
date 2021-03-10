@@ -290,6 +290,7 @@ export class Map {
       this.countries.resizeBorders(this);
       this.cities.resize(this);
       this.graticule.resize(this);
+      this.mountains.resize(this);
       this.rivers.resize(this.zoomFactor);
     }
     this.previousZoomValue = zoom.value;
