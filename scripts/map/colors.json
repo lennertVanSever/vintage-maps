@@ -4,6 +4,7 @@
     "ocean": "#e6cda1",
     "countryLabel": "#534b3e",
     "cityLabel": "#534b3e",
+    "mountains": "#7a6f5c",
     "insideBorders": [
       "#93a671",
       "#e0bc4a",
@@ -27,6 +28,7 @@
     "ocean": "#d9d2ba",
     "countryLabel": "#534b3e",
     "cityLabel": "#534b3e",
+    "mountains": "#534b3e",
     "insideBorders": [
       "#92a671",
       "#e0bc4a",
@@ -50,6 +52,7 @@
     "ocean": "#ffffff",
     "countryLabel": "#534b3e",
     "cityLabel": "#534b3e",
+    "mountains": "#534b3e",
     "insideBorders": [
       "#ffffff",
       "#ffffff",
@@ -73,6 +76,7 @@
     "ocean": "#dfe0e7",
     "countryLabel": "#534b3e",
     "cityLabel": "#534b3e",
+    "mountains": "#534b3e",
     "insideBorders": [
       "#95b55e",
       "#e0bc4a",
@@ -96,6 +100,7 @@
     "ocean": "#e6cda1",
     "countryLabel": "#534b3e",
     "cityLabel": "#534b3e",
+    "mountains": "#534b3e",
     "insideBorders": [
       "#93a671",
       "#e0bc4a",
@@ -119,6 +124,7 @@
     "ocean": "#e6cda1",
     "countryLabel": "#534b3e",
     "cityLabel": "#534b3e",
+    "mountains": "#534b3e",
     "insideBorders": [
       "#93a671",
       "#e0bc4a",
