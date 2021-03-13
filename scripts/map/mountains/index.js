@@ -116,8 +116,7 @@ export class Mountains {
           return null;
         }
       });
-      const { map } = this;
-      d3.selectAll('.canOverlapElement').each(function (node) {
+      d3.selectAll('.canOverlapElement').each(function () {
         const extremesDominantElement = getExtremes(
           d3.select(this).node().getBBox()
         );
@@ -128,8 +127,6 @@ export class Mountains {
             }
           }
         });
-        // const extremesMountain =
-        // console.log(node, getExtremes(d3.select(this).node().getBBox()));
       });
     }, 200);
   }
@@ -166,11 +163,11 @@ export class Mountains {
         return this.paths[size][index % 3];
       })
       .attr('x', d => {
-        const [x, y] = this.getProjectedCoordinates(d);
+        const [x] = this.getProjectedCoordinates(d);
         return x;
       })
       .attr('y', d => {
-        const [x, y] = this.getProjectedCoordinates(d);
+        const [, y] = this.getProjectedCoordinates(d);
         return y;
       })
       .attr('id', this.getId)
