@@ -18,6 +18,7 @@ export const initial = {
     label: getInitialUrlParameter('materialLabel') || 'Canvas',
   },
   hideOrShow: {
+    mountains: getInitialUrlParameter('mountains') || 'true',
     graticuleCollection:
       getInitialUrlParameter('graticuleCollection') || 'true',
     cities: getInitialUrlParameter('cities') || 'true',
