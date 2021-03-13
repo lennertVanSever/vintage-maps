@@ -2,6 +2,7 @@ import * as d3 from 'd3';
 import * as d3GeoProjection from 'd3-geo-projection';
 import { addParametersToURL, addParameterToURL, initial } from '../utils';
 import { Cities } from './cities/index.js';
+import { Mountains } from './mountains/index.js';
 import { Rivers } from './rivers/index.js';
 import { Countries } from './countries.js';
 import { Framework } from './framework.js';
@@ -144,6 +145,7 @@ export class Map {
       this.rivers.changeProjection();
       this.cities.changeProjection();
       this.countries.changeProjection();
+      this.mountains.changeProjection();
     }
   }
 
@@ -164,6 +166,7 @@ export class Map {
       'graticuleCollection',
       'cities',
       'countryNames',
+      'mountains',
     ].forEach(groupName => {
       this.subGroups[groupName] = this.mapContentGroup
         .append('g')
@@ -200,6 +203,9 @@ export class Map {
 
       this.rivers = new Rivers(this);
       await this.rivers.render();
+
+      this.mountains = new Mountains(this);
+      await this.mountains.render();
 
       this.initialZoom();
       this.makeMapZoomable();
@@ -285,6 +291,7 @@ export class Map {
       this.countries.resizeBorders(this);
       this.cities.resize(this);
       this.graticule.resize(this);
+      this.mountains.resize(this);
       this.rivers.resize(this.zoomFactor);
     }
     this.previousZoomValue = zoom.value;
