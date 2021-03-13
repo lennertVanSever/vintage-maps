@@ -1,5 +1,5 @@
 import * as d3 from 'd3';
-import colors from './colors.js';
+import { defaultColors } from './colors.js';
 
 export class Graticule {
   constructor(map) {
@@ -52,11 +52,18 @@ export class Graticule {
     });
   }
 
-  resize(zoomFactor) {
-    d3.selectAll('.graticule').attr('stroke-width', zoomFactor);
+  resize(map) {
+    const graticuleStep = map.zoomFactor * map.graticuleGapSize;
+    this.graticule.step([graticuleStep, graticuleStep]);
+    this.removeGraticule();
+    this.drawGraticule();
+    d3.selectAll('.graticule').attr(
+      'stroke-width',
+      map.zoomFactor * map.graticuleLineSize
+    );
     d3.selectAll('.moveGraticule').attr(
       'transform',
-      `translate(0,-${zoomFactor * 15})`
+      `translate(0,-${map.zoomFactor * 15})`
     );
   }
 
@@ -77,20 +84,26 @@ export class Graticule {
           .attr('class', `graticule specialParallel ${extraClasses}`)
           .attr('d', this.map.geoPath)
           .attr('fill', 'none')
-          .attr('stroke', colors.graticule)
+          .attr('stroke', 'var(--graticule)')
           .attr('stroke-width', this.initialStrokeWidth);
       });
     });
+  }
+
+  removeGraticule() {
+    this.map.subGroups.graticuleCollection
+      .selectAll('.graticuleInside')
+      .remove();
   }
 
   drawGraticule() {
     this.map.subGroups.graticuleCollection
       .append('path')
       .datum(this.graticule)
-      .attr('class', 'graticule')
+      .attr('class', 'graticule graticuleInside')
       .attr('d', this.map.geoPath)
       .attr('fill', 'none')
-      .attr('stroke', colors.graticule)
+      .attr('stroke', 'var(--graticule)')
       .attr('stroke-width', this.initialStrokeWidth);
   }
 
@@ -101,7 +114,7 @@ export class Graticule {
       .attr('class', 'graticule outline')
       .attr('d', this.map.geoPath)
       .attr('fill', 'none')
-      .attr('stroke', colors.graticule)
+      .attr('stroke', 'var(--graticule)')
       .attr('stroke-width', this.initialStrokeWidth);
   }
 }

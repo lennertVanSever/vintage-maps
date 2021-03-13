@@ -1,10 +1,6 @@
 import * as d3 from 'd3';
-import colors from '../colors.js';
-import {
-  addParametersToURL,
-  camalize,
-  resetAlreadySelected,
-} from '../utils.js';
+import { addParametersToURL } from '../../utils';
+import { camalize, resetAlreadySelected } from '../utils.js';
 
 export class Rivers {
   constructor(map) {
@@ -37,7 +33,7 @@ export class Rivers {
       `#riverShadow${camalize(selectedRiver.properties.NAME)}`
     );
     selectedRiverElement
-      .attr('stroke', colors.rivers)
+      .attr('stroke', `var(--rivers)`)
       .attr('stroke-width', 0.2);
     addParametersToURL({
       info: selectedRiver.properties.NAME,
@@ -51,7 +47,7 @@ export class Rivers {
   drawRivers() {
     this.map.subGroups.rivers
       .append('g')
-      .attr('class', 'rivers')
+      .attr('class', 'river rivers')
       .selectAll('path')
       .data(this.riverData.features)
       .enter()
@@ -60,11 +56,11 @@ export class Rivers {
       .attr('class', 'river')
       .attr('fill', 'none')
       .attr('stroke-width', 0.1)
-      .attr('stroke', colors.rivers);
+      .attr('stroke', `var(--rivers)`);
 
     this.map.subGroups.rivers
       .append('g')
-      .attr('class', 'riverShadows')
+      .attr('class', 'river riverShadows')
       .selectAll('path')
       .data(this.riverData.features)
       .enter()

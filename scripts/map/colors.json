@@ -1,0 +1,146 @@
+{
+  "defaultColors": {
+    "body": "#e6cda1",
+    "ocean": "#e6cda1",
+    "countryLabel": "#534b3e",
+    "cityLabel": "#534b3e",
+    "mountains": "#7a6f5c",
+    "insideBorders": [
+      "#93a671",
+      "#e0bc4a",
+      "#d65d55",
+      "#e2ada5",
+      "#706d74",
+      "#b27f50",
+      "#ac9e9d"
+    ],
+    "outsideBorder": "#8c8c8c",
+    "graticule": "#b1b1b1",
+    "selectedCity": "#d65d55",
+    "rivers": "#146b8d",
+    "opacity": {
+      "oceanOpacity": 0.5,
+      "countryOpacity": 0.09
+    }
+  },
+  "schoolColors": {
+    "body": "#f6d7bc",
+    "ocean": "#d9d2ba",
+    "countryLabel": "#534b3e",
+    "cityLabel": "#534b3e",
+    "mountains": "#534b3e",
+    "insideBorders": [
+      "#92a671",
+      "#e0bc4a",
+      "#d65d55",
+      "#e2ada5",
+      "#706d74",
+      "#b27f50",
+      "#ac9e9d"
+    ],
+    "outsideBorder": "#4d4c4c",
+    "graticule": "#b1b1b1",
+    "selectedCity": "#d65d55",
+    "rivers": "#146b8d",
+    "opacity": {
+      "oceanOpacity": 0.5,
+      "countryOpacity": 0.4
+    }
+  },
+  "minimalistColors": {
+    "body": "#ffffff",
+    "ocean": "#ffffff",
+    "countryLabel": "#534b3e",
+    "cityLabel": "#534b3e",
+    "mountains": "#534b3e",
+    "insideBorders": [
+      "#ffffff",
+      "#ffffff",
+      "#ffffff",
+      "#ffffff",
+      "#ffffff",
+      "#ffffff",
+      "#ffffff"
+    ],
+    "outsideBorder": "#4d4c4c",
+    "graticule": "#b1b1b1",
+    "selectedCity": "#d65d55",
+    "rivers": "#534b3e",
+    "opacity": {
+      "oceanOpacity": 0.5,
+      "countryOpacity": 0.15
+    }
+  },
+  "sara1": {
+    "body": "#d1be9e",
+    "ocean": "#dfe0e7",
+    "countryLabel": "#534b3e",
+    "cityLabel": "#534b3e",
+    "mountains": "#534b3e",
+    "insideBorders": [
+      "#95b55e",
+      "#e0bc4a",
+      "#a44841",
+      "#c77333",
+      "#2d296b",
+      "#1aadb7",
+      "#ac9e9d"
+    ],
+    "outsideBorder": "#4d4c4c",
+    "graticule": "#b1b1b1",
+    "selectedCity": "#d65d55",
+    "rivers": "#146b8d",
+    "opacity": {
+      "oceanOpacity": 0.5,
+      "countryOpacity": 0.15
+    }
+  },
+  "sara2": {
+    "body": "#e6cda1",
+    "ocean": "#e6cda1",
+    "countryLabel": "#534b3e",
+    "cityLabel": "#534b3e",
+    "mountains": "#534b3e",
+    "insideBorders": [
+      "#93a671",
+      "#e0bc4a",
+      "#d65d55",
+      "#e2ada5",
+      "#706d74",
+      "#b27f50",
+      "#ac9e9d"
+    ],
+    "outsideBorder": "#4d4c4c",
+    "graticule": "#b1b1b1",
+    "selectedCity": "#d65d55",
+    "rivers": "#146b8d",
+    "opacity": {
+      "oceanOpacity": 0.5,
+      "countryOpacity": 0.15
+    }
+  },
+  "sara3": {
+    "body": "#e6cda1",
+    "ocean": "#e6cda1",
+    "countryLabel": "#534b3e",
+    "cityLabel": "#534b3e",
+    "mountains": "#534b3e",
+    "insideBorders": [
+      "#93a671",
+      "#e0bc4a",
+      "#d65d55",
+      "#e2ada5",
+      "#706d74",
+      "#b27f50",
+      "#ac9e9d"
+    ],
+    "outsideBorder": "#4d4c4c",
+    "graticule": "#b1b1b1",
+    "selectedCity": "#d65d55",
+    "rivers": "#146b8d",
+    "opacity": {
+      "oceanOpacity": 0.5,
+      "countryOpacity": 0.15
+    }
+  }
+}

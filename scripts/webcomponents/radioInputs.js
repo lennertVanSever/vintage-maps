@@ -1,0 +1,374 @@
+import { map } from '../index.js';
+import colors from '../map/colors';
+import {
+  addParametersToURL,
+  addParameterToURL,
+  dispatchCustomEvent,
+  initial,
+} from '../utils';
+import { ShadowElement } from './shadowElement.js';
+import { labelStyleRaw } from './sharedStyle';
+
+class RadioInputs extends ShadowElement {
+  constructor() {
+    super();
+    this.addEventListeners();
+  }
+
+  addEventListeners() {
+    this.shadowRoot.querySelectorAll('input').forEach(input => {
+      input.addEventListener('change', this.handleInputChange.bind(this));
+    });
+  }
+
+  getOptionLabelFromValue(value) {
+    return this.options.find(({ value: optionValue }) => optionValue === value)
+      .label;
+  }
+
+  get htmlString() {
+    return /* html */ `
+      <style>
+        #wrapper {
+          ${labelStyleRaw}
+        }
+        #title {
+          margin-bottom: var(--margin-3);
+        }
+        /* Customize the label (the container) */
+        .container {
+          display: block;
+          position: relative;
+          padding-left: 30px;
+          margin-bottom: 12px;
+          margin-top: 10px;
+          cursor: pointer;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+        }
+
+        .container:first-of-type {
+          margin-top: 0px;
+        }
+
+        /* Hide the browser's default radio button */
+        .container input {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+          height: 0;
+          width: 0;
+        }
+
+        /* Create a custom radio button */
+        .checkmark {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 20px;
+          width: 20px;
+          border: 1px solid var(--black);
+          border-radius: 50%;
+        }
+
+        /* On mouse-over, add a grey background color */
+        .container:hover input ~ .checkmark {
+          background-color: #ccc;
+        }
+
+        /* When the radio button is checked, add a blue background */
+        .container input:checked ~ .checkmark {
+          background-color: var(--black);
+        }
+
+        /* Create the indicator (the dot/circle - hidden when not checked) */
+        .checkmark:after {
+          content: "";
+          position: absolute;
+          display: none;
+        }
+
+        /* Show the indicator (dot/circle) when checked */
+        .container input:checked ~ .checkmark:after {
+          display: block;
+        }
+
+        /* Style the indicator (dot/circle) */
+        .container .checkmark:after {
+          top: 7px;
+          left: 7px;
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background: var(--body);
+        }
+
+        .labelText {
+          position: relative;
+          top: 2px;
+        }
+
+      </style>
+      <div id="wrapper">
+        <div id="title">
+          ${this.title}
+        </div>
+        <div id="inputWrapper">
+        ${this.optionsHtml}
+        </div>
+      </div>
+     `;
+  }
+
+  get valueLabel() {
+    let valueLabel;
+    this.options.forEach(({ value, label }) => {
+      if (value === this.value) valueLabel = label;
+    });
+    return valueLabel;
+  }
+
+  get valueIndex() {
+    let valueIndex;
+    this.options.forEach(({ value }, index) => {
+      if (value === this.value) valueIndex = index;
+    });
+    return valueIndex;
+  }
+
+  get optionsHtml() {
+    return this.options
+      .map(
+        ({ label, value }) => /* html */ `
+          <label class="container">
+            <span class="labelText">
+              ${label}
+            </span>
+            <input
+              ${this.value === value ? 'checked' : ''}
+              name="${this.name}"
+              value="${value}"
+              type="radio"
+            >
+            <span class="checkmark"></span>
+          </label>
+          `
+      )
+      .join('');
+  }
+}
+
+window.customElements.define('radio-input', RadioInputs);
+
+class RadioMapDirection extends RadioInputs {
+  constructor() {
+    super();
+    this.handleInputChange({ target: { value: this.value } });
+  }
+
+  set value(value) {
+    this._value = value;
+  }
+
+  get value() {
+    return this._value || initial.direction;
+  }
+
+  get title() {
+    return 'Map direction';
+  }
+
+  get name() {
+    return 'map-direction';
+  }
+
+  handleInputChange({ target: { value } }) {
+    setTimeout(() => {
+      map.direction = value;
+    }, 0);
+    addParameterToURL('direction', value);
+    dispatchCustomEvent('directionChange', { value });
+  }
+
+  get options() {
+    return [
+      {
+        label: 'Landscape',
+        value: 'landscape',
+      },
+      {
+        label: 'Portrait',
+        value: 'portrait',
+      },
+    ];
+  }
+}
+
+window.customElements.define('radio-map-direction', RadioMapDirection);
+
+class RadioMapSizes extends RadioInputs {
+  constructor() {
+    super();
+    this.changeDirection({
+      detail: {
+        value: initial.direction,
+      },
+    });
+    window.addEventListener('directionChange', this.changeDirection.bind(this));
+  }
+
+  changeDirection({ detail: { value: direction } }) {
+    const previousValueIndex = this.valueIndex;
+    this.direction = direction;
+    if (previousValueIndex) this.value = this.options[previousValueIndex].value;
+    this.shadowRoot.querySelector('#inputWrapper').innerHTML = this.optionsHtml;
+    this.addEventListeners();
+  }
+
+  handleInputChange({ target: { value } }) {
+    this.value = value;
+  }
+
+  set value(value) {
+    addParametersToURL({
+      sizeValue: value,
+      sizeLabel: this.getOptionLabelFromValue(value),
+    });
+    this._value = value;
+    dispatchCustomEvent('sizeChange', { value, label: this.valueLabel });
+  }
+
+  get value() {
+    return this._value || initial.size.value;
+  }
+
+  get title() {
+    return 'Map size';
+  }
+
+  get name() {
+    return 'map-size';
+  }
+
+  get isLandscape() {
+    return this.direction === 'landscape' || this.direction === undefined;
+  }
+
+  get options() {
+    const baseWidth = this.isLandscape ? 30 : 20;
+    const baseHeight = this.isLandscape ? 20 : 30;
+
+    return [1, 2, 3].map(index => {
+      const width = baseWidth * index;
+      const height = baseHeight * index;
+      return {
+        label: `${width}cm x ${height}cm`,
+        value: `${width}x${height}`,
+      };
+    });
+  }
+}
+
+window.customElements.define('radio-map-sizes', RadioMapSizes);
+
+class RadioMapMaterial extends RadioInputs {
+  set value(value) {
+    this._value = value;
+  }
+
+  get value() {
+    return this._value || initial.material.value;
+  }
+
+  get title() {
+    return 'Map material';
+  }
+
+  get name() {
+    return 'map-material';
+  }
+
+  handleInputChange({ target: { value } }) {
+    addParametersToURL({
+      materialValue: value,
+      materialLabel: this.getOptionLabelFromValue(value),
+    });
+    this.value = value;
+    dispatchCustomEvent('materialChange', { value, label: this.valueLabel });
+  }
+
+  get options() {
+    return [
+      {
+        label: 'Canvas',
+        value: 'canvas',
+      },
+      {
+        label: 'Wood',
+        value: 'berkenplex',
+      },
+      {
+        label: 'Aluminium',
+        value: 'aluminium',
+      },
+      {
+        label: 'Plexiglas',
+        value: 'plexiglas',
+      },
+    ];
+  }
+}
+
+window.customElements.define('radio-map-material', RadioMapMaterial);
+
+class RadioMapStyle extends RadioInputs {
+  constructor() {
+    super();
+    this.setColorVariables(this.value);
+  }
+
+  set value(value) {
+    this._value = value;
+  }
+
+  get value() {
+    return this._value || initial.style;
+  }
+
+  get title() {
+    return 'Map style';
+  }
+
+  get name() {
+    return 'map-style';
+  }
+
+  setColorVariables(colorSet) {
+    Object.keys(colors[colorSet]).forEach(key => {
+      const value = colors[colorSet][key];
+      if (typeof value === 'string') {
+        document.documentElement.style.setProperty(`--${key}`, value);
+      }
+    });
+    colors[colorSet].insideBorders.forEach((value, index) => {
+      document.documentElement.style.setProperty(`--border-${index}`, value);
+    });
+  }
+
+  handleInputChange({ target: { value } }) {
+    addParameterToURL('style', value);
+    this.setColorVariables(value);
+    dispatchCustomEvent('styleChange', { value });
+  }
+
+  get options() {
+    return Object.keys(colors).map(key => ({
+      label: key.replace('Colors', ''),
+      value: key,
+    }));
+  }
+}
+
+window.customElements.define('radio-map-style', RadioMapStyle);

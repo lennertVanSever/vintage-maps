@@ -1,2 +1,14 @@
-import './selectElement.js';
+import './selectElements.js';
 import './sidePanel.js';
+import './textInput.js';
+import './toggleSwitches.js';
+import './rangeInputs.js';
+// import './customizeSection.js';
+// import './orderSection.js';
+import './section.js';
+import './keyValue.js';
+import './expandContent.js';
+import './radioInputs.js';
+import './editColors.js';
+import './spinningWorld.js';
+import './navigation.js';

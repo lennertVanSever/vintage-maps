@@ -36238,27 +36238,6 @@
   {
    "type": "Feature",
    "properties": {
-    "NAME": "Visby",
-    "country": "Sweden",
-    "otherNames": null,
-    "populationByYear": {
-     "1300": 15000,
-     "1361": 17000,
-     "1800": 3730,
-     "1845": 4260
-    }
-   },
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     "18.29602",
-     "57.64089"
-    ]
-   }
-  },
-  {
-   "type": "Feature",
-   "properties": {
     "NAME": "Vitebsk",
     "country": "Belarus",
     "otherNames": null,

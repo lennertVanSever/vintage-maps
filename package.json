@@ -16,7 +16,13 @@
   },
   "dependencies": {
     "@snowpack/plugin-babel": "^2.1.5",
+    "babel-plugin-inline-json-import": "^0.3.2",
     "d3": "^6.3.1",
-    "d3-geo-projection": "^3.0.0"
+    "d3-drag": "^2.0.0",
+    "d3-geo-projection": "^3.0.0",
+    "dotenv": "^8.2.0",
+    "js-sha1": "^0.6.0",
+    "navigo": "^8.8.0",
+    "uuid": "^8.3.2"
   }
 }

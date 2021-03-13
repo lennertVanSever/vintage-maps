@@ -7,13 +7,15 @@ module.exports = {
     sourceType: "module"
   },
   globals: {
-    d3: true
+    d3: true,
+    Stripe: true
   },
   overrides: [
     {
       files: ["scripts/**/*"],
       rules: {
-        "import/extensions": 0
+        "import/extensions": 0,
+        "max-classes-per-file": 0
       }
     }
   ],

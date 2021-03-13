@@ -2,60 +2,73 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#eae1ba">
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Bellefair&display=swap" rel="stylesheet"> -->
+  <meta name="msapplication-TileColor" content="#eae1ba">
+  <meta name="theme-color" content="#eae1ba">
+  <script async src="https://js.stripe.com/v3/"></script>
+
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('serviceworker.js');
     };
   </script>
   <style>
-    @font-face {
-      font-family: "bodoni";
-      src:
-        url("./fonts/bodoniflf-roman_500-webfont.woff2") format("woff2"),
-        url("./fonts/bodoniflf-roman_500-webfont.woff") format("woff");
-      font-weight: normal;
-    }
 
-    @font-face {
-      font-family: system;
-      font-style: normal;
-      font-weight: 300;
-      src: local(".SFNSText-Light"), local(".HelveticaNeueDeskInterface-Light"), local(".LucidaGrandeUI"), local("Ubuntu Light"), local("Segoe UI Light"), local("Roboto-Light"), local("DroidSans"), local("Tahoma");
-    }
 
     :root {
+      /* define these values through JS */
       --margin-1: 2px;
       --margin-2: 4px;
       --margin-3: 8px;
       --margin-4: 12px;
       --margin-5: 16px;
-      --margin-6: 32px;
-      --margin-7: 48px;
-      --margin-8: 64px;
-      --body-color: #eae1ba;
+      --margin-6: 24px;
+      --margin-7: 32px;
+      --margin-8: 48px;
+      --margin-9: 64px;
+
+      --black: #534b3e;
+      --red: #d65d55;
+      --body: #e6cda1;
       --breakpoint-1: 600px;
+      --height-header: 29px;
     }
 
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      color: var(--black);
     }
 
-    svg {
-      background-color: var(--body-color);
+    html,
+    body {
+      background-color: var(--body);
+      width: 100vw;
+    }
+    .spinner {
+      display: none;
+    }
+    .loading main {
+      display: none;
     }
 
-    svg * {
-      font-family: 'bodoni';
+    .loading .spinner {
+      display: block;
     }
 
     main {
-      font-family: system;
+      font-family: Arial, Helvetica, sans-serif;
       width: 100vw;
-      height: 100vh;
+      height: calc(100vh - var(--height-header));
+      overflow-x: hidden;
     }
 
     .svg_wrapper {
@@ -63,42 +76,212 @@
       height: 100%;
     }
 
-
-    #controlsWrapper {
-      position: fixed;
-      top: 0;
-      background-color: rgba(234, 225, 186, 50%);
-      backdrop-filter: blur(3px);
+    #buttonWrapper {
       display: flex;
-      align-items: center;
-      right: 0;
-      box-shadow: -5px 5px 3px rgba(234, 225, 186, 50%);
-      padding-right: var(--margin-3);
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    #buttonWrapper button:nth-child(2) {
+      background-color: var(--black);
+      color: var(--body);
+    }
+
+    button {
+      display: block;
+      width: 50%;
+      appearance: none;
+      padding: var(--margin-4) 0px;
+      border: 1px solid var(--black);
+      background-color: var(--body);
+    }
+
+    section {
+      position: sticky;
+      top: 0;
+      padding: var(--margin-3);
+      padding-bottom: 0;
+      background-color: var(--body);
+      z-index: 1;
+    }
+
+    #title {
+      text-align: center;
+      font-family: inherit;
+      font-size: 20px;
+      margin-bottom: var(--margin-1);
+      color: var(--black);
+    }
+
+    #subWrapper {
+      /* font-family: 'Bellefair'; */
+      box-shadow: 0px 0px 15px var(--black);
+    }
+
+    .subWrapperlandscape {
+      --map-margin: 33px;
+      width: calc(100vw - var(--map-margin));
+      height: calc((100vw - var(--map-margin)) / 3 * 2);
+    }
+
+
+    #secondBorder {
+      border: 1px solid var(--black);
+      height: 100%;
+    }
+
+    section {
+      display: flex;
+      justify-content: center;
+    }
+
+    #downloadLink {
+      font-weight: bold;
+    }
+    h3 {
+      margin-top: var(--margin-4);
+    }
+    p {
+      margin-top: var(--margin-3);
+    }
+    .mountainPaths {
+      cursor: pointer;
+    }
+
+    @media only screen and (max-width:768px) {
+      .subWrapperportrait {
+        width: calc(40vh / 3 * 2);
+        height: 40vh;
+      }
+    }
+
+    @media only screen and (min-width:768px) {
+      section {
+        width: calc(100vw - 300px);
+      }
+
+      #subWrapper {
+        /* height: calc(100% - 20px); */
+        --margin-map: 60px;
+        margin-top: 8px;
+        height: calc(100vh - var(--margin-map));
+      }
+
+      .subWrapperlandscape {
+        width: calc((100vh - var(--margin-map)) * 3 / 2);
+      }
+      .subWrapperportrait {
+        width: calc((100vh - var(--margin-map)) * 2 / 3);
+      }
+
+
+      main {
+        display: flex;
+      }
+
+      #buttonWrapper {
+        background-color: var(--body);
+        width: 243px;
+        justify-content: space-between;
+        box-shadow: 0px -4px 3px var(--body);
+      }
+
+      #buttonWrapper button {
+        width: calc(50% - (var(--margin-4) / 2));
+        margin-bottom: var(--margin-4);
+        margin-top: var(--margin-2);
+      }
+    }
+
+    @media only screen and (max-aspect-ratio: 1485/914) and (min-width:768px) {
+      .subWrapperlandscape {
+        width: calc((100vw - 350px));
+        height: calc((100vw - 350px) / 3 * 2) !important;
+      }
+    }
+    @media only screen and (max-aspect-ratio: 175/183) and (min-width:768px) {
+      .subWrapperportrait {
+        width: calc((100vw - 350px));
+        height: calc((100vw - 350px) / 2 * 3) !important;
+      }
     }
   </style>
-  <!-- 
-D3 v5 depeds on Fetch API that does not support local files fetching
-To run locally: 
-- run python -m SimpleHTTPServer from the folder and then call http://localhost:8000/ in navigator
-This might help in other cases of running js scripts locally, but should not be needed with this one:
-- In Firefox: disable strict origin control in about:cofig  
-- Launch Chrome with /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --disable-web-security --user-data-dir
--->
-
 </head>
 
-<body>
+<body class="loading">
+  <img style="position: absolute; left: 0; right: 0; top: 0; margin: auto; margin-top: 20px;" id="spinner" src="./loading.svg" />
+  <navigation-header></navigation-header>
   <main>
-    <side-panel></side-panel>
-    <svg class="svg_wrapper">
-    </svg>
-    <article id="controlsWrapper">
+    <!-- <side-panel></side-panel> -->
+    <section id="mapSection">
+      <div id="subWrapper" class="subWrapperlandscape">
+        <svg class="svg_wrapper">
+        </svg>
+      </div>
+    </section>
+    <customize-section>
+      <title-input></title-input>
       <year-select></year-select>
-      <projection-select></projection-select>
-    </article>
+      <language-select></language-select>
+      <radio-map-style></radio-map-style>
+      <edit-colors></edit-colors>
+      <range-css-variable labelText="Ocean opacity" cssVariable="oceanOpacity" min="0" max="1" step="0.01" ></range-css-variable>
+      <range-css-variable labelText="Country fill opacity" cssVariable="countryOpacity" min="0" max="1" step="0.01" ></range-css-variable>
+      <expand-content>
+        <projection-select></projection-select>
+        <hide-or-show-toggle labelText="Mountains" elementToHideSelector="#mountains"></hide-or-show-toggle>
+        <hide-or-show-toggle labelText="Cities" elementToHideSelector="#cities"></hide-or-show-toggle>
+        <hide-or-show-toggle labelText="Graticule" elementToHideSelector="#graticuleCollection"></hide-or-show-toggle>
+        <hide-or-show-toggle labelText="Rivers" elementToHideSelector="#rivers"></hide-or-show-toggle>
+        <font-select></font-select>
+        <range-map-property labelText="Country border size" mapProperty="borderWidth" min="0" max="100" step="1"></range-map-property>
+        <range-map-property labelText="City name size" mapProperty="citySize" min="0" max="15" step="0.1"></range-map-property>
+        <range-map-property labelText="Graticule gap size" mapProperty="graticuleGapSize" min="5" max="250" step="1"></range-map-property>
+        <range-map-property labelText="Graticule line size" mapProperty="graticuleLineSize" min="0" max="10" step="0.1"></range-map-property>
+      </expand-content>
+      <radio-map-direction></radio-map-direction>
+      <radio-map-sizes></radio-map-sizes>
+      <radio-map-material></radio-map-material>
+    </customize-section>
+    <prepare-download-section>
+      <h3>Before you can download your map</h3>
+      <p>We charge a small fee of €5. Before you take a screenshot, consider that this PDF download will always have a better quality.</p>
+      <p>Vintage Maps is developed by a single web developer with a passion for geography and history, it took countless evenings to create this service, I absolutely appreciate your contribution.</p>
+      <p>When you press the checkout button below, you will be redirected to a payment page. If successful you will be able to download your custom map</p>
+    </prepare-download-section>
+    <order-section>
+      <text-input name="email" labelText="Email"></text-input>
+      <text-input name="name" labelText="Full name"></text-input>
+      <text-input name="address" labelText="Address" hintText="Example: Osloweg 35b"></text-input>
+      <text-input name="zip" labelText="Postal code"></text-input>
+      <text-input name="city" labelText="City"></text-input>
+      <country-select></country-select>
+    </order-section>
+    <checkout-section>
+      <spinning-world/>
+      <!-- Dynamic -->
+    </checkout-section>
+    <download-success-section>
+      <h3>✅ &nbsp;Payment complete</h3>
+      <p>Thank you, your payment has been succesful. You can download your map with the link below.</p>
+      <a target="_blank" id="downloadLink">Download map</a> <!-- Href is dynamically set -->
+    </download-success-section>
+    <download-fail-section>
+      <h3>⚠️ &nbsp;Something went wrong</h3>
+      <p>Unfortunately we couldn't handle your payment, do you want to try again?</p>
+    </download-fail-section>
+    <order-status-section></order-status-section>
   </main>
-  <!-- <script src="d3/d3.v5.min.js"></script>
-  <script src="d3/d3-geo-projection.v2.min.js"></script>
-  <script src="d3/topojson.v2.min.js"></script> -->
   <script type="module" src="./scripts/index.js"></script>
+  <script>
+    window.addEventListener("load", () => {
+      document.querySelector('body').removeAttribute('class');
+    });
+    window.addEventListener('directionChange', ({ detail: { value }}) => {
+      const subWrapper = document.getElementById('subWrapper');
+      subWrapper.removeAttribute('class');
+      subWrapper.classList.add(`subWrapper${value}`);
+    })
+  </script>
 </body>
