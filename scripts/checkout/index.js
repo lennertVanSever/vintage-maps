@@ -141,7 +141,8 @@ export const generateMapUrl = async (printExactSize, type) => {
   // console.log({ printExactSize });
   // map.bleedCorrection = -120;
   map.addBleedCorrection(printExactSize);
-  console.log({ type });
+  const htmlCode = getMapHtml(type);
+  console.log(htmlCode);
   try {
     dispatchCustomEvent('mapUrl', {
       data: null,
@@ -156,7 +157,7 @@ export const generateMapUrl = async (printExactSize, type) => {
       body: JSON.stringify({
         sejdaParameters: {
           pageSize: printExactSize,
-          htmlCode: getMapHtml(type),
+          htmlCode,
         },
       }),
     });
