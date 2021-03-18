@@ -12,3 +12,4 @@ import './radioInputs.js';
 import './editColors.js';
 import './spinningWorld.js';
 import './navigation.js';
+import './onlyShowWhenCustomStyleEnabled.js';
