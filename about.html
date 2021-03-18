@@ -1,132 +1,387 @@
 <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About | Vintage Maps</title>
+    <meta name="description" content="Easily create your own custom vintage map" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:image" content="images/banner/medium.jpg">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#eae1ba">
+    <meta name="msapplication-TileColor" content="#eae1ba">
+    <meta name="theme-color" content="#eae1ba">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-  <link rel="manifest" href="/manifest.webmanifest">
-  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#eae1ba">
-  <meta name="msapplication-TileColor" content="#eae1ba">
-  <meta name="theme-color" content="#eae1ba">
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('serviceworker.js');
+      };
+    </script>
+    <style>
+      :root {
+        /* define these values through JS */
+        --margin-1: 2px;
+        --margin-2: 4px;
+        --margin-3: 8px;
+        --margin-4: 12px;
+        --margin-5: 16px;
+        --margin-6: 24px;
+        --margin-7: 32px;
+        --margin-8: 48px;
+        --margin-9: 64px;
+        --margin-10: 96px;
+        --black: #534b3e;
+        --red: #d65d55;
+        --breakpoint-1: 600px;
+        --body: white;
+        --font-size-1: calc(28px + (36 - 28) * ((100vw - 300px) / (1600 - 300)));
+        --font-size-2: calc(24px + (30 - 24) * ((100vw - 300px) / (1600 - 300)));
+        --font-size-3: calc(20px + (24 - 20) * ((100vw - 300px) / (1600 - 300)));
+        --font-size-4: calc(16px + (20 - 16) * ((100vw - 300px) / (1600 - 300)));
+        --line-height-title: calc(1.1em + (1.3 - 1.1) * ((100vw - 300px)/(1600 - 300)));
+        --line-height-paragraph: calc(1.3em + (1.5 - 1.3) * ((100vw - 300px)/(1600 - 300)));
+      }
 
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('serviceworker.js');
-    };
-  </script>
-  <style>
-    :root {
-      /* define these values through JS */
-      --margin-1: 2px;
-      --margin-2: 4px;
-      --margin-3: 8px;
-      --margin-4: 12px;
-      --margin-5: 16px;
-      --margin-6: 24px;
-      --margin-7: 32px;
-      --margin-8: 48px;
-      --margin-9: 64px;
-      --black: #534b3e;
-      --red: #d65d55;
-      --breakpoint-1: 600px;
-      --body: white;
-    }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        color: var(--black);
+      }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      color: var(--black);
-    }
+      html,
+      body {
+        background-color: var(--body);
+        width: 100vw;
+        overflow-x: hidden;
+        font-family: Arial, Helvetica, sans-serif;
+      }
 
-    html,
-    body {
-      background-color: var(--body);
-      width: 100vw;
-      overflow-x: hidden;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-  </style>
-</head>
+      main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
 
-<body>
-  <navigation-header></navigation-header>
-  <header id="mainHeader">
-    <img alt="Vintage map in a modern interior" src="images/banner.jpg">
-    <article>
-      <h1>Create your own custom vintage map</h1>
-      <h2>Shipping your custom map to wherever you are or go green and download for only €5</h2>
-      <button>Design now</button>
-    </article>
-  </header>
-  <section>
-    <header>
-      <h3>Design examples</h3>
-      <h5>Customize any of the following</h5>
-    </header>
-    <div>
-      <article>
-        <img alt="Vintage map of Europe in the year 1279" src="images/frame-europe.jpg">
-        <h4>Choose the year</h4>
-        <h5>Starting from €30</h5>
-        <button>Start from Europe</button>
-      </article>
-      <article>
-        <img alt="Vintage map of Asia in the year 1279" src="images/frame-asia.jpg">
-        <h4>Choose the color</h4>
-        <h5>Starting from €30</h5>
-        <button>Start from Asia</button>
-      </article>
-      <article>
-        <img alt="Vintage map of South America in the year 1783" src="images/frame-america-latina.jpg">
-        <h4>Choose the direction</h4>
-        <h5>Starting from €30</h5>
-        <button>Start from South America</button>
-      </article>
-      <article>
-        <img alt="Vintage map of North Africa in the year 1914" src="images/frame-north-africa.jpg">
-        <h4>Choose much more</h4>
-        <h5>Starting from €30</h5>
-        <button>Start from North Africa</button>
-      </article>
-    </div>
-  </section>
-  <section>
-    <header>
-      <h3>About</h3>
-    </header>
-    <img alt="Profile picture of Lennert Van Sever, creator of vintagemaps.io" src="images/profile.jpg">
-    <p>Today we go to antique stores or second hand websites for exploring vintage maps, but unfortunately we cannot customize them.</p>
-    <p>A challenge I tried to solve by combining modern web technologies and open source projects like D3.js and <a href="https://github.com/aourednik/historical-basemaps">historical-base-maps</a>.</p>
-    <p>The result is an accessible web application, open for anyone to try out. Developed by a single software developer with a passion for Geography and History, it was made during the long lockdown evenings of 2020/2021.</p>
-  </section>
-  <section>
-    <header>
-      <h3>FAQ</h3>
-    </header>
-    <article>
-      <h4>What is the average delivery time?</h4>
-      <p>The prints are shipped from the Netherlands. For the Benelux it takes 1 - 3 days. In other European countries 4 - 11 days. The rest of the world is 5 - 13 days.</p>
-    </article>
-    <article>
-      <h4>I found a mistake in your map, what now?</h4>
-      <p>Mistakes happen, especially in historical data. Keep in mind that the actual concept of territory and national boundary becomes meaningful, in Europe, only since the Peace of Westphalia (1648).</p>
-      <p>If it's a mistake in the country borders or names, please report an issue on the <a href="https://github.com/aourednik/historical-basemaps">GitHub of Historical Basemaps</a>, when it's fixed I will make sure to update Vintage Maps.</p>
-      <p>For other mistakes please contact me.</p>
-    </article>
-  </section>
-  <section>
-    <header>
-      <h3>Contact</h3>
-    </header>
-    <p>Do you have any feedback or questions? Please contact <a href="mailto:lennert@vintagemaps.io">lennert@vintagemaps.io</a></p>
-  </section>
-  <footer>
-    Copyrights © vintagemaps.io 2021. All rights reserved.
-  </footer>
-  <script type="module" src="./scripts/webcomponents/navigation.js"></script>
+      h1, h3, h4 {
+        line-height: var(--line-height-title);
+      }
+      h1 {
+        font-size: var(--font-size-1);
+      }
+      h2 {
+        font-size: var(--font-size-4);
+        font-weight: normal;
+        line-height: var(--line-height-paragraph);
+        margin: var(--margin-3) 0px;
+      }
+      h3 {
+        font-size: var(--font-size-2);
+      }
+      h4 {
+        font-size: var(--font-size-3);
+      }
+      h5 {
+        font-size: var(--font-size-4);
+        font-weight: normal;
+        line-height: var(--line-height-paragraph);
 
-</body>
+      }
+      p {
+        font-size: var(--font-size-4);
+        line-height: var(--line-height-paragraph);
+        margin-top: var(--margin-4);
+      }
+      p:first-of-type {
+        margin-top: 0;
+      }
+      button {
+        display: block;
+        appearance: none;
+        padding: var(--margin-4);
+        background-color: var(--black);
+        color: var(--body);
+        border: none;
+        font-size: var(--font-size-4);
+        margin-top: var(--margin-2);
+      }
+      img {
+        height: auto;
+      }
+
+      #mainHeader {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+      }
+      #mainHeader picture {
+        width: 100%;
+      }
+      #mainHeader img {
+        width: 100%;
+      }
+      #mainHeader article {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: calc(100% - var(--margin-6));
+        max-width: 340px;
+        padding: var(--margin-8) 0px;
+        box-sizing: border-box;
+        text-align: center;
+      }
+      @media screen and (min-width: 800px) {
+        #mainHeader {
+          flex-direction: row;
+          margin-bottom: var(--margin-9);
+        }
+        #mainHeader picture {
+          width: 50%;
+        }
+        #mainHeader article {
+          padding: 0px var(--margin-8);
+          text-align: left;
+          max-width: 400px;
+          align-items: initial;
+        }
+      }
+      @media screen and (min-width: 1000px) {
+        #mainHeader article {
+          max-width: 500px;
+        }
+      }
+      @media screen and (min-width: 1400px) {
+        #mainHeader article {
+          max-width: 600px;
+        }
+      }
+      section {
+        margin: 0px var(--margin-6) var(--margin-9) var(--margin-6);
+      }
+      @media screen and (min-width: 600px) {
+        section:not(#designExamples) {
+          width: 600px;
+        }
+      }
+      @media screen and (min-width: 1400px) {
+        section {
+          margin-bottom: var(--margin-10);
+        }
+      }
+
+      @media screen and (min-width: 1800px) {
+        section:not(#designExamples) {
+          width: 800px;
+        }
+      }
+      section header {
+        margin-bottom: var(--margin-5);
+      }
+      #designExamples header {
+        text-align: center;
+      }
+      #designExamples header h5 {
+        margin-top: var(--margin-2);
+      }
+      #designExamples a {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+      }
+      #designExamples article {
+        display: grid;
+        width: 100%;
+        gap: var(--margin-8);
+        grid-template-columns: 1fr;
+        grid-auto-flow: dense;
+        grid-auto-rows: 1fr;
+        max-width: 600px;
+      }
+      @media screen and (min-width: 800px) {
+        #designExamples {
+          padding: 0px calc(var(--margin-8) / 2);
+        }
+        #designExamples article {
+          grid-template-columns: 1fr 1fr;
+          max-width: 1000px;
+        }
+      }
+      @media screen and (min-width: 1600px) {
+        #designExamples article {
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+          max-width: 2200px;
+        }
+      }
+      #designExamples img {
+        width: 100%;
+      }
+      #designExamples h4 {
+        margin-top: var(--margin-4);
+      }
+      #designExamples h5 {
+        margin: var(--margin-2) 0px;
+      }
+      #profile {
+        float: right;
+        width: 100px;
+        border-radius: 50%;
+        margin-top: -5px;
+        margin-left: 8px;
+        margin-bottom: 10px;
+      }
+
+      #faq article h4 {
+        margin-bottom: var(--margin-2);
+      }
+
+      #faq article {
+        margin-bottom: var(--margin-5);
+      }
+
+      @media screen and (min-width: 1400px) {
+        #faq article h4 {
+          margin-bottom: var(--margin-4);
+        }
+        #faq article {
+          margin-bottom: var(--margin-6);
+        }
+      }
+
+      #faq article:last-of-type {
+        margin-bottom: 0px;
+      }
+
+      footer {
+        width: 100%;
+        font-size: 12px;
+        box-sizing: border-box;
+        padding: 0px var(--margin-6) var(--margin-3) var(--margin-6);
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <navigation-header></navigation-header>
+    <main>
+      <header id="mainHeader">
+        <picture>
+          <source media="(min-width:1400px)" srcset="images/banner/large.jpg">
+          <source media="(min-width:800px)" srcset="images/banner/medium.jpg">
+          <source media="(min-width:0px)" srcset="images/banner/small.jpg">
+          <img
+            width="445"
+            height="341"
+            src="images/banner/medium.jpg"
+            alt="Vintage map of South America in the year 1783 hanging in a modern interior"
+          >
+        </picture>
+        <article>
+          <h1>Create your own custom vintage map</h1>
+          <h2>Shipping your custom map to wherever you are or go green and download for only €5</h2>
+          <a href="/"><button>Design now</button></a>
+        </article>
+      </header>
+      <section id="designExamples">
+        <header>
+          <h3>Design examples</h3>
+          <p>Customize any of the following</p>
+        </header>
+        <article>
+          <a href="/?font=Bellefair&direction=landscape&sizeValue=60x40&sizeLabel=60cm+x+40cm&year=1279&projection=Kavrayskiy7&mountains=true&cities=true&graticuleCollection=true&rivers=true&k=5.4714291768238965&x=-2094.2850418723633&y=624.6415648834334&title=Europe+-+1279&style=schoolColors">
+            <img
+              width="374"
+              height="302"
+              alt="Vintage map of Europe in the year 1279"
+              src="images/frame-europe.jpg"
+            >
+            <h4>Choose the year</h4>
+            <h5>Starting from €30</h5>
+            <button>Start from Europe</button>
+          </a>
+          <a href="/?font=Bellefair&direction=landscape&sizeValue=60x40&sizeLabel=60cm+x+40cm&year=1279&projection=Kavrayskiy7&mountains=true&cities=true&graticuleCollection=true&rivers=true&k=4.725067952607121&x=-3074.3612182352335&y=34.534959625959345&info=United+Provinces+of+La+Plata&type=country&language=hi&title=Asia+-+1279&style=defaultColors&borderWidth=14&citySize=2.1&graticuleGapSize=12">
+            <img
+              width="374"
+              height="302"
+              alt="Vintage map of Asia in the year 1279"
+              src="images/frame-asia.jpg"
+            >
+            <h4>Choose the color</h4>
+            <h5>Starting from €30</h5>
+            <button>Start from Asia</button>
+          </a>
+          <a href="/?font=Bellefair&direction=portrait&sizeValue=40x60&sizeLabel=40cm+x+60cm&year=1783&projection=Kavrayskiy7&mountains=true&cities=true&graticuleCollection=true&rivers=true&k=1.9063112488647742&x=78.02763744618568&y=2.621114531819842&title=South+America+-+1783&style=schoolColors&language=es">
+            <img
+              width="374"
+              height="302"
+              alt="Vintage map of South America in the year 1783"
+              src="images/frame-america-latina.jpg"
+            >
+            <h4>Choose the direction</h4>
+            <h5>Starting from €30</h5>
+            <button>Start from South America</button>
+          </a>
+          <a href="/?font=Bellefair&direction=landscape&sizeValue=60x40&sizeLabel=60cm+x+40cm&year=1914&projection=Kavrayskiy7&mountains=true&cities=true&graticuleCollection=true&rivers=true&k=4.2982336123106135&x=-1605.6532962587876&y=-65.30389691375444&title=Afrique+du+Nord+-+1914&style=schoolColors&language=fr&graticuleGapSize=32">
+            <img
+              width="374"
+              height="302"
+              alt="Vintage map of North Africa in the year 1914"
+              src="images/frame-north-africa.jpg"
+            >
+            <h4>Choose much more</h4>
+            <h5>Starting from €30</h5>
+            <button>Start from North Africa</button>
+          </a>
+        </article>
+      </section>
+      <section>
+        <header>
+          <h3>About</h3>
+        </header>
+        <img
+          width="100"
+          height="100"
+          id="profile"
+          alt="Profile picture of Lennert Van Sever, creator of vintagemaps.io"
+          src="images/profile.jpg"
+        >
+        <p>Today we go to antique stores or second hand websites for exploring vintage maps, but unfortunately we cannot customize them.</p>
+        <p>A challenge I tried to solve by combining modern web technologies and open source projects like D3.js and <a href="https://github.com/aourednik/historical-basemaps">historical-base-maps</a>.</p>
+        <p>The result is an accessible web application, open for anyone to try out. Developed by a single software developer with a passion for Geography and History, it was made during the long lockdown evenings of 2020/2021.</p>
+      </section>
+      <section id="faq">
+        <header>
+          <h3>FAQ</h3>
+        </header>
+        <article>
+          <h4>What is the average delivery time?</h4>
+          <p>The prints are shipped from the Netherlands. For the Benelux it takes 1 - 3 days. In other European countries 4 - 11 days. The rest of the world is 5 - 13 days.</p>
+        </article>
+        <article>
+          <h4>I found a mistake in your map, what now?</h4>
+          <p>Mistakes happen, especially in historical data. Keep in mind that the actual concept of territory and national boundary becomes meaningful, in Europe, only since the Peace of Westphalia (1648).</p>
+          <p>If it's a mistake in the country borders or names, please report an issue on the <a href="https://github.com/aourednik/historical-basemaps">GitHub of Historical Basemaps</a>, when it's fixed I will make sure to update Vintage Maps.</p>
+          <p>For other mistakes please contact me.</p>
+        </article>
+      </section>
+      <section>
+        <header>
+          <h3>Contact</h3>
+        </header>
+        <p>Do you have any feedback or questions? Please contact <a href="mailto:lennert@vintagemaps.io">lennert@vintagemaps.io</a></p>
+      </section>
+      <footer>
+        Copyrights © vintagemaps.io 2021. All rights reserved.
+      </footer>
+    </main>
+    <script type="module" src="./scripts/webcomponents/navigation.js"></script>
+
+  </body>
+</html>
