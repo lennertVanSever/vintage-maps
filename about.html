@@ -32,23 +32,7 @@
       --black: #534b3e;
       --red: #d65d55;
       --breakpoint-1: 600px;
-      --oceanOpacity: 0.5;
-      --countryOpacity: 0.09;
-      --body: #e6cda1;
-      --ocean: #e6cda1;
-      --countryLabel: #534b3e;
-      --cityLabel: #534b3e;
-      --outsideBorder: #8c8c8c;
-      --graticule: #b1b1b1;
-      --selectedCity: #d65d55;
-      --rivers: #146b8d;
-      --border-0: #93a671;
-      --border-1: #e0bc4a;
-      --border-2: #d65d55;
-      --border-3: #e2ada5;
-      --border-4: #706d74;
-      --border-5: #b27f50;
-      --border-6: #ac9e9d;
+      --body: white;
     }
 
     * {
@@ -63,21 +47,86 @@
       background-color: var(--body);
       width: 100vw;
       overflow-x: hidden;
-    }
-
-    main {
       font-family: Arial, Helvetica, sans-serif;
-      width: 100vw;
-      height: calc(100vh - 26px);
     }
   </style>
 </head>
 
 <body>
   <navigation-header></navigation-header>
-  <main>
-    Put fancy marketing here
-  </main>
+  <header id="mainHeader">
+    <img alt="Vintage map in a modern interior" src="images/banner.jpg">
+    <article>
+      <h1>Create your own custom vintage map</h1>
+      <h2>Shipping your custom map to wherever you are or go green and download for only €5</h2>
+      <button>Design now</button>
+    </article>
+  </header>
+  <section>
+    <header>
+      <h3>Design examples</h3>
+      <h5>Customize any of the following</h5>
+    </header>
+    <div>
+      <article>
+        <img alt="Vintage map of Europe in the year 1279" src="images/frame-europe.jpg">
+        <h4>Choose the year</h4>
+        <h5>Starting from €30</h5>
+        <button>Start from Europe</button>
+      </article>
+      <article>
+        <img alt="Vintage map of Asia in the year 1279" src="images/frame-asia.jpg">
+        <h4>Choose the color</h4>
+        <h5>Starting from €30</h5>
+        <button>Start from Asia</button>
+      </article>
+      <article>
+        <img alt="Vintage map of South America in the year 1783" src="images/frame-america-latina.jpg">
+        <h4>Choose the direction</h4>
+        <h5>Starting from €30</h5>
+        <button>Start from South America</button>
+      </article>
+      <article>
+        <img alt="Vintage map of North Africa in the year 1914" src="images/frame-north-africa.jpg">
+        <h4>Choose much more</h4>
+        <h5>Starting from €30</h5>
+        <button>Start from North Africa</button>
+      </article>
+    </div>
+  </section>
+  <section>
+    <header>
+      <h3>About</h3>
+    </header>
+    <img alt="Profile picture of Lennert Van Sever, creator of vintagemaps.io" src="images/profile.jpg">
+    <p>Today we go to antique stores or second hand websites for exploring vintage maps, but unfortunately we cannot customize them.</p>
+    <p>A challenge I tried to solve by combining modern web technologies and open source projects like D3.js and <a href="https://github.com/aourednik/historical-basemaps">historical-base-maps</a>.</p>
+    <p>The result is an accessible web application, open for anyone to try out. Developed by a single software developer with a passion for Geography and History, it was made during the long lockdown evenings of 2020/2021.</p>
+  </section>
+  <section>
+    <header>
+      <h3>FAQ</h3>
+    </header>
+    <article>
+      <h4>What is the average delivery time?</h4>
+      <p>The prints are shipped from the Netherlands. For the Benelux it takes 1 - 3 days. In other European countries 4 - 11 days. The rest of the world is 5 - 13 days.</p>
+    </article>
+    <article>
+      <h4>I found a mistake in your map, what now?</h4>
+      <p>Mistakes happen, especially in historical data. Keep in mind that the actual concept of territory and national boundary becomes meaningful, in Europe, only since the Peace of Westphalia (1648).</p>
+      <p>If it's a mistake in the country borders or names, please report an issue on the <a href="https://github.com/aourednik/historical-basemaps">GitHub of Historical Basemaps</a>, when it's fixed I will make sure to update Vintage Maps.</p>
+      <p>For other mistakes please contact me.</p>
+    </article>
+  </section>
+  <section>
+    <header>
+      <h3>Contact</h3>
+    </header>
+    <p>Do you have any feedback or questions? Please contact <a href="mailto:lennert@vintagemaps.io">lennert@vintagemaps.io</a></p>
+  </section>
+  <footer>
+    Copyrights © vintagemaps.io 2021. All rights reserved.
+  </footer>
   <script type="module" src="./scripts/webcomponents/navigation.js"></script>
 
 </body>
