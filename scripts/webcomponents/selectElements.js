@@ -245,7 +245,7 @@ class FontSelect extends SelectElement {
     link.type = 'text/css';
     link.rel = 'stylesheet';
     headID.appendChild(link);
-    link.href = `http://fonts.googleapis.com/css?family=${newFont}`;
+    link.href = `https://fonts.googleapis.com/css?family=${newFont}`;
     document.querySelector('#subWrapper').style.fontFamily = newFont.replace(
       '+',
       ' '
