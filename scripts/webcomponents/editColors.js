@@ -1,12 +1,12 @@
 import colors from '../map/colors';
-import { saveStyle } from '../utils';
+import { initial, saveStyle } from '../utils';
 import { ShadowElement } from './shadowElement';
 import { labelStyleRaw } from './sharedStyle';
 
 class EditColorInput extends ShadowElement {
   constructor() {
     super();
-    this.mapStyle = 'defaultColors';
+    this.mapStyle = initial.style;
     this.input = this.shadowRoot.querySelector('input');
     window.addEventListener('styleChange', this.styleChanged.bind(this));
     this.input.addEventListener('input', this.handleOnInput.bind(this));
@@ -42,6 +42,7 @@ class EditColorInput extends ShadowElement {
   }
 
   handleOnInput(event) {
+    console.log(this.cssVariable);
     document.documentElement.style.setProperty(
       `--${this.cssVariable}`,
       event.target.value
@@ -61,7 +62,7 @@ class EditColorInput extends ShadowElement {
   }
 
   get mapStyle() {
-    return this._mapStyle || 'defaultColors';
+    return this._mapStyle || initial.style;
   }
 
   get htmlString() {
@@ -96,10 +97,6 @@ class EditColorInput extends ShadowElement {
 window.customElements.define('edit-color-input', EditColorInput);
 
 class EditColors extends ShadowElement {
-  constructor() {
-    super();
-  }
-
   get htmlString() {
     return /* html */ `
       <style>

@@ -4,12 +4,13 @@ import { ShadowElement } from './shadowElement.js';
 class OnlyShowWhenCustomStyleEnabled extends ShadowElement {
   constructor() {
     super();
+    this.editingMode = true;
     window.addEventListener('styleChange', this.handleStyleChange.bind(this));
     this.handleStyleChange({ detail: { value: initial.style } });
   }
 
   handleStyleChange({ detail: { value } }) {
-    if (value === 'custom') {
+    if (value === 'custom' || this.editingMode) {
       this.shadowRoot.querySelector('slot').style.display = 'block';
     } else {
       this.shadowRoot.querySelector('slot').style.display = 'none';

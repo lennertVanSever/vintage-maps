@@ -23,7 +23,7 @@ export class Framework {
       .attr('height', height - margin * 2 - this.titleMargin)
       .attr('fill', 'none')
       .attr('stroke-width', strokeWidth)
-      .attr('stroke', 'var(--black)');
+      .attr('stroke', 'var(--framework)');
     // .attrs({ x: 0, y: 0, width: 80, height: 80, stroke: 'var(--black)' });
   }
 
@@ -46,7 +46,7 @@ export class Framework {
       .text(initial.title)
       .attr('x', width / 2)
       .attr('id', 'frameworkTitle')
-      .attr('fill', 'var(--black)')
+      .attr('fill', 'var(--framework)')
       .attr('font-size', 25)
       .attr('y', 28)
       .attr('text-anchor', 'middle');
