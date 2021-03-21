@@ -87,6 +87,7 @@ class Section extends ShadowElement {
           padding: var(--margin-4) 0px;
           border: 1px solid var(--black);
           background-color: var(--body);
+          color: var(--black);
         }
 
         #inputElements {
