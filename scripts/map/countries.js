@@ -16,9 +16,9 @@ export class Countries {
     await this.getCountryData();
     this.drawInsideBorders();
     this.drawOutsideBorders();
-    // this.drawNamesOfCountries();
-    // this.selectCountryNameIfInUrl();
-    // if (rezoom) this.map.rezoom(true);
+    this.drawNamesOfCountries();
+    this.selectCountryNameIfInUrl();
+    if (rezoom) this.map.rezoom(true);
   }
 
   async getCountryData() {
