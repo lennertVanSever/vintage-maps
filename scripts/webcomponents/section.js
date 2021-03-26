@@ -213,7 +213,7 @@ class CustomizeSection extends Section {
   }
 
   get secondButtonText() {
-    return this._secondButtonText || 'Order';
+    return this._secondButtonText || 'Loading • Order';
   }
 
   set secondButtonText(value) {
