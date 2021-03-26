@@ -1,7 +1,8 @@
 import { map } from '../index.js';
 import { dispatchCustomEvent, initial } from '../utils';
 
-const serverUrl = 'https://vintage-map-server.herokuapp.com';
+// const serverUrl = 'https://vintage-map-server.herokuapp.com';
+const serverUrl = 'http://localhost:9000';
 
 const fetchPrintToken = async () => {
   const responseRaw = await fetch(`${serverUrl}/print_key`);
@@ -142,13 +143,11 @@ export const generateMapUrl = async (printExactSize, type) => {
   // map.bleedCorrection = -120;
   map.addBleedCorrection(printExactSize);
   const htmlCode = getMapHtml(type);
-  console.log(htmlCode);
   try {
     dispatchCustomEvent('mapUrl', {
       data: null,
       state: 'LOADING',
     });
-    console.info('generating map');
     const responseRaw = await fetch(`${serverUrl}/upload_map`, {
       method: 'POST',
       headers: {
@@ -162,7 +161,6 @@ export const generateMapUrl = async (printExactSize, type) => {
       }),
     });
     const response = await responseRaw.json();
-    console.info('map url', response);
     dispatchCustomEvent('mapUrl', {
       data: response,
       state: 'SUCCESS',

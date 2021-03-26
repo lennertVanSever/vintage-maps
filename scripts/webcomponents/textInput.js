@@ -43,7 +43,7 @@ class TextInput extends ShadowElement {
         ${this.labelText}
         <div id="hint">${this.hintText}</div>
         <div id="hint" class="errorText">Please fill in your "${this.labelText}"</div>
-        <input id=${this.name} name=${this.name} value="${this.initialValue}" type="text"/>
+        <input data-cy=${this.dataCy} id=${this.name} name=${this.name} value="${this.initialValue}" type="text"/>
       </label>
      `;
   }
@@ -98,6 +98,14 @@ class TitleInput extends TextInput {
 
   get initialValue() {
     return initial.title;
+  }
+
+  get name() {
+    return 'title';
+  }
+
+  get dataCy() {
+    return 'titleInput';
   }
 }
 

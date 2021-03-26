@@ -166,8 +166,8 @@ class Section extends ShadowElement {
             <slot></slot>
           </div>
           <div id="buttonWrapper">
-            <button id="firstButton">${this.firstButtonText}</button>
-            <button id="secondButton">${this.secondButtonText}</button>
+            <button data-cy="firstButton" id="firstButton">${this.firstButtonText}</button>
+            <button data-cy="secondButton" id="secondButton">${this.secondButtonText}</button>
           </div>
         </div>
       </article>

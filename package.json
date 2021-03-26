@@ -5,6 +5,7 @@
     "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@babel/preset-env": "^7.12.11",
     "@borealisgroup/eslint-config": "^1.13.6",
+    "cypress": "^6.8.0",
     "eslint": "^7.9.0",
     "geojson": "^0.5.0",
     "snowpack": "^2.18.5"
