@@ -1,10 +1,12 @@
 /* eslint-disable promise/no-nesting */
 /* eslint-disable jest/valid-expect */
 /* eslint-disable jest/valid-expect-in-promise */
-import { getByDataCy, getElementInsideShadow } from '../utils/index';
-
-// const downloadedPdfUrl =
-//   'https://f000.backblazeb2.com/file/map-prints/map-95bedfb9-ee8e-4022-a85a-828c95608eca.pdf';
+import {
+  fillInDetailParameters,
+  fillInHeaderParameters,
+  getByDataCy,
+  getElementInsideShadow,
+} from '../utils/index';
 
 let downloadedPdfUrl;
 describe('Make and Download South America 1783 map', () => {
@@ -22,42 +24,21 @@ describe('Make and Download South America 1783 map', () => {
     getByDataCy('titleMap').should('have.text', newTitle);
   });
   it('Change other top parameters', () => {
-    getElementInsideShadow('year-select', 'select').select('1783');
-    getElementInsideShadow('language-select', 'select').select('es');
-    getElementInsideShadow('radio-map-style', 'radio').check('schoolColors', {
-      force: true,
-    });
-    getElementInsideShadow('radio-map-direction', 'radio').check('portrait', {
-      force: true,
+    fillInHeaderParameters({
+      year: '1783',
+      language: 'es',
+      color: 'schoolColors',
+      direction: 'portrait',
     });
   });
   it('open more editing options and select some parameters', () => {
-    getElementInsideShadow('expand-content', 'expandContentButton').click();
-    getElementInsideShadow('projection-select', 'select').select('Mercator');
-    getElementInsideShadow('font-select', 'select').select('Open+Sans');
-    getElementInsideShadow('font-select', 'select').select('Open+Sans');
-
-    [
-      {
-        shadowCy: 'borderWidth',
-        value: 50,
-      },
-      {
-        shadowCy: 'citySize',
-        value: 7,
-      },
-      {
-        shadowCy: 'graticuleGapSize',
-        value: 20,
-      },
-      {
-        shadowCy: 'graticuleLineSize',
-        value: 6,
-      },
-    ].forEach(({ shadowCy, value }) => {
-      getElementInsideShadow(`[data-cy=${shadowCy}]`, 'range')
-        .invoke('val', value)
-        .trigger('input');
+    fillInDetailParameters({
+      projection: 'Mercator',
+      font: 'Open+Sans',
+      borderWidth: 50,
+      citySize: 7,
+      graticuleGapSize: 20,
+      graticuleLineSize: 6,
     });
   });
 
