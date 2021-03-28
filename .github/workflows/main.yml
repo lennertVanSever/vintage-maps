@@ -8,7 +8,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Waiting for 200 from the Netlify Preview
+        uses: josephduffy/wait-for-netlify-action@v1
+        id: wait-for-netflify-preview
+        with:
+          site_name: "vintage-maps"
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-          start: cypress:run
+          start: cypress:run --config baseUrl=${{ steps.wait-for-netflify-preview.outputs.url }}
