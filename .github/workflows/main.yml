@@ -16,4 +16,4 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-          start: CYPRESS_baseUrl=${{ steps.wait-for-netflify-preview.outputs.url }} cypress:run
+          config: baseUrl=${{ steps.wait-for-netflify-preview.outputs.url }} 
