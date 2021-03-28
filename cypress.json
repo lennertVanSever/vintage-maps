@@ -1,5 +1,5 @@
 {
-  "baseUrl": "http://localhost:8080",
+  "baseUrl": "https://deploy-preview-11--vintage-maps.netlify.app/",
   "chromeWebSecurity": false,
   "env": {
     "controlPdf": "https://f000.backblazeb2.com/file/map-prints/map-9bbb1eb0-65dd-4e73-94ac-05fd63d2616d.pdf"
