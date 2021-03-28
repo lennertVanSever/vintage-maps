@@ -16,6 +16,8 @@
     "babel:build": "babel scripts -d build --copy-files"
   },
   "dependencies": {
+    "@sentry/browser": "^6.2.3",
+    "@sentry/tracing": "^6.2.3",
     "@snowpack/plugin-babel": "^2.1.5",
     "babel-plugin-inline-json-import": "^0.3.2",
     "d3": "^6.3.1",
