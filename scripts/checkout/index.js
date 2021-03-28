@@ -1,8 +1,8 @@
 import { map } from '../index.js';
 import { addParameterToURL, dispatchCustomEvent, initial } from '../utils';
 
-// const serverUrl = 'https://vintage-map-server.herokuapp.com';
-const serverUrl = 'http://localhost:9000';
+const serverUrl = 'https://vintage-map-server.herokuapp.com';
+// const serverUrl = 'http://localhost:9000';
 
 const fetchPrintToken = async () => {
   const responseRaw = await fetch(`${serverUrl}/print_key`);
