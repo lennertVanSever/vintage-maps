@@ -13,7 +13,8 @@
   "scripts": {
     "start": "snowpack dev",
     "build": "snowpack build",
-    "babel:build": "babel scripts -d build --copy-files"
+    "babel:build": "babel scripts -d build --copy-files",
+    "cypress:run": "cypress run"
   },
   "dependencies": {
     "@sentry/browser": "^6.2.3",
