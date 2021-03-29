@@ -51,18 +51,27 @@ export class Countries {
     return `${prefix}${index}`;
   }
 
-  resizeBorders(map) {
+  get strokeWidth() {
+    return {
+      insideBorderDark: this.map.zoomFactor * this.map.borderWidth,
+      outsideBorder: (this.map.zoomFactor * this.map.borderWidth) / 5,
+      insideBorderLight: (this.map.zoomFactor * this.map.borderWidth) / 2,
+    };
+  }
+
+  resizeBorders() {
+    const { strokeWidth } = this;
     d3.selectAll('.insideBorderDark').attr(
       'stroke-width',
-      map.zoomFactor * map.borderWidth
+      strokeWidth.insideBorderDark
     );
     d3.selectAll('.outsideBorder').attr(
       'stroke-width',
-      (map.zoomFactor * map.borderWidth) / 5
+      strokeWidth.outsideBorder
     );
     d3.selectAll('.insideBorderLight').attr(
       'stroke-width',
-      map.zoomFactor * map.borderWidth * 2
+      strokeWidth.insideBorderLight
     );
   }
 
@@ -105,9 +114,12 @@ export class Countries {
         .attr('stroke', country => this.getColorIndexValue(country));
     };
 
-    addInsideBorder({ pathClass: 'insideBorderDark' }).attr('stroke-width', 0);
+    addInsideBorder({ pathClass: 'insideBorderDark' }).attr(
+      'stroke-width',
+      this.strokeWidth.insideBorderDark
+    );
     addInsideBorder({ pathClass: 'insideBorderLight' })
-      .attr('stroke-width', 0)
+      .attr('stroke-width', this.strokeWidth.insideBorderLight)
       .attr('opacity', 0.5);
     addInsideBorder({ pathClass: 'insideFill', fill: true })
       .attr('stroke', 'none')
@@ -140,7 +152,7 @@ export class Countries {
       .attr('class', 'outsideBorder')
       .attr('fill', 'none')
       // .attr('fill', colors.background)
-      .attr('stroke-width', 0)
+      .attr('stroke-width', this.strokeWidth.outsideBorder)
       .attr('stroke', 'var(--outsideBorder)');
   }
 

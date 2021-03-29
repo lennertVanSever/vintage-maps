@@ -40,7 +40,7 @@ class SelectElement extends ShadowElement {
 
       <label>
         ${this.labelText}
-        <select name=${this.name}>
+        <select data-cy="select" name=${this.name}>
           ${this.optionHtml}
         </select>
       </label>

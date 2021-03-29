@@ -151,6 +151,7 @@ class RadioInputs extends ShadowElement {
               name="${this.name}"
               value="${value}"
               type="radio"
+              data-cy="radio"
             >
             <span class="checkmark"></span>
           </label>

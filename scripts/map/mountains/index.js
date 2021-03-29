@@ -118,7 +118,8 @@ export class Mountains {
       });
       d3.selectAll('.canOverlapElement').each(function () {
         const extremesDominantElement = getExtremes(
-          d3.select(this).node().getBBox()
+          d3.select(this).node().getBBox(),
+          2
         );
         mountains.forEach(mountain => {
           if (mountain) {

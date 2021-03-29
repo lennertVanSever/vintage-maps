@@ -49,6 +49,7 @@ export class Framework {
       .attr('fill', 'var(--framework)')
       .attr('font-size', 25)
       .attr('y', 28)
+      .attr('data-cy', 'titleMap')
       .attr('text-anchor', 'middle');
   }
 
