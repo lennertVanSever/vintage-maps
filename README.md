@@ -1,9 +1,1 @@
 # Vintage maps frontend
-
-Asia 1279 example: http://localhost:8080/?font=Bellefair&direction=landscape&sizeValue=60x40&sizeLabel=60cm+x+40cm&year=1279&projection=Kavrayskiy7&mountains=true&cities=true&graticuleCollection=true&rivers=true&k=4.725067952607121&x=-3074.3612182352335&y=34.534959625959345&info=United+Provinces+of+La+Plata&type=country&language=hi&title=Asia+-+1279&style=defaultColors&pdfFile=https%3A%2F%2Ff000.backblazeb2.com%2Ffile%2Fmap-prints%2Fmap-67eca932-2530-42e1-8780-a9d04b5fee6e.pdf&borderWidth=14&citySize=2.1&graticuleGapSize=12
-
-South America 1783 http://localhost:8080/?font=Bellefair&direction=portrait&sizeValue=40x60&sizeLabel=40cm+x+60cm&year=1783&projection=Kavrayskiy7&mountains=true&cities=true&graticuleCollection=true&rivers=true&k=1.9063112488647742&x=78.02763744618568&y=2.621114531819842&title=South+America+-+1783&style=schoolColors&language=es
-
-Europe 1279 http://localhost:8080/?font=Bellefair&direction=landscape&sizeValue=60x40&sizeLabel=60cm+x+40cm&year=1279&projection=Kavrayskiy7&mountains=true&cities=true&graticuleCollection=true&rivers=true&k=5.4714291768238965&x=-2094.2850418723633&y=624.6415648834334&title=Europe+-+1279&style=schoolColors
-
-North Africa: http://localhost:8080/?font=Bellefair&direction=landscape&sizeValue=60x40&sizeLabel=60cm+x+40cm&year=1914&projection=Kavrayskiy7&mountains=true&cities=true&graticuleCollection=true&rivers=true&k=4.2982336123106135&x=-1605.6532962587876&y=-65.30389691375444&title=Afrique+du+Nord+-+1914&style=schoolColors&language=fr&graticuleGapSize=32
