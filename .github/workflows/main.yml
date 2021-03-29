@@ -22,7 +22,11 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-          config: baseUrl=${{ steps.wait-for-netflify-preview.outputs.url }} 
+          config: baseUrl=${{ steps.wait-for-netflify-preview.outputs.url }}
+          record: true
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
       - uses: actions/upload-artifact@v1
         if: failure()
         with:
