@@ -59,3 +59,18 @@ export const fillInDetailParameters = ({
       .trigger('input');
   });
 };
+
+export function similarityStrings(a, b) {
+  // https://stackoverflow.com/questions/10473745/compare-strings-javascript-return-of-likely
+  let equivalency = 0;
+  const minLength = a.length > b.length ? b.length : a.length;
+  const maxLength = a.length < b.length ? b.length : a.length;
+  for (let i = 0; i < minLength; i++) {
+    if (a[i] === b[i]) {
+      equivalency++;
+    }
+  }
+
+  const weight = equivalency / maxLength;
+  return `${weight * 100}`;
+}

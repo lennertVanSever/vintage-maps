@@ -1,3 +1,4 @@
+/* eslint-disable babel/no-unused-expressions */
 /* eslint-disable promise/no-nesting */
 /* eslint-disable jest/valid-expect */
 /* eslint-disable jest/valid-expect-in-promise */
@@ -6,6 +7,7 @@ import {
   fillInHeaderParameters,
   getByDataCy,
   getElementInsideShadow,
+  similarityStrings,
 } from '../utils/index';
 
 let downloadedPdfUrl;
@@ -66,8 +68,11 @@ describe('Make and Download South America 1783 map', () => {
       cy.request(downloadedPdfUrl).then(newPdfRaw => {
         const controlPdf = removeDateRelatedText(controlPdfRaw.body);
         const newPdf = removeDateRelatedText(newPdfRaw.body);
-        cy.log('pdfs are the same', controlPdf === newPdf);
-        expect(controlPdf === newPdf).to.be.true;
+        assert.isAbove(
+          Number(similarityStrings(controlPdf, newPdf)),
+          90,
+          'At least 90% similarity'
+        );
       });
     });
   });
