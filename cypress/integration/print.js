@@ -100,6 +100,8 @@ describe('Make and Download South America 1783 map', () => {
     cy.get('.failure').click();
   });
   it('Try again to pay', () => {
+    // eslint-disable-next-line cypress/no-unnecessary-waiting
+    cy.wait(5000);
     getElementInsideShadow('order-status-section', 'secondButton').click({
       force: true,
     });
