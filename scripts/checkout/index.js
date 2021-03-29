@@ -1,7 +1,8 @@
 import { map } from '../index.js';
-import { dispatchCustomEvent, initial } from '../utils';
+import { addParameterToURL, dispatchCustomEvent, initial } from '../utils';
 
 const serverUrl = 'https://vintage-map-server.herokuapp.com';
+// const serverUrl = 'http://localhost:9000';
 
 const fetchPrintToken = async () => {
   const responseRaw = await fetch(`${serverUrl}/print_key`);
@@ -10,6 +11,7 @@ const fetchPrintToken = async () => {
 
 export const goToPayment = async ({ id, checkout: { setupUrl }, shipping }) => {
   const { access_token: accessToken } = await fetchPrintToken();
+  addParameterToURL('orderId', id);
   const responseRaw = await fetch(setupUrl, {
     method: 'POST',
     headers: {
@@ -17,7 +19,7 @@ export const goToPayment = async ({ id, checkout: { setupUrl }, shipping }) => {
       Authorization: `Bearer ${accessToken}`,
     },
     body: JSON.stringify({
-      returnUrl: `${window.location.origin}/status-order${window.location.search}&orderId=${id}`,
+      returnUrl: `${window.location.origin}/status-order${window.location.search}`,
       billing: shipping,
     }),
   });
@@ -142,13 +144,11 @@ export const generateMapUrl = async (printExactSize, type) => {
   // map.bleedCorrection = -120;
   map.addBleedCorrection(printExactSize);
   const htmlCode = getMapHtml(type);
-  console.log(htmlCode);
   try {
     dispatchCustomEvent('mapUrl', {
       data: null,
       state: 'LOADING',
     });
-    console.info('generating map');
     const responseRaw = await fetch(`${serverUrl}/upload_map`, {
       method: 'POST',
       headers: {
@@ -162,7 +162,6 @@ export const generateMapUrl = async (printExactSize, type) => {
       }),
     });
     const response = await responseRaw.json();
-    console.info('map url', response);
     dispatchCustomEvent('mapUrl', {
       data: response,
       state: 'SUCCESS',
@@ -234,6 +233,7 @@ setTimeout(() => {
 }, 0);
 
 export const stripeCheckout = pdfFile => {
+  addParameterToURL('pdfFile', pdfFile);
   const stripe = Stripe(
     'pk_test_51IPXmRAyNgTukX9zBreHfqpRKgCO8c5oDkpNHQxnTVy9xDY5D1TP8o9tax4ZmgAYSo3fGFpOMpEatP5DxCiAWIjR001cHiZQwx'
   );

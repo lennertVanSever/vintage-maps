@@ -40,7 +40,7 @@ class ExpandContent extends ShadowElement {
         }
       </style>
       <div>
-        <button>${closedButtonText}</button>
+        <button data-cy="expandContentButton">${closedButtonText}</button>
         <div id="slotWrapper">
           <slot></slot>
         </div>

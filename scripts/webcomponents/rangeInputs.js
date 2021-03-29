@@ -78,7 +78,7 @@ class RangeInput extends ShadowElement {
         <div>
           ${this.labelText}
         </div>
-        <input type="range" step=${this.step} min=${this.min} max=${this.max} value=${this.value} class="slider">
+        <input data-cy="range" type="range" step=${this.step} min=${this.min} max=${this.max} value=${this.value} class="slider">
       </label>
      `;
   }
