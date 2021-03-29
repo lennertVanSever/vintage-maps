@@ -3,11 +3,17 @@ export const getElementInsideShadow = (shadowElement, elementKey) =>
   cy.get(shadowElement).shadow().find(`[data-cy=${elementKey}]`);
 
 export const fillInHeaderParameters = ({
+  title,
   year,
   language,
   color,
   direction,
 }) => {
+  getElementInsideShadow('title-input', 'titleInput')
+    .clear('')
+    .type(title, { force: true })
+    .trigger('change');
+
   getElementInsideShadow('year-select', 'select').select(year);
   getElementInsideShadow('language-select', 'select').select(language);
   getElementInsideShadow('radio-map-style', 'radio').check(color, {

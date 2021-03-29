@@ -1,40 +1,41 @@
 import { projectionNames, years } from '../config';
-import { getInitialUrlParameter } from './url';
+import { getUrlParameter } from './url';
 
 export const initialUrl = new URL(window.location.href);
 
 export const fallBackTitle = 'Change me';
 
-export const initial = {
-  title: getInitialUrlParameter('title') || fallBackTitle,
-  direction: getInitialUrlParameter('direction') || 'landscape',
-  style: getInitialUrlParameter('style') || 'defaultColors',
+export const getLatestParameters = () => ({
+  title: getUrlParameter('title') || fallBackTitle,
+  direction: getUrlParameter('direction') || 'landscape',
+  style: getUrlParameter('style') || 'defaultColors',
   size: {
-    value: getInitialUrlParameter('sizeValue') || '60x40',
-    label: getInitialUrlParameter('sizeLabel') || '60cm x 40cm',
+    value: getUrlParameter('sizeValue') || '60x40',
+    label: getUrlParameter('sizeLabel') || '60cm x 40cm',
   },
   material: {
-    value: getInitialUrlParameter('materialValue') || 'canvas',
-    label: getInitialUrlParameter('materialLabel') || 'Canvas',
+    value: getUrlParameter('materialValue') || 'canvas',
+    label: getUrlParameter('materialLabel') || 'Canvas',
   },
   hideOrShow: {
-    mountains: getInitialUrlParameter('mountains') || 'true',
-    graticuleCollection:
-      getInitialUrlParameter('graticuleCollection') || 'true',
-    cities: getInitialUrlParameter('cities') || 'true',
-    rivers: getInitialUrlParameter('rivers') || 'true',
+    mountains: getUrlParameter('mountains') || 'true',
+    graticuleCollection: getUrlParameter('graticuleCollection') || 'true',
+    cities: getUrlParameter('cities') || 'true',
+    rivers: getUrlParameter('rivers') || 'true',
   },
-  year: getInitialUrlParameter('year') || years[0],
-  borderWidth: getInitialUrlParameter('borderWidth') || 10,
-  citySize: getInitialUrlParameter('citySize') || 3,
-  graticuleGapSize: getInitialUrlParameter('graticuleGapSize') || 50,
-  graticuleLineSize: getInitialUrlParameter('graticuleLineSize') || 1,
-  language: getInitialUrlParameter('language') || 'en',
-  font: getInitialUrlParameter('font') || 'Bellefair',
-  projectionName: getInitialUrlParameter('projection') || projectionNames[0],
+  year: getUrlParameter('year') || years[0],
+  borderWidth: getUrlParameter('borderWidth') || 10,
+  citySize: getUrlParameter('citySize') || 3,
+  graticuleGapSize: getUrlParameter('graticuleGapSize') || 50,
+  graticuleLineSize: getUrlParameter('graticuleLineSize') || 1,
+  language: getUrlParameter('language') || 'en',
+  font: getUrlParameter('font') || 'Bellefair',
+  projectionName: getUrlParameter('projection') || projectionNames[0],
   transform: {
-    k: getInitialUrlParameter('k') || 1,
-    x: getInitialUrlParameter('x') || 0,
-    y: getInitialUrlParameter('y') || 0,
+    k: getUrlParameter('k') || 1,
+    x: getUrlParameter('x') || 0,
+    y: getUrlParameter('y') || 0,
   },
-};
+});
+
+export const initial = getLatestParameters();
