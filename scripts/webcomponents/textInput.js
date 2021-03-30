@@ -79,6 +79,7 @@ class TitleInput extends TextInput {
   }
 
   change(event) {
+    console.log(event.target.value);
     addParameterToURL('title', event.target.value);
   }
 

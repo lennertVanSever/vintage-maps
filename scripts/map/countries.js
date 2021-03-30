@@ -84,10 +84,14 @@ export class Countries {
     }
   }
 
+  getBorderColorCssVariable(index) {
+    return `var(--border-${index})`;
+  }
+
   getColorIndexValue(country) {
     return this.isUnclaimed(country)
       ? 'none'
-      : `var(--border-${country.properties.BORDER_COLOR_INDEX})`;
+      : this.getBorderColorCssVariable(country.properties.BORDER_COLOR_INDEX);
   }
 
   drawInsideBorders() {
@@ -213,7 +217,7 @@ export class Countries {
         },
         body: JSON.stringify({
           mapName: this.mapName,
-          countryName: newProperties.NAME,
+          countryId: newProperties.ID,
           changeProperties: newProperties,
         }),
       });
@@ -256,11 +260,12 @@ export class Countries {
   keyup(event) {
     if (this.selectedCountryLabel) {
       const step = 0.2;
-      let newFontSize = Number(
+      const previousFontSize = Number(
         this.selectedCountryLabel
           .style('font-size')
           .replace(this.fontSizeUnit, '')
       );
+      let newFontSize = previousFontSize;
       if (event.code === 'ArrowDown') {
         newFontSize -= step;
       }
@@ -271,14 +276,27 @@ export class Countries {
         'font-size',
         `${newFontSize}${this.fontSizeUnit}`
       );
+      if (previousFontSize !== newFontSize) {
+        this.updateCountry({
+          ...this.selectedCountryLabelData.properties,
+          CUSTOM_LABEL_PLACEMENT: {
+            ...this.getLabelPlacementProperty(this.selectedCountryLabelData),
+            FONT_SIZE: `${newFontSize}${this.fontSizeUnit}`,
+          },
+        });
+      }
 
-      this.updateCountry({
-        ...this.selectedCountryLabelData.properties,
-        CUSTOM_LABEL_PLACEMENT: {
-          ...this.getLabelPlacementProperty(this.selectedCountryLabelData),
-          FONT_SIZE: `${newFontSize}${this.fontSizeUnit}`,
-        },
-      });
+      const keyNumber = Number(event.key);
+      if (!Number.isNaN(keyNumber)) {
+        this.updateCountry({
+          ...this.selectedCountryLabelData.properties,
+          BORDER_COLOR_INDEX: keyNumber,
+        });
+        this.selectedCountryLabel.style(
+          'fill',
+          this.getBorderColorCssVariable(keyNumber)
+        );
+      }
     }
 
     // this.selectedCountryLabel;

@@ -1,5 +1,5 @@
 import * as d3 from 'd3';
-import { initial } from '../utils';
+import { getLatestParameters } from '../utils';
 
 export class Framework {
   constructor(map) {
@@ -43,7 +43,7 @@ export class Framework {
     const [, , width] = this.map.svgDimensions;
     this.group
       .append('text')
-      .text(initial.title)
+      .text(getLatestParameters().title)
       .attr('x', width / 2)
       .attr('id', 'frameworkTitle')
       .attr('fill', 'var(--framework)')

@@ -13,14 +13,9 @@ describe('Make and Download South America 1783 map', () => {
       'k=5.160369478601591&x=-1927.7591489671572&y=588.1238434178917';
     cy.visit(`/?${positionOfEurope}`);
   });
-  it('Type title', () => {
-    const newTitle = 'title typed by cypress for print';
-    getElementInsideShadow('title-input', 'titleInput')
-      .clear('')
-      .type(newTitle, { force: true });
-  });
   it('Change other top parameters', () => {
     fillInHeaderParameters({
+      title: 'title typed by cypress for print',
       year: '1492',
       language: 'fr',
       color: 'darkColors',

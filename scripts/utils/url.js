@@ -20,6 +20,7 @@ export function addParametersToURL(data) {
   dispatchCustomEvent('updateUrlSearchQuery');
 }
 
-export const getInitialUrlParameter = key => {
-  return initialUrl.searchParams.get(key);
+export const getUrlParameter = key => {
+  const currentUrl = new URL(window.location.href);
+  return currentUrl.searchParams.get(key);
 };
