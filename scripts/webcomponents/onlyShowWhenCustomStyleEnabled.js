@@ -4,7 +4,7 @@ import { ShadowElement } from './shadowElement.js';
 class OnlyShowWhenCustomStyleEnabled extends ShadowElement {
   constructor() {
     super();
-    this.editingMode = true;
+    this.editingMode = false;
     window.addEventListener('styleChange', this.handleStyleChange.bind(this));
     this.handleStyleChange({ detail: { value: initial.style } });
   }
