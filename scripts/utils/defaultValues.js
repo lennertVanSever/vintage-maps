@@ -32,9 +32,9 @@ export const getLatestParameters = () => ({
   font: getUrlParameter('font') || 'Bellefair',
   projectionName: getUrlParameter('projection') || projectionNames[0],
   transform: {
-    k: getUrlParameter('k') || 1,
-    x: getUrlParameter('x') || 0,
-    y: getUrlParameter('y') || 0,
+    k: getUrlParameter('k') || 1.0853922802026403,
+    x: getUrlParameter('x') || 292.4621926401951,
+    y: getUrlParameter('y') || 294.48411281077824,
   },
 });
 
