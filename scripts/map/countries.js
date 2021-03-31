@@ -245,7 +245,7 @@ export class Countries {
       const [newX, newY] = this.map.projection.invert([x, y]);
       this.updateCountry({
         ...selectedCountry.properties,
-        CUSTOM_LABEL_PLACEMENT: {
+        LABEL_PLACEMENT: {
           ...this.getLabelPlacementProperty(selectedCountry),
           X: newX,
           Y: newY,
@@ -279,7 +279,7 @@ export class Countries {
       if (previousFontSize !== newFontSize) {
         this.updateCountry({
           ...this.selectedCountryLabelData.properties,
-          CUSTOM_LABEL_PLACEMENT: {
+          LABEL_PLACEMENT: {
             ...this.getLabelPlacementProperty(this.selectedCountryLabelData),
             FONT_SIZE: `${newFontSize}${this.fontSizeUnit}`,
           },
@@ -303,10 +303,7 @@ export class Countries {
   }
 
   getLabelPlacementProperty(country) {
-    return (
-      country.properties.CUSTOM_LABEL_PLACEMENT ||
-      country.properties.LABEL_PLACEMENT
-    );
+    return country.properties.LABEL_PLACEMENT;
   }
 
   countryRightClick(event, selectedCountry) {
