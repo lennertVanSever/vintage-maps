@@ -43,7 +43,8 @@ export class Countries {
     return (
       d.properties.ABBREVNAME === 'Antarctica' ||
       d.properties.NAME === null ||
-      d.properties.NAME === 'unclaimed'
+      (typeof d.properties.NAME === 'string' &&
+        d.properties.NAME.toLowerCase() === 'unclaimed')
     );
   }
 
