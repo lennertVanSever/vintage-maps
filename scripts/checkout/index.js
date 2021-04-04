@@ -1,3 +1,4 @@
+import * as Sentry from '@sentry/browser';
 import { map } from '../index.js';
 import { addParameterToURL, dispatchCustomEvent, initial } from '../utils';
 
@@ -244,7 +245,7 @@ export const stripeCheckout = pdfFile => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      pdfFile,
+      origin: window.location.origin,
       searchParameters: window.location.search,
     }),
   })
@@ -256,10 +257,12 @@ export const stripeCheckout = pdfFile => {
     })
     .then(result => {
       if (result.error) {
+        Sentry.captureException(result.error.message);
         alert(result.error.message);
       }
     })
     .catch(error => {
+      Sentry.captureException(error);
       console.error('Error:', error);
     });
 };
