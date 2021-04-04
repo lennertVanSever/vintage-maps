@@ -1,3 +1,4 @@
+/* eslint-disable cypress/no-unnecessary-waiting */
 /* eslint-disable promise/no-nesting */
 /* eslint-disable jest/valid-expect */
 /* eslint-disable jest/valid-expect-in-promise */
@@ -6,6 +7,29 @@ import {
   fillInHeaderParameters,
   getElementInsideShadow,
 } from '../utils/index';
+
+const contactDetails = [
+  {
+    name: 'email',
+    value: 'jane.doe@gmail.com',
+  },
+  {
+    name: 'name',
+    value: 'jane doe',
+  },
+  {
+    name: 'address',
+    value: '123 fake street',
+  },
+  {
+    name: 'zip',
+    value: '1000',
+  },
+  {
+    name: 'city',
+    value: 'Fake town',
+  },
+];
 
 describe('Make and Download South America 1783 map', () => {
   before(() => {
@@ -53,28 +77,7 @@ describe('Make and Download South America 1783 map', () => {
     // cy.visit(`/order`);
   });
   it('Fill in contact details', () => {
-    [
-      {
-        name: 'email',
-        value: 'jane.doe@gmail.com',
-      },
-      {
-        name: 'name',
-        value: 'jane doe',
-      },
-      {
-        name: 'address',
-        value: '123 fake street',
-      },
-      {
-        name: 'zip',
-        value: '1000',
-      },
-      {
-        name: 'city',
-        value: 'Fake town',
-      },
-    ].forEach(({ name, value }) => {
+    contactDetails.forEach(({ name, value }) => {
       cy.get(`text-input[name="${name}"]`).shadow().find(`input`).type(value, {
         delay: 0,
       });
@@ -95,7 +98,6 @@ describe('Make and Download South America 1783 map', () => {
     cy.get('.failure').click();
   });
   it('Try again to pay', () => {
-    // eslint-disable-next-line cypress/no-unnecessary-waiting
     cy.wait(5000);
     getElementInsideShadow('order-status-section', 'secondButton').click({
       force: true,
@@ -103,5 +105,44 @@ describe('Make and Download South America 1783 map', () => {
   });
   it('Success payment', () => {
     cy.get('.success').click();
+    cy.contains('Payment complete');
+  });
+  it('Order is correctly made in printapi', () => {
+    cy.intercept('https://test.printapi.nl/v2/orders/*').as('orderDetails');
+    cy.wait(60000);
+    cy.reload();
+    cy.wait('@orderDetails').then(interception => {
+      const { body } = interception.response;
+      const [firstItem] = body.items;
+      assert.equal(
+        firstItem.productId,
+        'plexiglas_90x60',
+        'Product ID should be a plexiglas 90x60'
+      );
+      assert.equal(
+        firstItem.files.content.status,
+        'Accepted',
+        'Map print should be accepted'
+      );
+      const [
+        { value: email },
+        { value: name },
+        { value: line1 },
+        { value: postCode },
+        { value: city },
+      ] = contactDetails;
+      assert.equal(body.email, email, 'Email should match contact email');
+      assert.deepEqual(
+        body.shipping.address,
+        {
+          name,
+          line1,
+          postCode,
+          city,
+          country: 'BE',
+        },
+        'Shipping address should match contact details'
+      );
+    });
   });
 });
