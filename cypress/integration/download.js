@@ -76,4 +76,20 @@ describe('Make and Download South America 1783 map', () => {
       });
     });
   });
+
+  it('Fake a valid purchase', () => {
+    cy.intercept('**/pay-downloaded-map', {
+      body: {
+        failedByCypress: true,
+      },
+      statusCode: 500,
+    }).as('pay');
+    getElementInsideShadow('prepare-download-section', 'secondButton').click();
+    cy.wait('@pay').then(({ request }) => {
+      const { origin, searchParameters } = request.body;
+      cy.visit(`${origin}/download-success${searchParameters}`);
+      cy.contains('Payment complete');
+      getByDataCy('downloadLink').should('have.attr', 'href', downloadedPdfUrl);
+    });
+  });
 });
