@@ -35,8 +35,11 @@ export const orderPrint = async orderData => {
       data: null,
       state: 'LOADING',
     });
-    const { access_token: accessToken } = await fetchPrintToken();
-    const responseRaw = await fetch('https://test.printapi.nl/v2/orders', {
+    const {
+      access_token: accessToken,
+      api_url: apiUrl,
+    } = await fetchPrintToken();
+    const responseRaw = await fetch(`${apiUrl}/v2/orders`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -59,8 +62,11 @@ export const orderPrint = async orderData => {
 };
 
 export const getOrderDetails = async ({ id }) => {
-  const { access_token: accessToken } = await fetchPrintToken();
-  const responseRaw = await fetch(`https://test.printapi.nl/v2/orders/${id}`, {
+  const {
+    access_token: accessToken,
+    api_url: apiUrl,
+  } = await fetchPrintToken();
+  const responseRaw = await fetch(`${apiUrl}/v2/orders/${id}`, {
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${accessToken}`,
@@ -206,9 +212,12 @@ class CalculatePrice {
   }
 
   async calculatePrice() {
-    const { access_token: accessToken } = await fetchPrintToken();
+    const {
+      access_token: accessToken,
+      api_url: apiUrl,
+    } = await fetchPrintToken();
     const responseRaw = await fetch(
-      `https://test.printapi.nl/v2/products/${this.productNameId}`,
+      `${apiUrl}/v2/products/${this.productNameId}`,
       {
         headers: {
           'Content-Type': 'application/json',
