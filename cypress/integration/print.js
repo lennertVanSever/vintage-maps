@@ -86,7 +86,7 @@ describe('Make and Download South America 1783 map', () => {
   });
   it('Go to checkout section', () => {
     cy.intercept({
-      url: 'https://test.printapi.nl/v2/orders',
+      url: '**/v2/orders',
     }).as('makeOrder');
     getElementInsideShadow('order-section', 'secondButton').click();
     cy.wait('@makeOrder');
@@ -108,7 +108,7 @@ describe('Make and Download South America 1783 map', () => {
     cy.contains('Payment complete');
   });
   it('Order is correctly made in printapi', () => {
-    cy.intercept('https://test.printapi.nl/v2/orders/*').as('orderDetails');
+    cy.intercept('**/v2/orders/*').as('orderDetails');
     cy.wait(60000);
     cy.reload();
     cy.wait('@orderDetails').then(interception => {
