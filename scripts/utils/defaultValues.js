@@ -22,6 +22,7 @@ export const getLatestParameters = () => ({
     graticuleCollection: getUrlParameter('graticuleCollection') || 'true',
     cities: getUrlParameter('cities') || 'true',
     rivers: getUrlParameter('rivers') || 'true',
+    seaLabelsPaths: getUrlParameter('seaLabelsPaths') || 'true',
   },
   year: getUrlParameter('year') || years[0],
   borderWidth: getUrlParameter('borderWidth') || 10,
