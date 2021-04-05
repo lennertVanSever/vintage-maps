@@ -1,9 +1,30 @@
 import * as Sentry from '@sentry/browser';
 import { map } from '../index.js';
-import { addParameterToURL, dispatchCustomEvent, initial } from '../utils';
+import {
+  addParameterToURL,
+  dispatchCustomEvent,
+  initial,
+  isLocalHost,
+} from '../utils';
 
-const serverUrl = 'https://vintage-map-server.herokuapp.com';
-// const serverUrl = 'http://localhost:9000';
+const { serverUrl, stripePublicKey } = (() => {
+  const manuallyForceProduction = true && isLocalHost;
+  const isProduction = window.location.origin === 'https://vintagemap.app';
+  const production = {
+    serverUrl: 'https://vintage-map-server.herokuapp.com',
+    stripePublicKey:
+      'pk_live_51IPXmRAyNgTukX9zVkO2GZHWRE1wV0tXLmXOX7q3LiNfyrJLu7OFEj6yUCu6mWcCfaCuzQuDX5yuwXcTdVcNj2gr00UtV0GEpi',
+  };
+  const development = {
+    serverUrl: 'https://vintage-map-server-development.herokuapp.com',
+    stripePublicKey:
+      'pk_test_51IPXmRAyNgTukX9zBreHfqpRKgCO8c5oDkpNHQxnTVy9xDY5D1TP8o9tax4ZmgAYSo3fGFpOMpEatP5DxCiAWIjR001cHiZQwx',
+  };
+  if (isProduction || manuallyForceProduction) {
+    return production;
+  }
+  return development;
+})();
 
 const fetchPrintToken = async () => {
   const responseRaw = await fetch(`${serverUrl}/print_key`);
@@ -244,9 +265,7 @@ setTimeout(() => {
 
 export const stripeCheckout = pdfFile => {
   addParameterToURL('pdfFile', pdfFile);
-  const stripe = Stripe(
-    'pk_test_51IPXmRAyNgTukX9zBreHfqpRKgCO8c5oDkpNHQxnTVy9xDY5D1TP8o9tax4ZmgAYSo3fGFpOMpEatP5DxCiAWIjR001cHiZQwx'
-  );
+  const stripe = Stripe(stripePublicKey);
 
   fetch(`${serverUrl}/pay-downloaded-map`, {
     method: 'POST',
