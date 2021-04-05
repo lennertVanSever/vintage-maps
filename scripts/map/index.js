@@ -4,6 +4,7 @@ import { addParametersToURL, addParameterToURL, initial } from '../utils';
 import { Cities } from './cities/index.js';
 import { Mountains } from './mountains/index.js';
 import { Rivers } from './rivers/index.js';
+import { SeaLabels } from './seaLabels/index.js';
 import { Countries } from './countries.js';
 import { Framework } from './framework.js';
 import { Graticule } from './graticule.js';
@@ -62,6 +63,7 @@ export class Map {
     if (previousLanguage) {
       this.countries.updateLanguage();
       this.cities.updateLanguage();
+      this.seaLabels.updateLanguage();
     }
   }
 
@@ -167,6 +169,7 @@ export class Map {
       'cities',
       'countryNames',
       'mountains',
+      'seaLabels',
     ].forEach(groupName => {
       this.subGroups[groupName] = this.mapContentGroup
         .append('g')
@@ -206,6 +209,9 @@ export class Map {
 
       this.mountains = new Mountains(this);
       await this.mountains.render();
+
+      this.seaLabels = new SeaLabels(this);
+      await this.seaLabels.render();
 
       this.initialZoom();
       this.makeMapZoomable();
