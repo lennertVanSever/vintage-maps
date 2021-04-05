@@ -148,6 +148,7 @@ export class Map {
       this.cities.changeProjection();
       this.countries.changeProjection();
       this.mountains.changeProjection();
+      this.seaLabels.changeProjection();
     }
   }
 
