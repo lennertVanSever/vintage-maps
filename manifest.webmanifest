@@ -1,6 +1,6 @@
 {
-  "name": "Vintage maps",
-  "short_name": "Vintage maps",
+  "name": "Vintage Map",
+  "short_name": "Vintage Map",
   "start_url": "/",
   "display": "fullscreen",
   "theme_color": "#eae1ba",
