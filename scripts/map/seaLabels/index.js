@@ -22,17 +22,19 @@ export class SeaLabels {
   }
 
   resize() {
-    const svgRect = this.map.svg.node().getBoundingClientRect();
-    const margin = 40;
+    const svgRect = d3
+      .selectAll('#frameworkBorder2')
+      .node()
+      .getBoundingClientRect();
     d3.selectAll('.seaLabelsText').style('display', 'block');
     d3.selectAll('.seaLabelsText').each(function () {
       const labelText = d3.select(this);
       const labelRect = labelText.node().getBoundingClientRect();
       if (
-        labelRect.left - margin < svgRect.left ||
-        labelRect.right + margin > svgRect.right ||
-        labelRect.top - margin * 1.5 < svgRect.top ||
-        labelRect.bottom + margin > svgRect.bottom
+        labelRect.left < svgRect.left ||
+        labelRect.right > svgRect.right ||
+        labelRect.top < svgRect.top ||
+        labelRect.bottom > svgRect.bottom
       ) {
         labelText.style('display', 'none');
       }
