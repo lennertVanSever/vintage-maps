@@ -41,6 +41,7 @@ export class Map {
     this.reset();
 
     this.bouncedSaveZoomInUrl = this.saveZoomInUrl();
+    this.bouncedRezoom = debounce(() => this.rezoom(), 20);
   }
 
   set year(newYear) {
@@ -281,7 +282,6 @@ export class Map {
         minimum: this.minimumZoom,
         maximum: this.maximumZoom,
       };
-      this.mapContentGroup.attr('transform', this.transform);
     }
     if (this.previousZoomValue !== zoom.value || force) {
       if (zoom.value < 5) {
@@ -330,7 +330,8 @@ export class Map {
         .on('zoom', event => {
           this.transform = event.transform;
           this.bouncedSaveZoomInUrl();
-          this.rezoom();
+          this.bouncedRezoom();
+          this.mapContentGroup.attr('transform', this.transform);
         })
     );
   }
