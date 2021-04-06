@@ -301,6 +301,7 @@ export class Map {
       this.mountains.resize(this);
       this.rivers.resize(this.zoomFactor);
     }
+    this.seaLabels.resize(this.zoomFactor);
     this.previousZoomValue = zoom.value;
   }
 

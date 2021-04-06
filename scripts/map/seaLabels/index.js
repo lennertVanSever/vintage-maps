@@ -21,9 +21,23 @@ export class SeaLabels {
     this.draw();
   }
 
-  // resize(zoomFactor) {
-  //   d3.selectAll('.river').attr('stroke-width', zoomFactor / 2);
-  // }
+  resize() {
+    const svgRect = this.map.svg.node().getBoundingClientRect();
+    const margin = 40;
+    d3.selectAll('.seaLabelsText').style('display', 'block');
+    d3.selectAll('.seaLabelsText').each(function () {
+      const labelText = d3.select(this);
+      const labelRect = labelText.node().getBoundingClientRect();
+      if (
+        labelRect.left - margin < svgRect.left ||
+        labelRect.right + margin > svgRect.right ||
+        labelRect.top - margin * 1.5 < svgRect.top ||
+        labelRect.bottom + margin > svgRect.bottom
+      ) {
+        labelText.style('display', 'none');
+      }
+    });
+  }
 
   updateLanguage() {
     d3.selectAll('.seaLabelTextPath').text(
@@ -55,7 +69,8 @@ export class SeaLabels {
       .enter()
       .append('text')
       .attr('fill', 'var(--country)')
-      .attr('id', 'curve-text')
+      .attr('id', ({ properties: { id } }) => `seaLabelText${id}`)
+      .attr('class', 'seaLabelsText')
       .style('text-anchor', 'middle')
       .attr('dy', '-0.5px')
       .attr('font-size', ({ properties: { size } }) => size * 7)
