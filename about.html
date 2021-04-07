@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ⚡ lang="en">
   <head>
     <meta charset="utf-8">
+    <link rel="canonical" href="https://vintagemap.app/about.html">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>About | Vintage Map</title>
     <meta name="description" content="Easily create your own custom vintage map" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:image" content="https://vintagemap.app/images/banner/medium.jpg">
     <link rel="manifest" href="/manifest.webmanifest">
     <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
@@ -15,13 +15,9 @@
     <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#eae1ba">
     <meta name="msapplication-TileColor" content="#eae1ba">
     <meta name="theme-color" content="#eae1ba">
-
-    <script>
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('serviceworker.js');
-      };
-    </script>
-    <style>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <style amp-custom>
       :root {
         /* define these values through JS */
         --margin-1: 2px;
@@ -109,7 +105,7 @@
         font-size: var(--font-size-4);
         margin-top: var(--margin-2);
       }
-      img {
+      .img {
         height: auto;
       }
 
@@ -119,10 +115,10 @@
         align-items: center;
         width: 100%;
       }
-      #mainHeader picture {
+      #mainHeader .img {
         width: 100%;
       }
-      #mainHeader img {
+      #mainHeader .img {
         width: 100%;
       }
       #mainHeader article {
@@ -140,7 +136,7 @@
           flex-direction: row;
           margin-bottom: var(--margin-9);
         }
-        #mainHeader picture {
+        #mainHeader .img {
           width: 50%;
         }
         #mainHeader article {
@@ -182,6 +178,12 @@
       section header {
         margin-bottom: var(--margin-5);
       }
+      #designExamples {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
       #designExamples header {
         text-align: center;
       }
@@ -219,7 +221,7 @@
           max-width: 2200px;
         }
       }
-      #designExamples img {
+      #designExamples .img {
         width: 100%;
       }
       #designExamples h4 {
@@ -265,24 +267,56 @@
         padding: 0px var(--margin-6) var(--margin-3) var(--margin-6);
       }
 
+      nav {
+        background-color: var(--black);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        padding: var(--margin-2) 0px;
+        display: flex;
+        justify-content: space-around;
+        box-sizing: border-box;
+      }
+      nav a {
+        color: var(--body);
+        text-decoration: none;
+      }
+      nav a:hover {
+        text-decoration: underline;
+      }
+      .active {
+        text-decoration: underline;
+        font-weight: bold;
+      }
+      @media only screen and (min-width:768px) {
+        nav {
+          justify-content: normal;
+          padding-left: calc(var(--margin-8) / 2);
+        }
+        nav a {
+          margin: 0px var(--margin-8);
+        }
+      }
+      
+
     </style>
   </head>
 
   <body>
-    <navigation-header></navigation-header>
+    <nav>
+      <a href="/">Print</a>
+      <a class="active" href="/about">About</a>
+      <a href="/explore.html">Explore</a>
+    </nav>
     <main>
       <header id="mainHeader">
-        <picture>
-          <source media="(min-width:1400px)" srcset="images/banner/large.jpg">
-          <source media="(min-width:800px)" srcset="images/banner/medium.jpg">
-          <source media="(min-width:0px)" srcset="images/banner/small.jpg">
-          <img
-            width="445"
-            height="341"
-            src="images/banner/medium.jpg"
-            alt="Vintage map of South America in the year 1783 on a wooden floor"
-          >
-        </picture>
+        <amp-img
+          width="445"
+          height="295"
+          src="images/banner/medium.jpg"
+          alt="Vintage map of South America in the year 1783 on a wooden floor"
+          layout="responsive"
+          class="img"
+        ></amp-img>
         <article>
           <h1>Create your own vintage map</h1>
           <h2>Shipping your custom map to wherever you are or download for only €5</h2>
@@ -296,45 +330,53 @@
         </header>
         <article>
           <a href="/?font=Bellefair&direction=landscape&sizeValue=60x40&sizeLabel=60cm+x+40cm&year=1279&projection=Kavrayskiy7&mountains=true&cities=true&graticuleCollection=true&rivers=true&k=5.4714291768238965&x=-2094.2850418723633&y=624.6415648834334&title=Europe+-+1279&style=schoolColors">
-            <img
+            <amp-img
               width="374"
               height="302"
               alt="Vintage map of Europe in the year 1279"
               src="images/frame-europe.jpg"
-            >
+              layout="responsive"
+              class="img"
+            ></amp-img>
             <h4>Choose the year</h4>
             <h5>Starting from €30</h5>
             <button>Start from Europe</button>
           </a>
           <a href="/?font=Bellefair&direction=landscape&sizeValue=60x40&sizeLabel=60cm+x+40cm&year=1279&projection=Kavrayskiy7&mountains=true&cities=true&graticuleCollection=true&rivers=true&k=4.725067952607121&x=-3074.3612182352335&y=34.534959625959345&info=United+Provinces+of+La+Plata&type=country&language=hi&title=Asia+-+1279&style=darkColors&borderWidth=14&citySize=2.1&graticuleGapSize=12">
-            <img
+            <amp-img
               width="374"
               height="302"
               alt="Vintage map of Asia in the year 1279 with dark colors"
               src="images/frame-asia.jpg"
-            >
+              layout="responsive"
+              class="img"
+            ></amp-img>
             <h4>Choose the style</h4>
             <h5>Starting from €30</h5>
             <button>Start from Asia</button>
           </a>
           <a href="/?font=Bellefair&direction=portrait&sizeValue=40x60&sizeLabel=40cm+x+60cm&year=1783&projection=Kavrayskiy7&mountains=true&cities=true&graticuleCollection=true&rivers=true&k=1.9063112488647742&x=78.02763744618568&y=2.621114531819842&title=South+America+-+1783&style=schoolColors&language=es">
-            <img
+            <amp-img
               width="374"
               height="302"
               alt="Portrait vintage map of South America in the year 1783"
               src="images/frame-america-latina.jpg"
-            >
+              layout="responsive"
+              class="img"
+            ></amp-img>
             <h4>Choose portrait or landscape</h4>
             <h5>Starting from €30</h5>
             <button>Start from South America</button>
           </a>
           <a href="/?font=Bellefair&direction=landscape&sizeValue=60x40&sizeLabel=60cm+x+40cm&year=1914&projection=Kavrayskiy7&mountains=true&cities=true&graticuleCollection=true&rivers=true&k=4.2982336123106135&x=-1605.6532962587876&y=-65.30389691375444&title=Afrique+du+Nord+-+1914&style=schoolColors&language=fr&graticuleGapSize=32">
-            <img
+            <amp-img
               width="374"
               height="302"
               alt="A French vintage map of North Africa in the year 1914"
               src="images/frame-north-africa.jpg"
-            >
+              layout="responsive"
+              class="img"
+            ></amp-img>
             <h4>Choose much more</h4>
             <h5>Starting from €30</h5>
             <button>Start from North Africa</button>
@@ -345,13 +387,14 @@
         <header>
           <h3>About</h3>
         </header>
-        <img
+        <amp-img
+          class="img"
           width="100"
           height="100"
           id="profile"
-          alt="Profile picture of Lennert Van Sever, creator of vintagemaps.app"
+          alt="Profile picture of Lennert Van Sever, creator of vintagemap.app"
           src="images/profile.jpg"
-        >
+        ></amp-img>
         <p>Today we go to antique stores or second hand websites for exploring vintage maps, but unfortunately we cannot customize them.</p>
         <p>A challenge I tried to solve by combining modern web technologies and open source projects like D3.js and <a href="https://github.com/aourednik/historical-basemaps">historical-base-maps</a>.</p>
         <p>The result is an accessible web application, open for anyone to try out. Developed by a single software developer with a passion for Geography and History, it was made during the long lockdown evenings of 2020/2021.</p>
@@ -385,7 +428,5 @@
         Copyrights © vintagemaps.app 2021. All rights reserved.
       </footer>
     </main>
-    <script type="module" src="./scripts/webcomponents/navigation.js"></script>
-
   </body>
 </html>
