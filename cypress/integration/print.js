@@ -112,7 +112,7 @@ describe('Make and Order Europe 1492 map', () => {
   });
   it('Order is correctly made in printapi', () => {
     cy.intercept('**/v2/orders/*').as('orderDetails');
-    cy.wait(100000);
+    cy.wait(150000);
     cy.reload();
     cy.wait('@orderDetails').then(interception => {
       const { body } = interception.response;
