@@ -11,7 +11,6 @@ on:
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
-    container: cypress/browsers:node14.16.0-chrome89-ff86
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -20,12 +19,10 @@ jobs:
         id: wait-for-netflify-preview
         with:
           site_name: "vintage-maps"
-          max_timeout: 180
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
           config: baseUrl=${{ steps.wait-for-netflify-preview.outputs.url }}
-          browser: chrome
           record: true
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
