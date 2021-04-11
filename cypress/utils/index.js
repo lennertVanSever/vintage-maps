@@ -9,6 +9,9 @@ export const fillInHeaderParameters = ({
   color,
   direction,
 }) => {
+  cy.contains('Pacific Ocean', {
+    timeout: 20000,
+  });
   getElementInsideShadow('title-input', 'titleInput')
     .clear('')
     .type(title, { force: true })
