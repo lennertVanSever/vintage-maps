@@ -31,7 +31,7 @@ const contactDetails = [
   },
 ];
 
-describe('Make and Download South America 1783 map', () => {
+describe('Make and Order Europe 1492 map', () => {
   before(() => {
     const positionOfEurope =
       'k=5.160369478601591&x=-1927.7591489671572&y=588.1238434178917';
@@ -66,6 +66,9 @@ describe('Make and Download South America 1783 map', () => {
     getElementInsideShadow('radio-map-material', 'radio').check('plexiglas', {
       force: true,
     });
+    getElementInsideShadow('customize-section', 'secondButton').contains(
+      '€119.99'
+    );
   });
   it('Go to order section', () => {
     cy.intercept({
@@ -109,7 +112,7 @@ describe('Make and Download South America 1783 map', () => {
   });
   it('Order is correctly made in printapi', () => {
     cy.intercept('**/v2/orders/*').as('orderDetails');
-    cy.wait(60000);
+    cy.wait(150000);
     cy.reload();
     cy.wait('@orderDetails').then(interception => {
       const { body } = interception.response;
