@@ -16,7 +16,14 @@
   <meta name="msapplication-TileColor" content="#eae1ba">
   <meta name="theme-color" content="#eae1ba">
   <script async src="https://js.stripe.com/v3/"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VPEJEZQ17H"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
+    gtag('config', 'G-VPEJEZQ17H');
+  </script>
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('serviceworker.js');
