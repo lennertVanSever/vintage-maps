@@ -28,7 +28,7 @@ export class Mountains {
 
   async render() {
     await this.getData();
-    this.draw();
+    this.draw({ rezoom: false });
   }
 
   async getData() {
@@ -132,7 +132,7 @@ export class Mountains {
     }, 200);
   }
 
-  draw() {
+  draw({ rezoom }) {
     this.map.subGroups.mountains.selectAll('*').remove();
     this.map.subGroups.mountains
       .append('g')
@@ -175,5 +175,6 @@ export class Mountains {
       .attr('transform', `scale(${this.minimumScale})`)
       .attr('fill', 'var(--mountains)');
     this.hideIfOverlapping();
+    if (rezoom) this.map.rezoom(true);
   }
 }

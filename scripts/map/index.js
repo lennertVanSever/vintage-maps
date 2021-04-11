@@ -49,8 +49,11 @@ export class Map {
     addParameterToURL('year', newYear);
     this._year = newYear;
     if (previousYear) {
-      this.cities.render({ rezoom: true });
-      this.countries.render({ rezoom: true });
+      (async () => {
+        await this.countries.render({ rezoom: false });
+        await this.cities.render({ rezoom: false });
+        this.mountains.draw({ rezoom: true });
+      })();
     }
   }
 
