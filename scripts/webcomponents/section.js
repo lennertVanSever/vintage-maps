@@ -488,7 +488,7 @@ class OrderStatusSection extends Section {
 
     return /* html */ `
       <h3>✅ &nbsp;Payment complete</h3>
-      <p>Thank you, your payment has been succesful. A confirmation email has been sent to ${email}</p>
+      <p>Thank you, your payment has been succesful. A confirmation email (in Dutch, English is coming soon) has been sent to ${email}</p>
       <hr>
       <h3>Shipping details</h3>
       <key-value keyText="Name" valueText="${name}" vertical="1"></key-value>
