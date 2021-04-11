@@ -9,6 +9,7 @@ import {
 
 const { serverUrl, stripePublicKey } = (() => {
   const manuallyForceProduction = false && isLocalHost;
+  const manuallyForceLocal = false && isLocalHost;
   const isProduction = window.location.origin === 'https://vintagemap.app';
   const production = {
     serverUrl: 'https://vintage-map-server.herokuapp.com',
@@ -16,7 +17,9 @@ const { serverUrl, stripePublicKey } = (() => {
       'pk_live_51IPXmRAyNgTukX9zVkO2GZHWRE1wV0tXLmXOX7q3LiNfyrJLu7OFEj6yUCu6mWcCfaCuzQuDX5yuwXcTdVcNj2gr00UtV0GEpi',
   };
   const development = {
-    serverUrl: 'https://vintage-map-server-development.herokuapp.com',
+    serverUrl: manuallyForceLocal
+      ? 'http://localhost:9000'
+      : 'https://vintage-map-server-development.herokuapp.com',
     stripePublicKey:
       'pk_test_51IPXmRAyNgTukX9zBreHfqpRKgCO8c5oDkpNHQxnTVy9xDY5D1TP8o9tax4ZmgAYSo3fGFpOMpEatP5DxCiAWIjR001cHiZQwx',
   };
@@ -27,7 +30,11 @@ const { serverUrl, stripePublicKey } = (() => {
 })();
 
 const fetchPrintToken = async () => {
-  const responseRaw = await fetch(`${serverUrl}/print_key`);
+  const responseRaw = await fetch(`${serverUrl}/print_key`, {
+    headers: {
+      'x-request-href': window.location.href,
+    },
+  });
   return responseRaw.json();
 };
 
