@@ -19,6 +19,7 @@ jobs:
         id: wait-for-netflify-preview
         with:
           site_name: "vintage-maps"
+          max_timeout: 180
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
