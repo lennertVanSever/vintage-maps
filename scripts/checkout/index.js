@@ -8,7 +8,7 @@ import {
 } from '../utils';
 
 const { serverUrl, stripePublicKey } = (() => {
-  const manuallyForceProduction = true && isLocalHost;
+  const manuallyForceProduction = false && isLocalHost;
   const isProduction = window.location.origin === 'https://vintagemap.app';
   const production = {
     serverUrl: 'https://vintage-map-server.herokuapp.com',
@@ -172,6 +172,8 @@ export const generateMapUrl = async (printExactSize, type) => {
   // map.bleedCorrection = -120;
   map.addBleedCorrection(printExactSize);
   const htmlCode = getMapHtml(type);
+  map.resetBleedCorrection();
+
   try {
     dispatchCustomEvent('mapUrl', {
       data: null,

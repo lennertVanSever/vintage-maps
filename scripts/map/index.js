@@ -352,6 +352,11 @@ export class Map {
     this.framework.reset();
   }
 
+  resetBleedCorrection() {
+    this.setSvgDimension();
+    this.framework.reset();
+  }
+
   setSvgDimension(bleedCorrection = 0) {
     const width = 1109;
     const height = (() => {
@@ -361,6 +366,7 @@ export class Map {
       return (width * 2) / 3;
     })();
     this.svgDimensions = [0, 0, height + bleedCorrection, width];
+    console.log(this.svgDimensions);
     this.svg.attr('viewBox', this.svgDimensions);
   }
 }
