@@ -111,41 +111,48 @@ describe('Make and Order Europe 1492 map', () => {
     cy.contains('Payment complete');
   });
   it('Order is correctly made in printapi', () => {
-    cy.intercept('**/v2/orders/*').as('orderDetails');
-    cy.wait(150000);
-    cy.reload();
-    cy.wait('@orderDetails').then(interception => {
-      const { body } = interception.response;
-      const [firstItem] = body.items;
-      assert.equal(
-        firstItem.productId,
-        'plexiglas_90x60',
-        'Product ID should be a plexiglas 90x60'
-      );
-      assert.equal(
-        firstItem.files.content.status,
-        'Accepted',
-        'Map print should be accepted'
-      );
-      const [
-        { value: email },
-        { value: name },
-        { value: line1 },
-        { value: postCode },
-        { value: city },
-      ] = contactDetails;
-      assert.equal(body.email, email, 'Email should match contact email');
-      assert.deepEqual(
-        body.shipping.address,
-        {
-          name,
-          line1,
-          postCode,
-          city,
-          country: 'BE',
-        },
-        'Shipping address should match contact details'
-      );
-    });
+    const checkOrder = () => {
+      cy.intercept('**/v2/orders/*').as('orderDetails');
+      cy.wait(30000);
+      cy.reload();
+      cy.wait('@orderDetails').then(interception => {
+        const { body } = interception.response;
+        const [firstItem] = body.items;
+        if (firstItem.files.content.status === 'DownloadPending') {
+          checkOrder();
+        } else {
+          assert.equal(
+            firstItem.productId,
+            'plexiglas_90x60',
+            'Product ID should be a plexiglas 90x60'
+          );
+          assert.equal(
+            firstItem.files.content.status,
+            'Accepted',
+            'Map print should be accepted'
+          );
+          const [
+            { value: email },
+            { value: name },
+            { value: line1 },
+            { value: postCode },
+            { value: city },
+          ] = contactDetails;
+          assert.equal(body.email, email, 'Email should match contact email');
+          assert.deepEqual(
+            body.shipping.address,
+            {
+              name,
+              line1,
+              postCode,
+              city,
+              country: 'BE',
+            },
+            'Shipping address should match contact details'
+          );
+        }
+      });
+    };
+    checkOrder();
   });
 });
