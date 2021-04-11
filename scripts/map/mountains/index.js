@@ -94,7 +94,7 @@ export class Mountains {
   }
 
   changeProjection() {
-    this.draw();
+    this.draw({ rezoom: false });
   }
 
   hideIfOverlapping() {
