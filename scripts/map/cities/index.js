@@ -180,7 +180,7 @@ export class Cities {
     const hideElement = ({ properties: { NAME } }) =>
       hideCities.includes(NAME) ? 0 : 1;
 
-    d3.selectAll('.canOverlapElement')
+    d3.selectAll('.canOverlapElement:not(.countryName)')
       .attr('pointer-events', ({ properties: { NAME } }) =>
         hideCities.includes(NAME) ? 'none' : 'auto'
       )
