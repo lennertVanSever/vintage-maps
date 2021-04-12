@@ -70,7 +70,7 @@ export class SeaLabels {
       .data(this.data.features)
       .enter()
       .append('text')
-      .attr('fill', 'var(--country)')
+      .attr('fill', 'var(--seaLabel)')
       .attr('id', ({ properties: { id } }) => `seaLabelText${id}`)
       .attr('class', 'seaLabelsText')
       .style('text-anchor', 'middle')

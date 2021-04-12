@@ -3,6 +3,7 @@
     "body": "#e6d5b9",
     "ocean": "#e6d5b9",
     "countryLabel": "#534b3e",
+    "seaLabel": "#534b3e",
     "cityLabel": "#534b3e",
     "mountains": "#534b3e",
     "insideBorders": [
@@ -29,6 +30,7 @@
     "body": "#f6d7bc",
     "ocean": "#d9d2ba",
     "countryLabel": "#534b3e",
+    "seaLabel": "#534b3e",
     "cityLabel": "#534b3e",
     "mountains": "#534b3e",
     "insideBorders": [
@@ -55,6 +57,7 @@
     "body": "#1c1c1c",
     "ocean": "#1c1c1c",
     "countryLabel": "#ababab",
+    "seaLabel": "#ababab",
     "cityLabel": "#ababab",
     "mountains": "#ababab",
     "insideBorders": [
@@ -81,6 +84,7 @@
     "body": "#f6d7bc",
     "ocean": "#d9d2ba",
     "countryLabel": "#534b3e",
+    "seaLabel": "#534b3e",
     "cityLabel": "#534b3e",
     "mountains": "#534b3e",
     "insideBorders": [
