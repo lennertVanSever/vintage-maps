@@ -31,6 +31,7 @@ export class Countries {
       this.countryData = this.countryRawData;
     } else {
       this.countryData = await d3.json(`maps/${this.mapName}.geojson`);
+      // this.countryData = await d3.json(`maps/test.geojson`);
     }
     this.countryRawData = JSON.parse(JSON.stringify(this.countryData));
   }
