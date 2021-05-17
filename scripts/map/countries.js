@@ -16,6 +16,7 @@ export class Countries {
     await this.getCountryData();
     this.drawInsideBorders();
     this.drawOutsideBorders();
+    this.drawCoastContours();
     this.drawNamesOfCountries();
     this.selectCountryNameIfInUrl();
     if (rezoom) this.map.rezoom(true);
@@ -58,6 +59,7 @@ export class Countries {
       insideBorderDark: this.map.zoomFactor * this.map.borderWidth,
       outsideBorder: (this.map.zoomFactor * this.map.borderWidth) / 5,
       insideBorderLight: (this.map.zoomFactor * this.map.borderWidth) / 2,
+      coastShadows: (this.map.zoomFactor / 2) * this.map.coastShadowSize,
     };
   }
 
@@ -74,6 +76,10 @@ export class Countries {
     d3.selectAll('.insideBorderLight').attr(
       'stroke-width',
       strokeWidth.insideBorderLight
+    );
+    d3.selectAll('.coastShadows').attr(
+      'filter',
+      `drop-shadow(0px 0px ${strokeWidth.coastShadows}px rgba(0, 0, 0, 1))`
     );
   }
 
@@ -160,6 +166,17 @@ export class Countries {
       // .attr('fill', colors.background)
       .attr('stroke-width', this.strokeWidth.outsideBorder)
       .attr('stroke', 'var(--outsideBorder)');
+  }
+
+  drawCoastContours() {
+    this.map.subGroups.coastShadows
+      .selectAll('path')
+      .data(this.countryData.features)
+      .enter()
+      .append('path')
+      .attr('d', this.map.geoPath)
+      .attr('class', 'coastShadows')
+      .attr('stroke', 'none');
   }
 
   fillSelectedCountry(selectedCountryInsideBorder) {

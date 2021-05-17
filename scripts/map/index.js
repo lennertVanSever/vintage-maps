@@ -30,6 +30,7 @@ export class Map {
     this.transform = initial.transform;
     this.year = initial.year;
     this.borderWidth = initial.borderWidth;
+    this.coastShadowSize = initial.coastShadowSize;
     this.minimumZoom = 0.2;
     this.maximumZoom = 40;
     this.citySize = initial.citySize;
@@ -97,6 +98,17 @@ export class Map {
 
   get borderWidth() {
     return this._borderWidth;
+  }
+
+  set coastShadowSize(coastShadowSize) {
+    this._coastShadowSize = coastShadowSize;
+    if (this.zoomFactor) {
+      this.countries.resizeBorders(this);
+    }
+  }
+
+  get coastShadowSize() {
+    return this._coastShadowSize;
   }
 
   set citySize(citySize) {
@@ -168,6 +180,7 @@ export class Map {
     this.subGroups = {};
     [
       'backgroundRectangle',
+      'coastShadows',
       'countryBorders',
       'rivers',
       'graticuleCollection',

@@ -15,7 +15,7 @@ const newTitle = 'title typed by cypress';
 describe('Make and Download South America 1783 map', () => {
   before(() => {
     const positionOfSouthAmerica =
-      'k=1.641255453306849&x=195.69931656305133&y=44.75427514254045';
+      'k=1.641255453306849&x=195.69931656305133&y=44.75427514254045&coastShadows=false';
     cy.visit(`/?${positionOfSouthAmerica}`);
   });
   it('Change other top parameters', () => {
