@@ -27,7 +27,7 @@ export const getLatestParameters = () => ({
   },
   year: getUrlParameter('year') || years[0],
   borderWidth: getUrlParameter('borderWidth') || 10,
-  coastShadowSize: getUrlParameter('coastShadowSize') || 8,
+  coastShadowSize: getUrlParameter('coastShadowSize') || 3,
   citySize: getUrlParameter('citySize') || 3,
   graticuleGapSize: getUrlParameter('graticuleGapSize') || 50,
   graticuleLineSize: getUrlParameter('graticuleLineSize') || 1,

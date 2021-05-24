@@ -34,7 +34,7 @@ const contactDetails = [
 describe('Make and Order Europe 1492 map', () => {
   before(() => {
     const positionOfEurope =
-      'k=5.160369478601591&x=-1927.7591489671572&y=588.1238434178917&coastShadows=false';
+      'k=5.160369478601591&x=-1927.7591489671572&y=588.1238434178917';
     cy.visit(`/?${positionOfEurope}`);
   });
   it('Change other top parameters', () => {

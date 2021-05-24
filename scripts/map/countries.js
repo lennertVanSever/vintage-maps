@@ -13,6 +13,7 @@ export class Countries {
   async render({ rezoom }) {
     this.map.subGroups.countryBorders.selectAll('*').remove();
     this.map.subGroups.countryNames.selectAll('*').remove();
+    this.map.subGroups.coastShadows.selectAll('*').remove();
     await this.getCountryData();
     this.drawInsideBorders();
     this.drawOutsideBorders();
@@ -59,7 +60,7 @@ export class Countries {
       insideBorderDark: this.map.zoomFactor * this.map.borderWidth,
       outsideBorder: (this.map.zoomFactor * this.map.borderWidth) / 5,
       insideBorderLight: (this.map.zoomFactor * this.map.borderWidth) / 2,
-      coastShadows: (this.map.zoomFactor / 2) * this.map.coastShadowSize,
+      coastShadows: this.map.zoomFactor * this.map.coastShadowSize,
     };
   }
 
@@ -77,10 +78,7 @@ export class Countries {
       'stroke-width',
       strokeWidth.insideBorderLight
     );
-    d3.selectAll('.coastShadows').attr(
-      'filter',
-      `drop-shadow(0px 0px ${strokeWidth.coastShadows}px rgba(0, 0, 0, 1))`
-    );
+    d3.select('feDropShadow').attr('stdDeviation', strokeWidth.coastShadows);
   }
 
   selectCountryNameIfInUrl() {
@@ -169,6 +167,14 @@ export class Countries {
   }
 
   drawCoastContours() {
+    const defs = this.map.svg.append('defs');
+    const filters = defs.append('filter').attr('id', 'shadow');
+    filters
+      .append('feDropShadow')
+      .attr('dx', 0)
+      .attr('dy', 0)
+      .attr('flood-color', 'black');
+
     this.map.subGroups.coastShadows
       .selectAll('path')
       .data(this.countryData.features)
@@ -176,6 +182,7 @@ export class Countries {
       .append('path')
       .attr('d', this.map.geoPath)
       .attr('class', 'coastShadows')
+      .style('filter', 'url(#shadow)')
       .attr('stroke', 'none');
   }
 
